@@ -130,10 +130,14 @@ Blog content is managed in two places:
 
 1. **Metadata list:** `src/data/blogPosts.ts`
    - Add a new object with `id`, `title`, `excerpt`, `date`, `readTime`, `blogNumber`, and optional `seoDescription`.
-   - Keep `blogNumber` sequential; list order drives archive navigation + SEO outputs.
+   - `blogNumber` is the source of truth for ordering and prev/next resolution. Keep IDs and blog numbers aligned with the reference content source so archive order stays stable across deployments.
 2. **Long-form article:** `src/pages/BlogPost.tsx`
    - Add or update an `if (postId === '<slug>')` block.
    - Keep `<BlogPostFooter>` and share metadata parity intact.
+
+Deployment note:
+- Production URL: https://ra-nextjs-plnvlajz5-enzo-design-prisms-projects.vercel.app
+- Source-of-truth reference for content parity: https://github.com/enzo-prism/age-boldly-vibrantly
 
 After editing blog content, run:
 

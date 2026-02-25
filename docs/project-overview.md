@@ -37,6 +37,7 @@
 ## Recently Added/Noted Context
 - Last migration focus: Vite SPA → Next.js App Router conversion with static-first export strategy.
 - Keep `npm run build` as the canonical verification command after content/route changes.
+- Blog post ordering behavior mirrors the original repo ordering contract: `blogPosts` entries are normalized and `getNextBlogPost` resolves by `blogNumber`, not by array position.
 
 ## Opportunities & Caveats
 1. The long-form blog content remains in `src/pages/BlogPost.tsx` (single renderer); consider extracting per-post modules for contributor scale.
