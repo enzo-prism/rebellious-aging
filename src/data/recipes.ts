@@ -1173,4 +1173,4 @@ export const recipes: Recipe[] = [
       ],
       suzNotes: "I found that ½ the amount of this delicious dressing was enough. Add dressing cautiously."
     }
-  ];;
+  ];

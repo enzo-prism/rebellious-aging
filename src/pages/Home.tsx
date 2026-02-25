@@ -24,6 +24,17 @@ import { Search, Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 // import Autoplay from 'embla-carousel-autoplay'; // Removed to prevent auto-scrolling
 
+const heroImages = [
+  '/lovable-uploads/e383e12d-d193-4b00-864e-4593b167f3f4.png',
+  '/lovable-uploads/a14b531d-8674-4949-9d29-5db73262868d.png',
+  '/lovable-uploads/c1463203-92fc-434c-a583-4399bb786c73.png',
+  '/lovable-uploads/30b1e0f5-39bd-4e3e-8a1f-6c10d54b384a.png',
+  '/lovable-uploads/efa97b78-3cbb-4f8c-b543-050d2d59e578.png',
+  '/lovable-uploads/08d809cc-1f8a-475d-b10f-17d66e8b0502.png',
+  '/lovable-uploads/34f618fe-81a8-41b5-8235-6f432ce55ce7.png',
+  '/lovable-uploads/6adf3183-9e2d-4253-98d4-ec336f1daa3e.png',
+] as const;
+
 const Home = () => {
   const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set([0]));
   const [preloadedImages, setPreloadedImages] = useState<Set<number>>(new Set());
@@ -110,17 +121,6 @@ const Home = () => {
       link: '/welcome-letter',
       icon: '💌'
     }
-  ];
-
-  const heroImages = [
-    "/lovable-uploads/e383e12d-d193-4b00-864e-4593b167f3f4.png",
-    "/lovable-uploads/a14b531d-8674-4949-9d29-5db73262868d.png",
-    "/lovable-uploads/c1463203-92fc-434c-a583-4399bb786c73.png",
-    "/lovable-uploads/30b1e0f5-39bd-4e3e-8a1f-6c10d54b384a.png",
-    "/lovable-uploads/efa97b78-3cbb-4f8c-b543-050d2d59e578.png",
-    "/lovable-uploads/08d809cc-1f8a-475d-b10f-17d66e8b0502.png",
-    "/lovable-uploads/34f618fe-81a8-41b5-8235-6f432ce55ce7.png",
-    "/lovable-uploads/6adf3183-9e2d-4253-98d4-ec336f1daa3e.png"
   ];
 
   const latestBlogs = getSortedBlogPosts()
@@ -502,35 +502,35 @@ const Home = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-	              {displayItems.map((item) => {
-	                const isTop = item.id === topItemId;
-	                const topLabel = searchQuery ? 'Top result' : 'Top pick';
-	                const typeLabel = item.type ?? 'blog';
-	                const blogNumber =
-	                  typeof item === 'object' &&
-	                  item !== null &&
-	                  'blogNumber' in item &&
-	                  typeof (item as { blogNumber?: unknown }).blogNumber === 'number'
-	                    ? (item as { blogNumber: number }).blogNumber
-	                    : null;
-	
-	                return (
+                {displayItems.map((item) => {
+                  const isTop = item.id === topItemId;
+                  const topLabel = searchQuery ? 'Top result' : 'Top pick';
+                  const typeLabel = item.type ?? 'blog';
+                  const blogNumber =
+                    typeof item === 'object' &&
+                    item !== null &&
+                    'blogNumber' in item &&
+                    typeof (item as { blogNumber?: unknown }).blogNumber === 'number'
+                      ? (item as { blogNumber: number }).blogNumber
+                      : null;
+  
+                  return (
                     <Link
-	                    key={item.id}
-	                    href={item.path ?? `/blog/${item.id}`}
+                      key={item.id}
+                      href={item.path ?? `/blog/${item.id}`}
                     className={`block rounded-2xl border bg-white p-5 shadow-sm hover:-translate-y-1 hover:shadow-md transition ${
                       isTop ? 'border-teal/50 ring-2 ring-teal/15' : 'border-gray-200'
                     }`}
                   >
-	                    <div className="flex items-center gap-2 mb-2 text-xs uppercase tracking-[0.12em] text-teal font-semibold">
-	                      <span>{typeLabel}</span>
-	                      {blogNumber !== null ? <span className="text-gray-300">•</span> : null}
-	                      {blogNumber !== null ? <span>Blog #{blogNumber}</span> : null}
-	                      {isTop ? <span className="ml-2 rounded-full bg-teal/10 px-2 py-0.5 text-[0.6rem]">{topLabel}</span> : null}
-	                    </div>
-	                    <h3 className="text-lg font-semibold mb-2 line-clamp-2">{item.title}</h3>
-	                    <p className="text-gray-600 text-sm line-clamp-2">{item.summary}</p>
-	                  </Link>
+                      <div className="flex items-center gap-2 mb-2 text-xs uppercase tracking-[0.12em] text-teal font-semibold">
+                        <span>{typeLabel}</span>
+                        {blogNumber !== null ? <span className="text-gray-300">•</span> : null}
+                        {blogNumber !== null ? <span>Blog #{blogNumber}</span> : null}
+                        {isTop ? <span className="ml-2 rounded-full bg-teal/10 px-2 py-0.5 text-[0.6rem]">{topLabel}</span> : null}
+                      </div>
+                      <h3 className="text-lg font-semibold mb-2 line-clamp-2">{item.title}</h3>
+                      <p className="text-gray-600 text-sm line-clamp-2">{item.summary}</p>
+                    </Link>
                 );
               })}
             </div>

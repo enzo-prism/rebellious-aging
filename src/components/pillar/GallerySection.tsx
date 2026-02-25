@@ -2,13 +2,13 @@
 
 import React from 'react';
 import {
-	  Carousel,
-	  CarouselContent,
-	  CarouselItem,
-	  CarouselApi,
-	  CarouselNext,
-	  CarouselPrevious,
-	} from "@/components/ui/carousel";
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselApi,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel';
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { PillarContent } from '@/data/pillarContent';
 
@@ -17,9 +17,9 @@ interface GallerySectionProps {
 }
 
 const GallerySection: React.FC<GallerySectionProps> = ({ content }) => {
-	  const [api, setApi] = React.useState<CarouselApi>();
-	  const [current, setCurrent] = React.useState(0);
-	  const [count, setCount] = React.useState(0);
+  const [api, setApi] = React.useState<CarouselApi>();
+  const [current, setCurrent] = React.useState(0);
+  const [count, setCount] = React.useState(0);
 
   React.useEffect(() => {
     if (!api) {
