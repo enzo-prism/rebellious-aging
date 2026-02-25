@@ -370,13 +370,15 @@ export const blogPosts: BlogPostMetadata[] = [
   },
   {
     id: 'the-secret-strength-of-rest-days',
-    title: 'The Secret Strength of Rest Days, Why Pausing Makes You Powerful',
-    excerpt: 'Discover how strategic rest keeps workouts joyful, hormones balanced, and bodies thriving—because pausing is power, not quitting.',
-    date: '2/9/2025',
-    dateSort: new Date('2025-02-09'),
+    title: 'The Secret Strength of Rest Days and Why Pausing Makes You Powerful',
+    excerpt:
+      'Rest does not mean you are slacking. It means you are being smart. These strategic pauses keep strength, hormones, coordination, and motivation on your side.',
+    date: '2/23/2026',
+    dateSort: new Date('2026-02-23'),
     readTime: '5 min read',
-    blogNumber: 40,
-    seoDescription: 'Learn why women 55+ need intentional rest days to prevent injury, sharpen balance, and stay motivated in the Rebellious Aging movement.'
+    blogNumber: 59,
+    seoDescription:
+      'The truth that can feel counterintuitive: rest is not quitting. Learn how intentional pauses help women 55+ stay stronger, healthier, and more motivated.'
   },
   {
     id: 'the-15-second-shock-why-food-matters',
@@ -581,8 +583,8 @@ export const blogPosts: BlogPostMetadata[] = [
     title: 'Prime, Not Past It',
     excerpt:
       'Here are 10 style moves that say you are in your prime, not past it—intentional, alive, and unapologetically visible.',
-    date: '2/2026',
-    dateSort: new Date('2026-02-01'),
+    date: '2/23/2026',
+    dateSort: new Date('2026-02-23'),
     readTime: '5 min read',
     blogNumber: 60,
     seoDescription:
@@ -593,7 +595,9 @@ export const blogPosts: BlogPostMetadata[] = [
 export const getBlogPostById = (id: string) => blogPosts.find((post) => post.id === id);
 
 export const getNextBlogPost = (blogNumber: number) =>
-  blogPosts.find((post) => post.blogNumber === blogNumber + 1);
+  [...blogPosts]
+    .filter((post) => post.blogNumber > blogNumber)
+    .sort((a, b) => a.blogNumber - b.blogNumber)[0];
 
 export const getSortedBlogPosts = () => [...blogPosts].sort((a, b) => a.blogNumber - b.blogNumber);
 
