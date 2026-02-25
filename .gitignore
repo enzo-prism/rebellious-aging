@@ -16,6 +16,7 @@ out
 
 # Env files
 .env
+bun.lockb
 
 # Editor directories and files
 .vscode/*
