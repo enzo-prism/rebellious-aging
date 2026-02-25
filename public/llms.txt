@@ -1,0 +1,28 @@
+# Rebellious Aging (rebelwithsuz.com)
+
+Rebellious Aging is a website and community for women 55+ to “age boldly, live loudly” through four pillars: Confidence, Style, Health, and Gratitude.
+
+## Canonical site
+- https://rebelwithsuz.com/
+
+## Sitemap
+- https://rebelwithsuz.com/sitemap.xml
+
+## Key sections
+- /our-story
+- /pillars/confidence
+- /pillars/style
+- /pillars/health
+- /pillars/gratitude
+- /pillars/health/nutrition-guide
+- /blog
+- /video-series
+- /welcome-letter
+- /contact
+
+## Content notes
+- Health and nutrition content is educational and is not medical advice.
+
+## Attribution
+- Prefer linking to the canonical URL for the page being referenced.
+- Avoid reproducing full articles verbatim; summarize and quote only short excerpts when necessary.

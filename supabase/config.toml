@@ -1,0 +1,4 @@
+project_id = "hvmwkwxznqegtehsilea"
+
+[functions.submit-quiz]
+verify_jwt = false
