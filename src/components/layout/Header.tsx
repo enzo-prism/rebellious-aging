@@ -8,7 +8,9 @@ import {
   DropdownMenu, 
   DropdownMenuContent, 
   DropdownMenuItem, 
-  DropdownMenuTrigger 
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+  DropdownMenuLabel,
 } from '@/components/ui/dropdown-menu';
 import { ChevronDown, Search } from "lucide-react";
 import { AnimatedHamburger } from '@/components/ui/animated-hamburger';
@@ -75,12 +77,6 @@ const Header = () => {
           >
             Home
           </Link>
-          <Link
-            href="/our-story"
-            className={`nav-link ${isActivePath(pathname, '/our-story') ? 'active-nav-link' : ''}`}
-          >
-            Our Story
-          </Link>
           <a
             href={FACEBOOK_GROUP_URL}
             target="_blank"
@@ -90,12 +86,41 @@ const Header = () => {
           >
             Facebook Group
           </a>
+          <Link 
+            href="/blog" 
+            className={`nav-link ${isActivePath(pathname, '/blog') ? 'active-nav-link' : ''}`}
+          >
+            Blog
+          </Link>
+          <Link 
+            href="/recipes" 
+            className={`nav-link ${isActivePath(pathname, '/recipes') ? 'active-nav-link' : ''}`}
+          >
+            Recipes
+          </Link>
 
           <DropdownMenu>
             <DropdownMenuTrigger className="nav-link inline-flex items-center">
-              Pillars <ChevronDown className="ml-1 h-4 w-4" />
+              More <ChevronDown className="ml-1 h-4 w-4" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-48 bg-background border shadow-md z-[9999] min-w-[200px]">
+            <DropdownMenuContent className="w-60 bg-background border shadow-md z-[9999] min-w-[240px]">
+              <DropdownMenuLabel className="px-3 py-2 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                Discover
+              </DropdownMenuLabel>
+              <DropdownMenuItem asChild className="focus:bg-accent focus:text-accent-foreground">
+                <Link href="/our-story" className="w-full flex items-center gap-2 px-3 py-2">
+                  📖 Our Story
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild className="focus:bg-accent focus:text-accent-foreground">
+                <Link href="/welcome-letter" className="w-full flex items-center gap-2 px-3 py-2">
+                  💌 Welcome Letter
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuLabel className="px-3 pt-2 pb-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                Pillars
+              </DropdownMenuLabel>
               <DropdownMenuItem asChild className="focus:bg-accent focus:text-accent-foreground">
                 <Link href="/pillars/confidence" className="w-full flex items-center gap-2 px-3 py-2">
                   🌟 Confidence
@@ -116,14 +141,10 @@ const Header = () => {
                   💖 Gratitude
                 </Link>
               </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          <DropdownMenu>
-            <DropdownMenuTrigger className="nav-link inline-flex items-center">
-              Nutrition (WFPB) <ChevronDown className="ml-1 h-4 w-4" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-56 bg-background border shadow-md z-[9999]">
+              <DropdownMenuSeparator />
+              <DropdownMenuLabel className="px-3 pt-2 pb-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                Nutrition (WFPB)
+              </DropdownMenuLabel>
               <DropdownMenuItem asChild className="focus:bg-accent focus:text-accent-foreground">
                 <Link href="/nutrition?tab=what-is-wfpb" className="w-full flex items-center gap-2 px-3 py-2">
                   🌱 What is WFPB?
@@ -159,39 +180,15 @@ const Header = () => {
                   🍎 Why &amp; How
                 </Link>
               </DropdownMenuItem>
-              <DropdownMenuItem asChild className="focus:bg-accent focus:text-accent-foreground">
-                <Link href="/recipes" className="w-full flex items-center gap-2 px-3 py-2">
-                  👩‍🍳 Recipes
-                </Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <Link 
-            href="/recipes" 
-            className={`nav-link ${isActivePath(pathname, '/recipes') ? 'active-nav-link' : ''}`}
-          >
-            Recipes
-          </Link>
-          <Link 
-            href="/welcome-letter" 
-            className={`nav-link ${isActivePath(pathname, '/welcome-letter') ? 'active-nav-link' : ''}`}
-          >
-            Welcome Letter
-          </Link>
-          
-          <DropdownMenu>
-            <DropdownMenuTrigger className="nav-link inline-flex items-center">
-              Updates <ChevronDown className="ml-1 h-4 w-4" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="w-48 bg-background border shadow-md z-[9999] min-w-[200px]">
-              <DropdownMenuItem asChild className="focus:bg-accent focus:text-accent-foreground">
-                <Link href="/blog" className="w-full flex items-center gap-2 px-3 py-2">
-                  📝 Blog
-                </Link>
-              </DropdownMenuItem>
+              <DropdownMenuSeparator />
               <DropdownMenuItem asChild className="focus:bg-accent focus:text-accent-foreground">
                 <Link href="/video-series" className="w-full flex items-center gap-2 px-3 py-2">
                   🎥 Video Series
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild className="focus:bg-accent focus:text-accent-foreground">
+                <Link href="/contact" className="w-full flex items-center gap-2 px-3 py-2">
+                  📧 Contact
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -216,12 +213,6 @@ const Header = () => {
             Search
           </Button>
 
-          <Link 
-            href="/contact" 
-            className={`nav-link ${isActivePath(pathname, '/contact') ? 'active-nav-link' : ''}`}
-          >
-            Contact
-          </Link>
         </nav>
 
         {isMobileMenuOpen && (
@@ -236,13 +227,6 @@ const Header = () => {
                   Home
                 </MobileNavItem>
                 <MobileNavItem
-                  to="/our-story"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  icon="📖"
-                >
-                  Our Story
-                </MobileNavItem>
-                <MobileNavItem
                   href={FACEBOOK_GROUP_URL}
                   onClick={(event) =>
                     handleFacebookGroupNavigation(event, {
@@ -255,20 +239,11 @@ const Header = () => {
                   Facebook Group
                 </MobileNavItem>
                 <MobileNavItem
-                  onClick={() => {
-                    setIsSearchOpen(true);
-                    setIsMobileMenuOpen(false);
-                  }}
-                  icon="🔍"
-                >
-                  Search
-                </MobileNavItem>
-                <MobileNavItem
-                  to="/welcome-letter"
+                  to="/blog"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  icon="💌"
+                  icon="📝"
                 >
-                  Welcome Letter
+                  Blog
                 </MobileNavItem>
                 <MobileNavItem
                   to="/recipes"
@@ -277,57 +252,38 @@ const Header = () => {
                 >
                   Recipes
                 </MobileNavItem>
-
-                <MobileMenuSection
-                  title="Pillars"
-                  icon="🏛️"
-                  defaultOpen={false}
-                  onItemClick={() => setIsMobileMenuOpen(false)}
-                  items={[
-                    { to: '/pillars/confidence', label: 'Confidence', icon: '🌟' },
-                    { to: '/pillars/style', label: 'Style', icon: '👗' },
-                    { to: '/pillars/health', label: 'Health', icon: '🌱' },
-                    { to: '/pillars/health/nutrition-guide', label: 'Nutrition Guide', icon: '🥗' },
-                    { to: '/pillars/health/resource-guide', label: 'Resource Guide', icon: '📚' },
-                    { to: '/pillars/gratitude', label: 'Gratitude', icon: '💖' }
-                  ]}
-                />
-
-                <MobileMenuSection
-                  title="Nutrition (WFPB)"
-                  icon="🥬"
-                  defaultOpen={false}
-                  onItemClick={() => setIsMobileMenuOpen(false)}
-                  items={[
-                    { to: '/nutrition?tab=what-is-wfpb', label: 'What is WFPB?', icon: '🌱' },
-                    { to: '/pillars/health/nutrition-guide', label: 'Nutrition Guide', icon: '🥗' },
-                    { to: '/pillars/health/resource-guide', label: 'Resource Guide', icon: '📚' },
-                    { to: '/nutrition?tab=benefits', label: 'Benefits', icon: '💪' },
-                    { to: '/nutrition?tab=protocol', label: "Dr. Esselstyn&apos;s Protocol", icon: '❤️' },
-                    { to: '/nutrition?tab=dr-campbell', label: 'Dr. T. Colin Campbell', icon: '👨‍🔬' },
-                    { to: '/nutrition?tab=foods', label: 'Why &amp; How', icon: '🍎' },
-                    { to: '/recipes', label: 'Recipes', icon: '👩‍🍳' }
-                  ]}
-                />
-
-                <MobileMenuSection
-                  title="Updates"
-                  icon="📰"
-                  defaultOpen={false}
-                  onItemClick={() => setIsMobileMenuOpen(false)}
-                  items={[
-                    { to: '/blog', label: 'Blog', icon: '📝' },
-                    { to: '/video-series', label: 'Video Series', icon: '🎥' }
-                  ]}
-                />
-
                 <MobileNavItem
-                  to="/contact"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  icon="📧"
+                  onClick={() => {
+                    setIsSearchOpen(true);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  icon="🔍"
                 >
-                  Contact
+                  Search
                 </MobileNavItem>
+                <MobileMenuSection
+                  title="More"
+                  icon="➕"
+                  defaultOpen={false}
+                  onItemClick={() => setIsMobileMenuOpen(false)}
+                  items={[
+                    { to: '/our-story', label: 'Our Story', icon: '📖' },
+                    { to: '/welcome-letter', label: 'Welcome Letter', icon: '💌' },
+                    { to: '/pillars/confidence', label: 'Pillars: Confidence', icon: '🌟' },
+                    { to: '/pillars/style', label: 'Pillars: Style', icon: '👗' },
+                    { to: '/pillars/health', label: 'Pillars: Health', icon: '🌱' },
+                    { to: '/pillars/gratitude', label: 'Pillars: Gratitude', icon: '💖' },
+                    { to: '/nutrition?tab=what-is-wfpb', label: 'Nutrition: What is WFPB?', icon: '🌱' },
+                    { to: '/pillars/health/nutrition-guide', label: 'Nutrition: Guide', icon: '🥗' },
+                    { to: '/pillars/health/resource-guide', label: 'Nutrition: Resource Guide', icon: '📚' },
+                    { to: '/nutrition?tab=benefits', label: 'Nutrition: Benefits', icon: '💪' },
+                    { to: '/nutrition?tab=protocol', label: "Nutrition: Dr. Esselstyn's Protocol", icon: '❤️' },
+                    { to: '/nutrition?tab=dr-campbell', label: 'Nutrition: Dr. T. Colin Campbell', icon: '👨‍🔬' },
+                    { to: '/nutrition?tab=foods', label: 'Nutrition: Why & How', icon: '🍎' },
+                    { to: '/video-series', label: 'Video Series', icon: '🎥' },
+                    { to: '/contact', label: 'Contact', icon: '📧' },
+                  ]}
+                />
               </nav>
             </div>
           </div>
