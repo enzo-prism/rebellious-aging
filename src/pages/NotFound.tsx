@@ -15,7 +15,6 @@ const NotFound = () => {
           title={seoConfig.title}
           description={seoConfig.description}
           canonicalPath={seoConfig.path}
-          noindex
         />
       )}
       <div className="text-center max-w-md">
