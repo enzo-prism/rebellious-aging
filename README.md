@@ -141,6 +141,7 @@ Current deployment model:
   - `NEXT_PUBLIC_ENABLE_ANALYTICS`
   - `NEXT_PUBLIC_GA_ID`
   - `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` (required for Search Console verification metadata)
+  - `NEXT_PUBLIC_HOTJAR_ID` (optional)
 
 If you change any of those values in Vercel, re-run a production deploy.
 
@@ -152,8 +153,21 @@ vercel git connect --scope enzo-design-prisms-projects
 vercel env add NEXT_PUBLIC_ENABLE_ANALYTICS
 vercel env add NEXT_PUBLIC_GA_ID
 vercel env add NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+vercel env add NEXT_PUBLIC_HOTJAR_ID
 vercel --prod --yes --scope enzo-design-prisms-projects
 ```
+
+### Google Analytics + Search Console Configuration
+
+Recommended flow for production:
+
+1. Set `NEXT_PUBLIC_ENABLE_ANALYTICS=true` and `NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX` in production.
+2. Keep `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` set to the Search Console HTML/meta token (if using meta-file verification).
+3. Verify the production domain in Search Console and submit:
+   - https://rebelwithsuz.com/sitemap.xml
+   - https://rebelwithsuz.com/robots.txt
+4. In Search Console URL Inspection, confirm top URLs show `IndexingState: INDEXING_ALLOWED` and `Coverage` is not blocked by crawl issues.
+5. Validate that all noindex routes (`/search`, `/404`, app-level not-found) are listed as intentionally unindexed in coverage.
 
 ---
 
@@ -219,6 +233,11 @@ npm run build
    - Add/refresh `https://rebelwithsuz.com/sitemap.xml` in the Sitemaps report.
    - Use URL Inspection for priority pages and confirm Google can access them (`IndexingState: INDEXING_ALLOWED`).
    - Compare sitemap coverage against index status and fix exclusions (noindex/blocked/duplicate canonical issues).
+
+4. Keep crawler/preview hygiene in place:
+   - Keep canonical host aligned to `https://rebelwithsuz.com` in `buildMetadata`.
+   - Keep low-value pages explicitly marked `noindex` in `src/data/seoRoutes.ts` and `app/search/page.tsx`.
+   - Use `app/robots.ts` and robots declarations to prevent accidental crawler paths.
 
 ## Production Readiness and Launch Protocol
 
