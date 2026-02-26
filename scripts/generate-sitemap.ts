@@ -60,7 +60,7 @@ const __dirname = dirname(__filename);
 const projectRoot = join(__dirname, '..');
 const outputPath = join(projectRoot, 'public', 'sitemap.xml');
 
-const baseUrl = siteMetadata.baseUrl?.replace(/\/$/, '') ?? 'http://localhost:5173';
+const baseUrl = siteMetadata.baseUrl?.replace(/\/$/, '') ?? 'https://rebelwithsuz.com';
 
 const formatDate = (value: Date | string) => {
   const date = value instanceof Date ? value : new Date(value);

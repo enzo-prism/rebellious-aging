@@ -8,6 +8,7 @@
 - **SEO/Indexing:** `src/lib/seo.ts`, `src/lib/nextMetadata.ts`, route metadata in `src/data/seoRoutes.ts`, search index generation via `scripts/build-search-index.ts`.
 - **Build/Release:** `npm run build` runs `npm run sitemap`, `npm run build:search`, `next build`, and `npm run prerender` (audit validation).
 - **Analytics/Embeds:** GA, Hotjar, and GPT Engineer toggled via environment flags and inserted in `src/app/layout.tsx` via `next/script`.
+- **SEO Ops Guide:** `docs/seo-best-practices-nextjs-vercel-2026.md` documents the current Search Console + deployment operating model.
 
 ## Routing & Features
 - **Entry/structure:** `app/layout.tsx` provides global providers and layout chrome; page UIs remain in `src/pages`.
@@ -34,6 +35,7 @@
 - `app/not-found.tsx` enforces `noindex, nofollow` for unexpected/404 URLs.
 - `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` feeds Google verification content into page metadata (Search Console metadata method).
 - GA ID is controlled by `NEXT_PUBLIC_GA_ID`; GA loading is environment-gated in `app/layout.tsx`.
+- `npm run readiness:verify` and `npm run test:e2e:readiness` include a smoke check for SEO-sensitive assets (`sitemap.xml`, `seo-route-audit.json`, `search-index.json`).
 - Readiness command sets now include:
   - `npm run readiness:verify` (full gate)
   - `npm run test:e2e:readiness` (unit and browser pass)
@@ -42,7 +44,8 @@
 
 ## Operational Notes
 - Route coverage and SEO parity are validated during build with the repurposed prerender step.
-- Deployment target is Vercel static export (`/out`), with runtime compatibility safeguards in `next.config.js` and `vercel.json`.
+- Deployment target is Vercel static export (`/out`), with runtime compatibility safeguards in `next.config.js`.
+- GitHub source of truth is `enzo-prism/rebellious-aging`; legacy references should stay in historical notes only.
 
 ## Recently Added/Noted Context
 - Last migration focus: Vite SPA → Next.js App Router conversion with static-first export strategy.

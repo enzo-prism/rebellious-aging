@@ -10,7 +10,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/admin/', '/private/', '/*.pdf$'],
+        disallow: ['/admin/', '/private/'],
       },
       {
         userAgent: ['AhrefsBot', 'MJ12bot', 'DotBot'],

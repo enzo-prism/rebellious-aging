@@ -55,7 +55,7 @@ export const buildMetadata = (meta: RouteMetadataInput, overrides: MetadataOverr
           'en-US': canonical,
         },
       }
-      : undefined;
+    : undefined;
 
   return {
     title,
@@ -71,7 +71,14 @@ export const buildMetadata = (meta: RouteMetadataInput, overrides: MetadataOverr
             follow: false,
           },
         }
-      : undefined,
+      : {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+          },
+        },
     openGraph: {
       type: ogType,
       title,
@@ -80,6 +87,7 @@ export const buildMetadata = (meta: RouteMetadataInput, overrides: MetadataOverr
       images: absoluteImage ? [{ url: absoluteImage }] : undefined,
       ...(publishedTime ? { publishedTime } : {}),
       siteName: siteMetadata.name,
+      locale: 'en_US',
     },
     twitter: buildTwitterMetadata(title, description, absoluteImage),
   };

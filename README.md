@@ -133,6 +133,7 @@ This repository is now the primary source of truth for the live site:
 - Repository: https://github.com/enzo-prism/rebellious-aging
 - Production site: https://rebelwithsuz.com
 - Vercel project: `ra-nextjs` (team `enzo-design-prisms-projects`)
+- Retired legacy repo: https://github.com/enzo-prism/age-boldly-vibrantly
 
 Current deployment model:
 
@@ -142,8 +143,19 @@ Current deployment model:
   - `NEXT_PUBLIC_GA_ID`
   - `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` (required for Search Console verification metadata)
   - `NEXT_PUBLIC_HOTJAR_ID` (optional)
+- Keep this list current whenever you move analytics integrations forward.
 
 If you change any of those values in Vercel, re-run a production deploy.
+
+Verification commands with GitHub + Vercel CLIs:
+
+```bash
+gh repo view enzo-prism/rebellious-aging --json name,owner,url,description,homepageUrl
+gh repo view enzo-prism/age-boldly-vibrantly --json isArchived,url,defaultBranchRef
+vercel whoami
+vercel project ls --scope enzo-design-prisms-projects --format json
+vercel env ls
+```
 
 Recommended setup commands:
 
@@ -162,12 +174,31 @@ vercel --prod --yes --scope enzo-design-prisms-projects
 Recommended flow for production:
 
 1. Set `NEXT_PUBLIC_ENABLE_ANALYTICS=true` and `NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX` in production.
-2. Keep `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` set to the Search Console HTML/meta token (if using meta-file verification).
+2. Add `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` with the Search Console meta token.
+3. Optional: keep `NEXT_PUBLIC_HOTJAR_ID` set for session maps.
+4. In Vercel, save these in the Production environment and remove any stale previews if not needed.
 3. Verify the production domain in Search Console and submit:
    - https://rebelwithsuz.com/sitemap.xml
    - https://rebelwithsuz.com/robots.txt
 4. In Search Console URL Inspection, confirm top URLs show `IndexingState: INDEXING_ALLOWED` and `Coverage` is not blocked by crawl issues.
 5. Validate that all noindex routes (`/search`, `/404`, app-level not-found) are listed as intentionally unindexed in coverage.
+
+### Modern SEO + Search Engine Operating Checklist (Google-first, Vercel-friendly)
+
+- Core signals to keep healthy:
+  - Unique `title` + `description` per indexable route.
+  - Canonical URL consistency between `buildMetadata`, `app/sitemap.ts`, `scripts/generate-sitemap.ts`, and `sitemap.xml`.
+  - Explicit `noindex, nofollow` for low-value or duplicate pages (`/search`, `/404`, legacy misses).
+  - Clean robots directives with no unsupported patterns.
+  - JSON-LD only where meaningful and valid; page-level Open Graph/Twitter images must resolve to absolute HTTPS.
+  - Single canonical host (`https://rebelwithsuz.com`).
+- Deployment + Search Console rhythm:
+  - Every content/metadata change: `npm run build` (or `npm run sitemap` + `npm run build:search` + `npm run prerender`).
+  - After deploy: refresh and inspect:
+    - `Coverage` for crawl/index errors.
+    - `Sitemaps` for last crawl status.
+    - Core URL performance in Search Console's URL Inspection.
+  - Monthly: audit titles/descriptions for clarity, intent-match, and length drift.
 
 ---
 
