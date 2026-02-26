@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import BlogPost from '@/pages/BlogPost';
 import { buildMetadata } from '@/lib/nextMetadata';
 import { buildMetaDescription } from '@/lib/seo';
+import { siteMetadata } from '@/lib/siteMetadata';
 import { blogPosts, getBlogPostSeoTitle, getBlogPostById } from '@/data/blogPosts';
 
 const resolvePostMeta = (postId: string) => {
@@ -16,14 +17,18 @@ const resolvePostMeta = (postId: string) => {
       description: buildMetaDescription(
         'The blog post you are looking for does not exist. Explore more rebellious insights in our blog archive.'
       ),
+      canonical: path,
+      image: siteMetadata.defaultSocialImage,
       noindex: true,
     };
   }
 
   return {
     path,
+    canonical: path,
     title: getBlogPostSeoTitle(post),
     description: buildMetaDescription(post.seoDescription, post.excerpt),
+    image: siteMetadata.defaultSocialImage,
     ogType: 'article' as const,
   };
 };

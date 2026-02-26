@@ -17,7 +17,7 @@ const LatestBlogBadge = () => {
       aria-label={`Read the latest blog post: Blog #${latestPost.blogNumber}`}
       title={`Blog #${latestPost.blogNumber}`}
     >
-      <span className="uppercase tracking-[0.2em] text-[0.68rem] text-teal/80">Latest</span>
+      <span className="uppercase tracking-[0.2em] text-[0.68rem] text-teal">Latest</span>
       <span className="font-semibold truncate max-w-[14rem] sm:max-w-[18rem]">Blog #{latestPost.blogNumber}</span>
       <span aria-hidden className="text-base">→</span>
     </Link>

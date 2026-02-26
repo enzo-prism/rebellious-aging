@@ -3933,12 +3933,12 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
 
           <p>Confidence not fear belongs on your plate.</p>
 
-          <p>
+            <p>
             <a
               href="https://www.youtube.com/watch?v=mhJDUqZ3ZKc"
               className="text-primary underline underline-offset-4"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               Watch Dr. Christopher Gardner
             </a>

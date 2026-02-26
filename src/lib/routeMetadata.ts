@@ -5,8 +5,8 @@ export type RouteMeta = {
   path: string;
   title: string;
   description: string;
-  image?: string;
-  canonical?: string;
+  image: string;
+  canonical: string;
   ogType?: 'website' | 'article';
   noindex?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
@@ -23,7 +23,8 @@ const normalizeRouteMeta = (meta: typeof seoRoutes[number]): RouteMeta => ({
   path: normalizeCanonicalPath(meta.path),
   title: meta.title,
   description: meta.description,
-  image: meta.image,
+  canonical: normalizeCanonicalPath(meta.path),
+  image: meta.image ?? siteMetadata.defaultSocialImage,
   ogType: meta.ogType ?? 'website',
   noindex: false,
 });
@@ -57,8 +58,10 @@ export const getHomeMeta = (): RouteMeta => {
   return (
     getRouteMetaByPath('/') ?? {
       path: '/',
+      canonical: '/',
       title: siteMetadata.name,
       description: siteMetadata.defaultDescription,
+      image: siteMetadata.defaultSocialImage,
     }
   );
 };

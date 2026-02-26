@@ -33,8 +33,18 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
 
   const sectionRef = useRef<HTMLDivElement | null>(null);
   const [isQuizVisible, setIsQuizVisible] = useState(false);
+  const [embedState, setEmbedState] = useState<'idle' | 'loading' | 'ready' | 'failed'>('idle');
 
   useEffect(() => {
+    if (!isQuizVisible) {
+      setEmbedState('idle');
+      return;
+    }
+    if (!typeformId) {
+      setEmbedState('ready');
+      return;
+    }
+
     const target = sectionRef.current;
     if (!target) return;
 
@@ -51,34 +61,45 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
     observer.observe(target);
 
     return () => observer.disconnect();
-  }, []);
+  }, [isQuizVisible, typeformId]);
 
   useEffect(() => {
-    if (!typeformId || !isQuizVisible) return;
+    if (!isQuizVisible || !typeformId) {
+      return;
+    }
+
+    setEmbedState('loading');
 
     const scriptSrc = "https://embed.typeform.com/next/embed.js";
     const ensureTypeformLoaded = () => {
       if (window.tf && typeof window.tf.load === 'function') {
         window.tf.load();
+        setEmbedState('ready');
+        return true;
       }
+      return false;
     };
 
     const existingScript = document.querySelector<HTMLScriptElement>(`script[src="${scriptSrc}"]`);
 
     if (existingScript) {
-      if (window.tf && typeof window.tf.load === 'function') {
-        ensureTypeformLoaded();
+      if (ensureTypeformLoaded()) {
         return;
       }
 
       const handleExistingLoad = () => {
         ensureTypeformLoaded();
       };
+      const handleExistingError = () => {
+        setEmbedState('failed');
+      };
 
       existingScript.addEventListener('load', handleExistingLoad, { once: true });
+      existingScript.addEventListener('error', handleExistingError, { once: true });
 
       return () => {
         existingScript.removeEventListener('load', handleExistingLoad);
+        existingScript.removeEventListener('error', handleExistingError);
       };
     }
 
@@ -89,12 +110,17 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
     const handleNewLoad = () => {
       ensureTypeformLoaded();
     };
+    const handleNewError = () => {
+      setEmbedState('failed');
+    };
 
     script.addEventListener('load', handleNewLoad, { once: true });
+    script.addEventListener('error', handleNewError, { once: true });
     document.body.appendChild(script);
 
     return () => {
       script.removeEventListener('load', handleNewLoad);
+      script.removeEventListener('error', handleNewError);
     };
   }, [typeformId, isQuizVisible]);
 
@@ -217,21 +243,120 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
           <div className="bg-white p-8 rounded-lg shadow-sm">
             {typeformId ? (
               isQuizVisible ? (
-                <div className="space-y-6">
-                  <div
-                    data-tf-live={typeformId}
-                    className="w-full min-h-[600px]"
-                  />
-                  <p className="text-sm text-muted-foreground text-center">
-                    The self-assessment opens above. Complete the prompts to receive personalized guidance from Suz.
-                  </p>
-                </div>
+                embedState === 'failed' ? (
+                  <div className="space-y-4">
+                    <p className="text-sm text-muted-foreground">
+                      We were not able to load the embedded quiz. Please use the fallback form below.
+                    </p>
+                    <form onSubmit={handleSubmit}>
+                      <div className="space-y-6">
+                        <div>
+                          <label className="block font-medium mb-2">
+                            1. How would you rate your current level of {content.title.toLowerCase()}?
+                          </label>
+                          <div className="space-y-2">
+                            {[1, 2, 3, 4, 5].map((value) => (
+                              <div key={value} className="flex items-center">
+                                <input 
+                                  type="radio" 
+                                  id={`fallback-q1-${value}`} 
+                                  name="fallback-question1" 
+                                  value={value}
+                                  checked={formData.rating === value.toString()}
+                                  onChange={(e) => setFormData(prev => ({ ...prev, rating: e.target.value }))}
+                                  className="mr-3 h-4 w-4 text-teal focus:ring-teal"
+                                />
+                                <label htmlFor={`fallback-q1-${value}`}>
+                                  {value} - {value === 1 ? 'Very Low' : value === 5 ? 'Very High' : ''}
+                                </label>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div>
+                          <label className="block font-medium mb-2">
+                            2. What is your biggest challenge related to {content.title.toLowerCase()}?
+                          </label>
+                          <Textarea 
+                            value={formData.challenge}
+                            onChange={(e) => setFormData(prev => ({ ...prev, challenge: e.target.value }))}
+                            rows={4}
+                          />
+                        </div>
+
+                        <div>
+                          <label className="block font-medium mb-2">
+                            3. What would improving your {content.title.toLowerCase()} allow you to do or experience?
+                          </label>
+                          <Textarea 
+                            value={formData.goals}
+                            onChange={(e) => setFormData(prev => ({ ...prev, goals: e.target.value }))}
+                            rows={4}
+                          />
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <label className="block font-medium mb-2">
+                              Your Name (Optional)
+                            </label>
+                            <Input 
+                              type="text"
+                              value={formData.userName}
+                              onChange={(e) => setFormData(prev => ({ ...prev, userName: e.target.value }))}
+                              placeholder="Enter your name"
+                            />
+                          </div>
+                          <div>
+                            <label className="block font-medium mb-2">
+                              Your Email <span className="text-red-500">*</span>
+                            </label>
+                            <Input 
+                              type="email"
+                              value={formData.userEmail}
+                              onChange={(e) => setFormData(prev => ({ ...prev, userEmail: e.target.value }))}
+                              placeholder="Enter your email for personalized follow-up"
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="mt-8">
+                        <Button 
+                          type="submit"
+                          disabled={isSubmitting}
+                          className="bg-teal hover:bg-teal-dark text-white w-full md:w-auto"
+                        >
+                          {isSubmitting ? "Submitting..." : "Submit"}
+                        </Button>
+                        <p className="text-sm text-muted-foreground mt-3 text-center md:text-left">
+                          Suz will personally review your results and get back to you with personalized advice via email
+                        </p>
+                      </div>
+                    </form>
+                  </div>
+                ) : (
+                  <div className="space-y-6">
+                    <div
+                      data-tf-live={typeformId}
+                      className="w-full min-h-[600px]"
+                    />
+                    <p className="text-sm text-muted-foreground text-center">
+                      The self-assessment opens above. Complete the prompts to receive personalized guidance from Suz.
+                    </p>
+                  </div>
+                )
               ) : (
                 <div className="flex flex-col items-center gap-4 text-center py-8">
                   <p className="text-muted-foreground max-w-md">
                     Tap the button below to load the interactive quiz when you&apos;re ready.
                   </p>
-                  <Button onClick={() => setIsQuizVisible(true)} className="bg-teal text-white hover:bg-teal/90">
+                  <Button
+                    onClick={() => setIsQuizVisible(true)}
+                    className="bg-teal text-white hover:bg-teal/90"
+                  >
                     Load Quiz
                   </Button>
                 </div>

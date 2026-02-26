@@ -234,10 +234,10 @@ const Home = () => {
                 <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight animate-fade-in">
                   Age Boldly / Live Loudly
                 </h1>
-                <p className="text-lg md:text-xl lg:text-2xl text-gray-600 animate-fade-in leading-relaxed" style={{animationDelay: "0.2s"}}>
+                <p className="text-lg md:text-xl lg:text-2xl text-gray-900 leading-relaxed">
                   Ditch the outdated rules. Rebellious aging is where vibrant health, bold confidence, grounded gratitude, and signature style take center stage.
                 </p>
-                <div className="flex flex-col sm:flex-row button-spacing animate-fade-in" style={{animationDelay: "0.4s"}}>
+                <div className="flex flex-col sm:flex-row button-spacing">
                 <Button asChild size="lg" className="bg-teal hover:bg-teal-dark text-white shadow-lg min-h-[44px] text-base font-semibold">
                   <Link href="/our-story">💌 Our Story</Link>
                 </Button>

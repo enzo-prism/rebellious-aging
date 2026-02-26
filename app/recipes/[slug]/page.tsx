@@ -4,6 +4,7 @@ import RecipeDetail from '@/pages/RecipeDetail';
 import { buildMetadata } from '@/lib/nextMetadata';
 import { buildMetaDescription } from '@/lib/seo';
 import { recipes, slugifyRecipeTitle } from '@/data/recipes';
+import { siteMetadata } from '@/lib/siteMetadata';
 
 const resolveRecipeMeta = (slug: string) => {
   const recipe = recipes.find((item) => slugifyRecipeTitle(item.title) === slug);
@@ -16,15 +17,18 @@ const resolveRecipeMeta = (slug: string) => {
       description: buildMetaDescription(
         'The recipe you are looking for does not exist. Explore more plant-powered recipes in our collection.'
       ),
+      canonical: path,
+      image: siteMetadata.defaultSocialImage,
       noindex: true,
     };
   }
 
   return {
     path,
+    canonical: path,
     title: recipe.title,
     description: buildMetaDescription(recipe.description),
-    image: recipe.image,
+    image: recipe.image ?? siteMetadata.defaultSocialImage,
   };
 };
 

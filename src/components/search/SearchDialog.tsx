@@ -19,6 +19,7 @@ import {
 } from '@/components/ui/command';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { DialogDescription, DialogTitle } from '@/components/ui/dialog';
 
 interface SearchDialogProps {
   open?: boolean;
@@ -262,6 +263,8 @@ export const SearchDialog: React.FC<SearchDialogProps> = ({
         hideCloseButton
         contentClassName={contentWidth}
       >
+        <DialogTitle className="sr-only">Search</DialogTitle>
+        <DialogDescription className="sr-only">Search site content by topic, type, or keyword.</DialogDescription>
         <div className="relative">
           <CommandInput
             ref={inputRef}

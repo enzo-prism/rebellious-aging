@@ -86,6 +86,8 @@ const GallerySection: React.FC<GallerySectionProps> = ({ content }) => {
                       ? 'bg-teal w-6'
                       : 'bg-gray-300 hover:bg-gray-400'
                   }`}
+                  aria-label={`Go to gallery image ${index + 1}`}
+                  aria-pressed={current - 1 === index}
                   onClick={() => {
                     if (api) {
                       api.scrollTo(index);

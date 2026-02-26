@@ -6,6 +6,7 @@ import { buildMetaDescription } from '@/lib/seo';
 import { getRouteMetaByPath } from '@/lib/routeMetadata';
 import { pillarContent } from '@/data/pillarContent';
 import { seoRoutes } from '@/data/seoRoutes';
+import { siteMetadata } from '@/lib/siteMetadata';
 
 const getPillarIds = () => {
   const dynamicFromContent = Object.keys(pillarContent);
@@ -39,15 +40,19 @@ const resolvePillarMeta = (pillarId: string) => {
   if (content) {
     return {
       path,
+      canonical: path,
       title: content.title,
       description: buildMetaDescription(content.description),
+      image: siteMetadata.defaultSocialImage,
     };
   }
 
   return {
     path,
+    canonical: path,
     title: 'Pillar Not Found',
     description: 'The pillar you are looking for does not exist.',
+    image: siteMetadata.defaultSocialImage,
     noindex: true,
   };
 };

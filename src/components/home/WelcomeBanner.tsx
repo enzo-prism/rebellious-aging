@@ -10,7 +10,7 @@ const WelcomeBanner = () => (
           💚
         </div>
         <div>
-          <p className="text-sm uppercase tracking-[0.3em] text-teal-600 font-semibold mb-2">
+          <p className="text-sm uppercase tracking-[0.3em] text-teal font-semibold mb-2">
             Welcome, Rebel
           </p>
           <h2 className="text-2xl sm:text-3xl font-semibold text-gray-900">

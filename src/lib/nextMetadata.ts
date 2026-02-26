@@ -4,6 +4,9 @@ import { resolveAbsoluteUrl } from './seo';
 import { siteMetadata } from './siteMetadata';
 import type { RouteMeta } from './routeMetadata';
 
+type RouteMetadataInput = Pick<RouteMeta, 'path' | 'title' | 'description'> &
+  Partial<Pick<RouteMeta, 'canonical' | 'image' | 'ogType' | 'noindex'>>;
+
 export type MetadataOverrides = {
   title?: string;
   description?: string;
@@ -16,7 +19,7 @@ export type MetadataOverrides = {
 
 const resolveCanonical = (path?: string, canonical?: string) => {
   if (canonical) {
-    return canonical;
+    return resolveAbsoluteUrl(canonical);
   }
 
   if (!path) {
@@ -34,14 +37,14 @@ const buildTwitterMetadata = (title: string, description: string, image?: string
   images: image ? [image] : undefined,
 });
 
-export const buildMetadata = (meta: RouteMeta, overrides: MetadataOverrides = {}): Metadata => {
+export const buildMetadata = (meta: RouteMetadataInput, overrides: MetadataOverrides = {}): Metadata => {
   const title = overrides.title ?? meta.title;
   const description = overrides.description ?? meta.description;
   const ogType = overrides.ogType ?? meta.ogType ?? 'website';
   const canonical = resolveCanonical(overrides.path ?? meta.canonical ?? meta.path, overrides.canonical);
-  const image = overrides.image ?? meta.image;
+  const image = overrides.image ?? meta.image ?? siteMetadata.defaultSocialImage;
   const noindex = overrides.noindex ?? meta.noindex;
-  const absoluteImage = image ? resolveAbsoluteUrl(image) : undefined;
+  const absoluteImage = resolveAbsoluteUrl(image);
 
   return {
     title,

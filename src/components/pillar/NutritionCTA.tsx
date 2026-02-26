@@ -13,7 +13,7 @@ const NutritionCTA: React.FC = () => {
             Discover how proper nutrition supports your health goals. Learn about foods that promote vitality, brain health, and overall wellness as you age rebelliously.
           </p>
           <Link href="/nutrition">
-            <Button className="bg-coral hover:bg-coral-dark text-white">
+            <Button className="bg-coral hover:bg-coral-dark text-gray-900">
               Explore Nutrition for Health
             </Button>
           </Link>

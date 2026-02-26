@@ -9,6 +9,9 @@ import { pillarContent } from '../src/data/pillarContent';
 import { buildMetaDescription, buildSeoTitle } from '../src/lib/seo';
 import { getRouteMetaByPath } from '../src/lib/routeMetadata';
 import type { RouteMeta } from '../src/lib/routeMetadata';
+import { siteMetadata } from '../src/lib/siteMetadata';
+
+const defaultImage = siteMetadata.defaultSocialImage;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -78,8 +81,10 @@ const resolveBlogMeta = (postId: string): RouteMeta | undefined => {
   if (!post) {
     return {
       path: `/blog/${postId}`,
+      canonical: `/blog/${postId}`,
       title: `Blog Post Not Found`,
       description: buildMetaDescription('The requested blog post does not exist.'),
+      image: defaultImage,
       noindex: true,
       ogType: 'article',
     };
@@ -87,8 +92,10 @@ const resolveBlogMeta = (postId: string): RouteMeta | undefined => {
 
   return {
     path: `/blog/${postId}`,
+    canonical: `/blog/${postId}`,
     title: getBlogPostSeoTitle(post),
     description: buildMetaDescription(post.seoDescription, post.excerpt),
+    image: defaultImage,
     ogType: 'article',
   };
 };
@@ -98,17 +105,21 @@ const resolveRecipeMeta = (slug: string): RouteMeta | undefined => {
   if (!recipe) {
     return {
       path: `/recipes/${slug}`,
+      canonical: `/recipes/${slug}`,
       title: `Recipe Not Found`,
       description: buildMetaDescription('The requested recipe does not exist.'),
+      image: defaultImage,
       noindex: true,
     };
   }
 
   return {
     path: `/recipes/${slug}`,
+    canonical: `/recipes/${slug}`,
     title: recipe.title,
     description: buildMetaDescription(recipe.description),
-    image: recipe.image,
+    image: recipe.image ?? defaultImage,
+    ogType: 'website',
   };
 };
 
@@ -123,16 +134,20 @@ const resolvePillarMeta = (pillarId: string): RouteMeta => {
   if (content) {
     return {
       path,
+      canonical: path,
       title: content.title,
       description: buildMetaDescription(content.description),
+      image: defaultImage,
       ogType: 'website',
     };
   }
 
   return {
     path,
-    title: `Pillar Not Found`,
-    description: buildMetaDescription('The requested pillar does not exist.'),
+    canonical: path,
+      title: `Pillar Not Found`,
+      description: buildMetaDescription('The requested pillar does not exist.'),
+      image: defaultImage,
     noindex: true,
   };
 };
@@ -160,17 +175,21 @@ const resolveMeta = (path: string, source: RouteSource): RouteMeta | undefined =
   }
 
   if (path === '/') {
-    return {
+      return {
       path,
+      canonical: path,
       title: 'Rebellious Aging',
       description: 'Explore guidance for aging boldly and living vibrantly.',
+      image: defaultImage,
     };
   }
 
   return {
     path,
+    canonical: path,
     title: `Route Not Found`,
     description: buildMetaDescription('The requested page does not exist.'),
+    image: defaultImage,
     noindex: true,
   };
 };
@@ -195,6 +214,8 @@ const buildRecord = ({ path, source }: { path: string; source: RouteSource }): A
   >;
   const hasTitle = Boolean(metadata.title?.trim());
   const hasDescription = Boolean(metadata.description?.trim());
+  const hasCanonical = Boolean(metadata.canonical?.trim());
+  const hasImage = Boolean(metadata.image?.trim());
   const issues: string[] = [];
 
   if (!hasTitle) {
@@ -203,11 +224,17 @@ const buildRecord = ({ path, source }: { path: string; source: RouteSource }): A
   if (!hasDescription) {
     issues.push('Missing description');
   }
+  if (!hasCanonical) {
+    issues.push('Missing canonical path');
+  }
+  if (!hasImage) {
+    issues.push('Missing OG image');
+  }
 
   return {
     path,
     source,
-    hasMeta: hasTitle && hasDescription,
+    hasMeta: hasTitle && hasDescription && hasCanonical && hasImage,
     hasTitle,
     hasDescription,
     computedKeys,

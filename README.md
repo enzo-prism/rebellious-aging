@@ -40,6 +40,7 @@ supabase/
 ```
 
 Additional architectural context lives in `docs/project-overview.md`.
+Production readiness details now live in `docs/production-readiness.md`.
 
 Key conventions:
 
@@ -167,6 +168,34 @@ npm run build
 - `scripts/prerender.tsx` runs during build as a validation step and writes route audit output to `public/seo-route-audit.json`.
 - Search and discovery pipeline runs `npm run build:search` → `public/search-index.json`.
 
+## Production Readiness and Launch Protocol
+
+This project now includes a readiness pipeline that validates functional, SEO, accessibility, and performance gates before release.
+
+- Generate and verify release assets:
+  - `npm run readiness:assets`
+  - `npm run readiness:report`
+- Run full readiness pass:
+  - `npm run readiness:verify`
+- If needed, run focused suites:
+  - `npm run test:unit`
+  - `npm run test:e2e`
+  - `npm run test:readiness`
+  - `npm run test:accessibility`
+  - `npm run test:e2e:perf`
+- Final artifacts for audit are written to:
+  - `public/sitemap.xml`
+  - `public/search-index.json`
+  - `public/seo-route-audit.json`
+  - `public/production-readiness-report.json`
+
+Baseline launch checklist:
+- `npm run lint` passes.
+- `npm run build` (sitemap + search index + static build + SEO prerender audit) passes.
+- Search, accessibility, route matrix, resilience, and performance checks pass under `test:e2e:readiness`.
+- `public/production-readiness-report.json` is green.
+- No open critical-severity issues in recent readiness runs.
+
 ## Performance & Embed Guardrails
 
 - Home now uses inline welcome patterns instead of auto-opening modals; avoid blocking interstitials.
@@ -199,4 +228,4 @@ Ensure `supabase/config.toml` matches the project you deploy to.
 - Keep lint/build clean (`npm run lint`, `npm run build`) before opening a PR.
 - Document any new scripts, routes, or migration-sensitive behavior in this README.
 
-Happy building, and sparkle on! ✨
+Happy building.

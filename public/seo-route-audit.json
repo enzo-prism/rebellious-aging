@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-25T18:38:49.446Z",
+  "generatedAt": "2026-02-26T03:35:16.120Z",
   "totalRoutes": 107,
   "validRoutes": 107,
   "failedRoutes": 0,
@@ -14,6 +14,8 @@
         "path",
         "title",
         "description",
+        "canonical",
+        "image",
         "ogType",
         "noindex"
       ],
@@ -21,8 +23,10 @@
       "metadata": {
         "title": "Age Boldly / Live Loudly",
         "description": "Rebellious Aging helps women 55+ expand confidence, style, and health through storytelling, plant-powered living, and an active community.",
+        "canonical": "/",
         "ogType": "website",
-        "noindex": false
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -35,6 +39,8 @@
         "path",
         "title",
         "description",
+        "canonical",
+        "image",
         "ogType",
         "noindex"
       ],
@@ -42,8 +48,10 @@
       "metadata": {
         "title": "Our Story",
         "description": "Meet Suz and discover how Rebellious Aging challenges outdated rules with science-backed lifestyle shifts rooted in compassion.",
+        "canonical": "/our-story",
         "ogType": "website",
-        "noindex": false
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -56,6 +64,8 @@
         "path",
         "title",
         "description",
+        "canonical",
+        "image",
         "ogType",
         "noindex"
       ],
@@ -63,8 +73,10 @@
       "metadata": {
         "title": "Welcome Letter",
         "description": "A heartfelt welcome from Suz inviting women 55-105 to join a bold movement centered on community, plant-strong nourishment, and confidence.",
+        "canonical": "/welcome-letter",
         "ogType": "website",
-        "noindex": false
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -77,6 +89,8 @@
         "path",
         "title",
         "description",
+        "canonical",
+        "image",
         "ogType",
         "noindex"
       ],
@@ -84,8 +98,10 @@
       "metadata": {
         "title": "Rebellious Aging Starter Kit",
         "description": "A gentle starter kit for women 55-105 to begin with Nibble, Wiggle, Dazzle, and Gratefulness in the Rebellious Aging journey.",
+        "canonical": "/starter-kit",
         "ogType": "website",
-        "noindex": false
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -98,6 +114,8 @@
         "path",
         "title",
         "description",
+        "canonical",
+        "image",
         "ogType",
         "noindex"
       ],
@@ -105,8 +123,10 @@
       "metadata": {
         "title": "Whole-Food Plant-Based Nutrition",
         "description": "Explore the what, why, and how of Whole-Food, Plant-Based (WFPB) living with protocols, benefits, recipes, and expert-backed guidance.",
+        "canonical": "/nutrition",
         "ogType": "website",
-        "noindex": false
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -119,6 +139,8 @@
         "path",
         "title",
         "description",
+        "canonical",
+        "image",
         "ogType",
         "noindex"
       ],
@@ -126,8 +148,10 @@
       "metadata": {
         "title": "Whole-Food, Plant-Based Guide",
         "description": "Dive into what to eat, what to crowd out, and how to read labels like a rebel with a printable WFPB roadmap for rebellious agers.",
+        "canonical": "/pillars/health/nutrition-guide",
         "ogType": "website",
-        "noindex": false
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -140,6 +164,8 @@
         "path",
         "title",
         "description",
+        "canonical",
+        "image",
         "ogType",
         "noindex"
       ],
@@ -147,8 +173,10 @@
       "metadata": {
         "title": "Whole-Food, Plant-Based Resource Guide",
         "description": "A curated library of documentaries, books, cookbooks, websites, and talks to explore WFPB living at your own pace.",
+        "canonical": "/pillars/health/resource-guide",
         "ogType": "website",
-        "noindex": false
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -161,6 +189,8 @@
         "path",
         "title",
         "description",
+        "canonical",
+        "image",
         "ogType",
         "noindex"
       ],
@@ -168,8 +198,10 @@
       "metadata": {
         "title": "Team",
         "description": "Meet the collaborators and creatives bringing the Rebellious Aging vision to life through photography, storytelling, and design.",
+        "canonical": "/team",
         "ogType": "website",
-        "noindex": false
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -182,6 +214,8 @@
         "path",
         "title",
         "description",
+        "canonical",
+        "image",
         "ogType",
         "noindex"
       ],
@@ -189,8 +223,10 @@
       "metadata": {
         "title": "Contact Suz",
         "description": "Reach out to Suz for plant-based guidance, speaking inquiries, or personalized support on your rebellious aging journey.",
+        "canonical": "/contact",
         "ogType": "website",
-        "noindex": false
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -203,6 +239,8 @@
         "path",
         "title",
         "description",
+        "canonical",
+        "image",
         "ogType",
         "noindex"
       ],
@@ -210,8 +248,10 @@
       "metadata": {
         "title": "Private Facebook Community",
         "description": "Join the private Rebellious Aging Facebook group for daily inspiration, accountability, and plant-strong conversation.",
+        "canonical": "/facebook-group",
         "ogType": "website",
-        "noindex": false
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -224,6 +264,8 @@
         "path",
         "title",
         "description",
+        "canonical",
+        "image",
         "ogType",
         "noindex"
       ],
@@ -231,8 +273,10 @@
       "metadata": {
         "title": "Rebel Video Series",
         "description": "Stream short, rebellious conversations with Suz covering confidence, style, whole-food living, and community.",
+        "canonical": "/video-series",
         "ogType": "website",
-        "noindex": false
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -245,6 +289,8 @@
         "path",
         "title",
         "description",
+        "canonical",
+        "image",
         "ogType",
         "noindex"
       ],
@@ -252,8 +298,10 @@
       "metadata": {
         "title": "Rebellious Aging Blog",
         "description": "Catch up on Suz’s long-form reflections on gratitude, nourishment, style, mindset, and rebellious aging.",
+        "canonical": "/blog",
         "ogType": "website",
-        "noindex": false
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -266,6 +314,8 @@
         "path",
         "title",
         "description",
+        "canonical",
+        "image",
         "ogType",
         "noindex"
       ],
@@ -273,8 +323,10 @@
       "metadata": {
         "title": "Rebellious Aging Recipes",
         "description": "Browse plant-powered recipes from quick weeknight meals to celebratory favorites, built for vibrant, rebellious aging.",
+        "canonical": "/recipes",
         "ogType": "website",
-        "noindex": false
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -287,6 +339,8 @@
         "path",
         "title",
         "description",
+        "canonical",
+        "image",
         "ogType",
         "noindex"
       ],
@@ -294,8 +348,10 @@
       "metadata": {
         "title": "Search Rebellious Aging",
         "description": "Search pillars, nutrition guides, blog posts, and videos to find exactly what you need on Rebellious Aging.",
+        "canonical": "/search",
         "ogType": "website",
-        "noindex": false
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -308,6 +364,8 @@
         "path",
         "title",
         "description",
+        "canonical",
+        "image",
         "ogType",
         "noindex"
       ],
@@ -315,8 +373,10 @@
       "metadata": {
         "title": "Page Not Found",
         "description": "This page has gone rogue. Head back to the pillars, blog, or nutrition guide to keep aging rebelliously.",
+        "canonical": "/404",
         "ogType": "website",
-        "noindex": false
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -329,6 +389,8 @@
         "path",
         "title",
         "description",
+        "canonical",
+        "image",
         "ogType",
         "noindex"
       ],
@@ -336,8 +398,10 @@
       "metadata": {
         "title": "Confidence Pillar",
         "description": "Ditch limiting beliefs and rebuild unshakable confidence with quizzes, checklists, and personalized support.",
+        "canonical": "/pillars/confidence",
         "ogType": "website",
-        "noindex": false
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -350,6 +414,8 @@
         "path",
         "title",
         "description",
+        "canonical",
+        "image",
         "ogType",
         "noindex"
       ],
@@ -357,8 +423,10 @@
       "metadata": {
         "title": "Style Pillar",
         "description": "Express signature style with playful guidance, curated resources, and the Rebellious Aging style checklist.",
+        "canonical": "/pillars/style",
         "ogType": "website",
-        "noindex": false
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -371,6 +439,8 @@
         "path",
         "title",
         "description",
+        "canonical",
+        "image",
         "ogType",
         "noindex"
       ],
@@ -378,8 +448,10 @@
       "metadata": {
         "title": "Health Pillar",
         "description": "Fuel longevity with Whole-Food, Plant-Based foundations, nutrition tools, and a daily health checklist.",
+        "canonical": "/pillars/health",
         "ogType": "website",
-        "noindex": false
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -392,6 +464,8 @@
         "path",
         "title",
         "description",
+        "canonical",
+        "image",
         "ogType",
         "noindex"
       ],
@@ -399,8 +473,10 @@
       "metadata": {
         "title": "Gratitude Pillar",
         "description": "Discover how gratitude becomes a rebellious daily practice that fuels joy, resilience, and purpose in every season of life.",
+        "canonical": "/pillars/gratitude",
         "ogType": "website",
-        "noindex": false
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -411,15 +487,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #1: The Rebellious Guide (What is on Your Plate)",
         "description": "Let's set the table for something deliciously different. I am excited to talk with you about something that has transformed my life - the Whole Food…",
-        "ogType": "article"
+        "canonical": "/blog/rebellious-guide-what-is-on-your-plate",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -430,15 +510,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #2: The Road to Success: 8 Thoughts",
         "description": "Eight powerful principles that pave the way to success: from hard work and patience to self-confidence and focus. Discover the mindset shifts that…",
-        "ogType": "article"
+        "canonical": "/blog/the-road-to-success-8-thoughts",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -449,15 +533,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #3: A Quick Introduction and Guide to a Whole-Food Plant-Based (WFPB) Lifestyle",
         "description": "The WFPB lifestyle is NOT a diet. It is a lifestyle which promotes better health, greater energy, and a deeper connection with the way humans chose to…",
-        "ogType": "article"
+        "canonical": "/blog/wfpb-lifestyle-guide",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -468,15 +556,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #4: A Love Letter to My Closet",
         "description": "There was a time I dressed to impress. Now? I dress to express. My closet is no longer a holding pen for solid black.",
-        "ogType": "article"
+        "canonical": "/blog/a-love-letter-to-my-closet",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -487,15 +579,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #5: Blueberries and Wrinkles, The Day I Knew I was Old.",
         "description": "One bowl of wild blueberries, a casual walk out the door, and a bold little truth tucked into the confident grooves around my mouth—that was the day I…",
-        "ogType": "article"
+        "canonical": "/blog/blueberries-and-wrinkles",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -506,15 +602,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #6: Gratitude and the Rebellious Soul",
         "description": "Exploring the transformative power of gratitude in our journey toward rebellious aging. Discover how appreciation and thankfulness can reshape our…",
-        "ogType": "article"
+        "canonical": "/blog/gratitude-rebellious-soul",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -525,15 +625,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #7: The Art of Thriving. What an Ageing Expert Wants You to Know",
         "description": "Inspired by Dr. Kerry Burnight's wisdom on aging, this blog explores the concept of \"joyspan\" - living with connection, purpose, and soul-deep…",
-        "ogType": "article"
+        "canonical": "/blog/art-of-thriving-aging-expert",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -544,15 +648,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #8: What a Shop Window Taught Me About Aging Gracefully",
         "description": "Who knew a shop window could deliver a life lesson? One early morning glance stopped me in my tracks and got me thinking about posture, presence, and how…",
-        "ogType": "article"
+        "canonical": "/blog/shop-window-aging-gracefully",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -563,15 +671,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #9: It's Time to Set the Record Straight Regarding a Whole Food Plant Based Lifestyle",
         "description": "Let's be honest. When you mention to other humans that you are eating mostly plants, the reactions range from curious to downright skeptical. Time to…",
-        "ogType": "article"
+        "canonical": "/blog/set-record-straight-wfpb",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -582,15 +694,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #10: Shhh…That Voice in Your Head is Not the Boss of You",
         "description": "Let's get one thing straight. Those whispers in your head saying you are too old, too late, not stylish enough, they are NOT the truth. They are old…",
-        "ogType": "article"
+        "canonical": "/blog/limiting-beliefs-not-boss",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -601,15 +717,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #11: What is Behind Limiting Beliefs?",
         "description": "The voices that taunt us, saying things like you are too old, or you are not enough, or you'll fail, are not a mystical curse. Here's the science behind…",
-        "ogType": "article"
+        "canonical": "/blog/what-is-behind-limiting-beliefs",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -620,15 +740,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #12: Wearing Who You Are, A Style Rebellion",
         "description": "When it comes to aging and fashion, society hands us a beige cardigan and whispers \"please, just fade away.\" Well thanks, but no thank you. Here at…",
-        "ogType": "article"
+        "canonical": "/blog/wearing-who-you-are-style-rebellion",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -639,15 +763,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #14: The New Classic, Timeless Style with a Rebellious Twist",
         "description": "Fashion legends like Coco Chanel, Christian Dior, and Yves Saint Laurent gave the world timeless rules for elegance. As rebels we just give these rules a…",
-        "ogType": "article"
+        "canonical": "/blog/the-new-classic-timeless-style",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -658,15 +786,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #13: The Bold, Sassy Truth About a Whole Food Plant Based Lifestyle",
         "description": "Who says aging gracefully has to be slow and quiet? Not me. I believe in aging rebelliously. With a plate full of vibrant colors, flavors, and life…",
-        "ogType": "article"
+        "canonical": "/blog/bold-sassy-truth-wfpb",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -677,15 +809,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #15: WFPB Lifestyle Book Recommendations",
         "description": "A comprehensive collection of essential books from leading plant-based nutrition experts and doctors to guide your whole food plant-based journey.",
-        "ogType": "article"
+        "canonical": "/blog/wfpb-lifestyle-book-recommendations",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -696,15 +832,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #16: Are Boundaries a Love Language of Sorts?",
         "description": "The Summer of 2025 has been one long crash course in awkward situations. Some mine, some borrowed from others, but all pointing to one glaring truth, I…",
-        "ogType": "article"
+        "canonical": "/blog/boundaries-love-language",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -715,15 +855,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #17: Ditch the Sweet Stuff",
         "description": "Let's be honest, sugar is seductive. There is no upside to sugar. It sneaks into your morning coffee, whispers from your cookie jar, and struts through…",
-        "ogType": "article"
+        "canonical": "/blog/ditch-the-sweet-stuff",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -734,15 +878,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #18: Eat the Olive, Not the Oil",
         "description": "Oil has a shiny reputation. Olive oil, avocado oil, coconut oil—sure, they are marketed as “healthy fats,” but the truth is oil is oil and even the…",
-        "ogType": "article"
+        "canonical": "/blog/eat-the-olive-not-the-oil",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -753,15 +901,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #19: Less Salt, More Sparkle",
         "description": "Let's be honest: salt has been riding high on its reputation as the magic dust that makes food taste better. Very fancy marketing, but let's cut through…",
-        "ogType": "article"
+        "canonical": "/blog/less-salt-more-sparkle",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -772,15 +924,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #20: Critical Thinking: Your Secret Weapon for Rebellious Aging",
         "description": "Critical Thinking is the rebel's power move. It is the ability to pause, question, and separate truth from noise. So instead of blindly accepting what…",
-        "ogType": "article"
+        "canonical": "/blog/critical-thinking-secret-weapon-rebellious-aging",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -791,15 +947,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #21: The Ultra-Processed Trap: Eat Whole, Live Whole",
         "description": "Did you know that more than HALF of the average American diet comes from ultra-processed food? 70-73% of the U.S. food supply is classified as…",
-        "ogType": "article"
+        "canonical": "/blog/ultra-processed-trap-eat-whole-live-whole",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -810,15 +970,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #22: If Not Now, When? New Beginnings are up to YOU",
         "description": "Have you ever scrolled through your feed when a phrase suddenly grabs you by the collar? \"If not now, when?\" stopped me cold. How many women are quietly…",
-        "ogType": "article"
+        "canonical": "/blog/if-not-now-when-new-beginnings",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -829,15 +993,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #23: Optimal Aging: As Seen Through the Lens of Princeton Professor Colleen Murphy",
         "description": "A conversation between journalist Paul Von Zielbauer and Princeton Professor Colleen Murphy distilled the science of aging into practical, myth-busting…",
-        "ogType": "article"
+        "canonical": "/blog/optimal-aging-colleen-murphy",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -848,15 +1016,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #24: Calorie Density: The Secret That Seals the Deal",
         "description": "Managing weight doesn't have to be an uphill climb. When you choose the right foods, your body naturally regulates weight. The key is calorie density -…",
-        "ogType": "article"
+        "canonical": "/blog/calorie-density-secret-seals-deal",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -867,15 +1039,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #25: Let's Continue the Conversation: Join The PRIVATE, Rebellious Aging Facebook Group",
         "description": "Step into a private Facebook community where women 55-105 gather to share stories, support, and the courage to live vibrantly while eating powerfully,…",
-        "ogType": "article"
+        "canonical": "/blog/join-rebellious-aging-facebook-group",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -886,15 +1062,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #26: Strength and Balance for the Win!",
         "description": "As we age, movement becomes about confidence, balance, and extending our health span; strength and steady footing keep us vibrant.",
-        "ogType": "article"
+        "canonical": "/blog/strength-and-balance-for-the-win",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -905,15 +1085,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #27: Style Still Counts, Make it Yours at Every Age",
         "description": "Style has no expiration date - declutter with purpose, invest in flattering pieces, and embrace elegance that reflects your rebellious spirit.",
-        "ogType": "article"
+        "canonical": "/blog/style-still-counts-make-it-yours-at-every-age",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -924,15 +1108,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #28: Following the Science (and Your Common Sense)",
         "description": "Cut through nutrition confusion with curiosity, credible mentors like Dr. Campbell and Dr. Esselstyn, and your own common sense.",
-        "ogType": "article"
+        "canonical": "/blog/following-the-science-and-your-common-sense",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -943,15 +1131,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #29: Graceful? Maybe. Rebellious? Definitely.",
         "description": "Let go of optional movement, 25-year-old eating, people pleasing, comparisons, bottled emotions, and grudges so your next decades feel bold, conscious,…",
-        "ogType": "article"
+        "canonical": "/blog/graceful-maybe-rebellious-definitely",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -962,15 +1154,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #30: How the Food Supply Stacks the Deck Against You!",
         "description": "Shift from self-blame to awareness as UPFs, engineered calories, and system-level incentives fuel weight gain—and learn small steps to reclaim agency.",
-        "ogType": "article"
+        "canonical": "/blog/how-the-food-supply-stacks-the-deck-against-you",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -981,15 +1177,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #31: Losing Weight Without Losing Your Sparkle",
         "description": "Discover how a Whole Food Plant Based lifestyle delivers natural weight loss, steady energy, and confidence without calorie counting or deprivation.",
-        "ogType": "article"
+        "canonical": "/blog/losing-weight-without-losing-your-sparkle",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1000,15 +1200,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #32: Retirement! Fade or Focus",
         "description": "Learn how to prepare emotionally, mentally, and practically for retirement so you trade fading away for focused reinvention, connection, and purpose.",
-        "ogType": "article"
+        "canonical": "/blog/retirement-fade-or-focus",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1019,15 +1223,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #33: Plants Do NOT Disappoint",
         "description": "Why whole, unprocessed plants never disappoint and how welcoming more of them into your kitchen sparks honest nourishment at any age.",
-        "ogType": "article"
+        "canonical": "/blog/plants-do-not-disappoint",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1038,15 +1246,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #34: Motion is Not Negotiable",
         "description": "Discover why motion stays non-negotiable for Suz and how simple, steady routines keep bodies strong, sharp, and joyful at any age.",
-        "ogType": "article"
+        "canonical": "/blog/motion-is-not-negotiable",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1057,15 +1269,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #35: Lifestyle Medicine: The Six Pillars",
         "description": "Explore the six Lifestyle Medicine pillars from ACLM and how simple daily habits power food-as-medicine, movement, rest, calm, community, and safer…",
-        "ogType": "article"
+        "canonical": "/blog/lifestyle-medicine-six-pillars",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1076,15 +1292,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #37: 7 Day Balance Challenge",
         "description": "Follow Suz’s 7-day balance challenge—stand, walk, shift, and steady yourself with simple daily drills for lifelong stability.",
-        "ogType": "article"
+        "canonical": "/blog/seven-day-balance-challenge",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1095,15 +1315,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #38: The Pleasure Trap (Why it is NOT Your Fault)",
         "description": "Learn how The Pleasure Trap explains cravings, why willpower isn’t broken, and how whole foods plus gentle routines reset biology at any age.",
-        "ogType": "article"
+        "canonical": "/blog/the-pleasure-trap-why-it-is-not-your-fault",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1114,15 +1338,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #39: B12, The Little Vitamin With A Big Job",
         "description": "Dr. Greger’s B12 guidance explained: spot deficiency signs, choose cyanocobalamin, and test smarter so aging boldly never runs on empty.",
-        "ogType": "article"
+        "canonical": "/blog/b12-the-little-vitamin-with-a-big-job",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1133,15 +1361,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
-        "title": "Blog #40: The Secret Strength of Rest Days, Why Pausing Makes You Powerful",
-        "description": "Learn why women 55+ need intentional rest days to prevent injury, sharpen balance, and stay motivated in the Rebellious Aging movement.",
-        "ogType": "article"
+        "title": "Blog #59: The Secret Strength of Rest Days and Why Pausing Makes You Powerful",
+        "description": "The truth that can feel counterintuitive: rest is not quitting. Learn how intentional pauses help women 55+ stay stronger, healthier, and more motivated.",
+        "canonical": "/blog/the-secret-strength-of-rest-days",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1152,15 +1384,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #41: The 15 Second Shock, Why Food Matters",
         "description": "Every 15 seconds a new cancer diagnosis lands - here is why food, movement, and choosing whole plants give you influence over your health span.",
-        "ogType": "article"
+        "canonical": "/blog/the-15-second-shock-why-food-matters",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1171,15 +1407,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #42: The Quiet Magic of Consistency",
         "description": "Discover how small, repeated choices around plants, movement, style, and self-compassion create rebellious results after 55.",
-        "ogType": "article"
+        "canonical": "/blog/the-quiet-magic-of-consistency",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1190,15 +1430,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #43: The Weekend Epiphany, Why Resting is the New Rebellion",
         "description": "Reclaim weekends as rebellion—listen to your body, set boundaries with rest, and let joy-filled pauses fuel a vibrant life.",
-        "ogType": "article"
+        "canonical": "/blog/the-weekend-epiphany-why-resting-is-the-new-rebellion",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1209,15 +1453,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #44: Thanksgiving Recipes",
         "description": "Plantstrong Thanksgiving favorites with Ann Esselstyn’s mashed potatoes and gravy, sweet potato casserole, super salad, pumpkin pie tart, stuffing, and…",
-        "ogType": "article"
+        "canonical": "/blog/thanksgiving-recipes-plantstrong-favorites",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1228,15 +1476,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #45: When Joy and Sorrow Share a Seat at the Table",
         "description": "Suz reflects on holidays after loss, how tears are love in motion, and why joy and sorrow can share space without canceling each other out.",
-        "ogType": "article"
+        "canonical": "/blog/when-joy-and-sorrow-share-a-seat-at-the-table",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1247,15 +1499,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #46: Passing the Baton, A Thanksgiving Reflection",
         "description": "Suz reflects on passing the Thanksgiving hosting legacy to her daughter, embracing change while keeping gratitude and warmth at the heart of the holiday.",
-        "ogType": "article"
+        "canonical": "/blog/passing-the-baton-thanksgiving-reflection",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1266,15 +1522,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #47: Time is Calling. Are You Listening?",
         "description": "Suz invites rebels 55+ to honor time as a teacher—choose joy, use your voice, invest in health, and align daily actions with what matters most.",
-        "ogType": "article"
+        "canonical": "/blog/time-is-calling-are-you-listening",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1285,15 +1545,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #48: The Original Rebellious Ager, Diane Keaton",
         "description": "Learn Diane Keaton’s rebel style playbook—signature looks, bold accessories, sharp tailoring, and humor—so you can own your lane at any age.",
-        "ogType": "article"
+        "canonical": "/blog/the-original-rebellious-ager-diane-keaton",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1304,15 +1568,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #49: A Rebellious Aging Guide to Dressing Like YOU Mean It",
         "description": "A rebellious aging style manifesto: wear what makes your soul hum, refuse invisibility, and blend comfort with bold expression without apology.",
-        "ogType": "article"
+        "canonical": "/blog/a-rebellious-aging-guide-to-dressing-like-you-mean-it",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1323,15 +1591,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #50: When the Voice Gets Loud/ A Rebellious Aging Reflection on Limiting Beliefs",
         "description": "Limiting beliefs shout loudly at any age—learn how to move before fear freezes you, borrow courage from Brene Brown and Mel Robbins, and choose new…",
-        "ogType": "article"
+        "canonical": "/blog/when-the-voice-gets-loud-limiting-beliefs",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1342,15 +1614,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #51: Beginning Again. A Gentle Reminder for the Year Ahead",
         "description": "A gentle rebellion for the new year: begin without hustle, listen inward, and treat aging as a relationship with time, not a race.",
-        "ogType": "article"
+        "canonical": "/blog/beginning-again-gentle-reminder-year-ahead",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1361,15 +1637,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #52: Meet Enzo: A Collaboration Across Generations",
         "description": "Meet Enzo Sison and the cross-generational partnership that turns Rebellious Aging ideas into grounded, meaningful work.",
-        "ogType": "article"
+        "canonical": "/blog/meet-enzo-collaboration-across-generations",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1380,15 +1660,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #53: The Protein Panic: Are We Really Not Getting Enough?",
         "description": "The protein panic is overblown. Most adults already meet protein needs, especially with a balanced, calorie-adequate plant-forward diet.",
-        "ogType": "article"
+        "canonical": "/blog/protein-panic-are-we-really-not-getting-enough",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1399,15 +1683,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #54: Unapologetic Style: What If 2026 is the Year You Stop Asking Permission",
         "description": "Unapologetic style for 2026: stop asking permission, embrace color, confident statements, and fashion that matches your inner energy.",
-        "ogType": "article"
+        "canonical": "/blog/unapologetic-style-2026-stop-asking-permission",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1418,15 +1706,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #55: I Don’t Need to be Perfect. I Just Need to Keep Going",
         "description": "A rebellious reminder that confidence does not require perfection—just the courage to keep going, stay with yourself, and take one honest step at a time.",
-        "ogType": "article"
+        "canonical": "/blog/i-dont-need-to-be-perfect-i-just-need-to-keep-going",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1437,15 +1729,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #56: Thrifting as a Quiet Act of Rebellion",
         "description": "Thrifting is a thoughtful style rebellion that values story, craftsmanship, sustainability, and intentional choices over fast fashion pressure.",
-        "ogType": "article"
+        "canonical": "/blog/thrifting-as-a-quiet-act-of-rebellion",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1456,15 +1752,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #57: Aging Myths, Self Doubt and Oatmeal: Lessons From an Offhand Comment",
         "description": "A reminder to challenge nutrition myths, trust credible evidence, and protect your confidence from random opinions and fear-based noise.",
-        "ogType": "article"
+        "canonical": "/blog/aging-myths-self-doubt-oatmeal-lessons",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1475,15 +1775,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #58: What Happens to Vegetables After Harvest? After You Chop Them?",
         "description": "How nutrient retention really works after harvest: what declines quickly, what stays stable, and practical ways to keep vegetables nourishing.",
-        "ogType": "article"
+        "canonical": "/blog/what-happens-to-vegetables-after-harvest",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1494,15 +1798,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
         "description",
+        "image",
         "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blog #60: Prime, Not Past It",
         "description": "A practical 10-point style guide to look intentional and alive at every age: structure, color, fit, editing, posture, and presence.",
-        "ogType": "article"
+        "canonical": "/blog/prime-not-past-it-refuse-invisibility",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1513,13 +1821,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Orange Mango Bean Salad",
-        "description": "A refreshing and nutritious salad combining cannellini beans with tropical fruits and fresh mint."
+        "description": "A refreshing and nutritious salad combining cannellini beans with tropical fruits and fresh mint.",
+        "canonical": "/recipes/orange-mango-bean-salad",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1530,13 +1844,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Kale and Red Cabbage Salad with Apples and Dried Cherries",
-        "description": "A nutrient-dense salad by Dr. Joel Fuhrman featuring massaged kale and fresh fruits."
+        "description": "A nutrient-dense salad by Dr. Joel Fuhrman featuring massaged kale and fresh fruits.",
+        "canonical": "/recipes/kale-and-red-cabbage-salad-with-apples-and-dried-cherries",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1547,13 +1867,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Big Bean Barley and Sweet Potato Soup",
-        "description": "A hearty, company-worthy soup that's absolutely delicious and nutritious."
+        "description": "A hearty, company-worthy soup that's absolutely delicious and nutritious.",
+        "canonical": "/recipes/big-bean-barley-and-sweet-potato-soup",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1564,13 +1890,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Blueberry Muffins",
-        "description": "Heart-healthy muffins from \"Prevent and Reverse Heart Disease\" - perfect for breakfast or snacks."
+        "description": "Heart-healthy muffins from \"Prevent and Reverse Heart Disease\" - perfect for breakfast or snacks.",
+        "canonical": "/recipes/blueberry-muffins",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1581,13 +1913,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "3-2-1 Salad Dressing",
-        "description": "A simple and delicious oil-free salad dressing by Jane and Anne Esselstyn."
+        "description": "A simple and delicious oil-free salad dressing by Jane and Anne Esselstyn.",
+        "canonical": "/recipes/3-2-1-salad-dressing",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1598,13 +1936,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Mint Chocolate Mousse Torte",
-        "description": "A healthier version of the Frango Mint Pie - elegant, dense, rich, and absolutely delicious. Perfect for entertaining."
+        "description": "A healthier version of the Frango Mint Pie - elegant, dense, rich, and absolutely delicious. Perfect for entertaining.",
+        "canonical": "/recipes/mint-chocolate-mousse-torte",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1615,13 +1959,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Lo Mein Noodle Sauce",
-        "description": "A healthy version of lo mein sauce with toasted sesame seeds and walnuts, perfect with brown rice noodles."
+        "description": "A healthy version of lo mein sauce with toasted sesame seeds and walnuts, perfect with brown rice noodles.",
+        "canonical": "/recipes/lo-mein-noodle-sauce",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1632,13 +1982,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "McDougall Wellness Soup",
-        "description": "A nourishing vegetable soup with nutritional yeast and seasonings, perfect for a comforting meal."
+        "description": "A nourishing vegetable soup with nutritional yeast and seasonings, perfect for a comforting meal.",
+        "canonical": "/recipes/mcdougall-wellness-soup",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1649,13 +2005,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Hummus",
-        "description": "A classic hummus recipe with chickpeas, tahini, and aquafaba for the perfect creamy texture."
+        "description": "A classic hummus recipe with chickpeas, tahini, and aquafaba for the perfect creamy texture.",
+        "canonical": "/recipes/hummus",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1666,13 +2028,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Five Ingredient Veggie Burger",
-        "description": "Simple black bean burgers with only five main ingredients, perfect for a quick and satisfying meal."
+        "description": "Simple black bean burgers with only five main ingredients, perfect for a quick and satisfying meal.",
+        "canonical": "/recipes/five-ingredient-veggie-burger",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1683,13 +2051,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Spinach and Avocado Dip",
-        "description": "A delicious and nutritious dip with spinach, avocado, and seasonings - perfect with fresh veggies or chips."
+        "description": "A delicious and nutritious dip with spinach, avocado, and seasonings - perfect with fresh veggies or chips.",
+        "canonical": "/recipes/spinach-and-avocado-dip",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1700,13 +2074,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Super Salad",
-        "description": "Dr. Esselstyn's favorite superfood salad with kale, Napa cabbage, and Jane's 3-2-1 dressing."
+        "description": "Dr. Esselstyn's favorite superfood salad with kale, Napa cabbage, and Jane's 3-2-1 dressing.",
+        "canonical": "/recipes/super-salad",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1717,13 +2097,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Vegan Cabbage Soup",
-        "description": "A light, flavorful detoxing soup that comes together in less than 40 minutes using simple WFPB ingredients."
+        "description": "A light, flavorful detoxing soup that comes together in less than 40 minutes using simple WFPB ingredients.",
+        "canonical": "/recipes/vegan-cabbage-soup",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1734,13 +2120,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Sweet Holy Deliciousness Soup",
-        "description": "A comforting soup with lentils, sweet potatoes, and kale that can be served over whole grains."
+        "description": "A comforting soup with lentils, sweet potatoes, and kale that can be served over whole grains.",
+        "canonical": "/recipes/sweet-holy-deliciousness-soup",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1751,13 +2143,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Suz's Polish Babcia's Noodle Soup",
-        "description": "A comforting vegan noodle soup with Suz's personal Polish touches that tastes like \"chicken\" noodle soup."
+        "description": "A comforting vegan noodle soup with Suz's personal Polish touches that tastes like \"chicken\" noodle soup.",
+        "canonical": "/recipes/suz-s-polish-babcia-s-noodle-soup",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1768,13 +2166,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "No Tuna Salad Sandwich",
-        "description": "A vegan version of tuna salad using chickpeas with extra tang and flavor from pickles and capers."
+        "description": "A vegan version of tuna salad using chickpeas with extra tang and flavor from pickles and capers.",
+        "canonical": "/recipes/no-tuna-salad-sandwich",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1785,13 +2189,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Vegan Taco Bowl",
-        "description": "A colorful and nutritious taco bowl with seasoned tofu, fresh vegetables, and a creamy yogurt-based dressing."
+        "description": "A colorful and nutritious taco bowl with seasoned tofu, fresh vegetables, and a creamy yogurt-based dressing.",
+        "canonical": "/recipes/vegan-taco-bowl",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1802,13 +2212,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Raw Blueberry Cheesecake",
-        "description": "An elegant raw dessert with a nutty oat crust and creamy cashew-blueberry filling that's naturally sweetened."
+        "description": "An elegant raw dessert with a nutty oat crust and creamy cashew-blueberry filling that's naturally sweetened.",
+        "canonical": "/recipes/raw-blueberry-cheesecake",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1819,13 +2235,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Avocado Black Bean Corn Salad",
-        "description": "A fresh and vibrant salad combining black beans, corn, tomatoes, and avocado with a zesty lime dressing."
+        "description": "A fresh and vibrant salad combining black beans, corn, tomatoes, and avocado with a zesty lime dressing.",
+        "canonical": "/recipes/avocado-black-bean-corn-salad",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1836,13 +2258,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Avocado Caprese Salad",
-        "description": "A twist on the classic Caprese salad, substituting avocado for mozzarella with fresh tomatoes and basil."
+        "description": "A twist on the classic Caprese salad, substituting avocado for mozzarella with fresh tomatoes and basil.",
+        "canonical": "/recipes/avocado-caprese-salad",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1853,13 +2281,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Marinara Sauce",
-        "description": "Mary McDougall's simple and healthy marinara sauce that's been a family favorite for over thirty years."
+        "description": "Mary McDougall's simple and healthy marinara sauce that's been a family favorite for over thirty years.",
+        "canonical": "/recipes/marinara-sauce",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1870,13 +2304,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Jalapeño and Corn Muffins",
-        "description": "Savory muffins packed with vegetables, jalapeños, and corn - perfect for breakfast or as a side dish."
+        "description": "Savory muffins packed with vegetables, jalapeños, and corn - perfect for breakfast or as a side dish.",
+        "canonical": "/recipes/jalape-o-and-corn-muffins",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1887,13 +2327,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Vegan Banana Bread",
-        "description": "A wholesome banana bread made with oat flour and flax seeds - perfectly moist and naturally sweetened."
+        "description": "A wholesome banana bread made with oat flour and flax seeds - perfectly moist and naturally sweetened.",
+        "canonical": "/recipes/vegan-banana-bread",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1904,13 +2350,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Chef Aj's Oatmeal Cookies",
-        "description": "Simple and healthy oatmeal cookies made with just 4 ingredients - no oil, sugar, or flour needed!"
+        "description": "Simple and healthy oatmeal cookies made with just 4 ingredients - no oil, sugar, or flour needed!",
+        "canonical": "/recipes/chef-aj-s-oatmeal-cookies",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1921,13 +2373,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Vegan Peanut Butter Cup Blizzard",
-        "description": "A delicious frozen treat that combines peanut butter crumbles with chocolate nice cream for the perfect healthy dessert."
+        "description": "A delicious frozen treat that combines peanut butter crumbles with chocolate nice cream for the perfect healthy dessert.",
+        "canonical": "/recipes/vegan-peanut-butter-cup-blizzard",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1938,13 +2396,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Ann's Open Faced Twice Baked Potatoes",
-        "description": "Delicious twice-baked potatoes loaded with nutritional yeast, kale, and a savory onion-garlic mixture."
+        "description": "Delicious twice-baked potatoes loaded with nutritional yeast, kale, and a savory onion-garlic mixture.",
+        "canonical": "/recipes/ann-s-open-faced-twice-baked-potatoes",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1955,13 +2419,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Taco Bar",
-        "description": "A customizable taco bar with fresh vegetables, beans, and optional chorizo tempeh/tofu for a complete plant-based meal."
+        "description": "A customizable taco bar with fresh vegetables, beans, and optional chorizo tempeh/tofu for a complete plant-based meal.",
+        "canonical": "/recipes/taco-bar",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1972,13 +2442,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Intro to a Buddha Bowl (Rebel Remix)",
-        "description": "At Rebellious Aging we do not, do bland. A Buddha Bowl is anything but. It's a bold, beautiful burst of color and confidence in a bowl. Created by you in…"
+        "description": "At Rebellious Aging we do not, do bland. A Buddha Bowl is anything but. It's a bold, beautiful burst of color and confidence in a bowl. Created by you in…",
+        "canonical": "/recipes/intro-to-a-buddha-bowl-rebel-remix",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -1989,13 +2465,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Oil Free Hummus",
-        "description": "A creamy, oil-free hummus made with chickpeas, tahini, and nutritional yeast for a healthy plant-based dip. The optional cashews add extra creaminess."
+        "description": "A creamy, oil-free hummus made with chickpeas, tahini, and nutritional yeast for a healthy plant-based dip. The optional cashews add extra creaminess.",
+        "canonical": "/recipes/oil-free-hummus",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {
@@ -2006,13 +2488,19 @@
       "hasDescription": true,
       "computedKeys": [
         "path",
+        "canonical",
         "title",
-        "description"
+        "description",
+        "image",
+        "ogType"
       ],
       "issues": [],
       "metadata": {
         "title": "Asian Chopped Salad with Sesame Ginger Dressing",
-        "description": "A fresh, crunchy salad with crisp vegetables and a flavorful sesame ginger dressing that brings Asian-inspired flavors to your table."
+        "description": "A fresh, crunchy salad with crisp vegetables and a flavorful sesame ginger dressing that brings Asian-inspired flavors to your table.",
+        "canonical": "/recipes/asian-chopped-salad-with-sesame-ginger-dressing",
+        "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     }
   ]

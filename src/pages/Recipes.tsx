@@ -243,7 +243,7 @@ const Recipes = () => {
                 >
                   <span>{category.icon}</span>
                   <span>{category.name}</span>
-                  <span className="ml-1 text-xs bg-white/20 px-1.5 py-0.5 rounded-full">
+                  <span className="ml-1 text-xs px-1.5 py-0.5 rounded-full bg-white/30 text-gray-900">
                     {category.id === 'all'
                       ? recipes.length
                       : recipes.filter((recipe) => recipe.category === category.id).length}
