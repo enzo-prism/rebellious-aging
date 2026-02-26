@@ -77,15 +77,6 @@ const Header = () => {
           >
             Home
           </Link>
-          <a
-            href={FACEBOOK_GROUP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-link"
-            onClick={handleFacebookGroupNavigation}
-          >
-            Facebook Group
-          </a>
           <Link 
             href="/blog" 
             className={`nav-link ${isActivePath(pathname, '/blog') ? 'active-nav-link' : ''}`}
@@ -98,6 +89,15 @@ const Header = () => {
           >
             Recipes
           </Link>
+          <a
+            href={FACEBOOK_GROUP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-link"
+            onClick={handleFacebookGroupNavigation}
+          >
+            Facebook Group
+          </a>
 
           <DropdownMenu>
             <DropdownMenuTrigger className="nav-link inline-flex items-center">
