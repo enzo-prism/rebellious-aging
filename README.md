@@ -134,6 +134,7 @@ This repository is now the primary source of truth for the live site:
 - Production site: https://rebelwithsuz.com
 - Vercel project: `ra-nextjs` (team `enzo-design-prisms-projects`)
 - Retired legacy repo: https://github.com/enzo-prism/age-boldly-vibrantly
+- Current migration + verification runbook: `docs/migration-and-google-operations-2026.md`
 
 Current deployment model:
 
@@ -155,6 +156,15 @@ gh repo view enzo-prism/age-boldly-vibrantly --json isArchived,url,defaultBranch
 vercel whoami
 vercel project ls --scope enzo-design-prisms-projects --format json
 vercel env ls
+```
+
+Post-deploy verification snapshot (Feb 26, 2026):
+
+```text
+- `gh repo view enzo-prism/rebellious-aging` confirms active source-of-truth repo
+- `gh repo view enzo-prism/age-boldly-vibrantly` confirms legacy repo is still reachable
+- `vercel env ls` shows production GA vars are present
+- `vercel aliases ls --scope enzo-design-prisms-projects` shows rebelwithsuz.com points to ra-nextjs
 ```
 
 Recommended setup commands:

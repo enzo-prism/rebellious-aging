@@ -9,6 +9,7 @@
 - **Build/Release:** `npm run build` runs `npm run sitemap`, `npm run build:search`, `next build`, and `npm run prerender` (audit validation).
 - **Analytics/Embeds:** GA, Hotjar, and GPT Engineer toggled via environment flags and inserted in `src/app/layout.tsx` via `next/script`.
 - **SEO Ops Guide:** `docs/seo-best-practices-nextjs-vercel-2026.md` documents the current Search Console + deployment operating model.
+- **Migration + Ownership:** `docs/migration-and-google-operations-2026.md` tracks repo migration state and command-level verification.
 
 ## Routing & Features
 - **Entry/structure:** `app/layout.tsx` provides global providers and layout chrome; page UIs remain in `src/pages`.
