@@ -1,9 +1,0 @@
-{
-  "redirects": [
-    {
-      "source": "/pillars/longevity",
-      "destination": "/pillars/health",
-      "statusCode": 301
-    }
-  ]
-}

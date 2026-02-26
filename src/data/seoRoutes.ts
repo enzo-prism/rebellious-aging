@@ -4,6 +4,7 @@ export interface SeoRouteConfig {
   description: string;
   ogType?: 'website' | 'article';
   image?: string;
+  noindex?: boolean;
 }
 
 export const seoRoutes: SeoRouteConfig[] = [
@@ -90,12 +91,14 @@ export const seoRoutes: SeoRouteConfig[] = [
     title: 'Search Rebellious Aging',
     description:
       'Search pillars, nutrition guides, blog posts, and videos to find exactly what you need on Rebellious Aging.',
+    noindex: true,
   },
   {
     path: '/404',
     title: 'Page Not Found',
     description:
       'This page has gone rogue. Head back to the pillars, blog, or nutrition guide to keep aging rebelliously.',
+    noindex: true,
   },
   {
     path: '/pillars/confidence',

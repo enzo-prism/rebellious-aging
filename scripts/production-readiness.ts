@@ -175,7 +175,7 @@ const checkSearchIndex = () => {
 };
 
 const buildExpectedPaths = () => {
-  const staticPaths = seoRoutes.map((route) => route.path);
+  const staticPaths = seoRoutes.filter((route) => !route.noindex).map((route) => route.path);
   const blogPaths = blogPosts.map((post) => `/blog/${post.id}`);
   const recipePaths = recipes.map((recipe) => `/recipes/${slugifyRecipeTitle(recipe.title)}`);
   const pillarPaths = Object.keys(pillarContent).map((id) => `/pillars/${id}`);

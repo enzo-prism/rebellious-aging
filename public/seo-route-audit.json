@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-26T03:35:16.120Z",
+  "generatedAt": "2026-02-26T20:27:06.203Z",
   "totalRoutes": 107,
   "validRoutes": 107,
   "failedRoutes": 0,
@@ -350,7 +350,7 @@
         "description": "Search pillars, nutrition guides, blog posts, and videos to find exactly what you need on Rebellious Aging.",
         "canonical": "/search",
         "ogType": "website",
-        "noindex": false,
+        "noindex": true,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -375,7 +375,7 @@
         "description": "This page has gone rogue. Head back to the pillars, blog, or nutrition guide to keep aging rebelliously.",
         "canonical": "/404",
         "ogType": "website",
-        "noindex": false,
+        "noindex": true,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },

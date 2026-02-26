@@ -18,6 +18,7 @@ const baseUrl = new URL(siteMetadata.baseUrl);
 const enableAnalytics = process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === 'true';
 const gaId = process.env.NEXT_PUBLIC_GA_ID;
 const hotjarId = process.env.NEXT_PUBLIC_HOTJAR_ID;
+const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
 const enableGptEngineer = process.env.NEXT_PUBLIC_ENABLE_GPTENGINEER === 'true';
 
 export const metadata: Metadata = {
@@ -44,6 +45,13 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: siteMetadata.twitterHandle,
   },
+  ...(googleSiteVerification
+    ? {
+        verification: {
+          google: googleSiteVerification,
+        },
+      }
+    : {}),
 };
 
 export function generateViewport(): Viewport {

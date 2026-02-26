@@ -14,7 +14,8 @@ export const generateMetadata = (): Metadata => {
       title: 'Search Rebellious Aging',
       description:
         'Search pillars, nutrition guides, blog posts, and videos to find exactly what you need on Rebellious Aging.',
-    }
+    },
+    { noindex: true }
   );
 };
 

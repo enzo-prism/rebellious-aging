@@ -30,6 +30,7 @@ const resolvePostMeta = (postId: string) => {
     description: buildMetaDescription(post.seoDescription, post.excerpt),
     image: siteMetadata.defaultSocialImage,
     ogType: 'article' as const,
+    publishedTime: post.date,
   };
 };
 

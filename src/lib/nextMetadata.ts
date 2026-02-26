@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import { buildMetaDescription } from './seo';
 import { resolveAbsoluteUrl } from './seo';
 import { siteMetadata } from './siteMetadata';
 import type { RouteMeta } from './routeMetadata';
@@ -15,6 +16,7 @@ export type MetadataOverrides = {
   canonical?: string;
   noindex?: boolean;
   ogType?: 'website' | 'article';
+  publishedTime?: string;
 };
 
 const resolveCanonical = (path?: string, canonical?: string) => {
@@ -39,22 +41,35 @@ const buildTwitterMetadata = (title: string, description: string, image?: string
 
 export const buildMetadata = (meta: RouteMetadataInput, overrides: MetadataOverrides = {}): Metadata => {
   const title = overrides.title ?? meta.title;
-  const description = overrides.description ?? meta.description;
+  const description = buildMetaDescription(overrides.description ?? meta.description);
+  const publishedTime = overrides.publishedTime;
   const ogType = overrides.ogType ?? meta.ogType ?? 'website';
   const canonical = resolveCanonical(overrides.path ?? meta.canonical ?? meta.path, overrides.canonical);
   const image = overrides.image ?? meta.image ?? siteMetadata.defaultSocialImage;
   const noindex = overrides.noindex ?? meta.noindex;
   const absoluteImage = resolveAbsoluteUrl(image);
+  const canonicalWithLanguage = canonical
+    ? {
+        canonical,
+        languages: {
+          'en-US': canonical,
+        },
+      }
+      : undefined;
 
   return {
     title,
     description,
     metadataBase: new URL(siteMetadata.baseUrl),
-    alternates: canonical ? { canonical } : undefined,
+    alternates: canonicalWithLanguage,
     robots: noindex
       ? {
           index: false,
           follow: false,
+          googleBot: {
+            index: false,
+            follow: false,
+          },
         }
       : undefined,
     openGraph: {
@@ -63,6 +78,7 @@ export const buildMetadata = (meta: RouteMetadataInput, overrides: MetadataOverr
       description,
       url: canonical,
       images: absoluteImage ? [{ url: absoluteImage }] : undefined,
+      ...(publishedTime ? { publishedTime } : {}),
       siteName: siteMetadata.name,
     },
     twitter: buildTwitterMetadata(title, description, absoluteImage),

@@ -199,6 +199,26 @@ npm run build
 - JSON-LD is emitted through page-level metadata helpers (`buildMetadata`) and optional schema helpers in `src/lib/nextMetadata.ts` / `src/components/seo/Seo.tsx`.
 - `scripts/prerender.tsx` runs during build as a validation step and writes route audit output to `public/seo-route-audit.json`.
 - Search and discovery pipeline runs `npm run build:search` → `public/search-index.json`.
+- `app/robots.ts` now drives crawler rules and sitemap reference (`/sitemap.xml`) via Next.js file conventions.
+- `src/data/seoRoutes.ts` supports explicit `noindex` route entries (for low-value routes like search/404).
+- Keep titles concise and distinct per page (target ~50–60 visible characters where possible) and keep descriptions accurate, unique, and user-oriented.
+- Canonical behavior is controlled from `buildMetadata` and route definitions; use 301 redirects for moved pages and keep one canonical destination.
+
+### Indexing sequence recommended for Google
+
+1. Keep route metadata and canonical values aligned between:
+   - `app/layout.tsx` (`metadataBase`, social defaults, verification)
+   - `src/lib/nextMetadata.ts` (`alternates.canonical` + robots directives)
+   - `app/sitemap.ts` + `scripts/generate-sitemap.ts` (discovery)
+2. Run:
+   - `npm run sitemap`
+   - `npm run build:search`
+   - `npm run build`
+   - `npm run prerender`
+3. Verify the updated sitemap and URL-level indexing in Search Console:
+   - Add/refresh `https://rebelwithsuz.com/sitemap.xml` in the Sitemaps report.
+   - Use URL Inspection for priority pages and confirm Google can access them (`IndexingState: INDEXING_ALLOWED`).
+   - Compare sitemap coverage against index status and fix exclusions (noindex/blocked/duplicate canonical issues).
 
 ## Production Readiness and Launch Protocol
 
@@ -242,7 +262,7 @@ Baseline launch checklist:
 ## Deployment
 
 1. `npm run build` — runs sitemap, search index, Next static export, and SEO audit.
-2. Deploy `/out` to Vercel (static output) and keep redirects/headers in `next.config.js` and/or `vercel.json`.
+2. Deploy `/out` to Vercel (static output) and keep redirects/headers in `next.config.js`.
 
 Supabase function (`submit-quiz`) can be deployed with:
 

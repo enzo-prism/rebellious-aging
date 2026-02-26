@@ -26,7 +26,7 @@ const normalizeRouteMeta = (meta: typeof seoRoutes[number]): RouteMeta => ({
   canonical: normalizeCanonicalPath(meta.path),
   image: meta.image ?? siteMetadata.defaultSocialImage,
   ogType: meta.ogType ?? 'website',
-  noindex: false,
+  noindex: meta.noindex ?? false,
 });
 
 export const getRouteMetaByPath = (path: string): RouteMeta | undefined => {
