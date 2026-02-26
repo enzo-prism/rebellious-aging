@@ -109,6 +109,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=<anon-key>
 NEXT_PUBLIC_APP_VERSION=<optional-build-version-for-search-index-cache-busting>
 NEXT_PUBLIC_ENABLE_ANALYTICS=true|false
 NEXT_PUBLIC_GA_ID=<optional-ga-id>
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=<google-site-verification-token>
 NEXT_PUBLIC_HOTJAR_ID=<optional-hotjar-id>
 NEXT_PUBLIC_ENABLE_GPTENGINEER=true|false
 ```
@@ -125,6 +126,37 @@ The Supabase Edge function expects `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY
 
 ---
 
+## Migration, Hosting, and Ownership
+
+This repository is now the primary source of truth for the live site:
+
+- Repository: https://github.com/enzo-prism/rebellious-aging
+- Production site: https://rebelwithsuz.com
+- Vercel project: `ra-nextjs` (team `enzo-design-prisms-projects`)
+
+Current deployment model:
+
+- Git branch `main` is the source branch for Vercel production.
+- Production and preview builds inherit environment variables for:
+  - `NEXT_PUBLIC_ENABLE_ANALYTICS`
+  - `NEXT_PUBLIC_GA_ID`
+  - `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` (required for Search Console verification metadata)
+
+If you change any of those values in Vercel, re-run a production deploy.
+
+Recommended setup commands:
+
+```bash
+vercel link
+vercel git connect --scope enzo-design-prisms-projects
+vercel env add NEXT_PUBLIC_ENABLE_ANALYTICS
+vercel env add NEXT_PUBLIC_GA_ID
+vercel env add NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+vercel --prod --yes --scope enzo-design-prisms-projects
+```
+
+---
+
 ## Blog Management
 
 Blog content is managed in two places:
@@ -137,8 +169,8 @@ Blog content is managed in two places:
    - Keep `<BlogPostFooter>` and share metadata parity intact.
 
 Deployment note:
-- Production URL: https://ra-nextjs-plnvlajz5-enzo-design-prisms-projects.vercel.app
-- Source-of-truth reference for content parity: https://github.com/enzo-prism/age-boldly-vibrantly
+- Production URL: https://rebelwithsuz.com
+- Source-of-truth reference for content parity: https://github.com/enzo-prism/rebellious-aging
 
 After editing blog content, run:
 
