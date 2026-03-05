@@ -32,7 +32,7 @@
   {
     "id": "page:/starter-kit",
     "type": "page",
-    "title": "Rebellious Aging Starter Kit",
+    "title": "Starter Kit",
     "path": "/starter-kit",
     "summary": "A gentle starter kit for women 55-105 to begin with Nibble, Wiggle, Dazzle, and Gratefulness in the Rebellious Aging journey.",
     "tags": [
@@ -42,7 +42,7 @@
   {
     "id": "page:/nutrition",
     "type": "page",
-    "title": "Whole-Food Plant-Based Nutrition",
+    "title": "Nutrition",
     "path": "/nutrition",
     "summary": "Explore the what, why, and how of Whole-Food, Plant-Based (WFPB) living with protocols, benefits, recipes, and expert-backed guidance.",
     "tags": [
@@ -62,7 +62,7 @@
   {
     "id": "page:/contact",
     "type": "page",
-    "title": "Contact Suz",
+    "title": "Contact",
     "path": "/contact",
     "summary": "Reach out to Suz for plant-based guidance, speaking inquiries, or personalized support on your rebellious aging journey.",
     "tags": [
@@ -72,7 +72,7 @@
   {
     "id": "page:/facebook-group",
     "type": "page",
-    "title": "Private Facebook Community",
+    "title": "Facebook Group",
     "path": "/facebook-group",
     "summary": "Join the private Rebellious Aging Facebook group for daily inspiration, accountability, and plant-strong conversation.",
     "tags": [
@@ -82,7 +82,7 @@
   {
     "id": "page:/video-series",
     "type": "page",
-    "title": "Rebel Video Series",
+    "title": "Video Series",
     "path": "/video-series",
     "summary": "Stream short, rebellious conversations with Suz covering confidence, style, whole-food living, and community.",
     "tags": [
@@ -92,7 +92,7 @@
   {
     "id": "page:/blog",
     "type": "page",
-    "title": "Rebellious Aging Blog",
+    "title": "Blog",
     "path": "/blog",
     "summary": "Catch up on Suz’s long-form reflections on gratitude, nourishment, style, mindset, and rebellious aging.",
     "tags": [
@@ -102,7 +102,7 @@
   {
     "id": "page:/recipes",
     "type": "page",
-    "title": "Rebellious Aging Recipes",
+    "title": "Recipes",
     "path": "/recipes",
     "summary": "Browse plant-powered recipes from quick weeknight meals to celebratory favorites, built for vibrant, rebellious aging.",
     "tags": [
@@ -112,7 +112,7 @@
   {
     "id": "page:/search",
     "type": "page",
-    "title": "Search Rebellious Aging",
+    "title": "Search",
     "path": "/search",
     "summary": "Search pillars, nutrition guides, blog posts, and videos to find exactly what you need on Rebellious Aging.",
     "tags": [
@@ -1781,7 +1781,7 @@
   {
     "id": "resource:resource-guide",
     "type": "resource",
-    "title": "Whole-Food, Plant-Based Resource Guide",
+    "title": "Resource Guide",
     "path": "/pillars/health/resource-guide",
     "summary": "A curated library of documentaries, books, cookbooks, websites, and talks to explore WFPB living at your own pace.",
     "tags": [
@@ -1794,7 +1794,7 @@
   {
     "id": "pillar:gratitude",
     "type": "pillar",
-    "title": "Gratitude Pillar",
+    "title": "Gratitude",
     "path": "/pillars/gratitude",
     "summary": "Discover how gratitude becomes a rebellious daily practice that fuels joy, resilience, and purpose in every season of life.",
     "tags": [

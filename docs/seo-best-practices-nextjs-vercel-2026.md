@@ -12,6 +12,11 @@ This project is a static-exported Next.js App Router site. SEO should be treated
   - A unique description (`<meta name="description">`) and avoid duplicated summaries.
   - A canonical URL resolved to the final HTTPS route.
   - Open Graph and Twitter card fields populated consistently.
+- Keep titles simple and readable:
+  - homepage: `rebelwithsuz.com`
+  - static routes: short labels like `Blog`, `Recipes`, `Welcome Letter`
+  - dynamic content routes: the content title itself
+  - do not append a global site-name suffix
 - Keep `robots.txt` explicit and minimal:
   - Block only private/admin areas you truly want hidden.
   - Do not rely on unsupported regex-like entries in broad bots lists.
@@ -28,10 +33,11 @@ This project is a static-exported Next.js App Router site. SEO should be treated
 
 - Route metadata source of truth: `src/data/seoRoutes.ts`
 - Build-time metadata composer: `src/lib/nextMetadata.ts`
-- Route-driven metadata coverage check: `scripts/prerender.tsx`
+- Route-driven metadata coverage check: `scripts/prerender.tsx` (audit only, no HTML mutation)
 - Runtime sitemap: `app/sitemap.ts`
 - Generated sitemap artifact: `scripts/generate-sitemap.ts` -> `public/sitemap.xml`
 - SEO audit output: `public/seo-route-audit.json`
+- Implementation reference: `docs/seo-metadata-implementation.md`
 
 Current hardening already in place:
 - `noindex` pages return crawler-restricted metadata (`index: false, follow: false`).
@@ -80,6 +86,8 @@ npm run build:search
 npm run build
 vercel --prod --yes
 ```
+
+Note: `npm run build` is sufficient to emit updated title tags and meta descriptions. `npm run prerender` is already included there as a validation pass.
 
 After deploy:
 

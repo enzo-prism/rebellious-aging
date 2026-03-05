@@ -3,7 +3,7 @@
 This project uses a codified readiness gate before public launch.
 
 ## What it validates
-- Route and content integrity via build-time prerender and route matrix checks.
+- Route and content integrity via build-time metadata audit (`npm run prerender`) and route matrix checks.
 - SEO coverage (`public/sitemap.xml`, `public/search-index.json`, `public/seo-route-audit.json`).
 - Component/unit coverage for metadata, search, pages, and key layout primitives.
 - Browser readiness for route rendering, command palette/search behavior, resilience states, and keyboard/accessibility checks.
@@ -14,7 +14,7 @@ This project uses a codified readiness gate before public launch.
 ## Required execution commands
 - `npm run readiness:assets` – rebuild generated SEO/search assets and readiness report.
 - `npm run lint` – lint + type-checked script quality.
-- `npm run build` – full Next static export flow including prerender.
+- `npm run build` – full Next static export flow including sitemap generation, search index generation, static export, and metadata audit.
 - `npm run test:unit` – unit + component checks.
 - `npm run test:e2e:readiness` – browser readiness checks.
 - `npm run readiness:verify` – full readiness pipeline (all above).

@@ -23,7 +23,7 @@ export const buildSeoTitle = (pageTitle?: string) => {
     return siteMetadata.name;
   }
 
-  return `${pageTitle} | ${siteMetadata.name}`;
+  return pageTitle;
 };
 
 export const buildMetaDescription = (description?: string, fallback?: string) => {

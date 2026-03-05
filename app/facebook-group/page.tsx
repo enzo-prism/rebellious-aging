@@ -10,7 +10,7 @@ export const generateMetadata = (): Metadata => {
   return buildMetadata(
     routeMeta ?? {
       path: '/facebook-group',
-      title: 'Private Facebook Community',
+      title: 'Facebook Group',
       description:
         'Join the private Rebellious Aging Facebook group for daily inspiration, accountability, and plant-strong conversation.',
     }

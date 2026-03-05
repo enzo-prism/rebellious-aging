@@ -10,7 +10,7 @@ export const generateMetadata = (): Metadata => {
   return buildMetadata(
     routeMeta ?? {
       path: '/pillars/health/resource-guide',
-      title: 'Whole-Food, Plant-Based Resource Guide',
+      title: 'Resource Guide',
       description:
         'A curated library of documentaries, books, cookbooks, websites, and talks to explore WFPB living at your own pace.',
     }

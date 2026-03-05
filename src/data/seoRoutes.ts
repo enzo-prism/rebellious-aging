@@ -28,25 +28,25 @@ export const seoRoutes: SeoRouteConfig[] = [
   },
   {
     path: '/starter-kit',
-    title: 'Rebellious Aging Starter Kit',
+    title: 'Starter Kit',
     description:
       'A gentle starter kit for women 55-105 to begin with Nibble, Wiggle, Dazzle, and Gratefulness in the Rebellious Aging journey.',
   },
   {
     path: '/nutrition',
-    title: 'Whole-Food Plant-Based Nutrition',
+    title: 'Nutrition',
     description:
       'Explore the what, why, and how of Whole-Food, Plant-Based (WFPB) living with protocols, benefits, recipes, and expert-backed guidance.',
   },
   {
     path: '/pillars/health/nutrition-guide',
-    title: 'Whole-Food, Plant-Based Guide',
+    title: 'Nutrition Guide',
     description:
       'Dive into what to eat, what to crowd out, and how to read labels like a rebel with a printable WFPB roadmap for rebellious agers.',
   },
   {
     path: '/pillars/health/resource-guide',
-    title: 'Whole-Food, Plant-Based Resource Guide',
+    title: 'Resource Guide',
     description:
       'A curated library of documentaries, books, cookbooks, websites, and talks to explore WFPB living at your own pace.',
   },
@@ -58,37 +58,37 @@ export const seoRoutes: SeoRouteConfig[] = [
   },
   {
     path: '/contact',
-    title: 'Contact Suz',
+    title: 'Contact',
     description:
       'Reach out to Suz for plant-based guidance, speaking inquiries, or personalized support on your rebellious aging journey.',
   },
   {
     path: '/facebook-group',
-    title: 'Private Facebook Community',
+    title: 'Facebook Group',
     description:
       'Join the private Rebellious Aging Facebook group for daily inspiration, accountability, and plant-strong conversation.',
   },
   {
     path: '/video-series',
-    title: 'Rebel Video Series',
+    title: 'Video Series',
     description:
       'Stream short, rebellious conversations with Suz covering confidence, style, whole-food living, and community.',
   },
   {
     path: '/blog',
-    title: 'Rebellious Aging Blog',
+    title: 'Blog',
     description:
       'Catch up on Suz’s long-form reflections on gratitude, nourishment, style, mindset, and rebellious aging.',
   },
   {
     path: '/recipes',
-    title: 'Rebellious Aging Recipes',
+    title: 'Recipes',
     description:
       'Browse plant-powered recipes from quick weeknight meals to celebratory favorites, built for vibrant, rebellious aging.',
   },
   {
     path: '/search',
-    title: 'Search Rebellious Aging',
+    title: 'Search',
     description:
       'Search pillars, nutrition guides, blog posts, and videos to find exactly what you need on Rebellious Aging.',
     noindex: true,
@@ -102,25 +102,25 @@ export const seoRoutes: SeoRouteConfig[] = [
   },
   {
     path: '/pillars/confidence',
-    title: 'Confidence Pillar',
+    title: 'Confidence',
     description:
       'Ditch limiting beliefs and rebuild unshakable confidence with quizzes, checklists, and personalized support.',
   },
   {
     path: '/pillars/style',
-    title: 'Style Pillar',
+    title: 'Style',
     description:
       'Express signature style with playful guidance, curated resources, and the Rebellious Aging style checklist.',
   },
   {
     path: '/pillars/health',
-    title: 'Health Pillar',
+    title: 'Health',
     description:
       'Fuel longevity with Whole-Food, Plant-Based foundations, nutrition tools, and a daily health checklist.',
   },
   {
     path: '/pillars/gratitude',
-    title: 'Gratitude Pillar',
+    title: 'Gratitude',
     description:
       'Discover how gratitude becomes a rebellious daily practice that fuels joy, resilience, and purpose in every season of life.',
   },

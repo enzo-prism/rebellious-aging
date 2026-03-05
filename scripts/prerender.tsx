@@ -169,19 +169,19 @@ const resolveMeta = (path: string, source: RouteSource): RouteMeta | undefined =
     return resolvePillarMeta(path.replace('/pillars/', ''));
   }
 
-  const staticMeta = resolveStaticMeta(path);
-  if (staticMeta) {
-    return staticMeta;
-  }
-
   if (path === '/') {
-      return {
+    return {
       path,
       canonical: path,
-      title: 'Rebellious Aging',
+      title: new URL(siteMetadata.baseUrl).hostname,
       description: 'Explore guidance for aging boldly and living vibrantly.',
       image: defaultImage,
     };
+  }
+
+  const staticMeta = resolveStaticMeta(path);
+  if (staticMeta) {
+    return staticMeta;
   }
 
   return {
@@ -277,7 +277,7 @@ const run = async () => {
 
   const routeSamples = records
     .slice(0, 5)
-    .map((record) => `${record.path} -> ${buildSeoTitle(record.metadata.title)}`);
+    .map((record) => `${record.path} -> ${record.metadata.title ?? siteMetadata.name}`);
 
   console.log(
     `SEO route audit passed for ${summary.validRoutes} route(s).`

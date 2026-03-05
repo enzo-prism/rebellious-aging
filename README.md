@@ -9,7 +9,7 @@ Rebellious Aging is a Next.js App Router site that helps women 55+ “age boldly
 - **Build tooling:** Next.js 14 App Router (static-first), TypeScript, React 18
 - **UI:** Tailwind CSS, shadcn/ui components, Radix Primitives, Framer Motion
 - **State & data:** TanStack Query, custom hooks, local data files under `src/data`
-- **SEO tooling:** Shared route metadata (`src/data/seoRoutes.ts`), Next Metadata API, structured data helpers, SEO route audit pipeline
+- **SEO tooling:** Shared route metadata (`src/data/seoRoutes.ts`), Next Metadata API, structured data helpers, minimal title-tag policy, SEO route audit pipeline
 - **Backend integrations:** Supabase Edge Function (`supabase/functions/submit-quiz`) + database table `quiz_submissions`, embedded Typeforms for contact/newsletter
 
 ---
@@ -27,12 +27,12 @@ src/
     seoRoutes.ts       # Canonical metadata per static route
   hooks/               # Scroll, mobile, toast utilities
   lib/                 # SEO helpers, structured data, constants, Facebook helpers
-  pages/               # Shared page components reused by App Router
+  views/               # Shared page components reused by App Router
   integrations/        # Supabase typed client
 scripts/
   generate-sitemap.ts  # Rebuild `public/sitemap.xml`
   build-search-index.ts # Rebuild `public/search-index.json`
-  prerender.tsx        # Verifies SEO metadata coverage (`public/seo-route-audit.json`)
+  prerender.tsx        # Audits SEO metadata coverage (`public/seo-route-audit.json`)
 supabase/
   config.toml
   functions/           # Edge functions (submit-quiz)
@@ -41,6 +41,7 @@ supabase/
 
 Additional architectural context lives in `docs/project-overview.md`.
 Production readiness details now live in `docs/production-readiness.md`.
+Metadata implementation details live in `docs/seo-metadata-implementation.md`.
 
 Key conventions:
 
@@ -86,6 +87,13 @@ After editing these files, rerun:
 - `npm run build`
 
 to keep generated assets and metadata aligned.
+
+Current title-tag policy:
+
+- Homepage: `rebelwithsuz.com`
+- Static routes: short labels like `Blog`, `Recipes`, and `Welcome Letter`
+- Blog and recipe detail routes: the content title only
+- No site-name suffix is appended to page titles
 
 ---
 
@@ -223,6 +231,7 @@ Recommended flow for production:
 
 - Core signals to keep healthy:
   - Unique `title` + `description` per indexable route.
+  - Keep titles short, specific, and uncluttered; avoid adding the site name unless there is a strong reason.
   - Canonical URL consistency between `buildMetadata`, `app/sitemap.ts`, `scripts/generate-sitemap.ts`, and `sitemap.xml`.
   - Explicit `noindex, nofollow` for low-value or duplicate pages (`/search`, `/404`, legacy misses).
   - Clean robots directives with no unsupported patterns.
@@ -278,7 +287,8 @@ npm run build
 - Site-wide defaults live in `src/lib/siteMetadata.ts`; keep social profile values current.
 - Route SEO data lives in `src/data/seoRoutes.ts` and should be kept in sync with App Router routes.
 - JSON-LD is emitted through page-level metadata helpers (`buildMetadata`) and optional schema helpers in `src/lib/nextMetadata.ts` / `src/components/seo/Seo.tsx`.
-- `scripts/prerender.tsx` runs during build as a validation step and writes route audit output to `public/seo-route-audit.json`.
+- `src/components/seo/Seo.tsx` is not the source of route-level title tags; App Router metadata is.
+- `scripts/prerender.tsx` runs during build as a validation step and writes route audit output to `public/seo-route-audit.json`; it does not inject tags into `out/`.
 - Search and discovery pipeline runs `npm run build:search` → `public/search-index.json`.
 - `app/robots.ts` now drives crawler rules and sitemap reference (`/sitemap.xml`) via Next.js file conventions.
 - `src/data/seoRoutes.ts` supports explicit `noindex` route entries (for low-value routes like search/404).
@@ -292,10 +302,8 @@ npm run build
    - `src/lib/nextMetadata.ts` (`alternates.canonical` + robots directives)
    - `app/sitemap.ts` + `scripts/generate-sitemap.ts` (discovery)
 2. Run:
-   - `npm run sitemap`
-   - `npm run build:search`
    - `npm run build`
-   - `npm run prerender`
+   - optional targeted regeneration: `npm run sitemap`, `npm run build:search`, or `npm run prerender`
 3. Verify the updated sitemap and URL-level indexing in Search Console:
    - Add/refresh `https://rebelwithsuz.com/sitemap.xml` in the Sitemaps report.
    - Use URL Inspection for priority pages and confirm Google can access them (`IndexingState: INDEXING_ALLOWED`).

@@ -11,7 +11,7 @@ export interface BlogPostMetadata {
 }
 
 export const getBlogPostSeoTitle = (post: BlogPostMetadata) =>
-  post.seoTitle?.trim() || `Blog #${post.blogNumber}: ${post.title}`;
+  post.seoTitle?.trim() || post.title;
 
 export const blogPosts: BlogPostMetadata[] = [
   {

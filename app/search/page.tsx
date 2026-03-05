@@ -11,7 +11,7 @@ export const generateMetadata = (): Metadata => {
   return buildMetadata(
     routeMeta ?? {
       path: '/search',
-      title: 'Search Rebellious Aging',
+      title: 'Search',
       description:
         'Search pillars, nutrition guides, blog posts, and videos to find exactly what you need on Rebellious Aging.',
     },

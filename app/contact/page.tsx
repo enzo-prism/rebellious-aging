@@ -10,7 +10,7 @@ export const generateMetadata = (): Metadata => {
   return buildMetadata(
     routeMeta ?? {
       path: '/contact',
-      title: 'Contact Suz',
+      title: 'Contact',
       description:
         'Reach out to Suz for plant-based guidance, speaking inquiries, or personalized support on your rebellious aging journey.',
     }

@@ -10,7 +10,7 @@ export const generateMetadata = (): Metadata => {
   return buildMetadata(
     routeMeta ?? {
       path: '/recipes',
-      title: 'Rebellious Aging Recipes',
+      title: 'Recipes',
       description:
         'Browse plant-powered recipes from quick weeknight meals to celebratory favorites, built for vibrant, rebellious aging.',
     }

@@ -10,7 +10,7 @@ export const generateMetadata = (): Metadata => {
   return buildMetadata(
     routeMeta ?? {
       path: '/starter-kit',
-      title: 'Rebellious Aging Starter Kit',
+      title: 'Starter Kit',
       description:
         'A gentle starter kit for women 55-105 to begin with Nibble, Wiggle, Dazzle, and Gratefulness in the Rebellious Aging journey.',
     }

@@ -15,7 +15,7 @@ export const generateMetadata = (): Metadata => {
   return buildMetadata(
     routeMeta ?? {
       path: '/nutrition',
-      title: 'Whole-Food Plant-Based Nutrition',
+      title: 'Nutrition',
       description:
         'Explore the what, why, and how of Whole-Food, Plant-Based (WFPB) living with protocols, benefits, recipes, and expert-backed guidance.',
     }

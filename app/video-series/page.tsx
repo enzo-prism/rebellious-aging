@@ -10,7 +10,7 @@ export const generateMetadata = (): Metadata => {
   return buildMetadata(
     routeMeta ?? {
       path: '/video-series',
-      title: 'Rebel Video Series',
+      title: 'Video Series',
       description:
         'Stream short, rebellious conversations with Suz covering confidence, style, whole-food living, and community.',
     }

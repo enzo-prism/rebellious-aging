@@ -23,10 +23,7 @@ const enableGptEngineer = process.env.NEXT_PUBLIC_ENABLE_GPTENGINEER === 'true';
 
 export const metadata: Metadata = {
   metadataBase: baseUrl,
-  title: {
-    default: siteMetadata.name,
-    template: `%s | ${siteMetadata.name}`,
-  },
+  title: siteMetadata.name,
   description: siteMetadata.defaultDescription,
   icons: {
     icon: [

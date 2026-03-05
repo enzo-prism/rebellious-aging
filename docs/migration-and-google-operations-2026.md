@@ -44,7 +44,7 @@ vercel env ls
 3. Re-run generation commands when route metadata changes:
    - `npm run sitemap`
    - `npm run build:search`
-   - `npm run prerender` (or full `npm run build`)
+   - `npm run prerender` to refresh `public/seo-route-audit.json` (or just run full `npm run build`)
 
 ## 4) Google Search Console loop
 
@@ -68,5 +68,5 @@ At deployment time, ensure production env includes:
 
 ## 6) Ongoing ownership reminder
 
-- When docs, metadata, or redirects change: update `README.md`, `docs/project-overview.md`, and `docs/seo-best-practices-nextjs-vercel-2026.md`.
+- When docs, metadata, or redirects change: update `README.md`, `docs/project-overview.md`, `docs/seo-best-practices-nextjs-vercel-2026.md`, and `docs/seo-metadata-implementation.md`.
 - Tag each pull request with the runbook command set used and the post-deploy verification URLs used.

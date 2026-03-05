@@ -10,7 +10,7 @@ import {
 
 describe('seo utilities', () => {
   it('builds meta titles from a page title', () => {
-    expect(buildSeoTitle('Recipes')).toBe('Recipes | Rebellious Aging');
+    expect(buildSeoTitle('Recipes')).toBe('Recipes');
     expect(buildSeoTitle()).toBe('Rebellious Aging');
   });
 
