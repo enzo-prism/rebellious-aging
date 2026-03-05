@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import StarterKit from '@/pages/StarterKit';
+import StarterKit from '@/views/StarterKit';
 import { buildMetadata } from '@/lib/nextMetadata';
 import { getRouteMetaByPath } from '@/lib/routeMetadata';
 

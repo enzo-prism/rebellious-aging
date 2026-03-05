@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import BlogPost from '@/pages/BlogPost';
+import BlogPost from '@/views/BlogPost';
 import { buildMetadata } from '@/lib/nextMetadata';
 import { buildMetaDescription } from '@/lib/seo';
 import { siteMetadata } from '@/lib/siteMetadata';

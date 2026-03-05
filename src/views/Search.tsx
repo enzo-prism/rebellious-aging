@@ -9,6 +9,8 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Seo from '@/components/seo/Seo';
+import PageShareButton from '@/components/share/PageShareButton';
+import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 import type { SearchType } from '@/data/searchRecords';
 import { useSearch } from '@/hooks/useSearch';
@@ -117,6 +119,9 @@ const Search = () => {
       )}
       <div className="max-w-4xl mx-auto space-y-10">
         <div className="space-y-3">
+          <PageTopUtilityRow className="mb-1">
+            <PageShareButton />
+          </PageTopUtilityRow>
           <p className="text-sm uppercase tracking-[0.28em] text-teal font-semibold">Search</p>
           <h1 className="text-4xl font-bold leading-tight">Find pillars, nutrition, blog posts, and resources</h1>
           <p className="text-muted-foreground max-w-3xl">

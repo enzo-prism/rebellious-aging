@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import VideoSeries from '@/pages/VideoSeries';
+import VideoSeries from '@/views/VideoSeries';
 import { buildMetadata } from '@/lib/nextMetadata';
 import { getRouteMetaByPath } from '@/lib/routeMetadata';
 

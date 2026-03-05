@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import Contact from '@/pages/Contact';
+import Contact from '@/views/Contact';
 import { buildMetadata } from '@/lib/nextMetadata';
 import { getRouteMetaByPath } from '@/lib/routeMetadata';
 

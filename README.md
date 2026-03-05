@@ -53,13 +53,14 @@ Key conventions:
 
 ## Core Experience Map
 
-- **Home (`src/pages/Home.tsx`)** – Hero, inline Welcome Banner (no blocking modal), pillar overview, and repeated CTAs that route visitors toward Our Story or pillar pages.
-- **Our Story / Movement (`src/pages/Movement.tsx`)** – Narrative, credentials, and the “Why” behind the rebellion, including scroll-triggered timelines.
+- **Home (`src/views/Home.tsx`)** – Hero, inline Welcome Banner (no blocking modal), pillar overview, and repeated CTAs that route visitors toward Our Story or pillar pages.
+- **Our Story / Movement (`src/views/Movement.tsx`)** – Narrative, credentials, and the “Why” behind the rebellion, including scroll-triggered timelines.
 - **Pillars (`/pillars/:pillarId`)** – Confidence, Style, and Health share a common data model for hero copy, galleries, quizzes, and downloadable checklists, while Gratitude features a custom long-form experience and Health links to the dedicated WFPB Nutrition Guide.
-- **Nutrition (`src/pages/Nutrition.tsx`)** – Query-param-driven tabs that cover foundations, benefits, Dr. Esselstyn/Dr. Campbell material, “why & how,” and recipes.
+- **Nutrition (`src/views/Nutrition.tsx`)** – Query-param-driven tabs that cover foundations, benefits, Dr. Esselstyn/Dr. Campbell material, “why & how,” and recipes.
 - **Blog (`/blog` + `/blog/:postId`)** – Metadata list plus long-form posts with canonical tags, share actions, and article navigation.
-- **Video Series (`src/pages/VideoSeries.tsx`)** – Card grid fed by `src/data/videoSeries.ts`.
+- **Video Series (`src/views/VideoSeries.tsx`)** – Card grid fed by `src/data/videoSeries.ts`.
 - **Community touchpoints** – Welcome Letter, Contact (Typeform embed), Facebook Group, Team, etc.
+- **Page sharing (`src/components/share/*`)** – Public pages now use a shared top-of-page share action that opens a copy-link dialog, preserves query params, and falls back to manual copy when clipboard APIs are unavailable.
 
 Use this map when adding new sections so the navigation, voice, and CTAs remain cohesive.
 
@@ -70,7 +71,7 @@ Use this map when adding new sections so the navigation, voice, and CTAs remain 
 | Content type | Location | Purpose |
 |--------------|----------|---------|
 | Blog metadata | `src/data/blogPosts.ts` | Drives the blog archive, sitemap generation, SEO fields, and article ordering. |
-| Blog articles | `src/pages/BlogPost.tsx` | Each post is rendered by `postId` switch logic inside shared article page component. |
+| Blog articles | `src/views/BlogPost.tsx` | Each post is rendered by `postId` switch logic inside shared article page component. |
 | Pillar content | `src/data/pillarContent.ts` | Hero text, gallery images, quiz titles, and checklist links for Confidence/Style/Health. |
 | Video episodes | `src/data/videoSeries.ts` | Update YouTube metadata here to refresh the video grid. |
 | Site metadata | `src/lib/siteMetadata.ts` | Central place for `baseUrl`, default descriptions, social images, and social profile links. |
@@ -85,6 +86,31 @@ After editing these files, rerun:
 - `npm run build`
 
 to keep generated assets and metadata aligned.
+
+---
+
+## Universal Share Button
+
+The site now uses one consistent sharing pattern across public pages.
+
+- Trigger: `src/components/share/PageShareButton.tsx`
+- Dialog UI: `src/components/share/PageShareDialog.tsx`
+- Layout helper: `src/components/share/PageTopUtilityRow.tsx`
+
+Behavior contract:
+
+- The copied link always comes from `window.location.href`, not static metadata.
+- Query-string state is preserved for routes like `/nutrition?tab=benefits` and `/search?q=...`.
+- The dialog uses `document.title` only for descriptive copy.
+- If `navigator.clipboard.writeText` fails or is unavailable, the URL is auto-selected and the dialog explains manual copy.
+- Share controls live in page shells and hero blocks, never in the global header and never on 404 pages.
+
+Verification coverage:
+
+- `tests/unit/components/PageShareButton.test.tsx` covers open/close behavior, clipboard success, and manual fallback.
+- `tests/e2e/share-button.spec.ts` verifies exact live-URL copying, including query params.
+- `tests/e2e/route-matrix.spec.ts` asserts the share button is present on public routes and absent on 404 routes.
+- `tests/e2e/accessibility.spec.ts` runs an axe smoke check on the open share dialog.
 
 ---
 
@@ -219,7 +245,7 @@ Blog content is managed in two places:
 1. **Metadata list:** `src/data/blogPosts.ts`
    - Add a new object with `id`, `title`, `excerpt`, `date`, `readTime`, `blogNumber`, and optional `seoDescription`.
    - `blogNumber` is the source of truth for ordering and prev/next resolution. Keep IDs and blog numbers aligned with the reference content source so archive order stays stable across deployments.
-2. **Long-form article:** `src/pages/BlogPost.tsx`
+2. **Long-form article:** `src/views/BlogPost.tsx`
    - Add or update an `if (postId === '<slug>')` block.
    - Keep `<BlogPostFooter>` and share metadata parity intact.
 

@@ -1,15 +1,19 @@
 
 import React from 'react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 import { pillarContent } from '@/data/pillarContent';
 import PillarHero from '@/components/pillar/PillarHero';
 import GallerySection from '@/components/pillar/GallerySection';
-import QuizSection from '@/components/pillar/QuizSection';
 import ChecklistCTA from '@/components/pillar/ChecklistCTA';
 import ConnectCTA from '@/components/common/ConnectCTA';
 import Seo from '@/components/seo/Seo';
 import GratitudePillar from '@/components/pillar/GratitudePillar';
 import { Button } from '@/components/ui/button';
+
+const QuizSection = dynamic(() => import('@/components/pillar/QuizSection'), {
+  ssr: false,
+});
 
 interface PillarPageProps {
   pillarId: string;

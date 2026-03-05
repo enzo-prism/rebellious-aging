@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button';
 import ConnectCTA from '@/components/common/ConnectCTA';
 import { FACEBOOK_GROUP_URL, handleFacebookGroupNavigation } from '@/lib/facebook';
 import Seo from '@/components/seo/Seo';
+import PageShareButton from '@/components/share/PageShareButton';
+import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 import { buildOrganizationJsonLd } from '@/lib/structuredData';
 
@@ -25,6 +27,9 @@ const WelcomeLetter = () => {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
           <div className="text-center mb-8">
+            <PageTopUtilityRow>
+              <PageShareButton />
+            </PageTopUtilityRow>
             <div className="text-5xl mb-4">💚</div>
             <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
               Welcome Letter from Suz

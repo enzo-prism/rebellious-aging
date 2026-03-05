@@ -3,6 +3,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import ConnectCTA from '@/components/common/ConnectCTA';
+import PageShareButton from '@/components/share/PageShareButton';
+import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 
 const Resources = () => {
   const books = [
@@ -86,6 +88,9 @@ const Resources = () => {
       <section className="bg-teal/10 py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
+            <PageTopUtilityRow className="justify-center sm:justify-end">
+              <PageShareButton />
+            </PageTopUtilityRow>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Resources</h1>
             <p className="text-lg text-gray-700 mb-8">
               Everything you need to support your rebellious aging journey. From starter kits to books, 

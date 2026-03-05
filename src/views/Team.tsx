@@ -1,6 +1,8 @@
 import React from 'react';
 import ConnectCTA from '@/components/common/ConnectCTA';
 import Seo from '@/components/seo/Seo';
+import PageShareButton from '@/components/share/PageShareButton';
+import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 
 const Team = () => {
@@ -18,6 +20,9 @@ const Team = () => {
       {/* Hero Section */}
       <section className="px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
         <div className="max-w-4xl mx-auto text-center">
+          <PageTopUtilityRow className="mb-8">
+            <PageShareButton />
+          </PageTopUtilityRow>
           <h1 className="text-6xl sm:text-7xl lg:text-8xl font-extralight tracking-wide mb-8 text-foreground">
             Team
           </h1>

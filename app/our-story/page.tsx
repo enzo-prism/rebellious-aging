@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import Movement from '@/pages/Movement';
+import Movement from '@/views/Movement';
 import { buildMetadata } from '@/lib/nextMetadata';
 import { getRouteMetaByPath } from '@/lib/routeMetadata';
 

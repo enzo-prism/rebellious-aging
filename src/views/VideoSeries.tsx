@@ -3,6 +3,8 @@ import { VideoCard } from '@/components/home/VideoCard';
 import { videoSeriesData, videoSeriesInfo } from '@/data/videoSeries';
 import ConnectCTA from '@/components/common/ConnectCTA';
 import Seo from '@/components/seo/Seo';
+import PageShareButton from '@/components/share/PageShareButton';
+import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 
 const VideoSeries = () => {
@@ -20,6 +22,9 @@ const VideoSeries = () => {
       {/* Hero Section */}
       <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
         <div className="max-w-4xl mx-auto text-center">
+          <PageTopUtilityRow className="mb-8">
+            <PageShareButton />
+          </PageTopUtilityRow>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight mb-6 text-foreground">
             {videoSeriesInfo.title}
           </h1>

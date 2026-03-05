@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import Seo from '@/components/seo/Seo';
 import { Button } from '@/components/ui/button';
+import PageShareButton from '@/components/share/PageShareButton';
+import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 
 const START_HERE_STEPS = [
@@ -132,6 +134,9 @@ const WfpbResourceGuide = () => {
       <section className="bg-gradient-to-b from-teal/20 to-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-6">
+            <PageTopUtilityRow className="mb-2">
+              <PageShareButton />
+            </PageTopUtilityRow>
             <p className="text-sm uppercase tracking-[0.2em] text-teal">Whole-Food, Plant-Based Resource Guide</p>
             <h1 className="text-4xl md:text-5xl font-bold">Whole-Food, Plant-Based Resource Guide</h1>
             <p className="text-lg text-gray-700 font-semibold">Welcome,</p>

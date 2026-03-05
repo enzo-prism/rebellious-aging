@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import WelcomeLetter from '@/pages/WelcomeLetter';
+import WelcomeLetter from '@/views/WelcomeLetter';
 import { buildMetadata } from '@/lib/nextMetadata';
 import { getRouteMetaByPath } from '@/lib/routeMetadata';
 

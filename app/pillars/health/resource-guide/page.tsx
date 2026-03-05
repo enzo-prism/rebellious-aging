@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import WfpbResourceGuide from '@/pages/WfpbResourceGuide';
+import WfpbResourceGuide from '@/views/WfpbResourceGuide';
 import { buildMetadata } from '@/lib/nextMetadata';
 import { getRouteMetaByPath } from '@/lib/routeMetadata';
 

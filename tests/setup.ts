@@ -55,6 +55,14 @@ beforeEach(() => {
   mockUsePathname.mockReset().mockReturnValue('/');
   mockUseSearchParams.mockReset().mockReturnValue(new URLSearchParams());
 
+  Object.defineProperty(navigator, 'clipboard', {
+    writable: true,
+    configurable: true,
+    value: {
+      writeText: vi.fn().mockResolvedValue(undefined),
+    },
+  });
+
   Object.defineProperty(window, 'matchMedia', {
     writable: true,
     value: vi.fn((query: string) => ({
@@ -102,6 +110,20 @@ beforeEach(() => {
     writable: true,
     configurable: true,
     value: vi.fn(),
+  });
+
+  Object.defineProperty(window, 'requestAnimationFrame', {
+    writable: true,
+    configurable: true,
+    value: vi.fn((callback: FrameRequestCallback) =>
+      window.setTimeout(() => callback(performance.now()), 0)
+    ),
+  });
+
+  Object.defineProperty(window, 'cancelAnimationFrame', {
+    writable: true,
+    configurable: true,
+    value: vi.fn((id: number) => window.clearTimeout(id)),
   });
 });
 

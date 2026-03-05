@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import NutritionGuide from '@/pages/NutritionGuide';
+import NutritionGuide from '@/views/NutritionGuide';
 import { buildMetadata } from '@/lib/nextMetadata';
 import { getRouteMetaByPath } from '@/lib/routeMetadata';
 

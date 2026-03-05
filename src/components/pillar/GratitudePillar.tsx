@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Seo from '@/components/seo/Seo';
+import PageShareButton from '@/components/share/PageShareButton';
+import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { Button } from '@/components/ui/button';
 
 const gratitudePractices = [
@@ -48,6 +50,9 @@ const GratitudePillar = () => {
       <section className="bg-gradient-to-b from-teal/20 to-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
+            <PageTopUtilityRow className="justify-center sm:justify-end">
+              <PageShareButton />
+            </PageTopUtilityRow>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Gratitude</h1>
             <p className="text-xl text-teal font-semibold mb-6">The Quiet Superpower of the Rebellious Soul</p>
             <div className="space-y-4 text-lg text-gray-700 text-left">

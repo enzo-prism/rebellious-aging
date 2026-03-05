@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import PillarPage from '@/pages/PillarPage';
+import PillarPage from '@/views/PillarPage';
 import { buildMetadata } from '@/lib/nextMetadata';
 import { buildMetaDescription } from '@/lib/seo';
 import { getRouteMetaByPath } from '@/lib/routeMetadata';

@@ -6,6 +6,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import ConnectCTA from '@/components/common/ConnectCTA';
+import PageShareButton from '@/components/share/PageShareButton';
+import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 
 interface SuccessStory {
   id: number;
@@ -153,6 +155,9 @@ const SuccessStories = () => {
       <section className="bg-teal/10 py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
+            <PageTopUtilityRow className="justify-center sm:justify-end">
+              <PageShareButton />
+            </PageTopUtilityRow>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Success Stories</h1>
             <p className="text-lg text-gray-700 mb-8">
               Real stories from real people who are aging boldly and living vibrantly. 

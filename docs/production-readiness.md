@@ -7,6 +7,7 @@ This project uses a codified readiness gate before public launch.
 - SEO coverage (`public/sitemap.xml`, `public/search-index.json`, `public/seo-route-audit.json`).
 - Component/unit coverage for metadata, search, pages, and key layout primitives.
 - Browser readiness for route rendering, command palette/search behavior, resilience states, and keyboard/accessibility checks.
+- Browser readiness for the universal share dialog, including public-route visibility, exact URL copying, manual-copy fallback, and 404 exclusion.
 - Web-vitals smoke thresholds for key public routes.
 - Security guardrails for outbound links with `target="_blank"` using `rel="noopener noreferrer"`.
 
@@ -25,10 +26,15 @@ This project uses a codified readiness gate before public launch.
 - Report file: `public/production-readiness-report.json`
 - Expected status in release conditions: `status: "pass"` with all checks green.
 
+## Share-specific verification
+- `tests/unit/components/PageShareButton.test.tsx` validates dialog open/close behavior, clipboard success, and clipboard failure fallback.
+- `tests/e2e/share-button.spec.ts` verifies copied URLs match the live browser URL, including query params.
+- `tests/e2e/route-matrix.spec.ts` asserts that share controls appear on public routes and do not appear on 404 responses.
+- `tests/e2e/accessibility.spec.ts` includes an axe smoke test on the open share dialog.
+
 ## Notes
 - Run with `npm run preview` after `npm run build` for manual smoke.
 - Keep generated files in sync after SEO/content updates:
   - `npm run sitemap`
   - `npm run build:search`
   - `npm run build`
-

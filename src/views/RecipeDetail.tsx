@@ -6,6 +6,8 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Seo from '@/components/seo/Seo';
+import PageShareButton from '@/components/share/PageShareButton';
+import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { recipes, slugifyRecipeTitle } from '@/data/recipes';
 import { getAllRecipeIngredients, getAllRecipeInstructions, getRecipeSections } from '@/lib/recipeSections';
 import { buildMetaDescription, getCanonicalUrl } from '@/lib/seo';
@@ -79,6 +81,10 @@ const RecipeDetail = ({ slug }: RecipeDetailProps) => {
 
       <div className="max-w-5xl mx-auto space-y-10">
         <Link href="/recipes" className="text-sm hover:underline inline-block">← Back to Recipes</Link>
+
+        <PageTopUtilityRow className="-mt-4">
+          <PageShareButton />
+        </PageTopUtilityRow>
 
         <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 items-start">
           <div className="rounded-3xl overflow-hidden border border-gray-200 shadow-sm">

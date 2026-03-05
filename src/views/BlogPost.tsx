@@ -1,8 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { BlogPostFooter } from '@/components/blog/BlogPostFooter';
-import { BlogShareActions } from '@/components/blog/BlogShareActions';
 import Seo from '@/components/seo/Seo';
+import PageShareButton from '@/components/share/PageShareButton';
+import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { blogPostContent } from '@/data/blogPostContent';
 import { getBlogPostById, getBlogPostSeoTitle, getNextBlogPost } from '@/data/blogPosts';
 import { buildMetaDescription, buildSeoTitle, getCanonicalUrl, resolveSocialImage } from '@/lib/seo';
@@ -77,19 +78,12 @@ const BlogPost = ({ postId }: BlogPostProps) => {
     <div className="min-h-screen bg-background px-4 py-12 max-w-3xl mx-auto">
       <Link href="/blog" className="text-sm hover:underline mb-8 inline-block">← Back to Blog</Link>
 
+      <PageTopUtilityRow>
+        <PageShareButton />
+      </PageTopUtilityRow>
+
       <div className="mb-4">
         <span className="text-primary font-bold text-lg">Blog #{currentPost.blogNumber}</span>
-      </div>
-
-      <div className="mb-8">
-        <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground mb-3">
-          Share this article
-        </p>
-        <BlogShareActions
-          title={pageTitle}
-          excerpt={currentPost.excerpt}
-          url={canonicalUrl}
-        />
       </div>
 
       {postContent.heading}

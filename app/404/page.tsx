@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import NotFound from '@/pages/NotFound';
+import NotFound from '@/views/NotFound';
 import { buildMetadata } from '@/lib/nextMetadata';
 import { getRouteMetaByPath } from '@/lib/routeMetadata';
 import { siteMetadata } from '@/lib/siteMetadata';

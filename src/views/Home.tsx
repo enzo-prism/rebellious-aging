@@ -18,6 +18,8 @@ import {
 } from '@/components/ui/carousel';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import Seo from '@/components/seo/Seo';
+import PageShareButton from '@/components/share/PageShareButton';
+import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 import { buildOrganizationJsonLd, buildWebSiteJsonLd } from '@/lib/structuredData';
 import { Search, Loader2 } from 'lucide-react';
@@ -228,10 +230,13 @@ const Home = () => {
             {/* Text Content */}
             <div className="order-2 lg:order-1 flex flex-col justify-center">
               <div className="max-w-2xl text-spacing">
+                <PageTopUtilityRow>
+                  <PageShareButton />
+                </PageTopUtilityRow>
                 <div className="mb-4">
                   <LatestBlogBadge />
                 </div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight animate-fade-in">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-gray-900">
                   Age Boldly / Live Loudly
                 </h1>
                 <p className="text-lg md:text-xl lg:text-2xl text-gray-900 leading-relaxed">

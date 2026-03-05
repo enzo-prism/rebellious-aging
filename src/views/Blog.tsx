@@ -4,6 +4,8 @@ import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { getBlogPostsByDateDesc } from '@/data/blogPosts';
 import Seo from '@/components/seo/Seo';
+import PageShareButton from '@/components/share/PageShareButton';
+import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { buildWebSiteJsonLd } from '@/lib/structuredData';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
@@ -40,6 +42,9 @@ const Blog = () => {
         />
       )}
 
+      <PageTopUtilityRow>
+        <PageShareButton />
+      </PageTopUtilityRow>
       <h1 className="text-4xl font-bold mb-6">Blog</h1>
       <div className="bg-teal/10 border border-teal/20 rounded-2xl p-6 mb-10">
         <p className="text-gray-700">

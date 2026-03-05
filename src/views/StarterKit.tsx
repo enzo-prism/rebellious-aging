@@ -1,6 +1,8 @@
 import React from 'react';
 import ConnectCTA from '@/components/common/ConnectCTA';
 import Seo from '@/components/seo/Seo';
+import PageShareButton from '@/components/share/PageShareButton';
+import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 import { buildOrganizationJsonLd } from '@/lib/structuredData';
 
@@ -58,6 +60,9 @@ const StarterKit = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-10">
+            <PageTopUtilityRow>
+              <PageShareButton />
+            </PageTopUtilityRow>
             <p className="text-xs uppercase tracking-[0.35em] text-teal font-semibold">Starter Kit</p>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-3">
               Rebellious Aging Starter Kit

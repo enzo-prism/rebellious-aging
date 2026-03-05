@@ -6,6 +6,8 @@ import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnim
 import { useScrollAnimationTrigger } from '@/hooks/useScrollAnimationTrigger';
 import ConnectCTA from '@/components/common/ConnectCTA';
 import Seo from '@/components/seo/Seo';
+import PageShareButton from '@/components/share/PageShareButton';
+import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 import { buildOrganizationJsonLd } from '@/lib/structuredData';
 
@@ -79,6 +81,9 @@ const Movement = () => {
             ref={titleRef}
             className="max-w-4xl mx-auto text-center"
           >
+            <PageTopUtilityRow className="mb-6">
+              <PageShareButton />
+            </PageTopUtilityRow>
             <h1 
               className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight transition-all duration-800 ${titleInView ? 'animate-slide-up-fade' : 'opacity-0 translate-y-12'}`}
               style={getItemStyle(0)}

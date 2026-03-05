@@ -7,6 +7,8 @@ import ConnectCTA from '@/components/common/ConnectCTA';
 import { Sparkles, Users, Heart, Leaf, MessageCircle, Laugh } from 'lucide-react';
 import { FACEBOOK_GROUP_URL, handleFacebookGroupNavigation } from '@/lib/facebook';
 import Seo from '@/components/seo/Seo';
+import PageShareButton from '@/components/share/PageShareButton';
+import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 
 const highlightCards = [
@@ -50,6 +52,9 @@ const FacebookGroup = () => {
       <section className="py-12 sm:py-16 lg:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
+            <PageTopUtilityRow className="mb-2">
+              <PageShareButton />
+            </PageTopUtilityRow>
             <div className="inline-flex items-center gap-2 bg-teal/10 border border-teal/20 text-teal px-4 py-1.5 rounded-full text-sm font-semibold tracking-wide uppercase">
               Private Facebook Community
             </div>

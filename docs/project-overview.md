@@ -17,13 +17,16 @@
   - Home, Our Story, Welcome Letter, Starter Kit, Nutrition, Video Series, Pillars (dynamic), Recipe listing/detail, Blog listing/detail, Search, Team, Contact, Facebook Group, and not-found flows.
 - **Special routing behavior:** `/pillars/longevity` redirects to `/pillars/health` via Vercel/App Router routing configuration.
 - **Reusable CTAs:** `ConnectCTA`, `WelcomeBanner`, `VideoCard`, `MobileMenuSection`, `GallerySection`, and shared content modules.
+- **Reusable share UI:** `src/components/share/PageShareButton.tsx`, `PageShareDialog.tsx`, and `PageTopUtilityRow.tsx` provide a single share pattern across public page shells and hero blocks.
 
 ## Data & Integrations
 - **Static content:** Blog metadata (`src/data/blogPosts.ts`), pillar copy, video series, and recipe indexes are maintained in deterministic TS modules.
 - **Canonical route metadata:** `src/data/seoRoutes.ts` drives per-route SEO defaults.
 - **Supabase:** `src/components/pillar/QuizSection.tsx` uses the `submit-quiz` Edge Function; table/policies reside in `supabase/migrations/`.
+- **Client-only quiz boundary:** `src/views/PillarPage.tsx` loads `QuizSection` dynamically with `ssr: false` so pillar routes stay stable while the quiz owns browser-only Supabase and Typeform behavior.
 - **Typeform:** Contact/newsletter embeds load on interaction; quiz scripts are intersection-triggered and global cached.
 - **Facebook CTA:** Central helper in `src/lib/facebook.ts` keeps popup + fallback behavior consistent.
+- **Share behavior:** The share flow copies `window.location.href` so query-param state is preserved, uses `document.title` only for dialog context, and falls back to manual selection if clipboard access fails.
 
 ## SEO & Operations
 - `src/lib/seo.ts` and `src/lib/siteMetadata.ts` provide base metadata helpers.
@@ -47,6 +50,7 @@
 - Route coverage and SEO parity are validated during build with the repurposed prerender step.
 - Deployment target is Vercel static export (`/out`), with runtime compatibility safeguards in `next.config.js`.
 - GitHub source of truth is `enzo-prism/rebellious-aging`; legacy references should stay in historical notes only.
+- Public page-level affordances such as share controls should continue to be mounted in local page shells rather than the global header so routes can opt out cleanly, especially 404 and redirect flows.
 
 ## Recently Added/Noted Context
 - Last migration focus: Vite SPA → Next.js App Router conversion with static-first export strategy.
@@ -54,9 +58,10 @@
 - Blog post ordering behavior mirrors the original repo ordering contract: `blogPosts` entries are normalized and `getNextBlogPost` resolves by `blogNumber`, not by array position.
 
 ## Opportunities & Caveats
-1. The long-form blog content remains in `src/pages/BlogPost.tsx` (single renderer); consider extracting per-post modules for contributor scale.
+1. The long-form blog content remains in `src/views/BlogPost.tsx` (single renderer); consider extracting per-post modules for contributor scale.
 2. Ensure `src/data/seoRoutes.ts` and dynamic route params stay in sync when adding content routes.
 3. Tests are now expanded across unit, component, accessibility, and readiness routes, but coverage should continue to grow as content and integrations expand.
 4. Analytics and third-party script settings should stay env-gated for secure preview behavior.
+5. If new public routes are added, update `tests/e2e/route-matrix.spec.ts` so the universal share contract remains explicit.
 
 Sparkle on! ✨

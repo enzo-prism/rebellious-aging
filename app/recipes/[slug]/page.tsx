@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import RecipeDetail from '@/pages/RecipeDetail';
+import RecipeDetail from '@/views/RecipeDetail';
 import { buildMetadata } from '@/lib/nextMetadata';
 import { buildMetaDescription } from '@/lib/seo';
 import { recipes, slugifyRecipeTitle } from '@/data/recipes';

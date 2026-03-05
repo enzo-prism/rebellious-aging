@@ -4,6 +4,8 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Mail, MessageCircle } from 'lucide-react';
 import Seo from '@/components/seo/Seo';
+import PageShareButton from '@/components/share/PageShareButton';
+import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 
 const Contact = () => {
@@ -22,6 +24,9 @@ const Contact = () => {
       {/* Hero Section */}
       <section className="section-padding bg-gradient-to-r from-teal/10 to-coral/10">
         <div className="container mx-auto px-4 text-center">
+          <PageTopUtilityRow className="mx-auto max-w-2xl">
+            <PageShareButton />
+          </PageTopUtilityRow>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Get in Touch with Suz
           </h1>

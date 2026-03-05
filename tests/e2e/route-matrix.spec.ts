@@ -10,11 +10,14 @@ const routeMatrix = [
   '/recipes',
   '/blog',
   '/contact',
+  '/facebook-group',
+  '/team',
   '/pillars/health',
   '/pillars/style',
   '/pillars/confidence',
   '/pillars/gratitude',
   '/pillars/health/nutrition-guide',
+  '/pillars/health/resource-guide',
   '/search',
 ];
 
@@ -33,6 +36,7 @@ test.describe('Public route matrix', () => {
       expect(response?.status()).toBe(200);
       await expect(page.getByRole('heading').first()).toBeVisible();
       await expect(page).toHaveTitle(/Rebellious Aging|Age Boldly/i);
+      await expect(page.getByRole('button', { name: /share page/i })).toBeVisible();
     });
   }
 
@@ -41,6 +45,7 @@ test.describe('Public route matrix', () => {
       const response = await page.goto(path, { waitUntil: 'domcontentloaded' });
       expect(response?.status()).toBe(200);
       await expect(page.locator('main')).toBeVisible();
+      await expect(page.getByRole('button', { name: /share page/i })).toBeVisible();
     });
   }
 
@@ -49,6 +54,7 @@ test.describe('Public route matrix', () => {
     expect(response?.status()).toBe(404);
     await expect(page.locator('main')).toBeVisible();
     await expect(page.getByText(/Not Found/i)).toBeVisible();
+    await expect(page.getByRole('button', { name: /share page/i })).toHaveCount(0);
   });
 
   test('returns 404 for unknown static routes', async ({ page }) => {
@@ -57,6 +63,7 @@ test.describe('Public route matrix', () => {
       const response = await page.goto(path, { waitUntil: 'domcontentloaded' });
       expect(response?.status()).toBe(404);
       await expect(page.locator('main')).toBeVisible();
+      await expect(page.getByRole('button', { name: /share page/i })).toHaveCount(0);
     }
   });
 });

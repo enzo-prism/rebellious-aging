@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import Recipes from '@/pages/Recipes';
+import Recipes from '@/views/Recipes';
 import { buildMetadata } from '@/lib/nextMetadata';
 import { getRouteMetaByPath } from '@/lib/routeMetadata';
 

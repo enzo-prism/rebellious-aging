@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import { buildMetadata } from '@/lib/nextMetadata';
 import { getRouteMetaByPath } from '@/lib/routeMetadata';
 
-const NutritionClientPage = dynamic(() => import('@/pages/Nutrition'), {
+const NutritionClientPage = dynamic(() => import('@/views/Nutrition'), {
   ssr: false,
 });
 

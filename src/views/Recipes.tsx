@@ -10,6 +10,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Seo from '@/components/seo/Seo';
+import PageShareButton from '@/components/share/PageShareButton';
+import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 import { recipes, slugifyRecipeTitle, type Recipe } from '@/data/recipes';
 import { siteMetadata } from '@/lib/siteMetadata';
@@ -158,6 +160,9 @@ const Recipes = () => {
 
       <section className="px-4 py-16 sm:py-20 bg-gradient-to-br from-teal/5 via-white to-coral/10">
         <div className="max-w-5xl mx-auto text-center space-y-5">
+          <PageTopUtilityRow className="mb-2">
+            <PageShareButton />
+          </PageTopUtilityRow>
           <p className="text-xs uppercase tracking-[0.35em] text-teal font-semibold">Recipes</p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
             Plant-Powered Recipes for Rebellious Appetites

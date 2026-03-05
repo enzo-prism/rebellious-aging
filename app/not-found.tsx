@@ -1,4 +1,4 @@
-import NotFound from '@/pages/NotFound';
+import NotFound from '@/views/NotFound';
 import type { Metadata } from 'next';
 
 import { buildMetadata } from '@/lib/nextMetadata';

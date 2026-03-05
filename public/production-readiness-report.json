@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-03-05T21:00:27.289Z",
+  "checks": [
+    {
+      "name": "sitemap",
+      "ok": true,
+      "details": "105 sitemap URLs generated."
+    },
+    {
+      "name": "sitemap-coverage",
+      "ok": true,
+      "details": "Sitemap covers 105 expected routes."
+    },
+    {
+      "name": "search-index",
+      "ok": true,
+      "details": "125 search index records generated."
+    },
+    {
+      "name": "seo-route-metadata",
+      "ok": true,
+      "details": "19 SEO routes validated with defaults fallback intact."
+    },
+    {
+      "name": "seo-route-audit",
+      "ok": true,
+      "details": "107 routes verified with complete metadata."
+    },
+    {
+      "name": "target-blank-rel",
+      "ok": true,
+      "details": "All scanned target=\"_blank\" links include rel=\"noopener noreferrer\"."
+    }
+  ],
+  "status": "pass"
+}

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import FacebookGroup from '@/pages/FacebookGroup';
+import FacebookGroup from '@/views/FacebookGroup';
 import { buildMetadata } from '@/lib/nextMetadata';
 import { getRouteMetaByPath } from '@/lib/routeMetadata';
 

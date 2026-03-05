@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 
 import { buildMetadata } from '@/lib/nextMetadata';
 import { getRouteMetaByPath } from '@/lib/routeMetadata';
-import SearchClientPage from '@/pages/Search';
+import SearchClientPage from '@/views/Search';
 
 const routeMeta = getRouteMetaByPath('/search');
 

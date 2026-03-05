@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import Home from '@/pages/Home';
+import Home from '@/views/Home';
 import { buildMetadata } from '@/lib/nextMetadata';
 import { getHomeMeta } from '@/lib/routeMetadata';
 
