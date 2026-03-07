@@ -14,12 +14,19 @@ This document is the one-stop guide for repository migration ownership, deployme
 
 ## 2) Deployment command sequence
 
-Use this after each content or metadata change:
+Use this after each content, metadata, redirect, or analytics change:
 
 ```bash
 npm run build
+git status
+git push origin main
 vercel --prod --yes --scope enzo-design-prisms-projects
 ```
+
+Notes:
+
+- Preferred release flow is commit -> push `main` -> production deploy. Avoid treating an uncommitted local tree as the long-term source of truth for production.
+- For legacy URLs that require real HTTP redirect status codes in production, define the rule in `vercel.json`.
 
 Then run the verification checks:
 
@@ -41,7 +48,9 @@ vercel env ls
    - `/` contains `index, follow`
    - `/search` contains `noindex, nofollow`
    - `/404` contains `noindex`
-3. Re-run generation commands when route metadata changes:
+3. Confirm redirect signals on representative legacy URLs:
+   - `/pillars/longevity` returns `308` to `/pillars/health`
+4. Re-run generation commands when route metadata changes:
    - `npm run sitemap`
    - `npm run build:search`
    - `npm run prerender` to refresh `public/seo-route-audit.json` (or just run full `npm run build`)

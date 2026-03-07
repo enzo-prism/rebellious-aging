@@ -1,6 +1,6 @@
 # SEO Metadata Implementation
 
-Last reviewed: 2026-03-05.
+Last reviewed: 2026-03-07.
 
 This document describes how title tags, meta descriptions, canonicals, robots rules, and SEO validation actually work in the current codebase.
 
@@ -68,6 +68,17 @@ Current role:
 - fails the build if required metadata is missing
 
 The actual HTML title tags and meta descriptions come from `next build`, not from the prerender script.
+
+## Important caveat: redirects in static export
+
+For this project, `next.config.js` is not the source of truth for production HTTP redirects when `output: 'export'` is enabled.
+
+Current redirect model:
+
+- Production HTTP redirects that must return a real `3xx` status on Vercel are defined in `vercel.json`.
+- App Router redirect pages such as `app/pillars/longevity/page.tsx` are still useful as in-app or runtime fallbacks.
+
+If a legacy URL matters for SEO or backlinks, verify the live HTTP status with a request tool after deploy instead of assuming the framework config handled it.
 
 ## Current verification workflow
 

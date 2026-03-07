@@ -51,7 +51,7 @@
 ## Operational Notes
 - Route coverage and SEO parity are validated during build with the repurposed prerender step.
 - Detailed metadata behavior is documented in `docs/seo-metadata-implementation.md`.
-- Deployment target is Vercel static export (`/out`), with runtime compatibility safeguards in `next.config.js`.
+- Deployment target is Vercel static export (`/out`), with app/runtime behavior split between `next.config.js`, App Router route files, and Vercel production rules in `vercel.json`.
 - GitHub source of truth is `enzo-prism/rebellious-aging`; legacy references should stay in historical notes only.
 - Public page-level affordances such as share controls should continue to be mounted in local page shells rather than the global header so routes can opt out cleanly, especially 404 and redirect flows.
 

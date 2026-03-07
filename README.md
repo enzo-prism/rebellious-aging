@@ -361,7 +361,9 @@ Baseline launch checklist:
 ## Deployment
 
 1. `npm run build` — runs sitemap, search index, Next static export, and SEO audit.
-2. Deploy `/out` to Vercel (static output) and keep redirects/headers in `next.config.js`.
+2. Commit and push to `main` before production deploys so GitHub stays the source of truth for the live site.
+3. Deploy the current repository to Vercel with `vercel --prod --yes`.
+4. Keep legacy HTTP redirects in `vercel.json`; do not rely on `next.config.js` redirects for static-export production behavior.
 
 Supabase function (`submit-quiz`) can be deployed with:
 
