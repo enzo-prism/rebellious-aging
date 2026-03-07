@@ -176,6 +176,7 @@ Current deployment model:
 
 - Git branch `main` is the source branch for Vercel production.
 - Vercel Web Analytics is wired through [`app/layout.tsx`](/Users/enzo/ra-nextjs/app/layout.tsx) via `@vercel/analytics`; the dashboard toggle must stay enabled for the Vercel project.
+- Legacy production redirects that need true HTTP status codes are defined in [`vercel.json`](/Users/enzo/ra-nextjs/vercel.json), not `next.config.js`, because this app ships as a static export.
 - Production and preview builds inherit environment variables for:
   - `NEXT_PUBLIC_ENABLE_ANALYTICS`
   - `NEXT_PUBLIC_GA_ID`

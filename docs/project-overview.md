@@ -15,7 +15,7 @@
 - **Entry/structure:** `app/layout.tsx` provides global providers and layout chrome; page UIs remain in `src/views`.
 - **Core pages:**  
   - Home, Our Story, Welcome Letter, Starter Kit, Nutrition, Video Series, Pillars (dynamic), Recipe listing/detail, Blog listing/detail, Search, Team, Contact, Facebook Group, and not-found flows.
-- **Special routing behavior:** `/pillars/longevity` redirects to `/pillars/health` via the App Router page at `app/pillars/longevity/page.tsx`, which remains the source of truth in static export mode.
+- **Special routing behavior:** `/pillars/longevity` redirects to `/pillars/health`. Production HTTP redirect behavior is enforced in `vercel.json`, while `app/pillars/longevity/page.tsx` provides an App Router fallback during local/runtime navigation.
 - **Reusable CTAs:** `ConnectCTA`, `WelcomeBanner`, `VideoCard`, `MobileMenuSection`, `GallerySection`, and shared content modules.
 - **Reusable share UI:** `src/components/share/PageShareButton.tsx`, `PageShareDialog.tsx`, and `PageTopUtilityRow.tsx` provide a single share pattern across public page shells and hero blocks.
 

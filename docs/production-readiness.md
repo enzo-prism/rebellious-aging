@@ -34,6 +34,7 @@ This project uses a codified readiness gate before public launch.
 
 ## Notes
 - Run with `npm run preview` after `npm run build` for manual smoke.
+- For legacy URLs that must return a real HTTP redirect in production, verify the rule in `vercel.json` as part of release review; static export alone is not enough.
 - Keep generated files in sync after SEO/content updates:
   - `npm run sitemap`
   - `npm run build:search`
