@@ -56,8 +56,10 @@ Current hardening already in place:
    - No index blocking from canonical mismatch or noindex errors.
 5. Track manual actions, core indexing, and crawl anomalies weekly until stable.
 
-## 4) Google Analytics + behavior instrumentation
+## 4) Analytics + behavior instrumentation
 
+- Keep `@vercel/analytics` mounted in `app/layout.tsx` so Vercel Web Analytics can auto-track page views on deployed builds.
+- Vercel Web Analytics is enabled from the Vercel project dashboard and does not need a public env var.
 - Keep tracking gated behind `NEXT_PUBLIC_ENABLE_ANALYTICS`.
 - Set `NEXT_PUBLIC_GA_ID=G-...` in Production.
 - Confirm tags load only on final rendered routes (no missing script errors).

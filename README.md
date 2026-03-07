@@ -148,6 +148,8 @@ NEXT_PUBLIC_HOTJAR_ID=<optional-hotjar-id>
 NEXT_PUBLIC_ENABLE_GPTENGINEER=true|false
 ```
 
+Vercel Web Analytics does not require an environment variable. It is enabled from the Vercel project dashboard and injected by `@vercel/analytics` in [`app/layout.tsx`](/Users/enzo/ra-nextjs/app/layout.tsx).
+
 For rollout compatibility, the app also reads legacy keys:
 
 ```bash
@@ -173,6 +175,7 @@ This repository is now the primary source of truth for the live site:
 Current deployment model:
 
 - Git branch `main` is the source branch for Vercel production.
+- Vercel Web Analytics is wired through [`app/layout.tsx`](/Users/enzo/ra-nextjs/app/layout.tsx) via `@vercel/analytics`; the dashboard toggle must stay enabled for the Vercel project.
 - Production and preview builds inherit environment variables for:
   - `NEXT_PUBLIC_ENABLE_ANALYTICS`
   - `NEXT_PUBLIC_GA_ID`
@@ -213,19 +216,20 @@ vercel env add NEXT_PUBLIC_HOTJAR_ID
 vercel --prod --yes --scope enzo-design-prisms-projects
 ```
 
-### Google Analytics + Search Console Configuration
+### Vercel Analytics + Google Analytics + Search Console Configuration
 
 Recommended flow for production:
 
-1. Set `NEXT_PUBLIC_ENABLE_ANALYTICS=true` and `NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX` in production.
-2. Add `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` with the Search Console meta token.
-3. Optional: keep `NEXT_PUBLIC_HOTJAR_ID` set for session maps.
-4. In Vercel, save these in the Production environment and remove any stale previews if not needed.
-3. Verify the production domain in Search Console and submit:
+1. Enable Web Analytics in the Vercel project settings so the installed `@vercel/analytics` package can report traffic.
+2. Set `NEXT_PUBLIC_ENABLE_ANALYTICS=true` and `NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX` in production if GA4 should continue loading alongside Vercel Analytics.
+3. Add `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` with the Search Console meta token.
+4. Optional: keep `NEXT_PUBLIC_HOTJAR_ID` set for session maps.
+5. In Vercel, save these in the Production environment and remove any stale previews if not needed.
+6. Verify the production domain in Search Console and submit:
    - https://rebelwithsuz.com/sitemap.xml
    - https://rebelwithsuz.com/robots.txt
-4. In Search Console URL Inspection, confirm top URLs show `IndexingState: INDEXING_ALLOWED` and `Coverage` is not blocked by crawl issues.
-5. Validate that all noindex routes (`/search`, `/404`, app-level not-found) are listed as intentionally unindexed in coverage.
+7. In Search Console URL Inspection, confirm top URLs show `IndexingState: INDEXING_ALLOWED` and `Coverage` is not blocked by crawl issues.
+8. Validate that all noindex routes (`/search`, `/404`, app-level not-found) are listed as intentionally unindexed in coverage.
 
 ### Modern SEO + Search Engine Operating Checklist (Google-first, Vercel-friendly)
 

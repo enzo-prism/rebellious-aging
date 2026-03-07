@@ -8,15 +8,6 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: false,
   },
-  async redirects() {
-    return [
-      {
-        source: '/pillars/longevity',
-        destination: '/pillars/health',
-        permanent: true,
-      },
-    ];
-  },
 };
 
 export default nextConfig;

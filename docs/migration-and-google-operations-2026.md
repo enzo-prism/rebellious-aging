@@ -64,6 +64,8 @@ At deployment time, ensure production env includes:
 - `NEXT_PUBLIC_GA_ID=<GA4 property ID>`
 - `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=<token>`
 
+Vercel Web Analytics is enabled by the Vercel project dashboard plus the `@vercel/analytics` component mounted in `app/layout.tsx`; it does not require an additional env var.
+
 `NEXT_PUBLIC_HOTJAR_ID` is optional if session recordings are still required.
 
 ## 6) Ongoing ownership reminder

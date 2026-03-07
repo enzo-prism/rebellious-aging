@@ -7,7 +7,7 @@
 - **State/Async:** TanStack Query and shared shadcn/Toast patterns for feedback, with page-level lazy loading for embeds.
 - **SEO/Indexing:** `src/lib/seo.ts`, `src/lib/nextMetadata.ts`, route metadata in `src/data/seoRoutes.ts`, search index generation via `scripts/build-search-index.ts`.
 - **Build/Release:** `npm run build` runs `npm run sitemap`, `npm run build:search`, `next build`, and `npm run prerender` (metadata audit validation).
-- **Analytics/Embeds:** GA, Hotjar, and GPT Engineer toggled via environment flags and inserted in `src/app/layout.tsx` via `next/script`.
+- **Analytics/Embeds:** Vercel Web Analytics is injected from `app/layout.tsx`; GA, Hotjar, and GPT Engineer remain env-gated and are inserted there via `next/script`.
 - **SEO Ops Guide:** `docs/seo-best-practices-nextjs-vercel-2026.md` documents the current Search Console + deployment operating model.
 - **Migration + Ownership:** `docs/migration-and-google-operations-2026.md` tracks repo migration state and command-level verification.
 
@@ -15,7 +15,7 @@
 - **Entry/structure:** `app/layout.tsx` provides global providers and layout chrome; page UIs remain in `src/views`.
 - **Core pages:**  
   - Home, Our Story, Welcome Letter, Starter Kit, Nutrition, Video Series, Pillars (dynamic), Recipe listing/detail, Blog listing/detail, Search, Team, Contact, Facebook Group, and not-found flows.
-- **Special routing behavior:** `/pillars/longevity` redirects to `/pillars/health` via Vercel/App Router routing configuration.
+- **Special routing behavior:** `/pillars/longevity` redirects to `/pillars/health` via the App Router page at `app/pillars/longevity/page.tsx`, which remains the source of truth in static export mode.
 - **Reusable CTAs:** `ConnectCTA`, `WelcomeBanner`, `VideoCard`, `MobileMenuSection`, `GallerySection`, and shared content modules.
 - **Reusable share UI:** `src/components/share/PageShareButton.tsx`, `PageShareDialog.tsx`, and `PageTopUtilityRow.tsx` provide a single share pattern across public page shells and hero blocks.
 
@@ -39,6 +39,7 @@
 - `app/robots.ts` now controls crawler directives and sitemap declaration under Next.js file conventions.
 - `app/not-found.tsx` enforces `noindex, nofollow` for unexpected/404 URLs.
 - `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` feeds Google verification content into page metadata (Search Console metadata method).
+- Vercel Web Analytics is installed via `@vercel/analytics` and mounted in `app/layout.tsx`; it does not require a public env var.
 - GA ID is controlled by `NEXT_PUBLIC_GA_ID`; GA loading is environment-gated in `app/layout.tsx`.
 - `npm run readiness:verify` and `npm run test:e2e:readiness` include a smoke check for SEO-sensitive assets (`sitemap.xml`, `seo-route-audit.json`, `search-index.json`).
 - Readiness command sets now include:

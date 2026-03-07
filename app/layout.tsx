@@ -2,6 +2,7 @@ import Script from 'next/script';
 import { Inter } from 'next/font/google';
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
+import { Analytics as VercelAnalytics } from '@vercel/analytics/next';
 
 import '@/index.css';
 import AppProviders from '@/App';
@@ -117,6 +118,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
         <AppProviders>
           <Layout>{children}</Layout>
         </AppProviders>
+        <VercelAnalytics />
       </body>
     </html>
   );

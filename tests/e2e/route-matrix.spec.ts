@@ -57,6 +57,14 @@ test.describe('Public route matrix', () => {
     await expect(page.getByRole('button', { name: /share page/i })).toHaveCount(0);
   });
 
+  test('redirects legacy longevity route to the health pillar', async ({ page }) => {
+    await page.goto('/pillars/longevity', { waitUntil: 'domcontentloaded' });
+    await page.waitForURL('**/pillars/health');
+    await expect(page).toHaveURL(/\/pillars\/health$/);
+    await expect(page.getByRole('heading').first()).toBeVisible();
+    await expect(page.getByRole('button', { name: /share page/i })).toBeVisible();
+  });
+
   test('returns 404 for unknown static routes', async ({ page }) => {
     const missing = ['/does-not-exist', '/totally-missing-route'];
     for (const path of missing) {
