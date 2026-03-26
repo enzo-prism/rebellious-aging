@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-03-05T21:48:29.431Z",
-  "totalRoutes": 107,
-  "validRoutes": 107,
+  "generatedAt": "2026-03-26T14:33:23.952Z",
+  "totalRoutes": 110,
+  "validRoutes": 110,
   "failedRoutes": 0,
   "records": [
     {
@@ -71,6 +71,56 @@
         "description": "A heartfelt welcome from Suz inviting women 55-105 to join a bold movement centered on community, plant-strong nourishment, and confidence.",
         "canonical": "/welcome-letter",
         "ogType": "website",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/speaking-events",
+      "source": "seo-routes",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "title",
+        "description",
+        "canonical",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Speaking Events",
+        "description": "Explore Suz's talks, community presentations, and future speaking appearances as Rebellious Aging keeps growing.",
+        "canonical": "/speaking-events",
+        "ogType": "website",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/dr-seuss",
+      "source": "seo-routes",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "title",
+        "description",
+        "canonical",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Dr. Seuss & Rebellious Aging",
+        "description": "Explore why Dr. Seuss's You're Only Old Once! resonates with Rebellious Aging through humor, healthcare satire, resilience, and Suz's Santa Cruz reading.",
+        "canonical": "/dr-seuss",
+        "ogType": "article",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
@@ -2496,6 +2546,29 @@
         "description": "A fresh, crunchy salad with crisp vegetables and a flavorful sesame ginger dressing that brings Asian-inspired flavors to your table.",
         "canonical": "/recipes/asian-chopped-salad-with-sesame-ginger-dressing",
         "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/speaking-events/eat-for-the-earth-santa-cruz",
+      "source": "speaking-event",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Eat for the Earth",
+        "description": "Revisit Eat for the Earth, Suz's first Rebellious Aging speaking event in Santa Cruz, hosted by Beth Love and remembered for its warmth, humor, and Dr.…",
+        "canonical": "/speaking-events/eat-for-the-earth-santa-cruz",
+        "ogType": "article",
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     }

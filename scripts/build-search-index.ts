@@ -12,6 +12,7 @@ import { recipes, slugifyRecipeTitle } from '../src/data/recipes';
 import { nutritionGuideSections } from '../src/data/nutritionGuideSections';
 import { pillarContent } from '../src/data/pillarContent';
 import { seoRoutes } from '../src/data/seoRoutes';
+import { getSpeakingEventPath, speakingEvents } from '../src/data/speakingEvents';
 import { videoSeriesData } from '../src/data/videoSeries';
 import type { SearchDocument } from '../src/data/searchRecords';
 
@@ -24,6 +25,8 @@ const STATIC_PATHS = new Set([
   '/',
   '/our-story',
   '/welcome-letter',
+  '/speaking-events',
+  '/dr-seuss',
   '/starter-kit',
   '/nutrition',
   '/video-series',
@@ -124,6 +127,17 @@ const buildVideoDocs = (): SearchDocument[] =>
     updatedAt: video.publishedDate,
   }));
 
+const buildSpeakingEventDocs = (): SearchDocument[] =>
+  speakingEvents.map<SearchDocument>((event) => ({
+    id: `event:${event.slug}`,
+    type: 'event',
+    title: event.title,
+    path: getSpeakingEventPath(event.slug),
+    summary: event.summary,
+    content: [event.host, event.location, event.dateLabel, event.spotlight, event.audienceResponse, ...event.takeaways].join(' '),
+    tags: ['event', 'speaking', ...event.tags],
+  }));
+
 const buildNutritionTabDocs = (): SearchDocument[] =>
   nutritionTabs.map<SearchDocument>((tab) => ({
     id: `section:nutrition:${tab.id}`,
@@ -211,6 +225,7 @@ const buildSearchIndex = (): SearchDocument[] => {
     ...buildNutritionGuideSectionDocs(),
     ...buildBlogDocs(),
     ...buildVideoDocs(),
+    ...buildSpeakingEventDocs(),
     {
       id: 'resource:nutrition-guide',
       type: 'resource',

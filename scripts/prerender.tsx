@@ -6,6 +6,7 @@ import { blogPosts, getBlogPostById, getBlogPostSeoTitle } from '../src/data/blo
 import { seoRoutes } from '../src/data/seoRoutes';
 import { recipes, slugifyRecipeTitle } from '../src/data/recipes';
 import { pillarContent } from '../src/data/pillarContent';
+import { getSpeakingEventBySlug, getSpeakingEventPath, speakingEvents } from '../src/data/speakingEvents';
 import { buildMetaDescription, buildSeoTitle } from '../src/lib/seo';
 import { getRouteMetaByPath } from '../src/lib/routeMetadata';
 import type { RouteMeta } from '../src/lib/routeMetadata';
@@ -18,7 +19,7 @@ const __dirname = dirname(__filename);
 const projectRoot = join(__dirname, '..');
 const outputPath = join(projectRoot, 'public', 'seo-route-audit.json');
 
-type RouteSource = 'seo-routes' | 'blog' | 'recipe' | 'pillar';
+type RouteSource = 'seo-routes' | 'blog' | 'recipe' | 'pillar' | 'speaking-event';
 
 interface AuditRecord {
   path: string;
@@ -72,8 +73,12 @@ const buildExpectedPaths = (): Array<{ path: string; source: RouteSource }> => {
     path: `/pillars/${pillarId}`,
     source: 'pillar' as RouteSource,
   }));
+  const speakingEventPaths = speakingEvents.map((event) => ({
+    path: getSpeakingEventPath(event.slug),
+    source: 'speaking-event' as RouteSource,
+  }));
 
-  return [...staticPaths, ...blogPaths, ...recipePaths, ...pillarPaths];
+  return [...staticPaths, ...blogPaths, ...recipePaths, ...pillarPaths, ...speakingEventPaths];
 };
 
 const resolveBlogMeta = (postId: string): RouteMeta | undefined => {
@@ -152,6 +157,32 @@ const resolvePillarMeta = (pillarId: string): RouteMeta => {
   };
 };
 
+const resolveSpeakingEventMeta = (slug: string): RouteMeta => {
+  const event = getSpeakingEventBySlug(slug);
+  const path = getSpeakingEventPath(slug);
+
+  if (!event) {
+    return {
+      path,
+      canonical: path,
+      title: 'Speaking Event Not Found',
+      description: buildMetaDescription('The requested speaking event does not exist.'),
+      image: defaultImage,
+      noindex: true,
+      ogType: 'article',
+    };
+  }
+
+  return {
+    path,
+    canonical: path,
+    title: event.title,
+    description: buildMetaDescription(event.seoDescription, event.summary),
+    image: defaultImage,
+    ogType: 'article',
+  };
+};
+
 const resolveStaticMeta = (path: string): RouteMeta | undefined => {
   return getRouteMetaByPath(path);
 };
@@ -167,6 +198,10 @@ const resolveMeta = (path: string, source: RouteSource): RouteMeta | undefined =
 
   if (path.startsWith('/pillars/')) {
     return resolvePillarMeta(path.replace('/pillars/', ''));
+  }
+
+  if (path.startsWith('/speaking-events/')) {
+    return resolveSpeakingEventMeta(path.replace('/speaking-events/', ''));
   }
 
   if (path === '/') {

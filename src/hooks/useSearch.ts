@@ -75,6 +75,11 @@ const TERM_BOOSTS: Record<string, number> = {
   resources: 0.55,
   pillar: 0.6,
   pillars: 0.6,
+  event: 0.65,
+  events: 0.65,
+  speaking: 0.75,
+  talk: 0.75,
+  talks: 0.75,
 };
 
 const normalizeQuery = (raw: string) => {
@@ -124,10 +129,14 @@ const getTypeBoostForQuery = (normalized: string) => {
   const wantsBlog = /\b(blog|post)\b/.test(normalized);
   const wantsResource = /\b(guide|nutrition|resource|download)\b/.test(normalized);
   const wantsRecipe = /\b(recipe|recipes|reciepe|receipe|recepie|recipie|cook|cooking|meal|meals|dessert|desserts|salad|salads|soup|soups|muffin|muffins)\b/.test(normalized);
+  const wantsEvent = /\b(event|events|speaking|speaker|talk|talks|presentation|presentations|workshop|workshops)\b/.test(
+    normalized
+  );
   const wantsSection = /\b(tab|section|protocol|benefits|labels|b12|rebel plate|crowd out|first steps)\b/.test(normalized) || wantsResource;
 
   return (type: SearchType) => {
     if (wantsRecipe && type === 'recipe') return 1.6;
+    if (wantsEvent && type === 'event') return 1.55;
     if (wantsSection && type === 'section') return 1.35;
     if (wantsVideo && type === 'video') return 1.5;
     if (wantsPillar && type === 'pillar') return 1.4;

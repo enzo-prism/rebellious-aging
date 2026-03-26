@@ -21,8 +21,8 @@ describe('blog post data', () => {
     expect(sample?.title).toBe(blogPosts[1].title);
   });
 
-  it('builds fallback seo title', () => {
+  it('uses the blog title as the fallback seo title', () => {
     const sample = blogPosts[0];
-    expect(getBlogPostSeoTitle(sample)).toBe(`Blog #${sample.blogNumber}: ${sample.title}`);
+    expect(getBlogPostSeoTitle(sample)).toBe(sample.title);
   });
 });

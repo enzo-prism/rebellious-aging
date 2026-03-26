@@ -35,6 +35,7 @@ const typeLabel: Record<SearchType, string> = {
   resource: 'Resources',
   section: 'Sections',
   recipe: 'Recipes',
+  event: 'Events',
 };
 
 const typeEmoji: Record<SearchType, string> = {
@@ -45,6 +46,7 @@ const typeEmoji: Record<SearchType, string> = {
   resource: '📚',
   section: '📌',
   recipe: '🍽️',
+  event: '🎤',
 };
 
 interface ResultGroup {
@@ -92,6 +94,7 @@ export const SearchDialog: React.FC<SearchDialogProps> = ({
       resource: [],
       section: [],
       recipe: [],
+      event: [],
     };
     const groupOrder = new Map<SearchType, number>();
 
@@ -285,7 +288,7 @@ export const SearchDialog: React.FC<SearchDialogProps> = ({
                 markUserScrollIntent();
               }
             }}
-            placeholder="Search recipes, blog posts, pillars, nutrition..."
+            placeholder="Search recipes, blog posts, speaking events, nutrition..."
             className="pr-12"
           />
           <Button

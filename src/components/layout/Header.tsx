@@ -117,6 +117,16 @@ const Header = () => {
                   💌 Welcome Letter
                 </Link>
               </DropdownMenuItem>
+              <DropdownMenuItem asChild className="focus:bg-accent focus:text-accent-foreground">
+                <Link href="/speaking-events" className="w-full flex items-center gap-2 px-3 py-2">
+                  🎤 Speaking Events
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild className="focus:bg-accent focus:text-accent-foreground">
+                <Link href="/dr-seuss" className="w-full flex items-center gap-2 px-3 py-2">
+                  📚 Dr. Seuss &amp; Aging
+                </Link>
+              </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuLabel className="px-3 pt-2 pb-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">
                 Pillars
@@ -269,6 +279,8 @@ const Header = () => {
                   items={[
                     { to: '/our-story', label: 'Our Story', icon: '📖' },
                     { to: '/welcome-letter', label: 'Welcome Letter', icon: '💌' },
+                    { to: '/speaking-events', label: 'Speaking Events', icon: '🎤' },
+                    { to: '/dr-seuss', label: 'Dr. Seuss & Aging', icon: '📚' },
                     { to: '/pillars/confidence', label: 'Pillars: Confidence', icon: '🌟' },
                     { to: '/pillars/style', label: 'Pillars: Style', icon: '👗' },
                     { to: '/pillars/health', label: 'Pillars: Health', icon: '🌱' },

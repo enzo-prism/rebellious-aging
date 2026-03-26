@@ -30,6 +30,26 @@
     ]
   },
   {
+    "id": "page:/speaking-events",
+    "type": "page",
+    "title": "Speaking Events",
+    "path": "/speaking-events",
+    "summary": "Explore Suz's talks, community presentations, and future speaking appearances as Rebellious Aging keeps growing.",
+    "tags": [
+      "page"
+    ]
+  },
+  {
+    "id": "page:/dr-seuss",
+    "type": "page",
+    "title": "Dr. Seuss & Rebellious Aging",
+    "path": "/dr-seuss",
+    "summary": "Explore why Dr. Seuss's You're Only Old Once! resonates with Rebellious Aging through humor, healthcare satire, resilience, and Suz's Santa Cruz reading.",
+    "tags": [
+      "page"
+    ]
+  },
+  {
     "id": "page:/starter-kit",
     "type": "page",
     "title": "Starter Kit",
@@ -1765,6 +1785,24 @@
     ],
     "content": "Embrace the power of living loudly and unapologetically while taking full control of what's on your plate—both literally and metaphorically. This episode explores how to make bold choices about your nutrition, your life, and your future, refusing to settle for anything less than what truly nourishes your rebellious spirit. 7:59",
     "updatedAt": "2024-08-12"
+  },
+  {
+    "id": "event:eat-for-the-earth-santa-cruz",
+    "type": "event",
+    "title": "Eat for the Earth",
+    "path": "/speaking-events/eat-for-the-earth-santa-cruz",
+    "summary": "Suz's first Rebellious Aging speaking event, hosted by Beth Love in Santa Cruz, where she introduced the movement, connected food with personal and planetary care, and read Dr. Seuss to a delighted audience.",
+    "content": "Beth Love Santa Cruz, California January 20 What made this event especially memorable was the combination of substance and spirit. Suz introduced Rebellious Aging as a lifestyle and mindset, then brought the room to life by reading from Dr. Seuss's \"You're Only Old Once!\" a moment that landed beautifully with the audience. The audience response was warm, engaged, and joyful. People clearly recognized themselves in the themes Suz brought forward and responded especially strongly to the blend of candid truth, shared laughter, and practical hope. Aging conversations land differently when they are honest, funny, and rooted in dignity. Food can be discussed as both a health choice and a values choice without becoming preachy. Live speaking gives Suz a powerful way to bring Rebellious Aging to life through warmth, humor, and storytelling. This first event showed that there is real appetite for more community talks, readings, and conversations in the future.",
+    "tags": [
+      "event",
+      "speaking",
+      "speaking",
+      "event",
+      "santa cruz",
+      "beth love",
+      "dr seuss",
+      "wfpb"
+    ]
   },
   {
     "id": "resource:nutrition-guide",

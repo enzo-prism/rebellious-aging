@@ -23,6 +23,7 @@ const typeFilters: Array<{ type: SearchType; label: string }> = [
   { type: 'resource', label: 'Resources' },
   { type: 'section', label: 'Sections' },
   { type: 'recipe', label: 'Recipes' },
+  { type: 'event', label: 'Events' },
 ];
 
 const RECENT_KEY = 'ra-recent-searches';
@@ -123,9 +124,10 @@ const Search = () => {
             <PageShareButton />
           </PageTopUtilityRow>
           <p className="text-sm uppercase tracking-[0.28em] text-teal font-semibold">Search</p>
-          <h1 className="text-4xl font-bold leading-tight">Find pillars, nutrition, blog posts, and resources</h1>
+          <h1 className="text-4xl font-bold leading-tight">Find pillars, nutrition, blog posts, and speaking events</h1>
           <p className="text-muted-foreground max-w-3xl">
-            Start typing to search everything on Rebellious Aging. Use filters to narrow down by content type.
+            Start typing to search everything on Rebellious Aging, including speaking events. Use filters to narrow down by content
+            type.
           </p>
         </div>
 
@@ -149,7 +151,7 @@ const Search = () => {
                   type="search"
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
-                  placeholder="Search blog, pillars, nutrition guide, video series…"
+                  placeholder="Search blog, pillars, speaking events, nutrition guide…"
                   className="pl-10 h-12 text-base"
                 />
                 {query && (
@@ -229,6 +231,7 @@ const Search = () => {
                   <Badge variant="outline">confidence</Badge>
                   <Badge variant="outline">gratitude</Badge>
                   <Badge variant="outline">video</Badge>
+                  <Badge variant="outline">speaking</Badge>
                   <Badge variant="outline">plant-based</Badge>
                 </div>
               </div>

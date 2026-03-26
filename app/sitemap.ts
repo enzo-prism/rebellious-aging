@@ -3,6 +3,7 @@ import { MetadataRoute } from 'next';
 import { blogPosts } from '@/data/blogPosts';
 import { recipes, slugifyRecipeTitle } from '@/data/recipes';
 import { seoRoutes } from '@/data/seoRoutes';
+import { getSpeakingEventPath, speakingEvents } from '@/data/speakingEvents';
 import { siteMetadata } from '@/lib/siteMetadata';
 
 const baseUrl = siteMetadata.baseUrl?.replace(/\/$/, '') ?? 'https://rebelwithsuz.com';
@@ -68,5 +69,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  return [...staticEntries, ...recipeEntries, ...blogEntries];
+  const speakingEventEntries = speakingEvents.map((event) => ({
+    url: toAbsolute(getSpeakingEventPath(event.slug)),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  return [...staticEntries, ...recipeEntries, ...blogEntries, ...speakingEventEntries];
 }

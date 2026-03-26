@@ -145,6 +145,10 @@ const Home = () => {
     () => docs.filter((doc) => doc.type === 'video').slice(0, 2),
     [docs]
   );
+  const featuredEvents = useMemo(
+    () => docs.filter((doc) => doc.type === 'event').slice(0, 2),
+    [docs]
+  );
   const featuredPillars = useMemo(
     () => docs.filter((doc) => doc.type === 'pillar').slice(0, 2),
     [docs]
@@ -166,10 +170,11 @@ const Home = () => {
       if (activeSearchType === 'recipe') return featuredRecipes;
       if (activeSearchType === 'blog') return featuredBlogs;
       if (activeSearchType === 'video') return featuredVideos;
+      if (activeSearchType === 'event') return featuredEvents;
       if (activeSearchType === 'pillar') return featuredPillars;
       return [...featuredRecipes, ...featuredBlogs];
     },
-    [activeSearchType, featuredBlogs, featuredPillars, featuredRecipes, featuredVideos]
+    [activeSearchType, featuredBlogs, featuredEvents, featuredPillars, featuredRecipes, featuredVideos]
   );
   const displayItems = searchQuery ? searchResults : defaultItems;
   const topItemId = displayItems[0]?.id;
@@ -453,7 +458,7 @@ const Home = () => {
             <p className="uppercase text-xs tracking-[0.3em] text-teal font-semibold">Search</p>
             <h2 className="text-3xl md:text-4xl font-bold">Find anything on Rebellious Aging</h2>
             <p className="text-gray-600">
-              Looking for a specific recipe, blog, pillar, or video? Search the site right here.
+              Looking for a specific recipe, blog, pillar, speaking event, or video? Search the site right here.
             </p>
           </div>
 
@@ -473,7 +478,7 @@ const Home = () => {
                 type="search"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search recipes, blogs, pillars, nutrition, video series…"
+                placeholder="Search recipes, blogs, pillars, speaking events, video series…"
                 className="w-full rounded-full border border-gray-200 bg-white px-11 py-3.5 text-base shadow-sm focus:border-teal focus:ring-2 focus:ring-teal/20 transition"
               />
               {searchLoading && (
@@ -483,13 +488,14 @@ const Home = () => {
           </form>
 
           <div className="flex flex-wrap justify-center gap-2 text-sm">
-            {([
-              { label: 'All', value: 'all' },
-              { label: 'Recipes', value: 'recipe' },
-              { label: 'Blog', value: 'blog' },
-              { label: 'Videos', value: 'video' },
-              { label: 'Pillars', value: 'pillar' },
-            ] as const).map((filter) => (
+              {([
+                { label: 'All', value: 'all' },
+                { label: 'Recipes', value: 'recipe' },
+                { label: 'Blog', value: 'blog' },
+                { label: 'Videos', value: 'video' },
+                { label: 'Events', value: 'event' },
+                { label: 'Pillars', value: 'pillar' },
+              ] as const).map((filter) => (
               <Button
                 key={filter.value}
                 variant={activeSearchType === filter.value ? 'default' : 'outline'}
@@ -510,7 +516,17 @@ const Home = () => {
                 {displayItems.map((item) => {
                   const isTop = item.id === topItemId;
                   const topLabel = searchQuery ? 'Top result' : 'Top pick';
-                  const typeLabel = item.type ?? 'blog';
+                  const typeLabelMap: Partial<Record<SearchType, string>> = {
+                    blog: 'Blog',
+                    event: 'Event',
+                    page: 'Page',
+                    pillar: 'Pillar',
+                    recipe: 'Recipe',
+                    resource: 'Resource',
+                    section: 'Section',
+                    video: 'Video',
+                  };
+                  const typeLabel = item.type ? typeLabelMap[item.type] ?? item.type : 'Blog';
                   const blogNumber =
                     typeof item === 'object' &&
                     item !== null &&

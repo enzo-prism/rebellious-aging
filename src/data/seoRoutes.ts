@@ -27,6 +27,19 @@ export const seoRoutes: SeoRouteConfig[] = [
       'A heartfelt welcome from Suz inviting women 55-105 to join a bold movement centered on community, plant-strong nourishment, and confidence.',
   },
   {
+    path: '/speaking-events',
+    title: 'Speaking Events',
+    description:
+      "Explore Suz's talks, community presentations, and future speaking appearances as Rebellious Aging keeps growing.",
+  },
+  {
+    path: '/dr-seuss',
+    title: 'Dr. Seuss & Rebellious Aging',
+    description:
+      "Explore why Dr. Seuss's You're Only Old Once! resonates with Rebellious Aging through humor, healthcare satire, resilience, and Suz's Santa Cruz reading.",
+    ogType: 'article',
+  },
+  {
     path: '/starter-kit',
     title: 'Starter Kit',
     description:
