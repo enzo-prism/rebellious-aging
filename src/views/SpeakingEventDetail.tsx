@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, CalendarDays, Download, ExternalLink, MapPin, Mic2, Presentation, UserRound } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CalendarDays, Download, ExternalLink, MapPin, Mic2, PlayCircle, Presentation, UserRound } from 'lucide-react';
 
 import ConnectCTA from '@/components/common/ConnectCTA';
 import Seo from '@/components/seo/Seo';
@@ -139,59 +139,83 @@ const SpeakingEventDetail = ({ event }: SpeakingEventDetailProps) => {
               <p className="mt-6 leading-relaxed text-gray-700">{event.nextChapter}</p>
             </div>
 
-            <div className="rounded-[2rem] border border-gray-200 bg-white p-8 shadow-sm">
-              <div className="flex items-center gap-3 text-teal">
-                <Presentation className="h-5 w-5" />
-                <p className="text-sm font-semibold uppercase tracking-[0.3em]">Slide deck</p>
-              </div>
-              <h2 className="mt-3 text-3xl font-bold text-gray-900">Presentation materials</h2>
+            <div className="space-y-6">
+              {event.videoPreview ? (
+                <div className="rounded-[2rem] border border-gray-200 bg-white p-8 shadow-sm">
+                  <div className="flex items-center gap-3 text-coral">
+                    <PlayCircle className="h-5 w-5" />
+                    <p className="text-sm font-semibold uppercase tracking-[0.3em]">Video preview</p>
+                  </div>
+                  <h2 className="mt-3 text-3xl font-bold text-gray-900">{event.videoPreview.title}</h2>
+                  <p className="mt-4 leading-relaxed text-gray-700">{event.videoPreview.description}</p>
+                  <div className="mt-6 overflow-hidden rounded-2xl border border-gray-200 bg-black shadow-sm">
+                    <video
+                      className="aspect-video h-full w-full"
+                      controls
+                      playsInline
+                      preload="metadata"
+                    >
+                      <source src={event.videoPreview.videoUrl} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+              ) : null}
 
-              {event.slideDeck.status === 'ready' && event.slideDeck.embedUrl ? (
-                <div className="mt-6 space-y-4">
-                  <div className="flex flex-col gap-3 sm:flex-row">
-                    {event.slideDeck.downloadUrl ? (
+              <div className="rounded-[2rem] border border-gray-200 bg-white p-8 shadow-sm">
+                <div className="flex items-center gap-3 text-teal">
+                  <Presentation className="h-5 w-5" />
+                  <p className="text-sm font-semibold uppercase tracking-[0.3em]">Slide deck</p>
+                </div>
+                <h2 className="mt-3 text-3xl font-bold text-gray-900">Presentation materials</h2>
+
+                {event.slideDeck.status === 'ready' && event.slideDeck.embedUrl ? (
+                  <div className="mt-6 space-y-4">
+                    <div className="flex flex-col gap-3 sm:flex-row">
+                      {event.slideDeck.downloadUrl ? (
+                        <Button asChild className="bg-teal text-white hover:bg-teal-dark">
+                          <a href={event.slideDeck.downloadUrl} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="h-4 w-4" />
+                            Open slides in a new tab
+                          </a>
+                        </Button>
+                      ) : null}
+                      {event.slideDeck.downloadUrl ? (
+                        <Button asChild variant="outline" className="border-teal/30 text-teal hover:bg-teal/5">
+                          <a href={event.slideDeck.downloadUrl} download>
+                            <Download className="h-4 w-4" />
+                            Download PDF
+                          </a>
+                        </Button>
+                      ) : null}
+                    </div>
+                    <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200 bg-white">
+                      <iframe
+                        src={event.slideDeck.embedUrl}
+                        title={`${event.title} slide deck`}
+                        className="h-full w-full"
+                      />
+                    </div>
+                    <p className="text-sm leading-relaxed text-gray-600">{event.slideDeck.note}</p>
+                  </div>
+                ) : (
+                  <div className="mt-6 rounded-[1.75rem] border border-dashed border-teal/30 bg-teal/5 p-8">
+                    <p className="text-lg font-semibold text-gray-900">Slides coming soon</p>
+                    <p className="mt-3 leading-relaxed text-gray-700">{event.slideDeck.note}</p>
+                    <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                       <Button asChild className="bg-teal text-white hover:bg-teal-dark">
-                        <a href={event.slideDeck.downloadUrl} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-4 w-4" />
-                          Open slides in a new tab
-                        </a>
+                        <Link href="/contact">Ask about future speaking events</Link>
                       </Button>
-                    ) : null}
-                    {event.slideDeck.downloadUrl ? (
                       <Button asChild variant="outline" className="border-teal/30 text-teal hover:bg-teal/5">
-                        <a href={event.slideDeck.downloadUrl} download>
-                          <Download className="h-4 w-4" />
-                          Download PDF
-                        </a>
+                        <Link href="/dr-seuss">
+                          Read the Dr. Seuss reflection
+                          <ArrowRight className="h-4 w-4" />
+                        </Link>
                       </Button>
-                    ) : null}
+                    </div>
                   </div>
-                  <div className="aspect-[4/3] overflow-hidden rounded-2xl border border-gray-200 bg-white">
-                    <iframe
-                      src={event.slideDeck.embedUrl}
-                      title={`${event.title} slide deck`}
-                      className="h-full w-full"
-                    />
-                  </div>
-                  <p className="text-sm leading-relaxed text-gray-600">{event.slideDeck.note}</p>
-                </div>
-              ) : (
-                <div className="mt-6 rounded-[1.75rem] border border-dashed border-teal/30 bg-teal/5 p-8">
-                  <p className="text-lg font-semibold text-gray-900">Slides coming soon</p>
-                  <p className="mt-3 leading-relaxed text-gray-700">{event.slideDeck.note}</p>
-                  <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-                    <Button asChild className="bg-teal text-white hover:bg-teal-dark">
-                      <Link href="/contact">Ask about future speaking events</Link>
-                    </Button>
-                    <Button asChild variant="outline" className="border-teal/30 text-teal hover:bg-teal/5">
-                      <Link href="/dr-seuss">
-                        Read the Dr. Seuss reflection
-                        <ArrowRight className="h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </div>
-                </div>
-              )}
+                )}
+              </div>
             </div>
           </section>
         </div>

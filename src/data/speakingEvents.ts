@@ -10,6 +10,12 @@ export interface SpeakingEventSlideDeck {
   downloadUrl?: string;
 }
 
+export interface SpeakingEventVideoPreview {
+  title: string;
+  description: string;
+  videoUrl: string;
+}
+
 export interface SpeakingEventContent {
   slug: string;
   title: string;
@@ -25,6 +31,7 @@ export interface SpeakingEventContent {
   audienceResponse: string;
   takeaways: string[];
   nextChapter: string;
+  videoPreview?: SpeakingEventVideoPreview;
   slideDeck: SpeakingEventSlideDeck;
   tags: string[];
 }
@@ -80,6 +87,13 @@ export const speakingEvents: SpeakingEventContent[] = [
     ],
     nextChapter:
       'This page begins the Rebellious Aging speaking archive. As Suz does more talks, workshops, and community conversations, they can live alongside this one so visitors can follow the journey and revisit the ideas that sparked connection in the room.',
+    videoPreview: {
+      title: 'Watch a short moment from the event',
+      description:
+        'This brief video preview captures Suz sharing the spirit of Rebellious Aging live at Eat for the Earth in Santa Cruz.',
+      videoUrl:
+        'https://res.cloudinary.com/dhqpqfw6w/video/upload/v1774535901/suz_ymm7lu.mp4',
+    },
     slideDeck: {
       status: 'ready',
       note:
