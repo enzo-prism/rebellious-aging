@@ -73,8 +73,14 @@ const SpeakingEvents = () => {
                   <span className="rounded-full bg-teal/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-teal">
                     {event.label}
                   </span>
-                  <span className="rounded-full bg-coral/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-coral">
-                    Slides coming soon
+                  <span
+                    className={`rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] ${
+                      event.slideDeck.status === 'ready'
+                        ? 'bg-emerald-100 text-emerald-700'
+                        : 'bg-coral/10 text-coral'
+                    }`}
+                  >
+                    {event.slideDeck.status === 'ready' ? 'Slides available' : 'Slides coming soon'}
                   </span>
                 </div>
                 <h2 className="mt-4 text-3xl font-bold text-gray-900">{event.title}</h2>

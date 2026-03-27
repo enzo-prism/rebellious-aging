@@ -313,7 +313,7 @@ const SpeakingEventDetail = ({ event }: SpeakingEventDetailProps) => {
                   </div>
                 ) : (
                   <div className="mt-6 rounded-[1.75rem] border border-dashed border-teal/30 bg-teal/5 p-8">
-                    <p className="text-lg font-semibold text-gray-900">Slides coming soon</p>
+                    <p className="text-lg font-semibold text-gray-900">Presentation updates</p>
                     <p className="mt-3 leading-relaxed text-gray-700">{event.slideDeck.note}</p>
                     <div className="mt-6 flex flex-col gap-3 sm:flex-row">
                       <Button asChild className="bg-teal text-white hover:bg-teal-dark">
