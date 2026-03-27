@@ -235,6 +235,17 @@
     transform: scale3d(1, 1, 1);
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll,
+    .animate-slide-left,
+    .animate-slide-right,
+    .animate-scale-fade {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
   .parallax-bg {
     background-size: 120% 120%;
     animation: gradient-shift 8s ease-in-out infinite;

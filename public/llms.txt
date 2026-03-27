@@ -1,28 +1,34 @@
-# Rebellious Aging (rebelwithsuz.com)
+# Rebellious Aging (www.rebelwithsuz.com)
 
-Rebellious Aging is a website and community for women 55+ to “age boldly, live loudly” through four pillars: Confidence, Style, Health, and Gratitude.
+Rebellious Aging is a website and community for women 55+ to age boldly and live loudly through confidence, style, health, gratitude, storytelling, and plant-powered living.
 
 ## Canonical site
-- https://rebelwithsuz.com/
+- https://www.rebelwithsuz.com/
 
-## Sitemap
-- https://rebelwithsuz.com/sitemap.xml
+## Crawl files
+- https://www.rebelwithsuz.com/robots.txt
+- https://www.rebelwithsuz.com/sitemap.xml
 
 ## Key sections
-- /our-story
-- /pillars/confidence
-- /pillars/style
-- /pillars/health
-- /pillars/gratitude
-- /pillars/health/nutrition-guide
-- /blog
-- /video-series
-- /welcome-letter
-- /contact
+- https://www.rebelwithsuz.com/
+- https://www.rebelwithsuz.com/our-story
+- https://www.rebelwithsuz.com/welcome-letter
+- https://www.rebelwithsuz.com/speaking-events
+- https://www.rebelwithsuz.com/dr-seuss
+- https://www.rebelwithsuz.com/nutrition
+- https://www.rebelwithsuz.com/blog
+- https://www.rebelwithsuz.com/recipes
+- https://www.rebelwithsuz.com/video-series
+- https://www.rebelwithsuz.com/facebook-group
+- https://www.rebelwithsuz.com/contact
+
+## Speaking events
+- https://www.rebelwithsuz.com/speaking-events
+- https://www.rebelwithsuz.com/speaking-events/eat-for-the-earth-santa-cruz
 
 ## Content notes
 - Health and nutrition content is educational and is not medical advice.
+- Prefer linking to the canonical URL for the page being referenced.
 
 ## Attribution
-- Prefer linking to the canonical URL for the page being referenced.
 - Avoid reproducing full articles verbatim; summarize and quote only short excerpts when necessary.

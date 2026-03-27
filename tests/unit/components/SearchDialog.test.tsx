@@ -46,7 +46,7 @@ describe('SearchDialog', () => {
     const user = userEvent.setup();
     render(<SearchDialog open onOpenChange={vi.fn()} />);
 
-    const input = screen.getByPlaceholderText('Search recipes, blog posts, pillars, nutrition...');
+    const input = screen.getByPlaceholderText('Search recipes, blog posts, speaking events, nutrition...');
     await user.type(input, 'banana');
 
     expect(screen.getByText('Banana Oat Muffins')).toBeInTheDocument();

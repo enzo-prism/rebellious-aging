@@ -101,7 +101,7 @@ const COOKBOOKS = [
 ];
 
 const WEBSITES = [
-  { label: 'rebelwithsuz.com', href: 'https://rebelwithsuz.com' },
+  { label: 'www.rebelwithsuz.com', href: 'https://www.rebelwithsuz.com' },
   { label: 'dresselstyn.com', href: 'https://dresselstyn.com' },
   { label: 'centerfornutritionstudies.org', href: 'https://centerfornutritionstudies.org' },
   { label: 'chefaj.com', href: 'https://chefaj.com' },

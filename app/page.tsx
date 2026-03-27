@@ -6,7 +6,7 @@ import { getHomeMeta } from '@/lib/routeMetadata';
 
 export const generateMetadata = (): Metadata => {
   const routeMeta = getHomeMeta();
-  return buildMetadata(routeMeta, { title: 'rebelwithsuz.com' });
+  return buildMetadata(routeMeta);
 };
 
 export default function HomePage() {

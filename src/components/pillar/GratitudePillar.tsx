@@ -200,7 +200,7 @@ const GratitudePillar = () => {
             <ul className="list-disc pl-6 space-y-2">
               <li>
                 <a
-                  href="https://rebelwithsuz.com/welcome-letter"
+                  href="/welcome-letter"
                   className="text-teal hover:underline"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -220,7 +220,7 @@ const GratitudePillar = () => {
               </li>
               <li>
                 <a
-                  href="https://rebelwithsuz.com/contact"
+                  href="/contact"
                   className="text-teal hover:underline"
                   target="_blank"
                   rel="noopener noreferrer"

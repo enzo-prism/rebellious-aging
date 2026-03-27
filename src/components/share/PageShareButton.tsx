@@ -6,6 +6,7 @@ import { toast } from '@/components/ui/sonner';
 
 import PageShareDialog from '@/components/share/PageShareDialog';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import { cn } from '@/lib/utils';
 
 export interface PageShareButtonProps {
@@ -20,6 +21,7 @@ const PageShareButton: React.FC<PageShareButtonProps> = ({
   className,
 }) => {
   const [open, setOpen] = React.useState(false);
+  const [isReady, setIsReady] = React.useState(false);
   const [shareUrl, setShareUrl] = React.useState(url ?? '');
   const [pageTitle, setPageTitle] = React.useState('');
   const [copyState, setCopyState] = React.useState<'idle' | 'copied' | 'manual'>('idle');
@@ -27,15 +29,27 @@ const PageShareButton: React.FC<PageShareButtonProps> = ({
 
   const syncFromWindow = React.useCallback(() => {
     if (typeof window === 'undefined') {
-      return;
+      return {
+        currentShareUrl: url ?? '',
+        currentPageTitle: '',
+      };
     }
 
-    setShareUrl(url ?? window.location.href);
-    setPageTitle(document.title);
+    const currentShareUrl = url ?? window.location.href;
+    const currentPageTitle = document.title;
+
+    setShareUrl(currentShareUrl);
+    setPageTitle(currentPageTitle);
+
+    return {
+      currentShareUrl,
+      currentPageTitle,
+    };
   }, [url]);
 
   React.useEffect(() => {
     syncFromWindow();
+    setIsReady(true);
   }, [syncFromWindow]);
 
   const highlightUrl = React.useCallback(() => {
@@ -80,24 +94,29 @@ const PageShareButton: React.FC<PageShareButtonProps> = ({
   }, [highlightUrl, shareUrl]);
 
   return (
-    <>
-      <Button
-        variant="outline"
-        size="sm"
-        className={cn(
-          'rounded-full border-teal/30 bg-white/90 px-4 text-teal shadow-sm hover:border-teal hover:bg-teal hover:text-white',
-          className
-        )}
-        onClick={() => setOpen(true)}
-        aria-label="Share page"
-      >
-        <Share2 className="h-4 w-4" />
-        {label}
-      </Button>
-
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button
+          type="button"
+          variant="outline"
+          size="sm"
+          disabled={!isReady}
+          className={cn(
+            'rounded-full border-teal/30 bg-white/90 px-4 text-teal shadow-sm hover:border-teal hover:bg-teal hover:text-white',
+            !isReady && 'cursor-wait opacity-75',
+            className
+          )}
+          onClick={() => {
+            syncFromWindow();
+            setCopyState('idle');
+          }}
+          aria-label="Share page"
+        >
+          <Share2 className="h-4 w-4" />
+          {label}
+        </Button>
+      </DialogTrigger>
       <PageShareDialog
-        open={open}
-        onOpenChange={setOpen}
         shareUrl={shareUrl}
         pageTitle={pageTitle}
         copyState={copyState}
@@ -105,7 +124,7 @@ const PageShareButton: React.FC<PageShareButtonProps> = ({
         onCopy={handleCopy}
         onHighlightUrl={highlightUrl}
       />
-    </>
+    </Dialog>
   );
 };
 

@@ -24,9 +24,6 @@ const getChangeFrequency = (path: string) => {
   if (path === '/nutrition' || path === '/recipes') {
     return 'weekly';
   }
-  if (path === '/search') {
-    return 'monthly';
-  }
 
   return 'monthly';
 };
@@ -61,7 +58,7 @@ const __dirname = dirname(__filename);
 const projectRoot = join(__dirname, '..');
 const outputPath = join(projectRoot, 'public', 'sitemap.xml');
 
-const baseUrl = siteMetadata.baseUrl?.replace(/\/$/, '') ?? 'https://rebelwithsuz.com';
+const baseUrl = siteMetadata.baseUrl?.replace(/\/$/, '') ?? 'https://www.rebelwithsuz.com';
 
 const formatDate = (value: Date | string) => {
   const date = value instanceof Date ? value : new Date(value);

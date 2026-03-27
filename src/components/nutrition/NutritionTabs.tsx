@@ -48,18 +48,61 @@ const NutritionTabs = () => {
     recipes: <Recipes />,
   };
 
+  const activeTabMeta = useMemo(
+    () => nutritionTabs.find((tab) => tab.id === activeTab) ?? nutritionTabs[0],
+    [activeTab]
+  );
+
   const triggerClass = (id: string) =>
-    `px-4 py-2 border-b-2 rounded-none whitespace-nowrap ${
-      activeTab === id ? 'border-teal text-teal' : 'border-transparent'
+    `px-4 py-3 border-b-2 rounded-none whitespace-nowrap text-sm font-semibold ${
+      activeTab === id ? 'border-teal text-teal' : 'border-transparent text-slate-600 hover:text-slate-900'
     }`;
 
   return (
     <section className="py-12">
       <div className="container mx-auto px-4">
         <Tabs value={activeTab} className="max-w-4xl mx-auto" onValueChange={handleTabChange}>
-          <div className="border-b mb-6">
+          <div className="mb-6 md:hidden">
+            <div className="rounded-[28px] border border-teal/15 bg-white px-4 py-4 shadow-[0_18px_45px_rgba(15,23,42,0.08)]">
+              <div className="flex items-center justify-between gap-3">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.28em] text-teal">
+                  Browse Topics
+                </p>
+                <p className="text-xs text-slate-500">{nutritionTabs.length} guides</p>
+              </div>
+              <label htmlFor="nutrition-topic-select" className="sr-only">
+                Choose a nutrition topic
+              </label>
+              <div className="relative mt-3">
+                <select
+                  id="nutrition-topic-select"
+                  value={activeTab}
+                  onChange={(event) => handleTabChange(event.target.value)}
+                  className="min-h-[52px] w-full appearance-none rounded-2xl border border-slate-200 bg-slate-50 px-4 pr-12 text-base font-semibold text-slate-900 shadow-inner outline-none transition focus:border-teal focus:bg-white focus:ring-2 focus:ring-teal/20"
+                >
+                  {nutritionTabs.map((tab) => (
+                    <option key={tab.id} value={tab.id}>
+                      {tab.label}
+                    </option>
+                  ))}
+                </select>
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-slate-500"
+                >
+                  ▼
+                </span>
+              </div>
+              <div className="mt-4 rounded-2xl bg-teal/8 px-4 py-4">
+                <p className="text-base font-semibold text-slate-900">{activeTabMeta.title}</p>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{activeTabMeta.summary}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mb-6 hidden border-b md:block">
             <ScrollArea className="w-full">
-              <TabsList className="w-max justify-start bg-transparent h-auto mb-0 p-0 flex-nowrap">
+              <TabsList className="h-auto w-max justify-start bg-transparent p-0">
                 {nutritionTabs.map((tab) => (
                   <TabsTrigger key={tab.id} value={tab.id} className={triggerClass(tab.id)}>
                     {tab.label}

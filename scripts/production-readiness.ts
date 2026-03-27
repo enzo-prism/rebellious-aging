@@ -20,11 +20,12 @@ type ReadinessReport = {
 
 const rootDir = process.cwd();
 const publicDir = resolve(rootDir, 'public');
+const publicLlmsPath = resolve(publicDir, 'llms.txt');
 const publicSitemapPath = resolve(publicDir, 'sitemap.xml');
 const publicSearchIndexPath = resolve(publicDir, 'search-index.json');
 const publicSeoAuditPath = resolve(publicDir, 'seo-route-audit.json');
 const outputPath = resolve(publicDir, 'production-readiness-report.json');
-const baseUrl = siteMetadata.baseUrl?.replace(/\/$/, '') || 'https://rebelwithsuz.com';
+const baseUrl = siteMetadata.baseUrl?.replace(/\/$/, '') || 'https://www.rebelwithsuz.com';
 
 const stripBaseFromUrl = (value: string) => {
   try {
@@ -129,14 +130,43 @@ const checkSitemap = () => {
   }
 
   const xml = readFileSync(publicSitemapPath, 'utf8');
-  const urlMatches = xml.match(/<loc>(.*?)<\/loc>/g) || [];
+  const locValues = Array.from(xml.matchAll(/<loc>(.*?)<\/loc>/g)).map((match) => match[1]);
   if (!xml.includes('<urlset')) {
     return { ok: false, details: 'sitemap.xml is malformed (missing <urlset>).' };
   }
-  if (urlMatches.length === 0) {
+  if (locValues.length === 0) {
     return { ok: false, details: 'sitemap.xml has no route entries.' };
   }
-  return { ok: true, details: `${urlMatches.length} sitemap URLs generated.` };
+  const offHost = locValues.filter((loc) => !loc.startsWith(baseUrl));
+  if (offHost.length > 0) {
+    return {
+      ok: false,
+      details: `sitemap.xml contains ${offHost.length} URL(s) outside the canonical host ${baseUrl}.`,
+    };
+  }
+  return { ok: true, details: `${locValues.length} sitemap URLs generated on the canonical host.` };
+};
+
+const checkLlms = () => {
+  if (!existsSync(publicLlmsPath)) {
+    return {
+      ok: false,
+      details: `Missing llms.txt at ${publicLlmsPath}`,
+    };
+  }
+
+  const content = readFileSync(publicLlmsPath, 'utf8');
+  const expectedUrls = [`${baseUrl}/`, `${baseUrl}/robots.txt`, `${baseUrl}/sitemap.xml`];
+  const missing = expectedUrls.filter((url) => !content.includes(url));
+
+  if (missing.length > 0) {
+    return {
+      ok: false,
+      details: `llms.txt is missing expected canonical references: ${missing.join(', ')}`,
+    };
+  }
+
+  return { ok: true, details: 'llms.txt includes the canonical host, robots.txt, and sitemap.xml references.' };
 };
 
 const checkSearchIndex = () => {
@@ -280,6 +310,7 @@ const report: ReadinessReport = {
 };
 
 runCheck('sitemap', checkSitemap);
+runCheck('llms', checkLlms);
 runCheck('sitemap-coverage', checkSitemapCoverage);
 runCheck('search-index', checkSearchIndex);
 runCheck('seo-route-metadata', checkSeoRouteMetadataCompleteness);

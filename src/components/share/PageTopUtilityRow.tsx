@@ -12,7 +12,7 @@ const PageTopUtilityRow: React.FC<PageTopUtilityRowProps> = ({
   className,
 }) => {
   return (
-    <div className={cn('mb-4 flex items-center justify-end sm:mb-6', className)}>
+    <div className={cn('relative z-10 mb-4 flex items-center justify-end sm:mb-6', className)}>
       {children}
     </div>
   );

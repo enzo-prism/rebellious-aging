@@ -84,9 +84,9 @@ const FIRST_STEPS = [
 ];
 
 const CTA_LINKS = [
-  { href: 'https://rebelwithsuz.com/welcome-letter', label: '💌 Read the Welcome Letter' },
+  { href: '/welcome-letter', label: '💌 Read the Welcome Letter' },
   { href: 'https://www.facebook.com/groups/1497629461551095/', label: '👭 Join the Rebellious Aging Facebook Group' },
-  { href: 'https://rebelwithsuz.com/contact', label: '📞 Reach out to Suz' },
+  { href: '/contact', label: '📞 Reach out to Suz' },
 ];
 
 const NutritionGuide = () => {

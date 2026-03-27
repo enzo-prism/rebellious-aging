@@ -14,7 +14,7 @@ test.describe('Resilience readiness', () => {
 
     await isolatedPage.goto('/search');
 
-    await expect(isolatedPage.getByPlaceholder('Search blog, pillars, nutrition guide, video series…')).toBeVisible();
+    await expect(isolatedPage.getByPlaceholder('Search blog, pillars, speaking events, nutrition guide…')).toBeVisible();
     await expect(isolatedPage.getByText(/Unable to load search index/)).toBeVisible({ timeout: 10000 });
     await isolatedPage.close();
   });

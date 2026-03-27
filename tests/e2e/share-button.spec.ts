@@ -4,17 +4,32 @@ const shareRoutes = [
   '/',
   '/blog',
   '/blog/rebellious-guide-what-is-on-your-plate',
+  '/dr-seuss',
   '/recipes/orange-mango-bean-salad',
   '/pillars/health',
+  '/speaking-events/eat-for-the-earth-santa-cruz',
   '/contact',
+  '/team',
 ];
 
 test.describe('Universal share button', () => {
   for (const path of shareRoutes) {
-    test(`renders the share button on ${path}`, async ({ page }) => {
+    test(`opens the share dialog on ${path}`, async ({ page }) => {
       const response = await page.goto(path, { waitUntil: 'domcontentloaded' });
       expect(response?.status()).toBe(200);
-      await expect(page.getByRole('button', { name: /share page/i })).toBeVisible();
+
+      const shareButton = page.getByRole('button', { name: /share page/i });
+      await expect(shareButton).toBeVisible();
+
+      await shareButton.click();
+
+      const dialog = page.getByRole('dialog');
+      await expect(dialog).toBeVisible();
+      await expect(dialog.getByText('Share this page')).toBeVisible();
+      await expect(dialog.getByLabel('Page link')).toHaveValue(page.url());
+
+      await dialog.getByRole('button', { name: /^close$/i }).first().click();
+      await expect(dialog).not.toBeVisible();
     });
   }
 

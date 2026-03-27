@@ -6,7 +6,7 @@ import { seoRoutes } from '@/data/seoRoutes';
 import { getSpeakingEventPath, speakingEvents } from '@/data/speakingEvents';
 import { siteMetadata } from '@/lib/siteMetadata';
 
-const baseUrl = siteMetadata.baseUrl?.replace(/\/$/, '') ?? 'https://rebelwithsuz.com';
+const baseUrl = siteMetadata.baseUrl?.replace(/\/$/, '') ?? 'https://www.rebelwithsuz.com';
 
 const isIndexableRoute = (route: { noindex?: boolean }) => !route.noindex;
 
@@ -22,7 +22,7 @@ const resolveStaticFrequency = (path: string) => {
   if (path === '/') {
     return 'weekly' as const;
   }
-  if (path === '/blog' || path === '/nutrition' || path === '/recipes' || path === '/search') {
+  if (path === '/blog' || path === '/nutrition' || path === '/recipes') {
     return 'monthly' as const;
   }
   if (path.startsWith('/pillars/')) {

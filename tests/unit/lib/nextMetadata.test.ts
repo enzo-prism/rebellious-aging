@@ -17,15 +17,15 @@ describe('nextMetadata', () => {
 
     expect(meta.title).toBe('Test');
     expect(meta.description).toBe('A short description for testing.');
-    expect(meta.openGraph?.url).toBe('https://rebelwithsuz.com/test');
+    expect(meta.openGraph?.url).toBe(`${siteMetadata.baseUrl}/test`);
     expect(meta.openGraph?.images?.[0]).toHaveProperty('url', `${siteMetadata.baseUrl}${siteMetadata.defaultSocialImage}`);
     expect(meta.twitter?.site).toBe(siteMetadata.twitterHandle);
-    expect(meta.alternates?.canonical).toBe('https://rebelwithsuz.com/test');
+    expect(meta.alternates?.canonical).toBe(`${siteMetadata.baseUrl}/test`);
   });
 
   it('supports noindex overrides', () => {
     const meta = buildMetadata(getHomeMeta(), { noindex: true, canonical: '/hidden' });
     expect(meta.robots).toMatchObject({ index: false, follow: false });
-    expect(meta.alternates?.canonical).toBe('https://rebelwithsuz.com/hidden');
+    expect(meta.alternates?.canonical).toBe(`${siteMetadata.baseUrl}/hidden`);
   });
 });

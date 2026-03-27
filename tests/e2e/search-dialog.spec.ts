@@ -7,9 +7,9 @@ test.describe('Command palette', () => {
 
     await page.keyboard.press(process.platform === 'darwin' ? 'Meta+K' : 'Control+K');
     await expect(page.locator('[role=\"dialog\"]')).toBeVisible();
-    await expect(page.getByPlaceholder('Search recipes, blog posts, pillars, nutrition...')).toBeVisible();
+    await expect(page.getByPlaceholder('Search recipes, blog posts, speaking events, nutrition...')).toBeVisible();
 
-    await page.getByPlaceholder('Search recipes, blog posts, pillars, nutrition...').fill('recipes');
+    await page.getByPlaceholder('Search recipes, blog posts, speaking events, nutrition...').fill('recipes');
     await expect(page.locator('body')).toContainText(/Recipes|recipe/i);
   });
 });

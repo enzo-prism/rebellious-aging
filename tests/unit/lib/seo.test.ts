@@ -7,6 +7,7 @@ import {
   resolveAbsoluteUrl,
   resolveSocialImage,
 } from '@/lib/seo';
+import { siteMetadata } from '@/lib/siteMetadata';
 
 describe('seo utilities', () => {
   it('builds meta titles from a page title', () => {
@@ -21,8 +22,8 @@ describe('seo utilities', () => {
   });
 
   it('builds canonical urls for relative and absolute paths', () => {
-    expect(resolveAbsoluteUrl('/recipes')).toBe('https://rebelwithsuz.com/recipes');
-    expect(resolveAbsoluteUrl('recipes')).toBe('https://rebelwithsuz.com/recipes');
+    expect(resolveAbsoluteUrl('/recipes')).toBe(`${siteMetadata.baseUrl}/recipes`);
+    expect(resolveAbsoluteUrl('recipes')).toBe(`${siteMetadata.baseUrl}/recipes`);
     expect(resolveAbsoluteUrl('https://example.com/recipes')).toBe('https://example.com/recipes');
   });
 
@@ -32,9 +33,9 @@ describe('seo utilities', () => {
   });
 
   it('builds canonical URLs and social image overrides', () => {
-    expect(getCanonicalUrl('/search')).toBe('https://rebelwithsuz.com/search');
+    expect(getCanonicalUrl('/search')).toBe(`${siteMetadata.baseUrl}/search`);
     expect(resolveSocialImage('/lovable-uploads/example.png')).toBe(
-      'https://rebelwithsuz.com/lovable-uploads/example.png'
+      `${siteMetadata.baseUrl}/lovable-uploads/example.png`
     );
   });
 });

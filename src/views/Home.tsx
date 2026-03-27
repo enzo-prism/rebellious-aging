@@ -27,14 +27,13 @@ import { useRouter } from 'next/navigation';
 // import Autoplay from 'embla-carousel-autoplay'; // Removed to prevent auto-scrolling
 
 const heroImages = [
-  '/lovable-uploads/e383e12d-d193-4b00-864e-4593b167f3f4.png',
-  '/lovable-uploads/a14b531d-8674-4949-9d29-5db73262868d.png',
-  '/lovable-uploads/c1463203-92fc-434c-a583-4399bb786c73.png',
-  '/lovable-uploads/30b1e0f5-39bd-4e3e-8a1f-6c10d54b384a.png',
-  '/lovable-uploads/efa97b78-3cbb-4f8c-b543-050d2d59e578.png',
-  '/lovable-uploads/08d809cc-1f8a-475d-b10f-17d66e8b0502.png',
-  '/lovable-uploads/34f618fe-81a8-41b5-8235-6f432ce55ce7.png',
-  '/lovable-uploads/6adf3183-9e2d-4253-98d4-ec336f1daa3e.png',
+  'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1774621577/IMG_7257_z32gmh.jpg',
+  'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1774621574/IMG_7297_cldamj.jpg',
+  'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1774621600/IMG_7191_d2qhec.jpg',
+  'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1774621631/IMG_7082_a0qnyp.jpg',
+  'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1774621666/IMG_6962_hbovuu.jpg',
+  'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1774622273/IMG_6573_s5hok3.jpg',
+  'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1774621518/IMG_7527_hrk5sa.jpg',
 ] as const;
 
 const Home = () => {
@@ -242,10 +241,17 @@ const Home = () => {
                   <LatestBlogBadge />
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-gray-900">
-                  Age Boldly / Live Loudly
+                  Rebellious Aging
                 </h1>
                 <p className="text-lg md:text-xl lg:text-2xl text-gray-900 leading-relaxed">
-                  Ditch the outdated rules. Rebellious aging is where vibrant health, bold confidence, grounded gratitude, and signature style take center stage.
+                  <Link
+                    href="/our-story"
+                    className="underline underline-offset-4 decoration-teal decoration-2 transition-colors hover:text-teal"
+                  >
+                    Suzanne Meinhardt
+                  </Link>{' '}
+                  created Rebellious Aging as a place where women 55 and older come together to share tools, stories, and the
+                  pursuit of a healthier, happier, love-filled life.
                 </p>
                 <div className="flex flex-col sm:flex-row button-spacing">
                 <Button asChild size="lg" className="bg-teal hover:bg-teal-dark text-white shadow-lg min-h-[44px] text-base font-semibold">
@@ -273,7 +279,7 @@ const Home = () => {
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <Carousel
                   setApi={setApi}
-                  className="w-full"
+                  className="w-full cursor-grab active:cursor-grabbing"
                   opts={{
                     align: "start",
                     loop: true,
@@ -294,6 +300,7 @@ const Home = () => {
                                 src={image}
                                 alt={`Vibrant aging lifestyle ${index + 1}`}
                                 className="w-full h-full object-cover transition-opacity duration-1000"
+                                draggable={false}
                                 style={{
                                   objectPosition: 'center 30%'
                                 }}

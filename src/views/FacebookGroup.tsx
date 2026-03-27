@@ -221,7 +221,7 @@ const FacebookGroup = () => {
             <p className="text-sm text-gray-500">
               Not ready to jump in yet? Stay in touch at{' '}
               <a
-                href="https://rebelwithsuz.com"
+                href="https://www.rebelwithsuz.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-teal font-semibold underline decoration-2 underline-offset-4"

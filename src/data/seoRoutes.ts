@@ -10,7 +10,7 @@ export interface SeoRouteConfig {
 export const seoRoutes: SeoRouteConfig[] = [
   {
     path: '/',
-    title: 'Age Boldly / Live Loudly',
+    title: 'Rebellious Aging | Age Boldly, Live Loudly',
     description:
       'Rebellious Aging helps women 55+ expand confidence, style, and health through storytelling, plant-powered living, and an active community.',
   },

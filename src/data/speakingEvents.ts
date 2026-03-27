@@ -16,6 +16,13 @@ export interface SpeakingEventVideoPreview {
   videoUrl: string;
 }
 
+export interface SpeakingEventGalleryImage {
+  src: string;
+  alt: string;
+  caption: string;
+  layout?: 'featured' | 'portrait' | 'landscape' | 'wide';
+}
+
 export interface SpeakingEventContent {
   slug: string;
   title: string;
@@ -33,6 +40,7 @@ export interface SpeakingEventContent {
   nextChapter: string;
   videoPreview?: SpeakingEventVideoPreview;
   slideDeck: SpeakingEventSlideDeck;
+  gallery?: SpeakingEventGalleryImage[];
   tags: string[];
 }
 
@@ -101,6 +109,44 @@ export const speakingEvents: SpeakingEventContent[] = [
       embedUrl: '/speaking-events/eat-for-the-earth-santa-cruz-slides.pdf#toolbar=1&navpanes=0&view=FitH',
       downloadUrl: '/speaking-events/eat-for-the-earth-santa-cruz-slides.pdf',
     },
+    gallery: [
+      {
+        src: 'https://res.cloudinary.com/dhqpqfw6w/image/upload/f_auto,q_auto/v1774622673/IMG_1484_2_j0subu.heic',
+        alt: 'Suz speaking at the front of the Santa Cruz event room while attendees listen.',
+        caption: 'The room settling in as Suz shared the Rebellious Aging vision.',
+        layout: 'featured',
+      },
+      {
+        src: 'https://res.cloudinary.com/dhqpqfw6w/image/upload/f_auto,q_auto/v1774622675/IMG_1429_2_ynm9oa.heic',
+        alt: 'Suz smiling beside a table decorated with Dr. Seuss-themed event props.',
+        caption: 'Suz setting the stage with playful Dr. Seuss touches before the talk.',
+        layout: 'portrait',
+      },
+      {
+        src: 'https://res.cloudinary.com/dhqpqfw6w/image/upload/f_auto,q_auto/v1774622719/IMG_1468_2_nr8wic.heic',
+        alt: 'A side view of Suz speaking while a slide is projected behind her.',
+        caption: 'A quieter speaking moment with the slide deck in view.',
+        layout: 'portrait',
+      },
+      {
+        src: 'https://res.cloudinary.com/dhqpqfw6w/image/upload/f_auto,q_auto/v1774622673/IMG_1446_2_vmsja0.heic',
+        alt: 'A table setup with food, books, and Cat in the Hat hats arranged for the event.',
+        caption: 'Table details that carried the spirit of the event into the room.',
+        layout: 'landscape',
+      },
+      {
+        src: 'https://res.cloudinary.com/dhqpqfw6w/image/upload/f_auto,q_auto/v1774622674/IMG_1438_2_j6gpil.heic',
+        alt: 'Projection art visible during the event while Suz stands near the front of the room.',
+        caption: 'Projection art and presentation moments during the talk.',
+        layout: 'portrait',
+      },
+      {
+        src: 'https://res.cloudinary.com/dhqpqfw6w/image/upload/f_auto,q_auto/v1774622703/IMG_1459_2_wabqwp.heic',
+        alt: 'Audience members gathered around tables during the Santa Cruz event.',
+        caption: 'The audience gathered around the conversation, food, and ideas.',
+        layout: 'wide',
+      },
+    ],
     tags: ['speaking', 'event', 'santa cruz', 'beth love', 'dr seuss', 'wfpb'],
   },
 ];
