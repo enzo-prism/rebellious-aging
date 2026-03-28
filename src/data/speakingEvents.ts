@@ -23,6 +23,20 @@ export interface SpeakingEventGalleryImage {
   layout?: 'featured' | 'portrait' | 'landscape' | 'wide';
 }
 
+export interface SpeakingEventConnectionLink {
+  href: string;
+  label: string;
+}
+
+export interface SpeakingEventConnectionSection {
+  eyebrow: string;
+  title: string;
+  intro: string[];
+  cards: SpeakingEventHighlight[];
+  closing: string;
+  links?: SpeakingEventConnectionLink[];
+}
+
 export interface SpeakingEventContent {
   slug: string;
   title: string;
@@ -41,6 +55,7 @@ export interface SpeakingEventContent {
   videoPreview?: SpeakingEventVideoPreview;
   slideDeck: SpeakingEventSlideDeck;
   gallery?: SpeakingEventGalleryImage[];
+  connectionSection?: SpeakingEventConnectionSection;
   tags: string[];
 }
 
@@ -93,6 +108,43 @@ export const speakingEvents: SpeakingEventContent[] = [
       'Live speaking gives Suz a powerful way to bring Rebellious Aging to life through warmth, humor, and storytelling.',
       'This first event showed that there is real appetite for more community talks, readings, and conversations in the future.',
     ],
+    connectionSection: {
+      eyebrow: 'Where this talk connects',
+      title: 'How Eat for the Earth ties into the WFPB heart of the site',
+      intro: [
+        'This Santa Cruz gathering was not a side topic inside Rebellious Aging. It was a live expression of the same whole-food, plant-based philosophy woven through the site\'s Health pillar, nutrition guides, recipes, and Suz\'s own story. "Eat for the Earth" made room to say out loud that the same plate that can care for the planet can also support healthier cholesterol, steadier energy, easier movement, and a more vibrant way of aging.',
+        'Across the rest of the website, WFPB living is never framed as a fad, a purity contest, or a substitute for medical care. It is framed as a practical, evidence-rooted way to move more of life upstream: more nourishment before crisis, more daily agency before diagnosis, and more chances to stay active, clear, and independent instead of waiting passively for the next intervention.',
+      ],
+      cards: [
+        {
+          title: 'Plants as prevention, not punishment',
+          description:
+            'The nutrition pages keep returning to one idea: food is one of the most powerful daily choices we still control. Whole plant foods support the body before trouble escalates, which is very different from waiting until symptoms stack up and then trying to manage the fallout.',
+        },
+        {
+          title: 'A rebel answer to the Dr. Seuss waiting room',
+          description:
+            'In "You\'re Only Old Once!" Dr. Seuss captures the comic indignity of being moved from room to room, test to test, inside a system that can feel impersonal and absurd. Rebellious Aging does not answer that with denial. It answers it with upstream choices that may help lower the odds of becoming trapped in preventable decline and needless dependence on the medical conveyor belt.',
+        },
+        {
+          title: 'Not anti-doctor. Pro-agency.',
+          description:
+            'This message is not about rejecting medicine or pretending food solves everything. It is about refusing to make pills, procedures, and worry the entire strategy. WFPB living, movement, rest, curiosity, and community all belong in the conversation if the goal is to preserve quality of life for as long as possible.',
+        },
+      ],
+      closing:
+        'That is why this first talk mattered. It connected laughter, science, and values in one room. The Dr. Seuss reading named what so many people fear about aging; the WFPB message offered a practical way to live with more intention so the future is shaped less by resignation and more by participation, nourishment, and choice.',
+      links: [
+        {
+          href: '/nutrition',
+          label: 'Explore the Nutrition guide',
+        },
+        {
+          href: '/dr-seuss',
+          label: 'Read the Dr. Seuss reflection',
+        },
+      ],
+    },
     nextChapter:
       'This page begins the Rebellious Aging speaking archive. As Suz does more talks, workshops, and community conversations, they can live alongside this one so visitors can follow the journey and revisit the ideas that sparked connection in the room.',
     videoPreview: {

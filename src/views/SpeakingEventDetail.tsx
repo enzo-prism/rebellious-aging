@@ -230,6 +230,64 @@ const SpeakingEventDetail = ({ event }: SpeakingEventDetailProps) => {
             </section>
           ) : null}
 
+          {event.connectionSection ? (
+            <section className="mt-16 rounded-[2.25rem] border border-teal/10 bg-[linear-gradient(135deg,rgba(20,184,166,0.08),rgba(255,247,237,0.92))] px-6 py-8 shadow-sm md:px-8 md:py-10 lg:px-10">
+              <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+                <div className="space-y-6">
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.3em] text-teal">{event.connectionSection.eyebrow}</p>
+                    <h2 className="mt-3 text-3xl font-bold text-gray-900 md:text-4xl">{event.connectionSection.title}</h2>
+                  </div>
+
+                  <div className="space-y-4 leading-relaxed text-gray-700">
+                    {event.connectionSection.intro.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+
+                  <div className="rounded-[1.75rem] border border-white/80 bg-white/90 p-6 shadow-sm">
+                    <p className="text-sm font-semibold uppercase tracking-[0.24em] text-coral">Why it matters here</p>
+                    <p className="mt-3 leading-relaxed text-gray-700">{event.connectionSection.closing}</p>
+                  </div>
+
+                  {event.connectionSection.links?.length ? (
+                    <div className="flex flex-col gap-3 sm:flex-row">
+                      {event.connectionSection.links.map((link, index) => (
+                        <Button
+                          key={link.href}
+                          asChild
+                          variant={index === 0 ? 'default' : 'outline'}
+                          className={
+                            index === 0
+                              ? 'bg-teal text-white hover:bg-teal-dark'
+                              : 'border-teal/30 text-teal hover:bg-teal/5'
+                          }
+                        >
+                          <Link href={link.href}>
+                            {link.label}
+                            <ArrowRight className="h-4 w-4" />
+                          </Link>
+                        </Button>
+                      ))}
+                    </div>
+                  ) : null}
+                </div>
+
+                <div className="overflow-hidden rounded-[2rem] border border-white/80 bg-white/90 shadow-sm backdrop-blur-sm">
+                  {event.connectionSection.cards.map((card, index) => (
+                    <div
+                      key={card.title}
+                      className={`px-6 py-6 md:px-7 ${index < event.connectionSection.cards.length - 1 ? 'border-b border-gray-200' : ''}`}
+                    >
+                      <h3 className="text-xl font-semibold text-gray-900">{card.title}</h3>
+                      <p className="mt-3 leading-relaxed text-gray-700">{card.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          ) : null}
+
           <section className="mt-16 grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
             <div className="space-y-6">
               <div>

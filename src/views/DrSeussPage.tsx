@@ -65,6 +65,24 @@ const rebelliousConnections = [
   },
 ];
 
+const wfpbConnections = [
+  {
+    title: 'Food as upstream care',
+    description:
+      'The book is hilarious because it drops us into the middle of the medical conveyor belt, when everyone else seems to be in charge. Rebellious Aging talks so much about WFPB because it asks an earlier question: what daily choices help you stay stronger, clearer, and more able to live as yourself before the system starts dictating the script?',
+  },
+  {
+    title: 'More agency, less avoidable decline',
+    description:
+      'No one gets a guaranteed pass from aging, doctors, tests, or diagnosis. But shifting toward whole, minimally processed plant foods can support blood pressure, cholesterol, energy, mobility, and quality of life so fewer years are shaped by preventable suffering and passive resignation.',
+  },
+  {
+    title: 'Not anti-doctor. Pro-participation.',
+    description:
+      'Suz is not arguing that food replaces medicine or that nobody ever needs care. She is arguing for showing up as an active participant in your future. WFPB living is one of the clearest ways this site pushes back against the absurd, reactive medical maze that Dr. Seuss so brilliantly skewers.',
+  },
+] as const;
+
 const takeaways = [
   'Aging can feel confusing, vulnerable, and undignified at times, but that does not mean you are broken or alone.',
   'It is reasonable to feel skeptical of systems that treat people like moving pieces on a conveyor belt.',
@@ -308,6 +326,54 @@ const DrSeussPage = () => {
                   <div
                     key={item.title}
                     className={`px-6 py-6 md:px-7 ${index < rebelliousConnections.length - 1 ? 'border-b border-gray-200' : ''}`}
+                  >
+                    <h3 className="text-xl font-semibold text-gray-900">{item.title}</h3>
+                    <p className="mt-3 leading-relaxed text-gray-700">{item.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="mt-14 rounded-[2.25rem] border border-coral/15 bg-[#fff7f2] px-6 py-8 shadow-sm md:mt-16 md:px-8 md:py-10 lg:px-10">
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+              <div className="space-y-6">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.3em] text-coral">The WFPB connection</p>
+                  <h2 className="mt-3 text-3xl font-bold text-gray-900 md:text-4xl">
+                    How WFPB answers the Dr. Seuss problem
+                  </h2>
+                  <p className="mt-4 text-lg leading-relaxed text-gray-700">
+                    <span className="font-semibold text-gray-900">You&apos;re Only Old Once!</span> is such a sharp satire because it
+                    captures what it feels like to be shuffled through a reactive system after things have already gone sideways.
+                    The nutrition pillar across this website exists to push in the other direction: toward prevention, participation,
+                    and enough daily agency to avoid getting trapped in as much avoidable chaos as possible.
+                  </p>
+                </div>
+
+                <div className="rounded-[1.75rem] border border-white/80 bg-white/90 p-5 shadow-sm">
+                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-teal">Why this matters here</p>
+                  <p className="mt-3 leading-relaxed text-gray-700">
+                    Suz&apos;s point is not that food makes you invincible. It is that a rebellious life includes doing what you can, while
+                    you can, to protect your heart, your energy, your independence, and your right to keep being fully yourself.
+                  </p>
+                </div>
+
+                <div className="flex flex-col gap-3 sm:flex-row">
+                  <Button asChild className="bg-teal text-white hover:bg-teal-dark">
+                    <Link href="/nutrition">Explore WFPB basics</Link>
+                  </Button>
+                  <Button asChild variant="outline" className="border-teal/30 text-teal hover:bg-teal/5">
+                    <Link href="/pillars/health/nutrition-guide">Read the Nutrition Guide</Link>
+                  </Button>
+                </div>
+              </div>
+
+              <div className="overflow-hidden rounded-[2rem] border border-white/80 bg-white/90 shadow-sm">
+                {wfpbConnections.map((item, index) => (
+                  <div
+                    key={item.title}
+                    className={`px-6 py-6 md:px-7 ${index < wfpbConnections.length - 1 ? 'border-b border-gray-200' : ''}`}
                   >
                     <h3 className="text-xl font-semibold text-gray-900">{item.title}</h3>
                     <p className="mt-3 leading-relaxed text-gray-700">{item.description}</p>
