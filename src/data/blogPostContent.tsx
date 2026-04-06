@@ -538,13 +538,68 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       <>
 
         <div className="prose max-w-none space-y-4 mb-16">
-          <p>I came across an article in the Guardian this morning and I thought it was worthy of a share. It was written by Dr. Kerry Burnight. I am inspired by Dr. Kerry's wisdom as I feel it aligns with my message here at Rebellious Aging.</p>
+          <p>
+            I came across an article in the{' '}
+            <a
+              href="https://www.theguardian.com/commentisfree/ng-interactive/2025/jul/18/best-ageing-advice-expert-tips#:~:text=Thriving%20doesn't%20mean%20being,the%20quality%20of%20their%20lives."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline underline-offset-4"
+            >
+              Guardian
+            </a>{' '}
+            this morning and I thought it was absolutely worthy of a share. It was written by Dr. Kerry Burnight, and I am inspired by her wisdom because it aligns so beautifully with the message we live out here at Rebellious Aging.
+          </p>
 
-          <p>Here is my Blog on her article.</p>
+          <p>
+            This is my rebel&apos;s take on her article, plus a few extra breadcrumbs in case you want to keep learning after you finish reading.
+          </p>
 
-          <p>What if ageing wasn't something to fear, fight, or fix. Rather something to expand into with joy, purpose, and rebellious spark? Dr. Kerry is one of America's leading gerontologists and believes exactly that and as a Rebel I could not agree more.</p>
+          <p>
+            What if ageing wasn&apos;t something to fear, fight, or fix, but something to expand into with joy, purpose, and rebellious spark? Dr. Kerry is one of America&apos;s leading gerontologists. She taught Geriatric Medicine and Gerontology for years at UC Irvine&apos;s School of Medicine, and her work focuses on psychological wellbeing in aging, not just squeezing out more birthdays. As a Rebel, I could not agree more.
+          </p>
 
           <p>In the article, titled "I'm an Expert on Aging. Here is What I Know about Thriving in Later Life," Dr Burnight shares the kind of wisdom that deserves a drumroll, and maybe a dance break.</p>
+
+          <p>
+            If Dr. Kerry&apos;s message lights you up, do yourself a favor and go deeper. Start with{' '}
+            <a
+              href="https://www.hachettebookgroup.com/titles/dr-kerry-burnight-ph-d/joyspan/9781546007357/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline underline-offset-4"
+            >
+              Joyspan
+            </a>{' '}
+            for her full framework, visit{' '}
+            <a
+              href="https://drkerryburnight.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline underline-offset-4"
+            >
+              Dr. Kerry Burnight&apos;s website
+            </a>{' '}
+            for her current work, browse her{' '}
+            <a
+              href="https://www.hachettebookgroup.com/contributor/dr-kerry-burnight-ph-d/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline underline-offset-4"
+            >
+              Hachette author page
+            </a>{' '}
+            for a concise background, and open this{' '}
+            <a
+              href="https://www.youtube.com/results?search_query=Kerry+Burnight+joyspan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline underline-offset-4"
+            >
+              YouTube search for Kerry Burnight
+            </a>{' '}
+            if you want to hear her ideas in her own voice.
+          </p>
 
           <p>Here is what she says we need to do to truly thrive.</p>
 
@@ -554,15 +609,47 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
 
           <p><strong>Here are her essentials, they are not optional.</strong></p>
 
-          <p><strong>Keep learning.</strong> Stay curious. Try new things. Yes, even if it scares you a little, or a lot.. That is the point. A curious mind keeps us alive, engaged, and fabulously unpredictable.</p>
+          <p>
+            <strong>Keep learning.</strong> Stay curious. Try new things. Yes, even if it scares you a little, or a lot. That is the point. A curious mind keeps us alive, engaged, and fabulously unpredictable. If that nudge speaks to you, keep going with{' '}
+            <a href="/blog/optimal-aging-colleen-murphy" className="text-primary underline underline-offset-4">
+              Optimal Aging
+            </a>{' '}
+            and{' '}
+            <a href="/blog/if-not-now-when-new-beginnings" className="text-primary underline underline-offset-4">
+              If Not Now, When?
+            </a>.
+          </p>
 
-          <p><strong>Relationships are the elixir.</strong> Whether it's rekindling old friendships, hugging tighter, or even starting new connections online, being seen and known matters.</p>
+          <p>
+            <strong>Relationships are the elixir.</strong> Whether it&apos;s rekindling old friendships, hugging tighter, or even starting new connections online, being seen and known matters. If connection is the piece you&apos;ve been missing, revisit{' '}
+            <a href="/blog/gratitude-rebellious-soul" className="text-primary underline underline-offset-4">
+              Gratitude and the Rebellious Soul
+            </a>{' '}
+            and join our{' '}
+            <a href="/blog/join-rebellious-aging-facebook-group" className="text-primary underline underline-offset-4">
+              private Rebellious Aging Facebook group
+            </a>.
+          </p>
 
-          <p><strong>Change is a constant companion in later life.</strong> The key? Flexibility. Grace. Maybe even a sense of humor, when gravity starts getting sassy.</p>
+          <p>
+            <strong>Change is a constant companion in later life.</strong> The key? Flexibility. Grace. Maybe even a sense of humor, when gravity starts getting sassy. And if you want the physical side of thriving to feel more doable, pair this with{' '}
+            <a href="/blog/strength-and-balance-for-the-win" className="text-primary underline underline-offset-4">
+              Strength and Balance for the Win!
+            </a>.
+          </p>
 
           <p><strong>Your life experience has value.</strong> Share it. Mentor, support, volunteer, or simply smile at someone who looks lost. Giving adds meaning and texture to our days.</p>
 
-          <p>Dr. Burnright paints a vivid contrast between two women. One is resigned to decline, the other is lit up with curiosity and confidence. The difference was not luck or money. It was Mindset.</p>
+          <p>
+            Dr. Burnight paints a vivid contrast between two women. One is resigned to decline, the other is lit up with curiosity and confidence. The difference was not luck or money. It was mindset. If you are wrestling with that inner critic, read{' '}
+            <a href="/blog/limiting-beliefs-not-boss" className="text-primary underline underline-offset-4">
+              Shhh…That Voice in Your Head is Not the Boss of You
+            </a>{' '}
+            and{' '}
+            <a href="/blog/what-is-behind-limiting-beliefs" className="text-primary underline underline-offset-4">
+              What is Behind Limiting Beliefs?
+            </a>.
+          </p>
 
           <p>Reading this article reminded me that the work we are doing here, embracing radiant health, confidence and unapologetic style, is not superficial. It's survival. It's joy. It's rebellion.</p>
 
@@ -572,7 +659,16 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
 
           <p><strong>Feeling inspired?</strong> For the next seven days, choose one small action to grow, connect, adapt or give. Keep a note, share your favorite moment. Let joy surprise you.</p>
 
-          <p><a href="https://www.theguardian.com/commentisfree/ng-interactive/2025/jul/18/best-ageing-advice-expert-tips#:~:text=Thriving%20doesn't%20mean%20being,the%20quality%20of%20their%20lives." target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Read the full Guardian article here</a></p>
+          <p>
+            <a
+              href="https://www.theguardian.com/commentisfree/ng-interactive/2025/jul/18/best-ageing-advice-expert-tips#:~:text=Thriving%20doesn't%20mean%20being,the%20quality%20of%20their%20lives."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline underline-offset-4"
+            >
+              Read the full Guardian article here
+            </a>
+          </p>
 
           <p><strong>Sparkle on, Rebels</strong></p>
         </div>
