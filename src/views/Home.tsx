@@ -28,6 +28,8 @@ import { useRouter } from 'next/navigation';
 
 const heroImages = [
   'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1775491548/IMG_4177_jgopw9.png',
+  'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1775491546/Screenshot_2026-04-06_at_9.05.25_AM_wchjhz.png',
+  'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1775491547/Screenshot_2026-04-06_at_9.04.56_AM_g0sot5.png',
   'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1774621574/IMG_7297_cldamj.jpg',
   'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1774621600/IMG_7191_d2qhec.jpg',
   'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1774621631/IMG_7082_a0qnyp.jpg',
