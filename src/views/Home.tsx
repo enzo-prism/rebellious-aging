@@ -27,7 +27,7 @@ import { useRouter } from 'next/navigation';
 // import Autoplay from 'embla-carousel-autoplay'; // Removed to prevent auto-scrolling
 
 const heroImages = [
-  'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1774621577/IMG_7257_z32gmh.jpg',
+  'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1775491548/IMG_4177_jgopw9.png',
   'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1774621574/IMG_7297_cldamj.jpg',
   'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1774621600/IMG_7191_d2qhec.jpg',
   'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1774621631/IMG_7082_a0qnyp.jpg',
