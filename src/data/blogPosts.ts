@@ -1,3 +1,5 @@
+import { blogSeoById } from './blogSeo';
+
 export interface BlogPostMetadata {
   id: string;
   blogNumber: number;
@@ -11,7 +13,10 @@ export interface BlogPostMetadata {
 }
 
 export const getBlogPostSeoTitle = (post: BlogPostMetadata) =>
-  post.seoTitle?.trim() || post.title;
+  blogSeoById[post.id]?.seoTitle?.trim() || post.seoTitle?.trim() || post.title;
+
+export const getBlogPostSeoDescription = (post: BlogPostMetadata) =>
+  blogSeoById[post.id]?.seoDescription?.trim() || post.seoDescription?.trim() || post.excerpt;
 
 export const blogPosts: BlogPostMetadata[] = [
   {

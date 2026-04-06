@@ -5,7 +5,12 @@ import Seo from '@/components/seo/Seo';
 import PageShareButton from '@/components/share/PageShareButton';
 import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { blogPostContent } from '@/data/blogPostContent';
-import { getBlogPostById, getBlogPostSeoTitle, getNextBlogPost } from '@/data/blogPosts';
+import {
+  getBlogPostById,
+  getBlogPostSeoDescription,
+  getBlogPostSeoTitle,
+  getNextBlogPost,
+} from '@/data/blogPosts';
 import { buildMetaDescription, buildSeoTitle, getCanonicalUrl, resolveSocialImage } from '@/lib/seo';
 import { buildArticleJsonLd } from '@/lib/structuredData';
 import { siteMetadata } from '@/lib/siteMetadata';
@@ -45,7 +50,7 @@ const BlogPost = ({ postId }: BlogPostProps) => {
   const nextPost = getNextBlogPost(currentPost.blogNumber);
   const canonicalUrl = getCanonicalUrl(canonicalPath);
   const pageTitle = getBlogPostSeoTitle(currentPost);
-  const metaDescription = buildMetaDescription(currentPost.seoDescription, currentPost.excerpt);
+  const metaDescription = buildMetaDescription(getBlogPostSeoDescription(currentPost), currentPost.excerpt);
   const publishedTime = currentPost.dateSort.toISOString();
   const socialImage = resolveSocialImage(siteMetadata.defaultSocialImage);
 

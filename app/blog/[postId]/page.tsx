@@ -4,7 +4,12 @@ import BlogPost from '@/views/BlogPost';
 import { buildMetadata } from '@/lib/nextMetadata';
 import { buildMetaDescription } from '@/lib/seo';
 import { siteMetadata } from '@/lib/siteMetadata';
-import { blogPosts, getBlogPostSeoTitle, getBlogPostById } from '@/data/blogPosts';
+import {
+  blogPosts,
+  getBlogPostSeoDescription,
+  getBlogPostSeoTitle,
+  getBlogPostById,
+} from '@/data/blogPosts';
 
 const resolvePostMeta = (postId: string) => {
   const post = getBlogPostById(postId);
@@ -27,7 +32,7 @@ const resolvePostMeta = (postId: string) => {
     path,
     canonical: path,
     title: getBlogPostSeoTitle(post),
-    description: buildMetaDescription(post.seoDescription, post.excerpt),
+    description: buildMetaDescription(getBlogPostSeoDescription(post), post.excerpt),
     image: siteMetadata.defaultSocialImage,
     ogType: 'article' as const,
     publishedTime: post.date,

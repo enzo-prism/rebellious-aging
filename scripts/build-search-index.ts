@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-import { blogPosts } from '../src/data/blogPosts';
+import { blogPosts, getBlogPostSeoDescription } from '../src/data/blogPosts';
 import { blogPostContent } from '../src/data/blogPostContent';
 import { nutritionTabs } from '../src/data/nutritionTabs';
 import { recipes, slugifyRecipeTitle } from '../src/data/recipes';
@@ -108,7 +108,7 @@ const buildBlogDocs = (): SearchDocument[] =>
       type: 'blog',
       title: post.title,
       path: `/blog/${post.id}`,
-      summary: post.seoDescription ?? post.excerpt,
+      summary: getBlogPostSeoDescription(post),
       content: bodyText || `Blog #${post.blogNumber}: ${post.title}. ${post.excerpt}`,
       tags: ['blog', `blog-${post.blogNumber}`, post.blogNumber.toString()],
       updatedAt: post.dateSort?.toISOString(),
