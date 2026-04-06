@@ -6,6 +6,7 @@ import PillarCard from '@/components/home/PillarCard';
 import WelcomeBanner from '@/components/home/WelcomeBanner';
 import LatestBlogBadge from '@/components/home/LatestBlogBadge';
 import ConnectCTA from '@/components/common/ConnectCTA';
+import TrustedVoicesSection from '@/components/common/TrustedVoicesSection';
 import { getSortedBlogPosts } from '@/data/blogPosts';
 import { useSearch } from '@/hooks/useSearch';
 import type { SearchType } from '@/data/searchRecords';
@@ -411,6 +412,13 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      <TrustedVoicesSection
+        title="What trusted voices say about Suz"
+        description="Suz brings curiosity, evidence, warmth, and a contagious kind of energy to conversations about health, aging, and what is still possible."
+        ctaHref="/our-story"
+        ctaLabel="Read Suz's story"
+      />
 
       <section className="section-padding bg-gray-50">
         <div className="container mx-auto container-padding space-y-8">

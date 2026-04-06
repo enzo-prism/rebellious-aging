@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowRight, CalendarDays, MapPin, Mic2 } from 'lucide-react';
 
 import ConnectCTA from '@/components/common/ConnectCTA';
+import TrustedVoicesSection from '@/components/common/TrustedVoicesSection';
 import Seo from '@/components/seo/Seo';
 import PageShareButton from '@/components/share/PageShareButton';
 import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
@@ -65,6 +66,15 @@ const SpeakingEvents = () => {
               </div>
             </div>
           </section>
+
+          <TrustedVoicesSection
+            eyebrow="Why It Lands"
+            title="What people notice when Suz is in the room"
+            description="These endorsements reinforce what the speaking archive is designed to show: Suz pairs lived warmth with research, curiosity, and a message people genuinely want to hear."
+            ctaHref="/contact"
+            ctaLabel="Invite Suz to speak"
+            className="rounded-[2rem] border border-teal/20 bg-white/90 py-10 shadow-sm"
+          />
 
           <section className="grid gap-6 md:grid-cols-2">
             {speakingEvents.map((event) => (
