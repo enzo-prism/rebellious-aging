@@ -8,6 +8,7 @@ import ConnectCTA from '@/components/common/ConnectCTA';
 import Seo from '@/components/seo/Seo';
 import PageShareButton from '@/components/share/PageShareButton';
 import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
+import { trustedVoiceEndorsements } from '@/data/endorsements';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 import { buildOrganizationJsonLd } from '@/lib/structuredData';
 
@@ -224,6 +225,47 @@ const Movement = () => {
               </div>
               <p>My journey has been fuelled by curiosity. Curiosity about how food, mindset, style, and movement shape the way we age and thrive. Over the years, that curiosity led me from a degree in biochemistry to exploring mindfulness, coaching, sustainability, and the power of plants to transform health and confidence.</p>
               <p>I have spent the past 7 years deeply immersed in reading, listening, studying, and taking courses on the value of a plant-strong lifestyle, blending science, healing compassion, and personal growth.</p>
+            </div>
+
+            <div className="space-y-6 rounded-[2rem] border border-teal/15 bg-[linear-gradient(180deg,rgba(240,253,250,0.92)_0%,rgba(255,255,255,1)_100%)] p-6 sm:p-8 animate-on-scroll">
+              <div className="mx-auto max-w-3xl space-y-3 text-center">
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-teal">Why It Lands</p>
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">What people notice when Suz is in the room</h3>
+                <p className="text-sm sm:text-base leading-relaxed text-gray-600">
+                  These endorsements reinforce what the speaking archive is designed to show: Suz pairs lived warmth with research, curiosity, and a message people genuinely want to hear.
+                </p>
+              </div>
+
+              <div className="grid gap-6 lg:grid-cols-2">
+                {trustedVoiceEndorsements.map((endorsement) => (
+                  <figure
+                    key={endorsement.name}
+                    className="flex h-full flex-col rounded-[2rem] border border-teal/15 bg-white p-6 shadow-sm"
+                  >
+                    <div className="text-5xl leading-none text-coral/30" aria-hidden="true">
+                      "
+                    </div>
+                    <blockquote className="mt-4 text-base sm:text-lg leading-relaxed text-gray-800">
+                      {endorsement.quote}
+                    </blockquote>
+                    <figcaption className="mt-6 border-t border-gray-100 pt-4">
+                      <p className="text-base font-semibold text-gray-900">{endorsement.name}</p>
+                      <p className="mt-1 text-sm leading-relaxed text-gray-600">{endorsement.title}</p>
+                      {endorsement.href && endorsement.linkLabel ? (
+                        <a
+                          href={endorsement.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-3 inline-flex text-sm font-semibold text-teal transition hover:text-teal-dark"
+                        >
+                          {endorsement.linkLabel}
+                          <span aria-hidden="true">&nbsp;-&gt;</span>
+                        </a>
+                      ) : null}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
             </div>
 
             <div className="relative">
