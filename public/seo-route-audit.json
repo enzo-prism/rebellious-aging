@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-04-08T15:42:20.376Z",
-  "totalRoutes": 110,
-  "validRoutes": 110,
+  "generatedAt": "2026-05-12T01:03:41.935Z",
+  "totalRoutes": 111,
+  "validRoutes": 111,
   "failedRoutes": 0,
   "records": [
     {
@@ -1855,6 +1855,29 @@
         "title": "Prime, Not Past It",
         "description": "A practical 10-point style guide to look intentional and alive at every age: structure, color, fit, editing, posture, and presence.",
         "canonical": "/blog/prime-not-past-it-refuse-invisibility",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/what-stayed-with-me-after-livelong-womens-conference",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Livelong Women’s Conference Reflection",
+        "description": "Suz reflects on the Livelong Women’s Conference, source-vetting, movement, food, connection, and becoming CEO of your own health.",
+        "canonical": "/blog/what-stayed-with-me-after-livelong-womens-conference",
         "ogType": "article",
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }

@@ -22,7 +22,11 @@ describe('blog post data', () => {
   });
 
   it('uses the blog title as the fallback seo title', () => {
-    const sample = blogPosts[0];
+    const sample = {
+      ...blogPosts[0],
+      id: 'post-without-seo-overrides',
+    };
+
     expect(getBlogPostSeoTitle(sample)).toBe(sample.title);
   });
 });

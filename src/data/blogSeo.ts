@@ -238,4 +238,9 @@ export const blogSeoById: Record<string, BlogSeoMeta> = {
   'prime-not-past-it-refuse-invisibility': {
     seoTitle: 'Prime, Not Past It',
   },
+  'what-stayed-with-me-after-livelong-womens-conference': {
+    seoTitle: 'Livelong Women’s Conference Reflection',
+    seoDescription:
+      'Suz reflects on the Livelong Women’s Conference, source-vetting, movement, food, connection, and becoming CEO of your own health.',
+  },
 };

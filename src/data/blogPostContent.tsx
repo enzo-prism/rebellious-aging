@@ -4410,4 +4410,65 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       </>
     ),
   },
+
+  'what-stayed-with-me-after-livelong-womens-conference': {
+    heading: <h1 className="text-4xl font-bold mb-4">What Stayed With Me After the Livelong Women’s Conference</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>A few weeks have passed since attending the Livelong Women’s Conference in San Francisco, and I’ve been reflecting on what truly stayed with me.</p>
+          <p><em>Not just the speakers.<br />Not the trends.<br />Not the biohacking buzzwords.</em></p>
+          <p>But the <em>feeling</em> of the event.The energy in a room filled with nearly 2,000 mostly younger women searching for ways to become their healthiest, strongest, and most vibrant selves was powerful and inspiring.</p>
+          <p>I especially appreciated the many thoughtful conversations I had with bright, curious women who were open, engaged, and genuinely interested in learning and growing.</p>
+          <p>Some messages from the conference deeply resonated with me:</p>
+          <ul>
+            <li><em>Food is medicine.</em></li>
+            <li><em>Muscle is medicine.</em></li>
+            <li><em>Connection is medicine.</em></li>
+            <li><em>Be your own medical advocate.</em></li>
+            <li><em>Vet your information sources carefully.</em></li>
+            <li><em>There are no magic pills for longevity.</em></li>
+            <li><em>Nature heals.</em></li>
+            <li><em>Movement matters.</em></li>
+            <li><em>Purpose matters.</em></li>
+            <li><em>Joy matters.</em></li>
+          </ul>
+          <p>One statement that especially struck me was:</p>
+          <p>“Women are not men.”</p>
+          <p>Simple. Obvious, perhaps. Yet somehow still overlooked in much of medicine and health research.</p>
+          <p>Another strong takeaway was the importance of strength and movement as we age. Jane Fonda reminded the audience:</p>
+          <p>“Do not let anyone tell you that you cannot get stronger and build muscle as you age.”</p>
+          <p>There was also discussion around grip strength being an important indicator of longevity, the value of walking in nature, eating real food, limiting ultra-processed foods, and avoiding the constant search for shortcuts.</p>
+          <p>One of the most grounded voices at the conference, in my opinion, was Dr. Eric Verdin, CEO of the Buck Institute for Research on Aging. He jokingly refers to himself as the “grumpy man” of longevity science because he takes a more conservative, evidence-based approach to aging research.</p>
+          <p>Rather than promising people they will live to 120 or 150, he focuses on increasing healthspan, helping people live healthier, stronger lives into their 90s.That resonated with me deeply.</p>
+          <p>What inspired me most?</p>
+          <p>Hopeful innovation. Honest conversations. Movement. Community. Curiosity.</p>
+          <p>What concerned me?</p>
+          <p>Over-medicalization. Biohacking obsession. Fear-based aging messaging. Privilege disguised as wellness.</p>
+          <p>What confirmed what I already believe?</p>
+          <p>The power of plants. Movement. Purpose. Connection. Gratitude. Joy.</p>
+          <p>What surprised me?</p>
+          <p>The youthful energy of the audience. The contradictory information between some speakers.</p>
+          <p>But perhaps my biggest takeaway was this:</p>
+          <p>In today’s world of endless podcasts, influencers, supplements, and wellness claims, learning how to vet your sources may be one of the most important health skills we can develop.</p>
+          <p>As the saying goes:</p>
+          <p>“In God we trust. Everyone else, show me the data.” Dr. Eric Verdin</p>
+          <p>Honestly?</p>
+          <p>The answer probably isn’t another pill.</p>
+          <p>It is more likely found in consistent daily habits:</p>
+          <p>real food, movement, strength, connection, sleep, purpose, and learning to become the CEO of your own health.</p>
+          <p>One final thought that stayed with me:</p>
+          <p>Perhaps we should judge our healthcare system not by how many medications people are placed on, but by how many they are safely helped to come off of.</p>
+          <p>The conference itself was beautifully organized and thought-provoking, especially when viewed through a thoughtful and critical lens.</p>
+          <p>It was also a wonderful opportunity to network for Rebellious Aging, reconnect with San Francisco, and soak in a little sparkle along the way.</p>
+          <p>The newly refurbished Huntington Hotel did not disappoint. Nob Hill, as always, sparkled.</p>
+          <p>And two sunny days capped off with fabulous dinners alongside my 26-year-old grandson? That was the icing on the cake.</p>
+          <p>I left inspired, thoughtful, energized… and already looking forward to next year.</p>
+          <p>Suz</p>
+        </div>
+      </>
+    ),
+  },
 };

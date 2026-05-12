@@ -594,6 +594,18 @@ export const blogPosts: BlogPostMetadata[] = [
     blogNumber: 60,
     seoDescription:
       'A practical 10-point style guide to look intentional and alive at every age: structure, color, fit, editing, posture, and presence.'
+  },
+  {
+    id: 'what-stayed-with-me-after-livelong-womens-conference',
+    title: 'What Stayed With Me After the Livelong Women’s Conference',
+    excerpt:
+      'Suz reflects on evidence-based women’s health, movement, food, connection, source-vetting, and becoming the CEO of your own health.',
+    date: '4/2026',
+    dateSort: new Date('2026-04-18'),
+    readTime: '5 min read',
+    blogNumber: 61,
+    seoDescription:
+      'Suz reflects on the Livelong Women’s Conference, source-vetting, movement, food, connection, and becoming CEO of your own health.'
   }
 ];
 
