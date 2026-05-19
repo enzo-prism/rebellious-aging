@@ -12,6 +12,9 @@ import { nutritionGuideSections } from '@/data/nutritionGuideSections';
 const HERO_DESCRIPTION =
   'What you put on your plate can change how you feel in your body, how clearly you think, and how boldly you live in every decade. A whole-food, plant-based lifestyle isn’t about punishment or perfection. It’s about giving your future self a fighting chance — with real food, from real plants, that loves you back.';
 
+const NUTRITION_STUDIES_URL = 'https://www.nutritionstudies.org/';
+const CENTER_FOR_NUTRITION_STUDIES_LOGO_SRC = '/partner-logos/center-for-nutrition-studies-logo.png';
+
 const ABUNDANCE_LIST = [
   {
     title: '🌾 Whole & Ancient Grains',
@@ -149,16 +152,18 @@ const NutritionGuide = () => {
                 🍽️ Jump to What to Eat
               </Button>
               <Button asChild variant="secondary" className="min-w-[220px]">
-                <a href="https://www.nutritionstudies.org/" target="_blank" rel="noopener noreferrer" className="text-center">
+                <a href={NUTRITION_STUDIES_URL} target="_blank" rel="noopener noreferrer" className="text-center">
                   🔗 Visit NutritionStudies.org
                 </a>
               </Button>
             </div>
             <div className="mt-8 flex justify-center">
               <img
-                src="https://cdn.nutritionstudies.org/wp-content/themes/nutritionstudies/public/images/cns-logo@2x.f3f27d.png"
+                src={CENTER_FOR_NUTRITION_STUDIES_LOGO_SRC}
                 alt="Center for Nutrition Studies logo"
-                className="h-16 w-auto"
+                width={720}
+                height={146}
+                className="h-auto max-h-16 w-full max-w-[20rem] object-contain"
                 loading="lazy"
                 decoding="async"
               />
