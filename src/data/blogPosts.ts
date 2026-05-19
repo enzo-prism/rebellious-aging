@@ -606,6 +606,54 @@ export const blogPosts: BlogPostMetadata[] = [
     blogNumber: 61,
     seoDescription:
       'Suz reflects on the Livelong Women’s Conference, source-vetting, movement, food, connection, and becoming CEO of your own health.'
+  },
+  {
+    id: 'fashion-vs-style-at-this-stage-of-life',
+    title: 'My Reflections About Fashion vs. Style at This Stage of Life',
+    excerpt:
+      'Fashion asks women to keep up, but style asks something deeper: do I feel like myself in this?',
+    date: '5/2026',
+    dateSort: new Date('2026-05-17'),
+    readTime: '3 min read',
+    blogNumber: 62,
+    seoDescription:
+      'Suz reflects on fashion versus style after 55, self-permission, visibility, confidence, and dressing in alignment with who you are now.'
+  },
+  {
+    id: 'what-even-is-my-style-anymore',
+    title: 'What Even is My Style Anymore?',
+    excerpt:
+      'A practical closet reflection for uncovering your personal style through favorite pieces, patterns, feeling words, and alignment.',
+    date: '5/2026',
+    dateSort: new Date('2026-05-17T01:00:00'),
+    readTime: '3 min read',
+    blogNumber: 63,
+    seoDescription:
+      'Use Suz’s five-step style exercise to rediscover what feels authentic, energized, visible, and aligned at this stage of life.'
+  },
+  {
+    id: 'balance-is-a-practice-not-a-test',
+    title: 'Balance is a Practice, Not a Test',
+    excerpt:
+      'Balance is not something you either have or do not have. It is a skill you can build slowly, intentionally, and confidently.',
+    date: '5/2026',
+    dateSort: new Date('2026-05-18'),
+    readTime: '4 min read',
+    blogNumber: 64,
+    seoDescription:
+      'Learn why balance improves with practice, how slow movement builds mastery, and five simple balance exercises for confident aging.'
+  },
+  {
+    id: 'retirement-freedom-or-identity-crisis',
+    title: 'Retirement: Freedom or a Full-Time Identity Crisis?',
+    excerpt:
+      'Retirement is not just a financial milestone. It is a redesign of routine, identity, purpose, contribution, and possibility.',
+    date: '5/2026',
+    dateSort: new Date('2026-05-18T01:00:00'),
+    readTime: '4 min read',
+    blogNumber: 65,
+    seoDescription:
+      'Suz explores retirement as emotional preparation, identity redesign, purpose, contribution, and one of life’s richest seasons.'
   }
 ];
 

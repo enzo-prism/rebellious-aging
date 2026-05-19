@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-12T01:03:41.935Z",
-  "totalRoutes": 111,
-  "validRoutes": 111,
+  "generatedAt": "2026-05-19T18:00:30.419Z",
+  "totalRoutes": 115,
+  "validRoutes": 115,
   "failedRoutes": 0,
   "records": [
     {
@@ -1878,6 +1878,98 @@
         "title": "Livelong Women’s Conference Reflection",
         "description": "Suz reflects on the Livelong Women’s Conference, source-vetting, movement, food, connection, and becoming CEO of your own health.",
         "canonical": "/blog/what-stayed-with-me-after-livelong-womens-conference",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/fashion-vs-style-at-this-stage-of-life",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Fashion vs. Style After 55",
+        "description": "Suz reflects on fashion versus style after 55, self-permission, visibility, confidence, and dressing in alignment with who you are now.",
+        "canonical": "/blog/fashion-vs-style-at-this-stage-of-life",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/what-even-is-my-style-anymore",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "What Even Is My Style Anymore?",
+        "description": "Use Suz’s five-step style exercise to rediscover what feels authentic, energized, visible, and aligned at this stage of life.",
+        "canonical": "/blog/what-even-is-my-style-anymore",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/balance-is-a-practice-not-a-test",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Balance Is a Practice, Not a Test",
+        "description": "Learn why balance improves with practice, how slow movement builds mastery, and five simple balance exercises for confident aging.",
+        "canonical": "/blog/balance-is-a-practice-not-a-test",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/retirement-freedom-or-identity-crisis",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Retirement: Freedom or Identity Crisis?",
+        "description": "Suz explores retirement as emotional preparation, identity redesign, purpose, contribution, and one of life’s richest seasons.",
+        "canonical": "/blog/retirement-freedom-or-identity-crisis",
         "ogType": "article",
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }

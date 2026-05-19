@@ -243,4 +243,24 @@ export const blogSeoById: Record<string, BlogSeoMeta> = {
     seoDescription:
       'Suz reflects on the Livelong Women’s Conference, source-vetting, movement, food, connection, and becoming CEO of your own health.',
   },
+  'fashion-vs-style-at-this-stage-of-life': {
+    seoTitle: 'Fashion vs. Style After 55',
+    seoDescription:
+      'Suz reflects on fashion versus style after 55, self-permission, visibility, confidence, and dressing in alignment with who you are now.',
+  },
+  'what-even-is-my-style-anymore': {
+    seoTitle: 'What Even Is My Style Anymore?',
+    seoDescription:
+      'Use Suz’s five-step style exercise to rediscover what feels authentic, energized, visible, and aligned at this stage of life.',
+  },
+  'balance-is-a-practice-not-a-test': {
+    seoTitle: 'Balance Is a Practice, Not a Test',
+    seoDescription:
+      'Learn why balance improves with practice, how slow movement builds mastery, and five simple balance exercises for confident aging.',
+  },
+  'retirement-freedom-or-identity-crisis': {
+    seoTitle: 'Retirement: Freedom or Identity Crisis?',
+    seoDescription:
+      'Suz explores retirement as emotional preparation, identity redesign, purpose, contribution, and one of life’s richest seasons.',
+  },
 };

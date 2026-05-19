@@ -4471,4 +4471,257 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       </>
     ),
   },
+
+  'fashion-vs-style-at-this-stage-of-life': {
+    heading: <h1 className="text-4xl font-bold mb-4">My Reflections About Fashion vs. Style at This Stage of Life</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p><em>Somewhere along the way many women stop dressing for themselves.</em></p>
+          <p><strong>Fashion</strong> seems loud these days. Fast. Constantly changing. Forever asking women to keep up, buy more, look younger, stay current, and not become invisible.</p>
+          <p><strong>Style</strong> feels entirely different to me.</p>
+          <p>Style feels quieter. More personal. More connected to self-acceptance than self-improvement. At this stage of life, I mostly no longer believe style is about impressing others. I think it is more about finally becoming comfortable enough to express who we truly are.</p>
+          <p>Perhaps this is why many women struggle with it. Because somewhere along the way many of us stopped dressing for ourselves.</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>We dressed instead for our careers.</li>
+            <li>For practicality.</li>
+            <li>For motherhood.</li>
+            <li>For comfort.</li>
+            <li>For expectations.</li>
+            <li>For blending in.</li>
+            <li>For not drawing attention to ourselves.</li>
+            <li>Or how about body changes we did not quite know how to navigate?</li>
+          </ul>
+          <p>Little by little, many women slowly drift away from their own reflection without even realizing it. Not dramatically. Quietly.</p>
+          <p>Sometimes we stop experimenting. Stop playing. And worst of all, stop allowing our authentic selves to be seen.</p>
+          <p>And sadly, society often reinforces this idea that aging women should become smaller, less visible, less bold, less expressive.</p>
+          <p>So I wonder if aging might actually offer us the opposite opportunity. Perhaps this stage of life is finally the time to become <strong>more ourselves, not less</strong>.</p>
+          <p>Less concerned about trends, less interested in approval, less driven by comparison, and maybe more curious about authenticity.</p>
+          <p>I have also come to believe that style has very little to do with money, perfect bodies, or owning the right clothes. Some of the most stylish women I notice are not necessarily the most fashionable. They simply feel comfortable in their own skin. There is an ease about them, a confidence, and most importantly a quiet self-permission.</p>
+          <p>Their clothing feels aligned with who they are rather than who they think they are supposed to be. This to me is <strong>style</strong>. Not perfection. Not youth. Not trend chasing. NOPE!</p>
+          <p><strong>It is alignment.</strong></p>
+          <p>I think unapologetic style begins the moment we stop asking, “What will people think?” and begin asking, “Do I feel like myself in this?”</p>
+          <p>This tiny question changes everything. At this stage in my life, I find myself far less interested in dressing to meet expectations and far more interested in dressing in a way that reflects energy, confidence, creativity, joy, and authenticity.</p>
+          <p>Definitely not to impress anyone. But because it makes <strong>me</strong> feel alive.</p>
+          <p>Perhaps personal style is not really about reinventing ourselves at all. Perhaps it is about uncaging the parts of ourselves that have quietly waited years to reappear.</p>
+          <p>And honestly? I think that kind of style only deepens with age.</p>
+          <p><strong>Suz xo</strong></p>
+          <p><em>In my next blog, #63, I will explore the idea of finding your personal style at this rebellious stage of life. Definitely not through rules or trends, but through curiosity, confidence, and self-expression. Because maybe “unapologetic style” is not created overnight. Just maybe it is uncovered one honest choice at a time. Sparkle on, my fair ladies.</em></p>
+        </div>
+      </>
+    ),
+  },
+
+  'what-even-is-my-style-anymore': {
+    heading: <h1 className="text-4xl font-bold mb-4">What Even is My Style Anymore?</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>After writing my reflections about fashion versus style, I began thinking about something many women, including myself, quietly struggle with: “What even is my style anymore?”</p>
+          <p>After decades of dressing for work, motherhood, practicality, comfort, body changes, or simply trying not to stand out, many of us lose touch with what genuinely feels like us.</p>
+          <p>But perhaps the answer is already hanging in our closets.</p>
+          <p><strong>Here we go. Call to action. Are you willing?</strong></p>
+
+          <h3 className="text-lg font-semibold mt-8">Step 1. Pull Out Your Favorite Pieces</h3>
+          <p>Not the expensive ones. Not the aspirational ones. And definitely not the “someday when I lose 10 lbs.” pieces.</p>
+          <p>Nope. I am talking your real go-tos, your favorites, your dailies.</p>
+          <p>Ya know the ones:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>The pieces you reach for and actually wear repeatedly.</li>
+            <li>The ones that make you feel fabulous.</li>
+            <li>The ones that make you feel energized.</li>
+            <li>The pieces that shout out, “This is the authentic me.”</li>
+            <li>The special pieces you stand taller in.</li>
+          </ul>
+
+          <h3 className="text-lg font-semibold mt-8">Step 2. Look For Patterns</h3>
+          <p>This becomes fun and insightful. Try asking yourself these questions as you root around and through your accumulated but rarely worn pieces.</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Do you gravitate toward structure or softness?</li>
+            <li>Simple or artistic?</li>
+            <li>Neutral or colorful?</li>
+            <li>Relaxed or polished?</li>
+            <li>Bold jewelry or minimal?</li>
+            <li>Flowing or tailored?</li>
+            <li>Sneakers or boots?</li>
+            <li>Denim or linen?</li>
+          </ul>
+          <p>Guess what? Your style is hiding in the repetition.</p>
+
+          <h3 className="text-lg font-semibold mt-8">Step 3. Identify Feeling Words</h3>
+          <p>Instead of “What should I wear?” dare to ask, “How do I want to feel?”</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Confident</li>
+            <li>Creative</li>
+            <li>Grounded</li>
+            <li>Playful</li>
+            <li>Elegant</li>
+            <li>Rebellious</li>
+            <li>Vibrant</li>
+            <li>Relaxed</li>
+            <li>Artistic</li>
+            <li>Effortless</li>
+          </ul>
+
+          <h3 className="text-lg font-semibold mt-8">Step 4. Notice What No Longer Fits Your Identity</h3>
+          <p>Think about:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Guilt clothing</li>
+            <li>Fantasy clothing</li>
+            <li>Outdated identities</li>
+            <li>Clothes purchased for another version of ourselves</li>
+          </ul>
+          <p>Sometimes the hardest part of discovering our style is admitting we have outgrown or aged out of parts of ourselves.</p>
+
+          <h3 className="text-lg font-semibold mt-8">Step 5. Build Around Alignment, Not Rules</h3>
+          <p>Here you will discover your signature philosophy. Own the following:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>No rigid style system.</li>
+            <li>No “women over 60 should or should not.”</li>
+            <li>Instead embrace authenticity, energy, comfort, expression, joy, and visibility.</li>
+          </ul>
+          <p>Soooooooooo, personal style is not something we create from scratch. It is something we uncover by paying attention to what already makes us feel alive.</p>
+          <p>One favorite piece at a time.</p>
+          <p>Perhaps our favorite pieces have been trying to tell us something all along.</p>
+          <p><strong>Suz</strong></p>
+        </div>
+      </>
+    ),
+  },
+
+  'balance-is-a-practice-not-a-test': {
+    heading: <h1 className="text-4xl font-bold mb-4">Balance is a Practice, Not a Test</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>Somewhere along the way, many women begin to move through life cautiously. They stop trusting their footing, they grip railings tighter, they avoid uneven ground.</p>
+          <p>Truth: the fear of falling is a thing. And while caution does have value, fear changes the way we move through the world.</p>
+          <p>What if instead of fearing balance loss we practiced balance like a skill? Because balance is not something you either “have” or “don’t have.” Balance is something you build. You build it slowly, intentionally, methodically, and patiently.</p>
+          <p><strong>And the good news?</strong></p>
+          <p>Our bodies respond beautifully to practice. I know y’all recall the saying “practice makes perfect?”</p>
+
+          <h3 className="text-lg font-semibold mt-8">The Long Forgotten Power of Slowing Down</h3>
+          <p>One of the greatest gifts I believe we can give ourselves as we age is this:</p>
+          <p><strong>Move with intention.</strong></p>
+          <p>No rushing. No mindless hurrying. No multitasking while walking. Just pay attention.</p>
+          <p>When we slow down we become more aware of our body, improve coordination, strengthen stabilizing muscles, reduce careless falls, and reconnect the brain and body.</p>
+          <p>There is, after all, something quietly powerful about deliberate movement. Tai Chi teaches this beautifully.</p>
+          <p><strong>Slow movement is not weakness. Slow movement is mastery.</strong></p>
+
+          <p>One of the most encouraging things about balance work is how quickly improvement can happen with consistency. Sure, at first you wobble, grab the chair, feel uncertain. But then something remarkable happens. Your body learns, your confidence grows, your awareness sharpens.</p>
+          <p><strong>And suddenly</strong> you notice yourself standing steadier on one foot while you brush your teeth, walking more confidently, recovering faster from little stumbles. Improvement becomes visible.</p>
+          <p>You are motivated. You are empowered. You are aging rebelliously.</p>
+
+          <h3 className="text-lg font-semibold mt-8">A Few Simple Ways to Assess Yourself</h3>
+          <p>Not to judge or to shame. Simply to notice where you are starting.</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Can you stand on one foot for 10 seconds? You may need to hold onto the counter as you begin.</li>
+            <li>Can you rise up from a chair without using your hands?</li>
+            <li>Can you walk heel to toe slowly across a room?</li>
+            <li>Do you feel unsteady when you turn around quickly?</li>
+            <li>Do stairs feel easy or uncertain?</li>
+          </ul>
+          <p>These little clues tell your story. And the good news is stories can change.</p>
+
+          <h3 className="text-lg font-semibold mt-8">5 Simple Balance Exercises to Begin</h3>
+          <p>Always use a sturdy chair or counter nearby if needed.</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li><strong>Single Leg Stand:</strong> Hold onto a chair lightly if needed and lift one foot slightly off the ground. Start with 5-10 seconds, working up to a minute or more. Practice both sides.</li>
+            <li><strong>Heel to Toe Walk:</strong> Walk slowly in a straight line placing one foot directly in front of the other. Repeat 10 to 20 times. Go slowly and intentionally.</li>
+            <li><strong>Sit to Stand:</strong> Rise from a chair slowly without using your hands if possible. Then sit down with control. This will build strength and balance.</li>
+            <li><strong>Side Leg Lifts:</strong> Hold on to a counter and slowly lift one leg to the side. Do both sides. Control matters more than height.</li>
+            <li><strong>Slow Marching:</strong> March slowly in place standing as tall as possible. Focus on posture and control. Bonus points if you smile while doing it.</li>
+          </ul>
+
+          <h3 className="text-lg font-semibold mt-8">The Bigger Picture</h3>
+          <p>Balance is far more than avoiding falls. It is about freedom. Freedom to travel, to move more confidently, to remain active, and to trust your body. And most importantly, balance practice reminds us that improvement is possible. And at every age.</p>
+          <p>You do not need perfection.</p>
+          <p>You do not need athleticism.</p>
+          <p>You simply need willingness, a few minutes a day, a lot of patience, and a little practice.</p>
+          <p>Remember this. Rebellious aging is not about pretending we never age. It is about refusing to stop growing stronger. One intentional step at a time.</p>
+          <p>“Slow movement is not weakness. Slow movement is mastery.”</p>
+          <p>Move with intention. Age with confidence.</p>
+          <p><strong>Suz</strong></p>
+        </div>
+      </>
+    ),
+  },
+
+  'retirement-freedom-or-identity-crisis': {
+    heading: (
+      <div>
+        <h1 className="text-4xl font-bold mb-4">Retirement</h1>
+        <h2 className="text-xl text-muted-foreground font-semibold mb-8">Freedom or a Full-Time Identity Crisis?</h2>
+      </div>
+    ),
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>For years society tells us to work hard, save wisely, retire happily. And somehow we are supposed to magically wake up one morning fulfilled, purposeful, energized, and blissfully content playing pickleball and organizing our sock drawer.</p>
+          <p>Sooooooooooo, what exactly is retirement? And perhaps more importantly, who are we without the structure, identity, routine, purpose, and social connection our work once gave us?</p>
+          <p>Retirement is not a vacay. Retirement is often sold as endless relaxation. But after the novelty wears off, and it does, many people quietly discover something surprising: too much unstructured time can feel unsettling.</p>
+          <p>Because work gives us more than a paycheck. Work gave us all the “things”:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Routine</li>
+            <li>Responsibility</li>
+            <li>Connection</li>
+            <li>Purpose</li>
+            <li>Identity</li>
+            <li>Momentum</li>
+          </ul>
+          <p>Without realizing it, many people spend decades preparing financially for retirement, but almost no time preparing emotionally.</p>
+
+          <h3 className="text-lg font-semibold mt-8">The Kitchen Cabinet Story</h3>
+          <p>I once heard a story about a man who retired after decades of corporate, executive-style work. The very first morning after retirement, he looked at his wife and cheerfully asked her, “So, what do you want to do today?”</p>
+          <p>Without missing a beat she replied, “I don’t know what you are doing today, but I am having lunch and shopping with friends.”</p>
+          <p>Then she left.</p>
+          <p>He stood in the kitchen, like a deer in the headlights, as he simultaneously contemplated this new and future life.</p>
+          <p>And by the end of the day? Every kitchen cupboard and drawer had been completely reorganized.</p>
+          <p>His wife returned home less than thrilled. Words were exchanged. She firmly and lovingly informed him that he needed to figure out the rest of his life because hers was in full swing.</p>
+          <p><strong>Honestly?</strong></p>
+          <p>That may have been the best thing she ever did for him. Shortly afterward he became involved in outreach work through his church and went on to spend many fruitful years helping countless others to be the best they could be.</p>
+          <p>So as you can see, his retirement did not become an ending. It became a redirection.</p>
+
+          <p>Society often paints retirement as slowing down, stepping aside, fading quietly into leisure, and “taking it easy.”</p>
+          <p>But many people soon discover they do not actually want a life centered entirely around television, appointments, lunch reservations, endless vacations, or waiting for the grandkids to visit. Especially vibrant, curious, and purpose-driven people.</p>
+          <p><strong>The truth?</strong></p>
+          <p>Many of us do not need less purpose as we age. We need a more meaningful purpose.</p>
+          <p>So maybe retirement is not about stopping. Maybe it is about choosing. Choosing what matters, where your energy goes, how you contribute, what lights you up, and most importantly who you want to become next. That takes reflection and experimentation.</p>
+
+          <h3 className="text-lg font-semibold mt-8">What If You Do Not Know Yet?</h3>
+          <p>I know a gorgeous accomplished woman who retired nearly a year ago. She is searching. She travels a lot, visits with friends, reads, and knits. But beneath all of the activity I sense she is still searching for her perfect niche.</p>
+          <p>And honestly I think that is okay. Great even. Because finding your next chapter is not a race.</p>
+          <p>Sometimes retirement is less about immediately “finding your purpose” and more about giving yourself permission to rediscover curiosity and let what you discover reignite your spark. No matter what, you simply must stay open, walk bravely through doors that open for you, learn your lessons, and never give up.</p>
+          <p>Perhaps we should spend as much time preparing emotionally for retirement as we do financially.</p>
+          <p>We should be contemplating questions and looking for clues:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>What brings me alive?</li>
+            <li>What strengths do I still want to embrace and use?</li>
+            <li>How do I want my days to feel?</li>
+            <li>Who might need what I know?</li>
+            <li>What have I always wanted to explore?</li>
+            <li>What kind of contribution still calls me?</li>
+            <li>Do I need a furry companion?</li>
+          </ul>
+          <p>Because retirement without purpose can quietly become isolation.</p>
+          <p>But retirement with meaning? Well, that can become one of the richest seasons of life.</p>
+          <p>Maybe rebellious aging is refusing to believe your usefulness expires at retirement age.</p>
+          <p>Soooooooo, maybe it is understanding that after all, wisdom, curiosity, and contribution matter. And of course <strong>you</strong> always matter.</p>
+          <p>Retirement is not disappearing.</p>
+          <p>It is redesigning. It is not the end of relevance, but rather the beginning of reinvention.</p>
+          <p>Retire with purpose. Age with possibility.</p>
+          <p>Never quit.</p>
+          <p><strong>Suz xo</strong></p>
+        </div>
+      </>
+    ),
+  },
 };
