@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-19T18:00:30.419Z",
-  "totalRoutes": 115,
-  "validRoutes": 115,
+  "generatedAt": "2026-05-27T00:37:08.240Z",
+  "totalRoutes": 120,
+  "validRoutes": 120,
   "failedRoutes": 0,
   "records": [
     {
@@ -1970,6 +1970,121 @@
         "title": "Retirement: Freedom or Identity Crisis?",
         "description": "Suz explores retirement as emotional preparation, identity redesign, purpose, contribution, and one of life’s richest seasons.",
         "canonical": "/blog/retirement-freedom-or-identity-crisis",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/the-cage-was-never-locked",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "The Cage Was Never Locked",
+        "description": "Suz reflects on imposter syndrome, self-permission, visibility, and the freeing realization that the cage was never locked.",
+        "canonical": "/blog/the-cage-was-never-locked",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/signs-you-are-beginning-to-uncage",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Signs You Are Beginning to Uncage",
+        "description": "Recognize the subtle signs of uncaging, from asking what you want to protecting your peace and seeing aging as an unfolding.",
+        "canonical": "/blog/signs-you-are-beginning-to-uncage",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/an-uncaged-woman-is-not-always-comfortable",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "An Uncaged Woman Is Not Always Comfortable",
+        "description": "Suz explores why uncaging is not always comfortable, and how fear, visibility, and newness can become signs of growth.",
+        "canonical": "/blog/an-uncaged-woman-is-not-always-comfortable",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/women-are-not-men",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Women Are NOT Men",
+        "description": "Suz reflects on women’s health, medical research, self-advocacy, and why women deserve healthcare standards that truly reflect their bodies.",
+        "canonical": "/blog/women-are-not-men",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/the-accidental-blogger",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "The Accidental Blogger",
+        "description": "Suz shares how caregiving, learning, volunteering, coaching, and writing led her to become an accidental blogger and find her voice.",
+        "canonical": "/blog/the-accidental-blogger",
         "ogType": "article",
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }

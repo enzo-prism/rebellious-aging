@@ -654,6 +654,66 @@ export const blogPosts: BlogPostMetadata[] = [
     blogNumber: 65,
     seoDescription:
       'Suz explores retirement as emotional preparation, identity redesign, purpose, contribution, and one of life’s richest seasons.'
+  },
+  {
+    id: 'the-cage-was-never-locked',
+    title: 'The Cage Was Never Locked',
+    excerpt:
+      'What if the door to confidence, visibility, and becoming was open all along? Suz reflects on imposter syndrome, self-permission, and stepping through.',
+    date: '5/2026',
+    dateSort: new Date('2026-05-20'),
+    readTime: '5 min read',
+    blogNumber: 66,
+    seoDescription:
+      'Suz reflects on imposter syndrome, self-permission, visibility, and the freeing realization that the cage was never locked.'
+  },
+  {
+    id: 'signs-you-are-beginning-to-uncage',
+    title: 'Signs You Are Beginning to Uncage',
+    excerpt:
+      'Uncaging often begins quietly: asking what you want, becoming honest with yourself, protecting peace, and remembering you are not done becoming.',
+    date: '5/2026',
+    dateSort: new Date('2026-05-22'),
+    readTime: '4 min read',
+    blogNumber: 67,
+    seoDescription:
+      'Recognize the subtle signs of uncaging, from asking what you want to protecting your peace and seeing aging as an unfolding.'
+  },
+  {
+    id: 'an-uncaged-woman-is-not-always-comfortable',
+    title: 'An Uncaged Woman is Not Always Comfortable',
+    excerpt:
+      'Uncaging can feel awkward, sketchy, and new. Suz reframes discomfort as a sign of growth instead of a reason to shrink back.',
+    date: '5/2026',
+    dateSort: new Date('2026-05-22T01:00:00'),
+    readTime: '3 min read',
+    blogNumber: 68,
+    seoDescription:
+      'Suz explores why uncaging is not always comfortable, and how fear, visibility, and newness can become signs of growth.'
+  },
+  {
+    id: 'women-are-not-men',
+    title: 'Women Are NOT Men',
+    excerpt:
+      'After the Livelong Women’s Conference, Suz reflects on why women deserve research, symptom standards, dosing, and healthcare conversations that truly include them.',
+    date: '5/2026',
+    dateSort: new Date('2026-05-23'),
+    readTime: '4 min read',
+    blogNumber: 69,
+    seoDescription:
+      'Suz reflects on women’s health, medical research, self-advocacy, and why women deserve healthcare standards that truly reflect their bodies.'
+  },
+  {
+    id: 'the-accidental-blogger',
+    title: 'The Accidental Blogger',
+    excerpt:
+      'Suz never planned to become a blogger. One uncomfortable door at a time, writing became the path that helped her uncage her own voice.',
+    date: '5/2026',
+    dateSort: new Date('2026-05-24'),
+    readTime: '5 min read',
+    blogNumber: 70,
+    seoDescription:
+      'Suz shares how caregiving, learning, volunteering, coaching, and writing led her to become an accidental blogger and find her voice.'
   }
 ];
 

@@ -263,4 +263,29 @@ export const blogSeoById: Record<string, BlogSeoMeta> = {
     seoDescription:
       'Suz explores retirement as emotional preparation, identity redesign, purpose, contribution, and one of life’s richest seasons.',
   },
+  'the-cage-was-never-locked': {
+    seoTitle: 'The Cage Was Never Locked',
+    seoDescription:
+      'Suz reflects on imposter syndrome, self-permission, visibility, and the freeing realization that the cage was never locked.',
+  },
+  'signs-you-are-beginning-to-uncage': {
+    seoTitle: 'Signs You Are Beginning to Uncage',
+    seoDescription:
+      'Recognize the subtle signs of uncaging, from asking what you want to protecting your peace and seeing aging as an unfolding.',
+  },
+  'an-uncaged-woman-is-not-always-comfortable': {
+    seoTitle: 'An Uncaged Woman Is Not Always Comfortable',
+    seoDescription:
+      'Suz explores why uncaging is not always comfortable, and how fear, visibility, and newness can become signs of growth.',
+  },
+  'women-are-not-men': {
+    seoTitle: 'Women Are NOT Men',
+    seoDescription:
+      'Suz reflects on women’s health, medical research, self-advocacy, and why women deserve healthcare standards that truly reflect their bodies.',
+  },
+  'the-accidental-blogger': {
+    seoTitle: 'The Accidental Blogger',
+    seoDescription:
+      'Suz shares how caregiving, learning, volunteering, coaching, and writing led her to become an accidental blogger and find her voice.',
+  },
 };

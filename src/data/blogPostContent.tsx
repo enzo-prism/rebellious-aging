@@ -4724,4 +4724,234 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       </>
     ),
   },
+
+  'the-cage-was-never-locked': {
+    heading: <h1 className="text-4xl font-bold mb-4">The Cage Was Never Locked</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>For years I prayed “confidence” would arrive someday. Perhaps after I learned enough, helped enough, accomplished enough, proven enough. Surely then I would finally feel qualified to fully step forward into my own life.</p>
+          <p>But lately at 83 and 11/12ths, I have begun realizing something surprising. What if the cage was never actually locked?</p>
+          <p>What if much of my life was spent standing inside an open door, just waiting for permission to walk through it? I do think many women live this way. Not dramatically. Not obviously. But subtly.</p>
+          <p>We hesitate, second guess, shrink our opinions, apologize for taking up space, waiting until we are certain we are “ready”.</p>
+          <p>Yup, we stay in carefully designed lanes designed by us and society. We convince ourselves someone else is more qualified, more knowledgeable, and more deserving.</p>
+          <p><strong>AND</strong></p>
+          <p>All the while, imposter syndrome whispers, “Who do you think you are?”, “Don’t get too big.”, “Don’t be too visible.”, “You are probably not enough.” Here is the strangest part of all, many women carrying imposter syndrome appear highly capable from the outside. Yes indeed, and I know you agree. They are raising fabulous families, holding down important jobs, volunteering, supporting others, managing households, leading communities, surviving hardships, solving problems and the list goes on. Yet internally they feel as though they must continually earn the right to exist fully.</p>
+          <p><strong>I understand this because I LIVE it.</strong></p>
+          <p>Even while coaching, moderating, speaking, writing, creating community and launching new projects, reinventing my health, helping others, launching RA, learning technology, blogging, dreaming new dreams, all in my 80’s, a loud voice still whispers. “Who are YOU to do this?”</p>
+          <p><strong>BUT</strong></p>
+          <p>Lately something inside me has shifted. Not loudly, not dramatically. More like the slow “swinging open” of a long locked door. And on the other side of that door? FREEDOM.</p>
+          <p>Not freedom cuz I think I know everything. Not a chance that will ever happen, ya know, “know everything”. But freedom because I am finally understanding something profound: I do NOT need to earn the right to exist fully. Neither do you.</p>
+          <p>Nope, I have already done the work, lived the lessons, survived hard things, kept learning, kept showing up and kept growing up and nevah gave up. And now the quiet/sad realization that the door was never closed. Perhaps the bars were made less from reality and more from fear:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Fear of judgement</li>
+            <li>Fear of failure</li>
+            <li>Fear of being too much</li>
+            <li>Fear of looking foolish</li>
+            <li>Fear of starting late</li>
+            <li>Fear of taking up space</li>
+            <li>Fear of not being perfect</li>
+          </ul>
+          <p>And most importantly, I am finally allowing myself to be seen without constantly asking whether I deserve the space I occupy. This is both terrifying and exhilarating.</p>
+          <p><strong>UNCAGED</strong></p>
+          <p>Not arrogant, not performative, not attention seeking. Just Uncaged.</p>
+          <p>More willing to speak, create, sparkle, experiment, laugh loudly, wear red lips, start new stuff, ask better questions, take up space, share honestly, EVOLVE and quell the voices.</p>
+          <p>Perhaps the greatest irony of all? Many women spend decades trying to become worthy of freedom, when they were worthy all along.</p>
+          <p>I am beginning to believe uncaging does not happen in one giant brave leap.</p>
+          <p>It happens slowly.</p>
+          <p>One honest moment at a time.</p>
+          <p>One decision to stop shrinking at a time.</p>
+          <p><strong>What Does Uncaging Look Like?</strong></p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Speaking up</li>
+            <li>Wearing the bold outfit</li>
+            <li>Learning technology always</li>
+            <li>Starting the project</li>
+            <li>Asking the question</li>
+            <li>Setting the boundary</li>
+            <li>Saying no without guilt</li>
+            <li>Trying again</li>
+            <li>Allowing joy in</li>
+            <li>Become willing to be seen</li>
+            <li>Being grateful, always</li>
+            <li>ETC.</li>
+          </ul>
+          <p>Perfection is your enemy. Authenticity is your SUPER POWER.</p>
+          <p>Perhaps the path out of imposter syndrome is not becoming someone entirely different. Perhaps it is simply becoming more fully ourselves. More grounded, playful, visible, authentic, alive and trusting our instincts.</p>
+          <p>At this stage in my life, I no longer want to spend my remaining years waiting to feel fully qualified before I participate in my own existence.</p>
+          <p>I want to:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Create</li>
+            <li>Learn</li>
+            <li>Help</li>
+            <li>Laugh</li>
+            <li>Evolve</li>
+            <li>Sparkle</li>
+            <li>Encourage</li>
+            <li>Speak honestly</li>
+            <li>Take up space kindly</li>
+            <li>Be too much</li>
+            <li>Be Extra</li>
+            <li>Live loudly</li>
+            <li>Live boldly</li>
+            <li>And most of all continue becoming.</li>
+          </ul>
+          <p>Definitely not because I know everything. BUT, because I finally understand something important,</p>
+          <p><strong>THE CAGE WAS NEVER LOCKED!!!!!</strong></p>
+          <p>And maybe… just maybe…</p>
+          <p>Neither is yours.</p>
+          <p><strong>Suz xo</strong></p>
+        </div>
+      </>
+    ),
+  },
+
+  'signs-you-are-beginning-to-uncage': {
+    heading: <h1 className="text-4xl font-bold mb-4">Signs You Are Beginning to Uncage</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>Uncaging rarely happens all at once. It usually begins quietly. A simple thought, a question, something you notice, a restless feeling or how about the whisper of the tiny voice in your head, “There has to be more than this.”</p>
+          <p>Not necessarily more achievement, more noise, more status. Nope. Just, MORE YOU. I think many women spend years adapting themselves to fit the expectations of others. They become responsible, dependable, accommodating, agreeable, careful and appropriate. Somewhere along the way, they slowly lose touch with parts of themselves that once felt playful, curious, expressive, bold, creative, adventurous, or free. Then one day something shifts. Not dramatically.</p>
+          <p><strong>Just enough to begin noticing the CAGE.</strong></p>
+          <p>I repeat, not dramatically. Just enough to begin noticing the cage. And even more importantly, noticing the door. I have begun realizing that uncaging has signs. Subtle clues that a woman is beginning to reclaim herself.</p>
+
+          <h3 className="text-lg font-semibold mt-8">Signs You May Be Beginning to UNCAGE</h3>
+          <p>You begin asking yourself what YOU want. Not what is expected. Not what keeps everyone else comfortable. NOPE! How about what YOU actually want. That question alone can become revolutionary, because you stop needing everyone to understand you. Approval slowly loses some of its power. You begin realizing not everyone is meant to come with you into your next chapter. You become more honest with YOU. And you specifically become more honest regarding YOUR feelings, exhaustion, dreams, boundaries, and desires. Guess what?</p>
+          <p><strong>You stop performing “FINE” all the time.</strong></p>
+          <p>You feel restless in places that once fit perfectly. Now conversations feel shallow, roles feel tight, old versions of yourself feel outdated. None of this is wrong. Nope. Just not fully aligned. Best of all, you become willing to be a beginner again.</p>
+          <p>You try new things, ask questions, learn technology, take classes, start projects…begin again. Even if you feel awkward you are excited to try new things. Even if you feel awkward doing it.</p>
+          <p>You stop apologizing quite so often, for having opinions, taking up space, saying no, for changing, for existing visibly.</p>
+          <p>You feel drawn toward joy again. Not productivity. Not perfection. JOY.</p>
+          <p>You care less about age appropriate. You wear what delights you. Try things you once talked yourself out of, you express yourself more freely. You realize aging does not require disappearing.</p>
+          <p>You begin protecting your peace. Drama becomes exhausting. Pretending becomes exhausting. Shrinking becomes exhausting. You become more selective about where your energy goes.</p>
+          <p>You realize that YOU are NOT DONE BECOMING. This may be the biggest sign of all. You stop viewing aging as a slow closing down and begin seeing it as an unfolding. Not an ending. An evolution.</p>
+          <p>The truth is, uncaging can feel both exhilarating and uncomfortable at the same time. Because growth often asks us to release identities we have carried for decades.</p>
+          <p><strong>BUT</strong></p>
+          <p>Perhaps freedom begins with awareness, with noticing, with paying attention, with questioning, with becoming curious enough to wonder: “What might happen if I stopped holding myself so tightly?”</p>
+          <p>Women do not lose themselves overnight. And perhaps they do not reclaim themselves overnight either.</p>
+          <p>Perhaps uncaging happens slowly…</p>
+          <p>One honest moment at a time, one brave decision, and one open door at a time.</p>
+          <p><strong>Rebellious Aging Thought.</strong></p>
+          <p>Sometimes the first sign of uncaging is simply recognizing you no longer fit comfortably inside the life you once accepted without question.</p>
+          <p><strong>Suz</strong></p>
+        </div>
+      </>
+    ),
+  },
+
+  'an-uncaged-woman-is-not-always-comfortable': {
+    heading: <h1 className="text-4xl font-bold mb-4">An Uncaged Woman is Not Always Comfortable</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>WHY? Because “Uncaging” is not glitter, confidence, empowerment quotes and dramatic breakthroughs. Sometimes it is really awkward, sketchy, messy, and unfamiliar cuz it is the consequence of change, growth, recalibration and deeper truth.</p>
+          <p><strong>Are You THINKING…</strong></p>
+          <p>“Oh so, discomfort does not mean I’m failing. Right! It may mean I am expanding.” That right there creates a beautiful emotional arc. It creates awareness, recognition, and expansion. That in fact is movement building and fodder for future story telling.</p>
+          <p>Sometimes “uncaging” means disappointing others, changing your mind, speaking up as your voice trembles, trying technology and feeling foolish, saying NO after decades of saying yes, becoming visible after years of hiding, letting people misunderstand you, and evolving publicly.</p>
+          <p>That is real.</p>
+          <p>In fact, discomfort may be one of the first signs that the cage door has opened.</p>
+          <p>And then perhaps the truth is, many women become so accustomed to shrinking that freedom itself can and will initially feel uncomfortable and may actually cause guilt.</p>
+          <p>Taking up space feels unfamiliar and terrifying. Having options feels risky. Prioritizing joy feels selfish. Visibility feels vulnerable.</p>
+          <p>But here is the “thing”. Uncomfortable does not mean wrong. Sometimes uncomfortable simply means new.</p>
+          <p>I think one of the greatest misunderstandings about confidence is believing confident people feel comfortable all the time. I no longer believe that is true. I think many confident people are simply willing to feel uncomfortable without abandoning themselves and their dreams.</p>
+          <p>That realization changes everything. Because suddenly the goal is no longer: “Never feel fear.” The goal becomes: “Do not let fear make all your decisions.”</p>
+          <p>I present my current favorite quote by George Adair, 1800’s. “Everything you always wanted is on the other side of fear.”</p>
+          <p>Soooooooo, maybe an uncaged life is not about becoming fearless or perfectly confident. Maybe it is simply about becoming less willing to abandon ourselves in order to stay comfortable. AND, perhaps that is the real work of aging boldly: Ya know, learning to choose growth over shrinking, authenticity over approval, and possibility over fear. AND, YES, even when, and especially if, it feels sketchy and uncomfortable.</p>
+          <p>“Be too much. Be extra.”</p>
+          <p><strong>Suz xo</strong></p>
+        </div>
+      </>
+    ),
+  },
+
+  'women-are-not-men': {
+    heading: <h1 className="text-4xl font-bold mb-4">Women Are NOT Men</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>One sentence from the 2026 Women’s Livelong Conference in San Francisco has refused to leave my thoughts for weeks, “Women Are NOT Men.”</p>
+          <p>At first it seemed so obvious, almost silly, but finally annoying. The more I sat with it, the more I realized why it struck such a deep chord with me. Because for much of my medical history, women have often been treated as though we are simply smaller versions of men.</p>
+          <p>That has always been disturbing and both short sighted and a lot rude. The older I get, the more I notice how often women instinctively know something feels “off” in their bodies looooong before medicine catches up.</p>
+          <p>Yet there is no denying that historically many women have been dismissed, misdiagnosed, told it is stress, told it is anxiety, told it is hormones, told to wait and see, told to see a shrink, or have a glass of wine and calm down, or often and most important, treated according to standards originally based largely on male bodies and male symptom patterns.</p>
+          <p>Even medication dosing has followed a frustrating “one size fits all” mentality. This medication dosing situation has bugged me from a very young age.</p>
+          <p>Meanwhile women’s bodies are incredibly dynamic and complex. Think hormones, metabolism, body composition, immune responses, pain responses, cardiovascular symptoms, aging patterns, the list goes on. Soooooo, NO, women are not simply men with lipstick and smaller shoes. Yet for years, much medical research largely centered around men because women’s hormonal cycles were considered “too complicated” to study clearly.</p>
+          <p>I say, “what the heck”? The very thing that makes women biologically unique was/is so very often treated as an inconvenience to research. Yikes! So no wonder many women feel unseen inside the healthcare system. What struck me most at the conference was not anger, oddly enough, it was validation.</p>
+          <p>I had this feeling of “Ahhh…so maybe women were not imagining this after all.” Maybe women have spent decades quietly sensing that their experiences, symptoms, responses, and realities were not always feeling understood.</p>
+          <p>I think this matters deeply as we age.</p>
+          <p>Many women were raised to minimize discomfort, push through exhaustion, never complain, care for everyone else first and above all, avoid being difficult.</p>
+          <p><strong>BUT</strong></p>
+          <p>An uncaged woman begins asking questions. Oh yes she does. She becomes curious, she trusts herself more, she ADVOCATES for her health, she learns her body, she seeks information and here is the cherry on the sundae, she stops automatically assuming authority always knows best.</p>
+          <p>Nope NOT because she becomes anti doctor. NOPE, she becomes pro herself. And to me that feels like a hugely important distinction.</p>
+          <p>And as for me, I am incredibly grateful for what modern medicine has to offer. (Mostly)</p>
+          <p>I also think women DESERVE the following:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Research that includes them</li>
+            <li>Symptom standards that reflect them</li>
+            <li>Treatment plans that consider them</li>
+            <li>Healthcare conversations where they genuinely feel heard.</li>
+          </ul>
+          <p><strong>WOMEN ARE NOT MEN</strong></p>
+          <p>Perhaps it is about time the world fully recognized that truth not as an inconvenience. RATHER as essential wisdom.</p>
+          <p>An uncaged woman learns to trust the wisdom of her own body instead of constantly questioning whether her experiences are “real enough” to matter.</p>
+          <p><strong>WOMEN MATTER</strong></p>
+          <p>Uncaged,</p>
+          <p><strong>Suz</strong></p>
+        </div>
+      </>
+    ),
+  },
+
+  'the-accidental-blogger': {
+    heading: <h1 className="text-4xl font-bold mb-4">The Accidental Blogger</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>If you had told me 10 years ago that at 83 years old I would be writing blogs, moderating events, coaching, speaking publicly, building a website and FB group, launching a Substack, and encouraging women to uncage themselves, I would have belly laughed. Because none of this was part of some grand strategic plan.</p>
+          <p>I definitely did not sit down one day and announce, “I shall now become a blogger.” I doubt I even understood what a blog was.</p>
+          <p>What I did know at that time as I transitioned from full time caregiver to self awareness was this: Something inside of me was restless. Not unhappy. Not broken. Just…nudging.</p>
+          <p>So I started opening doors that showed up in my line of vision. One small but very uncomfortable door at a time. First came learning about Whole-Food, Plant-Based Living. Then certification programs. Then coaching training and more certifications including 200 hours of practice coaching. Then there was volunteering and becoming a Moderator at the T. Colin Campbell Center for Nutrition Studies (CNS). Then speaking. And along the way, quietly writing little reflections. Then writing more and more reflections. Until I wrote what I am now referring to as Blog 66.</p>
+          <p>Somewhere along the way people started reading and commenting on my reflections.</p>
+          <p>I definitely had things to say.</p>
+          <p>Not because I was an expert. Not because I had a perfect life. Not because I had everything figured out. Nope none of the above.</p>
+          <p>I was willing to say:</p>
+          <p>“This is what I am learning.”</p>
+          <p>This is “what I am struggling with.”</p>
+          <p>“This is what I am noticing.”</p>
+          <p>AND</p>
+          <p>“Maybe you feel it too.”</p>
+          <p>Oddly enough that seemed to matter to people.</p>
+          <p>Here is the funny part. I kept thinking I was preparing to someday do something meaningful. It took 6 years of walking through uncomfortable doors and on the side quietly responding to a gentle “nudge” to comment on life. My very own rather startling awakening came after I penned Blog 66, “The Cage Was Never Locked”. That realization hit me like a lightning bolt. Driving down the road just last week, the title popped into my head like a giant neon sign. “THE ACCIDENTAL BLOGGER”. I almost pulled over to digest my new reality. Because suddenly the last 6 years made sense.</p>
+          <p>The certifications, hours of volunteering, meetings, very awkward beginnings, tons of self doubt, huge imposter syndrome, experimenting, being courageous, being scared, exhaustion, reinvention and the revelation, none of it was wasted.</p>
+          <p>Every step removed another slat from the cage’s door. And without realizing it, I slowly uncaged myself. Not through fame, or money or perfection but through expression.</p>
+          <p>Yup, through expression, combined with a huge dose of fear, curiosity, service, showing up, continuing and through using my voice before I fully believed in it.</p>
+          <p>That was the biggest surprise of all. I spent years trying to prove I was worthy to speak. Only to discover the speaking itself was what created my confidence.</p>
+          <p>Clarity truly comes from starting. Not from waiting until you feel ready. Or have a perfect plan.</p>
+          <p>And now?</p>
+          <p>At this stage in my life?</p>
+          <p>I feel lighter.</p>
+          <p>Not because life suddenly became easy. NOPE! Because I stopped trying to force myself into some image of who I thought I should become.</p>
+          <p>I have learned, I do not need an empire, I do not need to go viral, and I definitely do not need to become someone else. I simply want to write. Share. Reflect. Encourage others to be their best. Spark ideas. And perhaps help other women realize they are not too old and it is not too late.</p>
+          <p>Maybe that is what uncaging really is.</p>
+          <p>Not becoming someone new.</p>
+          <p>But finally giving yourself permission to become more fully yourself.</p>
+          <p>Soooooooooooo, apparently I became a blogger.</p>
+          <p><strong>“ACCIDENTALLY.”</strong></p>
+          <p>AND, honestly? I could not be happier about it.</p>
+          <p>The Accidental Blogger,</p>
+          <p><strong>Suz xo</strong></p>
+        </div>
+      </>
+    ),
+  },
 };
