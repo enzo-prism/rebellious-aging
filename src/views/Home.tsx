@@ -261,7 +261,7 @@ const Home = () => {
                   Rebellious Aging is a warm, supportive community for women 55&ndash;105 who want to age with
                   vitality, curiosity, laughter, confidence, and connection.
                 </p>
-                <div className="flex flex-col sm:flex-row button-spacing">
+                <div className="flex flex-col sm:flex-row sm:flex-wrap button-spacing">
                   <Button
                     asChild
                     size="lg"
