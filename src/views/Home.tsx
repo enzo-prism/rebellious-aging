@@ -6,6 +6,7 @@ import PillarCard from '@/components/home/PillarCard';
 import WelcomeBanner from '@/components/home/WelcomeBanner';
 import LatestBlogBadge from '@/components/home/LatestBlogBadge';
 import ConnectCTA from '@/components/common/ConnectCTA';
+import SubstackAnnouncement from '@/components/common/SubstackAnnouncement';
 import TrustedVoicesSection from '@/components/common/TrustedVoicesSection';
 import { getSortedBlogPosts } from '@/data/blogPosts';
 import { useSearch } from '@/hooks/useSearch';
@@ -229,6 +230,12 @@ const Home = () => {
         />
       )}
       <WelcomeBanner />
+
+      <section className="px-4 pt-4">
+        <div className="max-w-4xl mx-auto">
+          <SubstackAnnouncement />
+        </div>
+      </section>
 
       {/* Hero section */}
       <section className="hero-spacing">

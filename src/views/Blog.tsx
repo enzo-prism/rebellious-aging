@@ -9,6 +9,7 @@ import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { buildWebSiteJsonLd } from '@/lib/structuredData';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
+import SubstackAnnouncement from '@/components/common/SubstackAnnouncement';
 
 const yearOptions = ['2026', '2025'] as const;
 type BlogYear = (typeof yearOptions)[number];
@@ -59,6 +60,8 @@ const Blog = () => {
               for daily mindset practices.
             </p>
       </div>
+
+      <SubstackAnnouncement className="mb-10" />
 
       <div className="flex flex-wrap items-center gap-3 mb-8">
         <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Filter by year</span>

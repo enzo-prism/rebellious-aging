@@ -12,11 +12,12 @@ import {
   DropdownMenuSeparator,
   DropdownMenuLabel,
 } from '@/components/ui/dropdown-menu';
-import { ChevronDown, Search } from "lucide-react";
+import { ChevronDown, Search, ExternalLink } from "lucide-react";
 import { AnimatedHamburger } from '@/components/ui/animated-hamburger';
 import { MobileMenuSection } from '@/components/ui/mobile-menu-section';
 import { MobileNavItem } from '@/components/ui/mobile-nav-item';
 import { FACEBOOK_GROUP_URL, handleFacebookGroupNavigation } from '@/lib/facebook';
+import { SUBSTACK_URL } from '@/lib/constants';
 import { SearchDialog } from '@/components/search/SearchDialog';
 
 const getLinkBase = (path: string) => path.split('?')[0];
@@ -222,6 +223,16 @@ const Header = () => {
             <Search className="h-4 w-4 mr-2" />
             Search
           </Button>
+          <Button
+            asChild
+            size="sm"
+            className="bg-coral text-white hover:bg-coral-dark hidden lg:inline-flex"
+          >
+            <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer">
+              Substack
+              <ExternalLink className="h-4 w-4 ml-2" />
+            </a>
+          </Button>
 
         </nav>
 
@@ -270,6 +281,13 @@ const Header = () => {
                   icon="🔍"
                 >
                   Search
+                </MobileNavItem>
+                <MobileNavItem
+                  href={SUBSTACK_URL}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  icon="📬"
+                >
+                  Substack
                 </MobileNavItem>
                 <MobileMenuSection
                   title="More"
