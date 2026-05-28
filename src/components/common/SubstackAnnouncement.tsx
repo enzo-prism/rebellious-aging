@@ -24,9 +24,9 @@ const SubstackAnnouncement: React.FC<SubstackAnnouncementProps> = ({ className }
       asChild
       className="bg-coral text-white hover:bg-coral-dark shrink-0"
     >
-      <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer">
+      <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer" className="group">
         Read on Substack
-        <ExternalLink className="ml-2 h-4 w-4" />
+        <ExternalLink className="ml-2 h-4 w-4 transition-transform duration-300 ease-out motion-safe:group-hover:-translate-y-0.5 motion-safe:group-hover:translate-x-0.5" />
       </a>
     </Button>
   </div>

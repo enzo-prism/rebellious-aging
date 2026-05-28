@@ -39,7 +39,7 @@ const TrustedVoicesSection = ({
           {trustedVoiceEndorsements.map((endorsement) => (
             <figure
               key={endorsement.name}
-              className="flex h-full flex-col rounded-[2rem] border border-teal/15 bg-white p-6 shadow-sm"
+              className="card-lift flex h-full flex-col rounded-[2rem] border border-teal/15 bg-white p-6 shadow-sm"
             >
               <div className="text-5xl leading-none text-coral/30" aria-hidden="true">
                 "

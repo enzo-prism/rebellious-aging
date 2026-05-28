@@ -12,7 +12,7 @@ export const seoRoutes: SeoRouteConfig[] = [
     path: '/',
     title: 'Rebellious Aging | Age Boldly, Live Loudly',
     description:
-      'Rebellious Aging helps women 55+ expand confidence, style, and health through storytelling, plant-powered living, and an active community.',
+      'A warm, supportive community for women 55-105: a library of ideas, style, and plant-strong living, plus a private Facebook circle where you never age alone.',
   },
   {
     path: '/our-story',

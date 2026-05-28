@@ -133,7 +133,24 @@
   }
   
   .pillar-card {
-    @apply p-6 md:p-8 rounded-lg border border-border bg-white shadow-sm hover:shadow-md transition-shadow;
+    @apply p-6 md:p-8 rounded-lg border border-border bg-white shadow-sm;
+  }
+
+  /* Engaging hover micro-interactions (motion-safe: skipped when users prefer reduced motion) */
+  .card-lift {
+    @apply transition-all duration-300 ease-out hover:shadow-xl hover:border-teal/40 motion-safe:hover:-translate-y-1.5;
+  }
+
+  .card-lift-coral {
+    @apply transition-all duration-300 ease-out hover:shadow-xl hover:border-coral/40 motion-safe:hover:-translate-y-1.5;
+  }
+
+  .icon-pop {
+    @apply transition-all duration-300 ease-out motion-safe:group-hover:scale-110 motion-safe:group-hover:-rotate-6;
+  }
+
+  .arrow-nudge {
+    @apply inline-block transition-transform duration-300 ease-out motion-safe:group-hover:translate-x-1;
   }
 
   /* Progressive Spacing System */

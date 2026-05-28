@@ -3,11 +3,11 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import PillarCard from '@/components/home/PillarCard';
-import WelcomeBanner from '@/components/home/WelcomeBanner';
 import LatestBlogBadge from '@/components/home/LatestBlogBadge';
-import ConnectCTA from '@/components/common/ConnectCTA';
+import LivingRoomSection from '@/components/home/LivingRoomSection';
 import SubstackAnnouncement from '@/components/common/SubstackAnnouncement';
 import TrustedVoicesSection from '@/components/common/TrustedVoicesSection';
+import { FACEBOOK_GROUP_URL, handleFacebookGroupNavigation } from '@/lib/facebook';
 import { getSortedBlogPosts } from '@/data/blogPosts';
 import { useSearch } from '@/hooks/useSearch';
 import type { SearchType } from '@/data/searchRecords';
@@ -95,24 +95,24 @@ const Home = () => {
     }
   ];
 
-  const featuredGuides = [
+  const libraryShelf = [
     {
       title: 'Whole-Food, Plant-Based Guide',
-      description: 'Dive into what to eat, what to crowd out, and how to keep your Health pillar thriving.',
+      description: 'What to eat, what to crowd out, and how to keep your Health pillar thriving.',
       link: '/pillars/health/nutrition-guide',
       icon: '🥗'
     },
     {
-      title: 'Rebellious Aging Blog',
-      description: 'Explore long-form stories, science-backed insights, and updates that weave every pillar together.',
+      title: 'The Blog',
+      description: 'Long-form stories, science-backed insights, and reflections that weave every pillar together.',
       link: '/blog',
       icon: '📝'
     },
     {
-      title: 'Gratitude Pillar',
-      description: 'Ground your rebellion in joy with daily gratitude practices tailored to women 55–105.',
-      link: '/pillars/gratitude',
-      icon: '💖'
+      title: 'Recipes',
+      description: 'Plant-strong plates and oil-free swaps to make vibrant eating feel easy and joyful.',
+      link: '/recipes',
+      icon: '🍲'
     },
     {
       title: 'Video Series',
@@ -125,6 +125,12 @@ const Home = () => {
       description: 'New here? Start with Suz’s heartfelt invitation to age boldly and live loudly.',
       link: '/welcome-letter',
       icon: '💌'
+    },
+    {
+      title: 'Starter Kit',
+      description: 'A gentle beginning for women 55-105: Nibble, Wiggle, Dazzle, Be Grateful.',
+      link: '/starter-kit',
+      icon: '✨'
     }
   ];
 
@@ -229,64 +235,67 @@ const Home = () => {
           jsonLd={[buildOrganizationJsonLd(), buildWebSiteJsonLd()]}
         />
       )}
-      <WelcomeBanner />
-
-      <section className="px-4 pt-4">
-        <div className="max-w-4xl mx-auto">
-          <SubstackAnnouncement />
-        </div>
-      </section>
-
-      {/* Hero section */}
+      {/* Hero — Welcome Home */}
       <section className="hero-spacing">
         <div className="container mx-auto container-padding h-full">
           <div className="grid lg:grid-cols-2 grid-gap-responsive h-full items-center">
             {/* Text Content */}
-            <div className="order-2 lg:order-1 flex flex-col justify-center">
+            <div className="flex flex-col justify-center">
               <div className="max-w-2xl text-spacing">
                 <PageTopUtilityRow>
                   <PageShareButton />
                 </PageTopUtilityRow>
-                <div className="mb-4">
+                <div className="mb-4 flex flex-wrap items-center gap-3">
+                  <span className="inline-flex items-center rounded-full border border-teal/20 bg-teal/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-teal">
+                    Rebellious Aging
+                  </span>
                   <LatestBlogBadge />
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-gray-900">
-                  Rebellious Aging
+                  Welcome Home
                 </h1>
-                <p className="text-lg md:text-xl lg:text-2xl text-gray-900 leading-relaxed">
-                  <Link
-                    href="/our-story"
-                    className="underline underline-offset-4 decoration-teal decoration-2 transition-colors hover:text-teal"
-                  >
-                    Suzanne Meinhardt
-                  </Link>{' '}
-                  created Rebellious Aging as a place where women 55 and older come together to share tools, stories, and the
-                  pursuit of a healthier, happier, love-filled life.
+                <p className="text-xl md:text-2xl lg:text-3xl text-gray-800 leading-snug font-medium italic">
+                  You do not have to figure this stage of life out alone.
+                </p>
+                <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+                  Rebellious Aging is a warm, supportive community for women 55&ndash;105 who want to age with
+                  vitality, curiosity, laughter, confidence, and connection.
                 </p>
                 <div className="flex flex-col sm:flex-row button-spacing">
-                <Button asChild size="lg" className="bg-teal hover:bg-teal-dark text-white shadow-lg min-h-[44px] text-base font-semibold">
-                  <Link href="/our-story">💌 Our Story</Link>
-                </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    className="bg-teal hover:bg-teal-dark text-white shadow-lg min-h-[44px] text-base font-semibold"
+                  >
+                    <a
+                      href={FACEBOOK_GROUP_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={handleFacebookGroupNavigation}
+                    >
+                      💛 Join the Community
+                    </a>
+                  </Button>
                   <Button
                     variant="outline"
                     size="lg"
                     className="border-teal text-teal hover:bg-teal hover:text-white shadow-sm min-h-[44px] text-base font-medium"
                     onClick={() => {
-                      const searchSection = document.getElementById('search-section');
-                      if (searchSection) {
-                        searchSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      const librarySection = document.getElementById('library-section');
+                      if (librarySection) {
+                        librarySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                       }
                     }}
                   >
-                    🔍 Search
+                    Explore the Library
                   </Button>
                 </div>
               </div>
             </div>
 
             {/* Image Carousel */}
-            <div className="order-1 lg:order-2">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+            <div>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-2xl mx-auto w-full lg:max-w-none">
                 <Carousel
                   setApi={setApi}
                   className="w-full cursor-grab active:cursor-grabbing"
@@ -355,20 +364,31 @@ const Home = () => {
 
       </section>
 
-      {/* Pillars section */}
-      <section id="pillars-section" className="section-padding bg-gray-50">
+      <section className="px-4 pt-4">
+        <div className="max-w-4xl mx-auto">
+          <SubstackAnnouncement />
+        </div>
+      </section>
+
+      {/* The Library — pillars + resource shelves */}
+      <section id="library-section" className="section-padding bg-gray-50">
         <div className="container mx-auto container-padding">
-          <div className="text-center prose-spacing mb-12 lg:mb-16">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">The Four Pillars</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg lg:text-xl leading-relaxed">
-              Our holistic approach to rebellious aging is built on four foundational pillars that
-              work together to help you create a vibrant, fulfilling life at any age.
+          <div className="text-center prose-spacing mb-12 lg:mb-16 max-w-3xl mx-auto">
+            <p className="uppercase text-xs tracking-[0.3em] text-teal font-semibold">
+              Think of this website as a library
+            </p>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
+              Wander the shelves, take what you need
+            </h2>
+            <p className="text-gray-600 text-base md:text-lg lg:text-xl leading-relaxed">
+              A place filled with ideas, reflections, encouragement, plants, style, mindset shifts, and gentle
+              nudges to help you live fully and unapologetically.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 grid-gap-responsive">
             {pillars.map((pillar, index) => (
-              <PillarCard 
+              <PillarCard
                 key={index}
                 title={pillar.title}
                 description={pillar.description}
@@ -377,55 +397,29 @@ const Home = () => {
               />
             ))}
           </div>
-        </div>
-      </section>
 
-      <section className="section-padding">
-        <div className="container mx-auto container-padding">
-          <div className="text-center prose-spacing mb-12">
-            <p className="uppercase text-xs tracking-[0.3em] text-teal font-semibold">Guides & Resources</p>
-            <h2 className="text-3xl md:text-4xl font-bold">Follow Suz’s Recommended Starting Points</h2>
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              From gratitude rituals to whole-food plates, these guides link every pillar together so you can keep moving through the movement.
+          <div className="mt-12 lg:mt-16">
+            <p className="text-center text-xs uppercase tracking-[0.3em] text-teal font-semibold mb-6">
+              More on the shelves
             </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 grid-gap-responsive">
-            {featuredGuides.map((guide) => (
-              <div key={guide.title} className="border border-gray-200 rounded-3xl p-6 shadow-sm bg-white flex flex-col">
-                <div className="text-4xl mb-4">{guide.icon}</div>
-                <h3 className="text-2xl font-semibold mb-2">{guide.title}</h3>
-                <p className="text-gray-600 flex-1">{guide.description}</p>
-                <Button asChild variant="link" className="justify-start px-0 mt-4 text-teal">
-                  <Link href={guide.link}>Explore →</Link>
-                </Button>
-              </div>
-            ))}
-          </div>
-          <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-3xl border border-teal/20 bg-teal/5 px-6 py-5">
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-teal font-semibold">New</p>
-              <h3 className="text-xl font-semibold text-gray-900 mt-2">Rebellious Aging Starter Kit</h3>
-              <p className="text-gray-600 mt-1">
-                A gentle beginning for women 55-105: Nibble, Wiggle, Dazzle, Gratefulness.
-              </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-gap-responsive">
+              {libraryShelf.map((item) => (
+                <div
+                  key={item.title}
+                  className="group card-lift border border-gray-200 rounded-3xl p-6 shadow-sm bg-white flex flex-col"
+                >
+                  <div className="icon-pop text-4xl mb-4 w-fit">{item.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2 transition-colors group-hover:text-teal">{item.title}</h3>
+                  <p className="text-gray-600 flex-1 text-sm leading-relaxed">{item.description}</p>
+                  <Button asChild variant="link" className="justify-start px-0 mt-4 text-teal">
+                    <Link href={item.link}>Explore <span className="arrow-nudge">→</span></Link>
+                  </Button>
+                </div>
+              ))}
             </div>
-            <Button
-              asChild
-              variant="outline"
-              className="border-teal text-teal hover:bg-teal hover:text-white"
-            >
-              <Link href="/starter-kit">View starter kit</Link>
-            </Button>
           </div>
         </div>
       </section>
-
-      <TrustedVoicesSection
-        title="What trusted voices say about Suz"
-        description="Suz brings curiosity, evidence, warmth, and a contagious kind of energy to conversations about health, aging, and what is still possible."
-        ctaHref="/our-story"
-        ctaLabel="Read Suz's story"
-      />
 
       <section className="section-padding bg-gray-50">
         <div className="container mx-auto container-padding space-y-8">
@@ -437,7 +431,7 @@ const Home = () => {
             </p>
             <div className="mt-4">
               <Button asChild variant="outline" className="border-teal text-teal hover:bg-teal hover:text-white">
-                <Link href="/blog">View all posts →</Link>
+                <Link href="/blog" className="group">View all posts <span className="arrow-nudge">→</span></Link>
               </Button>
             </div>
           </div>
@@ -458,16 +452,16 @@ const Home = () => {
                 >
                   <Link
                     href={`/blog/${post.id}`}
-                    className="block h-full rounded-3xl border border-gray-200 bg-white p-5 shadow-sm hover:-translate-y-1 hover:shadow-md transition"
+                    className="group card-lift block h-full rounded-3xl border border-gray-200 bg-white p-5 shadow-sm"
                   >
                     <div className="flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.15em] text-teal font-semibold mb-2">
                       <span>Blog #{post.blogNumber}</span>
                       <span className="text-gray-300">•</span>
                       <span>{post.readTime}</span>
                     </div>
-                    <h3 className="text-xl font-semibold mb-3 line-clamp-2">{post.title}</h3>
+                    <h3 className="text-xl font-semibold mb-3 line-clamp-2 transition-colors group-hover:text-teal">{post.title}</h3>
                     <p className="text-gray-600 text-sm line-clamp-3 mb-4">{post.excerpt}</p>
-                    <div className="text-teal font-semibold text-sm">Read post →</div>
+                    <div className="text-teal font-semibold text-sm">Read post <span className="arrow-nudge">→</span></div>
                   </Link>
                 </CarouselItem>
               ))}
@@ -479,10 +473,10 @@ const Home = () => {
       <section id="search-section" className="section-padding">
         <div className="container mx-auto container-padding space-y-6">
           <div className="text-center prose-spacing max-w-3xl mx-auto">
-            <p className="uppercase text-xs tracking-[0.3em] text-teal font-semibold">Search</p>
+            <p className="uppercase text-xs tracking-[0.3em] text-teal font-semibold">Search the library</p>
             <h2 className="text-3xl md:text-4xl font-bold">Find anything on Rebellious Aging</h2>
             <p className="text-gray-600">
-              Looking for a specific recipe, blog, pillar, speaking event, or video? Search the site right here.
+              Looking for a specific recipe, blog, pillar, speaking event, or video? Search the shelves right here.
             </p>
           </div>
 
@@ -563,7 +557,7 @@ const Home = () => {
                     <Link
                       key={item.id}
                       href={item.path ?? `/blog/${item.id}`}
-                    className={`block rounded-2xl border bg-white p-5 shadow-sm hover:-translate-y-1 hover:shadow-md transition ${
+                    className={`group card-lift block rounded-2xl border bg-white p-5 shadow-sm ${
                       isTop ? 'border-teal/50 ring-2 ring-teal/15' : 'border-gray-200'
                     }`}
                   >
@@ -573,7 +567,7 @@ const Home = () => {
                         {blogNumber !== null ? <span>Blog #{blogNumber}</span> : null}
                         {isTop ? <span className="ml-2 rounded-full bg-teal/10 px-2 py-0.5 text-[0.6rem]">{topLabel}</span> : null}
                       </div>
-                      <h3 className="text-lg font-semibold mb-2 line-clamp-2">{item.title}</h3>
+                      <h3 className="text-lg font-semibold mb-2 line-clamp-2 transition-colors group-hover:text-teal">{item.title}</h3>
                       <p className="text-gray-600 text-sm line-clamp-2">{item.summary}</p>
                     </Link>
                 );
@@ -587,8 +581,8 @@ const Home = () => {
                 <Link href="/recipes">Browse recipes</Link>
               </Button>
               <Button asChild variant="outline" className="border-teal text-teal hover:bg-teal hover:text-white">
-                <Link href={searchQuery ? `/search?q=${encodeURIComponent(searchQuery.trim())}` : '/search'}>
-                  Open full search →
+                <Link href={searchQuery ? `/search?q=${encodeURIComponent(searchQuery.trim())}` : '/search'} className="group">
+                  Open full search <span className="arrow-nudge">→</span>
                 </Link>
               </Button>
             </div>
@@ -596,24 +590,14 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-teal/5">
-        <div className="container mx-auto container-padding">
-          <div className="rounded-3xl border border-teal/20 bg-white p-8 md:p-10 shadow-sm flex flex-col lg:flex-row items-start lg:items-center gap-6">
-            <div className="flex-1 space-y-3">
-              <p className="uppercase text-xs tracking-[0.3em] text-teal font-semibold">Starter Kit</p>
-              <h2 className="text-3xl md:text-4xl font-bold">Rebellious Aging Starter Kit</h2>
-              <p className="text-gray-600 max-w-2xl">
-                A gentle beginning for women 55-105. Nibble. Wiggle. Dazzle. Be Grateful.
-              </p>
-            </div>
-            <Button asChild className="bg-teal text-white hover:bg-teal-dark">
-              <Link href="/starter-kit">Go to the starter kit</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <TrustedVoicesSection
+        title="What trusted voices say about Suz"
+        description="Suz brings curiosity, evidence, warmth, and a contagious kind of energy to conversations about health, aging, and what is still possible."
+        ctaHref="/our-story"
+        ctaLabel="Read Suz's story"
+      />
 
-      <ConnectCTA />
+      <LivingRoomSection />
     </>
   );
 };
