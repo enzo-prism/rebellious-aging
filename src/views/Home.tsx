@@ -364,9 +364,9 @@ const Home = () => {
 
       </section>
 
-      <section className="px-4 pt-4">
+      <section className="px-4 pt-6 sm:pt-8">
         <div className="max-w-4xl mx-auto">
-          <SubstackAnnouncement />
+          <SubstackAnnouncement variant="feature" />
         </div>
       </section>
 
