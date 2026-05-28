@@ -277,6 +277,14 @@ const Home = () => {
                     </a>
                   </Button>
                   <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="border-teal text-teal hover:bg-teal hover:text-white shadow-sm min-h-[44px] text-base font-medium"
+                  >
+                    <Link href="/welcome-letter">💌 Read the Welcome Letter</Link>
+                  </Button>
+                  <Button
                     variant="outline"
                     size="lg"
                     className="border-teal text-teal hover:bg-teal hover:text-white shadow-sm min-h-[44px] text-base font-medium"
