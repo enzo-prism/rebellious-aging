@@ -186,6 +186,12 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/events" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
+                  <span className="group-hover:translate-x-1 transition-transform">Community Events</span>
+                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
+              <li>
                 <Link href="/speaking-events" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
                   <span className="group-hover:translate-x-1 transition-transform">Speaking Events</span>
                   <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />

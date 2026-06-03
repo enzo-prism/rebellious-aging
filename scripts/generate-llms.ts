@@ -24,6 +24,7 @@ const keyPaths = [
   '/',
   '/our-story',
   '/welcome-letter',
+  '/events',
   '/speaking-events',
   '/dr-seuss',
   '/nutrition',

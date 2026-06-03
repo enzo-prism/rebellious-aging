@@ -40,6 +40,16 @@
     ]
   },
   {
+    "id": "page:/events",
+    "type": "page",
+    "title": "Community Events",
+    "path": "/events",
+    "summary": "Live Zoom gatherings Suz hosts for the Rebellious Aging community — free for members of our private Facebook group, where every meeting link is shared.",
+    "tags": [
+      "page"
+    ]
+  },
+  {
     "id": "page:/dr-seuss",
     "type": "page",
     "title": "Dr. Seuss & Rebellious Aging",

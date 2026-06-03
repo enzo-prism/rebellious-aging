@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-03T15:11:19.902Z",
-  "totalRoutes": 123,
-  "validRoutes": 123,
+  "generatedAt": "2026-06-03T20:55:19.809Z",
+  "totalRoutes": 124,
+  "validRoutes": 124,
   "failedRoutes": 0,
   "records": [
     {
@@ -95,6 +95,31 @@
         "title": "Speaking Events",
         "description": "Explore Suz's talks, community presentations, and future speaking appearances as Rebellious Aging keeps growing.",
         "canonical": "/speaking-events",
+        "ogType": "website",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/events",
+      "source": "seo-routes",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "title",
+        "description",
+        "canonical",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Community Events",
+        "description": "Live Zoom gatherings Suz hosts for the Rebellious Aging community — free for members of our private Facebook group, where every meeting link is shared.",
+        "canonical": "/events",
         "ogType": "website",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"

@@ -33,6 +33,12 @@ export const seoRoutes: SeoRouteConfig[] = [
       "Explore Suz's talks, community presentations, and future speaking appearances as Rebellious Aging keeps growing.",
   },
   {
+    path: '/events',
+    title: 'Community Events',
+    description:
+      'Live Zoom gatherings Suz hosts for the Rebellious Aging community — free for members of our private Facebook group, where every meeting link is shared.',
+  },
+  {
     path: '/dr-seuss',
     title: 'Dr. Seuss & Rebellious Aging',
     description:

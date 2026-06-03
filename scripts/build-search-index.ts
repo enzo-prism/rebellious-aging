@@ -25,6 +25,7 @@ const STATIC_PATHS = new Set([
   '/',
   '/our-story',
   '/welcome-letter',
+  '/events',
   '/speaking-events',
   '/dr-seuss',
   '/starter-kit',
