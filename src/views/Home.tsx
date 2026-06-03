@@ -7,7 +7,7 @@ import LatestBlogBadge from '@/components/home/LatestBlogBadge';
 import LivingRoomSection from '@/components/home/LivingRoomSection';
 import SubstackAnnouncement from '@/components/common/SubstackAnnouncement';
 import TrustedVoicesSection from '@/components/common/TrustedVoicesSection';
-import { FACEBOOK_GROUP_URL, handleFacebookGroupNavigation } from '@/lib/facebook';
+import { FacebookGroupButton } from '@/components/common/FacebookGroupCta';
 import { getSortedBlogPosts } from '@/data/blogPosts';
 import { useSearch } from '@/hooks/useSearch';
 import type { SearchType } from '@/data/searchRecords';
@@ -262,20 +262,9 @@ const Home = () => {
                   vitality, curiosity, laughter, confidence, and connection.
                 </p>
                 <div className="flex flex-col sm:flex-row sm:flex-wrap button-spacing">
-                  <Button
-                    asChild
-                    size="lg"
-                    className="bg-teal hover:bg-teal-dark text-white shadow-lg min-h-[44px] text-base font-semibold"
-                  >
-                    <a
-                      href={FACEBOOK_GROUP_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={handleFacebookGroupNavigation}
-                    >
-                      💛 Join the Community
-                    </a>
-                  </Button>
+                  <FacebookGroupButton size="lg" className="min-h-[48px] text-base">
+                    Join the Facebook Group
+                  </FacebookGroupButton>
                   <Button
                     asChild
                     variant="outline"

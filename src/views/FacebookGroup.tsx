@@ -4,8 +4,8 @@ import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import ConnectCTA from '@/components/common/ConnectCTA';
+import { FacebookGroupButton, FacebookLogoMark } from '@/components/common/FacebookGroupCta';
 import { Sparkles, Users, Heart, Leaf, MessageCircle, Laugh } from 'lucide-react';
-import { FACEBOOK_GROUP_URL, handleFacebookGroupNavigation } from '@/lib/facebook';
 import Seo from '@/components/seo/Seo';
 import PageShareButton from '@/components/share/PageShareButton';
 import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
@@ -55,7 +55,8 @@ const FacebookGroup = () => {
             <PageTopUtilityRow className="mb-2">
               <PageShareButton />
             </PageTopUtilityRow>
-            <div className="inline-flex items-center gap-2 bg-teal/10 border border-teal/20 text-teal px-4 py-1.5 rounded-full text-sm font-semibold tracking-wide uppercase">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#0866ff]/20 bg-white px-4 py-1.5 text-sm font-semibold uppercase tracking-wide text-[#075ce5] shadow-sm">
+              <FacebookLogoMark size="xs" className="h-5 w-5 p-0 shadow-none ring-0" />
               Private Facebook Community
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
@@ -65,20 +66,9 @@ const FacebookGroup = () => {
               Aging boldly is an art, and it is better with friends. Step into a private space for women 55-105 to explore vibrant health, unshakable confidence, and unapologetic style together.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-              <Button
-                asChild
-                size="lg"
-                className="bg-teal text-white hover:bg-teal-dark min-w-[220px]"
-              >
-                <a
-                  href={FACEBOOK_GROUP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={handleFacebookGroupNavigation}
-                >
-                  Join the Private Group
-                </a>
-              </Button>
+              <FacebookGroupButton size="lg" className="min-w-[240px]">
+                Join the Private Group
+              </FacebookGroupButton>
               <Button asChild variant="outline" size="lg" className="min-w-[220px]">
                 <Link href="/our-story">
                   Visit Our Story
@@ -204,20 +194,18 @@ const FacebookGroup = () => {
                 </div>
               ))}
             </div>
-            <Button
-              asChild
-              size="lg"
-              className="bg-teal text-white hover:bg-teal-dark"
-            >
-              <a
-                href={FACEBOOK_GROUP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleFacebookGroupNavigation}
-              >
+            <div className="mx-auto max-w-xl rounded-2xl border border-[#0866ff]/20 bg-[#0866ff]/5 p-6 shadow-sm">
+              <div className="flex flex-col items-center gap-3 sm:flex-row sm:text-left">
+                <FacebookLogoMark size="lg" />
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#075ce5]">Facebook Group</p>
+                  <p className="mt-1 text-gray-700">Open the private community and request access.</p>
+                </div>
+              </div>
+              <FacebookGroupButton size="lg" className="mt-5 w-full sm:w-auto">
                 Join the Private Facebook Group
-              </a>
-            </Button>
+              </FacebookGroupButton>
+            </div>
             <p className="text-sm text-gray-500">
               Not ready to jump in yet? Stay in touch at{' '}
               <a

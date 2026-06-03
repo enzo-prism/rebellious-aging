@@ -4,6 +4,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import ConnectCTA from '@/components/common/ConnectCTA';
+import { FacebookGroupButton, FacebookLogoMark } from '@/components/common/FacebookGroupCta';
 import { FACEBOOK_GROUP_URL, handleFacebookGroupNavigation } from '@/lib/facebook';
 import Seo from '@/components/seo/Seo';
 import PageShareButton from '@/components/share/PageShareButton';
@@ -45,27 +46,26 @@ const WelcomeLetter = () => {
               style, and sharing experiences.
             </p>
 
-            <div className="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-400">
-              <h2 className="text-xl font-bold text-teal-800 mb-3">Join the Private Facebook Group</h2>
-              <p className="text-teal-700">
+            <div className="rounded-2xl border border-[#0866ff]/20 bg-gradient-to-br from-[#0866ff]/10 via-white to-teal/10 p-6 shadow-sm">
+              <div className="mb-4 flex flex-col items-center gap-3 text-center sm:flex-row sm:text-left">
+                <FacebookLogoMark size="lg" />
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#075ce5]">Private Facebook Group</p>
+                  <h2 className="mt-1 text-xl font-bold text-gray-900">Continue the Conversation With Suz</h2>
+                </div>
+              </div>
+              <p className="text-gray-700">
                 I am excited to let you know that we can continue our conversations more robustly, if you will join my private FB
                 GROUP.
               </p>
-              <p className="text-teal-700">
+              <p className="text-gray-700">
                 This will be a safe, inspiring place where we can learn, connect between posts, swap stories, share tips, ask
                 questions and cheer one another on.
               </p>
               <div className="mt-4 flex justify-center">
-                <Button asChild className="bg-teal text-white hover:bg-teal-dark">
-                  <a
-                    href={FACEBOOK_GROUP_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={handleFacebookGroupNavigation}
-                  >
-                    Continue the Conversation on Facebook
-                  </a>
-                </Button>
+                <FacebookGroupButton size="lg">
+                  Continue on Facebook
+                </FacebookGroupButton>
               </div>
             </div>
 

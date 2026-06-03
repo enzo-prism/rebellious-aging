@@ -726,6 +726,30 @@ export const blogPosts: BlogPostMetadata[] = [
     blogNumber: 71,
     seoDescription:
       'Suz reflects on courage, experience, self-belief, and why some of life’s most important lessons only arrive after you begin.'
+  },
+  {
+    id: 'the-superpower-i-did-not-know-i-had',
+    title: 'The Superpower I Did Not Know I Had',
+    excerpt:
+      'Suz reflects on six years of showing up one class, book, meeting, conversation, and blog at a time, and the quiet evidence that consistency builds.',
+    date: '6/2026',
+    dateSort: new Date('2026-06-03'),
+    readTime: '4 min read',
+    blogNumber: 72,
+    seoDescription:
+      'Suz reflects on six years of showing up, building confidence through evidence, and discovering consistency as a quiet superpower.'
+  },
+  {
+    id: 'consistency-the-superpower-nobody-talks-about',
+    title: 'Consistency, The Superpower Nobody Talks About',
+    excerpt:
+      'Consistency may not be flashy, but Suz sees it as the force behind momentum, growth, and staying in the game one ordinary day at a time.',
+    date: '6/2026',
+    dateSort: new Date('2026-06-03T01:00:00'),
+    readTime: '3 min read',
+    blogNumber: 73,
+    seoDescription:
+      'Suz explores why consistency, not perfection or speed, is the quiet superpower that builds momentum and changes everything over time.'
   }
 ];
 

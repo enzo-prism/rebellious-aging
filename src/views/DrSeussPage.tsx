@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowRight, BookOpen, HeartPulse, Laugh, Sparkles, Users } from 'lucide-react';
 
 import ConnectCTA from '@/components/common/ConnectCTA';
+import { FacebookGroupButton } from '@/components/common/FacebookGroupCta';
 import Seo from '@/components/seo/Seo';
 import PageShareButton from '@/components/share/PageShareButton';
 import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
@@ -12,7 +13,6 @@ import { Button } from '@/components/ui/button';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 import { getSpeakingEventPath } from '@/data/speakingEvents';
 import { buildMetaDescription, buildSeoTitle, getCanonicalUrl } from '@/lib/seo';
-import { FACEBOOK_GROUP_URL, handleFacebookGroupNavigation } from '@/lib/facebook';
 import { buildArticleJsonLd, buildOrganizationJsonLd } from '@/lib/structuredData';
 
 const themes = [
@@ -163,16 +163,9 @@ const DrSeussPage = () => {
                 </div>
 
                 <div className="flex flex-col gap-3 sm:flex-row">
-                  <Button asChild className="bg-teal text-white hover:bg-teal-dark">
-                    <a
-                      href={FACEBOOK_GROUP_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={handleFacebookGroupNavigation}
-                    >
-                      Join the Conversation
-                    </a>
-                  </Button>
+                  <FacebookGroupButton size="md">
+                    Join the Conversation
+                  </FacebookGroupButton>
                   <Button asChild variant="outline" className="border-teal/30 text-teal hover:bg-teal/5">
                     <Link href="/our-story">Read Suz's Story</Link>
                   </Button>
@@ -432,16 +425,9 @@ const DrSeussPage = () => {
                   <Button asChild className="bg-teal text-white hover:bg-teal-dark">
                     <Link href={getSpeakingEventPath('eat-for-the-earth-santa-cruz')}>Read the event recap</Link>
                   </Button>
-                  <Button asChild variant="outline" className="border-teal/30 text-teal hover:bg-teal/5">
-                    <a
-                      href={FACEBOOK_GROUP_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={handleFacebookGroupNavigation}
-                    >
-                      Keep the conversation going
-                    </a>
-                  </Button>
+                  <FacebookGroupButton variant="outline" size="md">
+                    Keep the conversation going
+                  </FacebookGroupButton>
                 </div>
               </div>
             </div>

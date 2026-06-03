@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button } from '@/components/ui/button';
-import { FACEBOOK_GROUP_URL, handleFacebookGroupNavigation } from '@/lib/facebook';
+import { FacebookGroupButton, FacebookLogoMark } from '@/components/common/FacebookGroupCta';
 
 const sensoryDetails = [
   { emoji: '🫖', text: 'The teapot is always whistling.' },
@@ -27,6 +26,9 @@ const LivingRoomSection = () => (
 
     <div className="container mx-auto container-padding relative">
       <div className="max-w-3xl mx-auto text-center">
+        <div className="mb-5 flex justify-center">
+          <FacebookLogoMark size="lg" className="h-14 w-14 p-1" />
+        </div>
         <span className="block text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-coral">
           BUT
         </span>
@@ -75,21 +77,12 @@ const LivingRoomSection = () => (
         </div>
 
         <div className="pt-1">
-          <Button
-            asChild
+          <FacebookGroupButton
             size="lg"
-            className="bg-coral text-white hover:bg-coral-dark shadow-lg text-base font-semibold px-8 min-h-[44px]"
+            className="px-8 text-base"
           >
-            <a
-              href={FACEBOOK_GROUP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleFacebookGroupNavigation}
-              className="group"
-            >
-              Join Right Here <span className="arrow-nudge">&rarr;</span>
-            </a>
-          </Button>
+            Join Right Here
+          </FacebookGroupButton>
         </div>
 
         <div className="pt-4">

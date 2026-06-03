@@ -16,7 +16,7 @@ import { ChevronDown, Search, ExternalLink } from "lucide-react";
 import { AnimatedHamburger } from '@/components/ui/animated-hamburger';
 import { MobileMenuSection } from '@/components/ui/mobile-menu-section';
 import { MobileNavItem } from '@/components/ui/mobile-nav-item';
-import { FACEBOOK_GROUP_URL, handleFacebookGroupNavigation } from '@/lib/facebook';
+import { FacebookGroupButton } from '@/components/common/FacebookGroupCta';
 import { SUBSTACK_URL } from '@/lib/constants';
 import { SearchDialog } from '@/components/search/SearchDialog';
 
@@ -90,15 +90,9 @@ const Header = () => {
           >
             Recipes
           </Link>
-          <a
-            href={FACEBOOK_GROUP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-link"
-            onClick={handleFacebookGroupNavigation}
-          >
+          <FacebookGroupButton variant="nav" size="sm" showArrow={false} className="ml-1">
             Facebook Group
-          </a>
+          </FacebookGroupButton>
 
           <DropdownMenu>
             <DropdownMenuTrigger className="nav-link inline-flex items-center">
@@ -247,18 +241,16 @@ const Header = () => {
                 >
                   Home
                 </MobileNavItem>
-                <MobileNavItem
-                  href={FACEBOOK_GROUP_URL}
-                  onClick={(event) =>
-                    handleFacebookGroupNavigation(event, {
-                      onSuccess: () => setIsMobileMenuOpen(false),
-                      onFailure: () => setIsMobileMenuOpen(false),
-                    })
-                  }
-                  icon="💬"
+                <FacebookGroupButton
+                  variant="soft"
+                  size="md"
+                  showArrow={false}
+                  className="mx-3 my-2 justify-start rounded-xl border-[#0866ff]/25 px-4"
+                  onNavigateSuccess={() => setIsMobileMenuOpen(false)}
+                  onNavigateFailure={() => setIsMobileMenuOpen(false)}
                 >
                   Facebook Group
-                </MobileNavItem>
+                </FacebookGroupButton>
                 <MobileNavItem
                   to="/blog"
                   onClick={() => setIsMobileMenuOpen(false)}

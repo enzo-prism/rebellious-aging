@@ -293,4 +293,14 @@ export const blogSeoById: Record<string, BlogSeoMeta> = {
     seoDescription:
       'Suz reflects on courage, experience, self-belief, and why some of life’s most important lessons only arrive after you begin.',
   },
+  'the-superpower-i-did-not-know-i-had': {
+    seoTitle: 'The Superpower I Did Not Know I Had',
+    seoDescription:
+      'Suz reflects on six years of showing up, building confidence through evidence, and discovering consistency as a quiet superpower.',
+  },
+  'consistency-the-superpower-nobody-talks-about': {
+    seoTitle: 'Consistency: The Superpower Nobody Talks About',
+    seoDescription:
+      'Suz explores why consistency, not perfection or speed, is the quiet superpower that builds momentum and changes everything over time.',
+  },
 };

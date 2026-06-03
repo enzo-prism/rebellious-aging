@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Seo from '@/components/seo/Seo';
+import { FacebookGroupButton } from '@/components/common/FacebookGroupCta';
 import PageShareButton from '@/components/share/PageShareButton';
 import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { Button } from '@/components/ui/button';
@@ -209,14 +210,9 @@ const GratitudePillar = () => {
                 </a>
               </li>
               <li>
-                <a
-                  href="https://www.facebook.com/groups/1497629461551095/"
-                  className="text-teal hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <FacebookGroupButton variant="soft" size="sm" showArrow={false} className="align-middle">
                   Join the Facebook Community
-                </a>
+                </FacebookGroupButton>
               </li>
               <li>
                 <a

@@ -2,7 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Facebook, Mail, Heart, ArrowRight } from "lucide-react";
+import { Mail, Heart, ArrowRight } from "lucide-react";
+import { FacebookLogoMark } from '@/components/common/FacebookGroupCta';
 import { FACEBOOK_GROUP_URL, handleFacebookGroupNavigation } from '@/lib/facebook';
 
 const Footer = () => {
@@ -28,9 +29,9 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleFacebookGroupNavigation}
-                className="w-10 h-10 bg-teal/10 hover:bg-teal hover:text-white text-teal rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-[#0866ff]/20 transition-all duration-300 hover:scale-110 hover:ring-[#0866ff]/45"
               >
-                <Facebook size={18} />
+                <FacebookLogoMark size="sm" className="h-8 w-8 p-0 shadow-none ring-0" />
                 <span className="sr-only">Facebook Group</span>
               </a>
               <a
@@ -204,6 +205,7 @@ const Footer = () => {
                   className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group"
                   onClick={handleFacebookGroupNavigation}
                 >
+                  <FacebookLogoMark size="xs" className="h-5 w-5 p-0 shadow-none ring-0 transition-transform group-hover:translate-x-1" />
                   <span className="group-hover:translate-x-1 transition-transform">Facebook Group</span>
                   <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>

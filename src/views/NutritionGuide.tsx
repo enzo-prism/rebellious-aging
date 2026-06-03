@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { FacebookGroupButton } from '@/components/common/FacebookGroupCta';
 import Seo from '@/components/seo/Seo';
 import { Button } from '@/components/ui/button';
 import PageShareButton from '@/components/share/PageShareButton';
@@ -84,12 +85,6 @@ const FIRST_STEPS = [
     title: '3️⃣ Choose one “No” food to crowd out',
     body: 'Maybe soda, processed meat, or nightly ice cream. Replace it with a WFPB option you enjoy.',
   },
-];
-
-const CTA_LINKS = [
-  { href: '/welcome-letter', label: '💌 Read the Welcome Letter' },
-  { href: 'https://www.facebook.com/groups/1497629461551095/', label: '👭 Join the Rebellious Aging Facebook Group' },
-  { href: '/contact', label: '📞 Reach out to Suz' },
 ];
 
 const NutritionGuide = () => {
@@ -286,17 +281,25 @@ const NutritionGuide = () => {
             Choosing WFPB living honors your Health pillar, builds Confidence in what you can still do, supports your Style (clothes simply feel better on a well-nourished body),
             and deepens Gratitude for a body that keeps showing up. You are not “too late.” You are right on time.
           </p>
-          <div className="bg-coral/10 border border-coral/20 rounded-2xl p-6 space-y-3">
+          <div className="bg-coral/10 border border-coral/20 rounded-2xl p-6 space-y-4">
             <p className="text-gray-700">If you want support as you experiment:</p>
-            <ul className="space-y-2 list-disc pl-6 text-teal font-medium">
-              {CTA_LINKS.map((cta) => (
-                <li key={cta.href}>
-                  <a href={cta.href} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                    {cta.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <div className="grid gap-3 sm:grid-cols-3">
+              <Link
+                href="/welcome-letter"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-teal/25 bg-white px-4 py-3 text-center text-sm font-semibold text-teal shadow-sm transition hover:border-teal/40 hover:bg-teal/5"
+              >
+                Read the Welcome Letter
+              </Link>
+              <FacebookGroupButton variant="soft" size="md" showArrow={false} className="px-4">
+                Join the Facebook Group
+              </FacebookGroupButton>
+              <Link
+                href="/contact"
+                className="inline-flex min-h-[44px] items-center justify-center rounded-full border border-coral/25 bg-white px-4 py-3 text-center text-sm font-semibold text-coral shadow-sm transition hover:border-coral/40 hover:bg-coral/5"
+              >
+                Reach out to Suz
+              </Link>
+            </div>
             <p className="text-gray-700 font-semibold">✨ Sparkle on, Suz</p>
           </div>
         </section>

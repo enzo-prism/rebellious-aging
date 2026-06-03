@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-03T02:05:58.798Z",
-  "totalRoutes": 121,
-  "validRoutes": 121,
+  "generatedAt": "2026-06-03T15:11:19.902Z",
+  "totalRoutes": 123,
+  "validRoutes": 123,
   "failedRoutes": 0,
   "records": [
     {
@@ -2108,6 +2108,52 @@
         "title": "The Class You Cannot Take",
         "description": "Suz reflects on courage, experience, self-belief, and why some of life’s most important lessons only arrive after you begin.",
         "canonical": "/blog/the-class-you-cannot-take",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/the-superpower-i-did-not-know-i-had",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "The Superpower I Did Not Know I Had",
+        "description": "Suz reflects on six years of showing up, building confidence through evidence, and discovering consistency as a quiet superpower.",
+        "canonical": "/blog/the-superpower-i-did-not-know-i-had",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/consistency-the-superpower-nobody-talks-about",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Consistency: The Superpower Nobody Talks About",
+        "description": "Suz explores why consistency, not perfection or speed, is the quiet superpower that builds momentum and changes everything over time.",
+        "canonical": "/blog/consistency-the-superpower-nobody-talks-about",
         "ogType": "article",
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
