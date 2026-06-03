@@ -1,26 +1,11 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { Facebook, Instagram, Mail, Heart, ArrowRight } from "lucide-react";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
+import { Facebook, Mail, Heart, ArrowRight } from "lucide-react";
 import { FACEBOOK_GROUP_URL, handleFacebookGroupNavigation } from '@/lib/facebook';
 
 const Footer = () => {
-  const [showSocialDialog, setShowSocialDialog] = useState(false);
-
-  const handleSocialClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setShowSocialDialog(true);
-  };
   return (
     <footer className="bg-gradient-to-br from-teal/5 to-coral/5 pt-20 pb-8">
       <div className="container mx-auto px-4">
@@ -38,20 +23,16 @@ const Footer = () => {
               <span>Age boldly, live vibrantly</span>
             </div>
             <div className="flex gap-3 pt-2">
-              <button
-                onClick={handleSocialClick}
+              <a
+                href={FACEBOOK_GROUP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleFacebookGroupNavigation}
                 className="w-10 h-10 bg-teal/10 hover:bg-teal hover:text-white text-teal rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
               >
                 <Facebook size={18} />
-                <span className="sr-only">Facebook</span>
-              </button>
-              <button
-                onClick={handleSocialClick}
-                className="w-10 h-10 bg-teal/10 hover:bg-teal hover:text-white text-teal rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-              >
-                <Instagram size={18} />
-                <span className="sr-only">Instagram</span>
-              </button>
+                <span className="sr-only">Facebook Group</span>
+              </a>
               <a
                 href="mailto:suz@rebelwithsuz.com"
                 className="w-10 h-10 bg-coral/10 hover:bg-coral hover:text-white text-coral rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
@@ -264,27 +245,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      
-      {/* Social Media Coming Soon Dialog */}
-      <AlertDialog open={showSocialDialog} onOpenChange={setShowSocialDialog}>
-        <AlertDialogContent className="max-w-md">
-          <AlertDialogHeader>
-            <AlertDialogTitle className="text-center">Social Media Coming Soon!</AlertDialogTitle>
-            <AlertDialogDescription className="text-center">
-              We're working on bringing you amazing content on Facebook and Instagram. 
-              Subscribe to our email list so you don't miss out when we go live on social media!
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter className="flex flex-col sm:flex-row gap-2">
-            <AlertDialogAction 
-              onClick={() => setShowSocialDialog(false)}
-              className="bg-teal hover:bg-teal/90"
-            >
-              Got it!
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
     </footer>
   );
 };
