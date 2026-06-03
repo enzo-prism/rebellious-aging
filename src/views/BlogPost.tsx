@@ -1,10 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
+import { BlogPostFacebookCta } from '@/components/blog/BlogPostFacebookCta';
 import { BlogPostFooter } from '@/components/blog/BlogPostFooter';
 import Seo from '@/components/seo/Seo';
 import PageShareButton from '@/components/share/PageShareButton';
 import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { blogPostContent } from '@/data/blogPostContent';
+import { getBlogPostCta } from '@/data/blogPostCtas';
 import {
   getBlogPostById,
   getBlogPostSeoDescription,
@@ -93,6 +95,8 @@ const BlogPost = ({ postId }: BlogPostProps) => {
 
       {postContent.heading}
       {postContent.body}
+
+      <BlogPostFacebookCta cta={getBlogPostCta(currentPost.id)} />
 
       <BlogPostFooter nextPost={nextPost} />
     </div>
