@@ -714,6 +714,18 @@ export const blogPosts: BlogPostMetadata[] = [
     blogNumber: 70,
     seoDescription:
       'Suz shares how caregiving, learning, volunteering, coaching, and writing led her to become an accidental blogger and find her voice.'
+  },
+  {
+    id: 'the-class-you-cannot-take',
+    title: 'The Class You Cannot Take',
+    excerpt:
+      'Suz reflects on the lesson no class can teach: at some point, preparation has to become courage, experience, and beginning before you feel ready.',
+    date: '6/2026',
+    dateSort: new Date('2026-06-02'),
+    readTime: '3 min read',
+    blogNumber: 71,
+    seoDescription:
+      'Suz reflects on courage, experience, self-belief, and why some of life’s most important lessons only arrive after you begin.'
   }
 ];
 

@@ -4954,4 +4954,22 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       </>
     ),
   },
+
+  'the-class-you-cannot-take': {
+    heading: <h1 className="text-4xl font-bold mb-4">The Class You Cannot Take</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>I have taken a lot of classes and certifications over the years. Most recently (the last 6 years), Plant-Based Nutrition Certification, Food and Sustainability Certification, Lifestyle Coaching Certification, Speaker Training, webinars, workshops, conferences and more. Each taught me so much, it all makes my head spin.</p>
+          <p>But, looking back, I realize the most important lesson I ever learned was NOT taught in a classroom. I have learned that at some point you have to stop preparing and begin. No course taught me how to publish my first blog. No cert. taught me how to moderate my first community meeting. No workshop taught me how to launch Rebellious Aging. None of the above taught me how to believe in myself. Those lessons arrived only after I started.</p>
+          <p>We so often convince ourselves that one more class, one more book, one more cert., one more anything will finally make us ready. The truth is they help but there are classes you cannot take. The class is called Experience. The class is called Courage. The class is called “Figuring it Out as You Go”. The easy thing is the only way to enroll is to begin. And the tuition? A little discomfort. A few mistakes, awkward moments, sprinkled with a healthy dose of self doubt.</p>
+          <p>I realize the most important lessons of my life were never taught in a classroom. Nope! They were taught by trying. By stumbling. By showing up before I felt ready. By taking action while still carrying  and processing a whole truck load of fear.</p>
+          <p>So maybe there is a class you cannot take. Maybe the only way to learn it is to enroll yourself. Today. Yup, before you feel ready, ESPECIALLY before you feel ready.</p>
+          <p><strong>💚 Suz, The Accidental Blogger</strong></p>
+        </div>
+      </>
+    ),
+  },
 };

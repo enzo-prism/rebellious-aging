@@ -288,4 +288,9 @@ export const blogSeoById: Record<string, BlogSeoMeta> = {
     seoDescription:
       'Suz shares how caregiving, learning, volunteering, coaching, and writing led her to become an accidental blogger and find her voice.',
   },
+  'the-class-you-cannot-take': {
+    seoTitle: 'The Class You Cannot Take',
+    seoDescription:
+      'Suz reflects on courage, experience, self-belief, and why some of life’s most important lessons only arrive after you begin.',
+  },
 };

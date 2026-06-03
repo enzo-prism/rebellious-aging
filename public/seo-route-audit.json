@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-28T18:06:01.349Z",
-  "totalRoutes": 120,
-  "validRoutes": 120,
+  "generatedAt": "2026-06-03T02:05:58.798Z",
+  "totalRoutes": 121,
+  "validRoutes": 121,
   "failedRoutes": 0,
   "records": [
     {
@@ -2085,6 +2085,29 @@
         "title": "The Accidental Blogger",
         "description": "Suz shares how caregiving, learning, volunteering, coaching, and writing led her to become an accidental blogger and find her voice.",
         "canonical": "/blog/the-accidental-blogger",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/the-class-you-cannot-take",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "The Class You Cannot Take",
+        "description": "Suz reflects on courage, experience, self-belief, and why some of life’s most important lessons only arrive after you begin.",
+        "canonical": "/blog/the-class-you-cannot-take",
         "ogType": "article",
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
