@@ -419,6 +419,18 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
       'If experience and courage are the classes you cannot take, join the group and start practicing with women figuring it out as they go.',
     buttonLabel: 'Join the begin-before-ready circle',
   },
+  'the-superpower-i-did-not-know-i-had': {
+    title: 'Keep showing up with us',
+    body:
+      'If six years of ordinary steps reminded you what consistency can build, join the group and keep gathering evidence with women staying in the game too.',
+    buttonLabel: 'Join the showing-up circle',
+  },
+  'consistency-the-superpower-nobody-talks-about': {
+    title: 'Build momentum in community',
+    body:
+      'If consistency feels like the quiet superpower you want more of, join the group for steady encouragement, honest returns, and ordinary days that add up.',
+    buttonLabel: 'Join the consistency circle',
+  },
 };
 
 export const getBlogPostCta = (postId: string) => blogPostCtas[postId];
