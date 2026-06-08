@@ -147,6 +147,15 @@ const Footer = () => {
                   <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/recipes-for-a-better-summer"
+                  className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group"
+                >
+                  <span className="group-hover:translate-x-1 transition-transform">Better Summer Recipes</span>
+                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
             </ul>
           </div>
 

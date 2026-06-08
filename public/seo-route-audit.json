@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-03T20:55:19.809Z",
-  "totalRoutes": 124,
-  "validRoutes": 124,
+  "generatedAt": "2026-06-08T15:52:58.329Z",
+  "totalRoutes": 125,
+  "validRoutes": 125,
   "failedRoutes": 0,
   "records": [
     {
@@ -398,6 +398,31 @@
         "ogType": "website",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/recipes-for-a-better-summer",
+      "source": "seo-routes",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "title",
+        "description",
+        "canonical",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Recipes for a Better Summer",
+        "description": "Original summer recipe and event links from the T. Colin Campbell Center for Nutrition Studies, curated for Rebellious Aging readers.",
+        "canonical": "/recipes-for-a-better-summer",
+        "ogType": "article",
+        "noindex": false,
+        "image": "https://mcusercontent.com/51aa734ea43ee2d8487939510/images/71890411-4e18-397c-d89e-4a0d65471159.jpg"
       }
     },
     {

@@ -196,6 +196,9 @@ const Recipes = () => {
             <Button asChild className="bg-teal text-white hover:bg-teal-dark">
               <Link href="/nutrition">Back to Nutrition</Link>
             </Button>
+            <Button asChild variant="outline" className="border-coral text-coral hover:bg-coral hover:text-white">
+              <Link href="/recipes-for-a-better-summer">Better Summer Picks</Link>
+            </Button>
           </div>
         </div>
       </section>

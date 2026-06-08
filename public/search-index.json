@@ -140,6 +140,16 @@
     ]
   },
   {
+    "id": "page:/recipes-for-a-better-summer",
+    "type": "page",
+    "title": "Recipes for a Better Summer",
+    "path": "/recipes-for-a-better-summer",
+    "summary": "Original summer recipe and event links from the T. Colin Campbell Center for Nutrition Studies, curated for Rebellious Aging readers.",
+    "tags": [
+      "page"
+    ]
+  },
+  {
     "id": "page:/search",
     "type": "page",
     "title": "Search",

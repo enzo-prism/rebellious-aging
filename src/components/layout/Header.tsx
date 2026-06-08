@@ -190,6 +190,11 @@ const Header = () => {
                   🍎 Why &amp; How
                 </Link>
               </DropdownMenuItem>
+              <DropdownMenuItem asChild className="focus:bg-accent focus:text-accent-foreground">
+                <Link href="/recipes-for-a-better-summer" className="w-full flex items-center gap-2 px-3 py-2">
+                  ☀️ Better Summer Recipes
+                </Link>
+              </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild className="focus:bg-accent focus:text-accent-foreground">
                 <Link href="/video-series" className="w-full flex items-center gap-2 px-3 py-2">
@@ -308,6 +313,7 @@ const Header = () => {
                     { to: '/nutrition?tab=protocol', label: "Nutrition: Dr. Esselstyn's Protocol", icon: '❤️' },
                     { to: '/nutrition?tab=dr-campbell', label: 'Nutrition: Dr. T. Colin Campbell', icon: '👨‍🔬' },
                     { to: '/nutrition?tab=foods', label: 'Nutrition: Why & How', icon: '🍎' },
+                    { to: '/recipes-for-a-better-summer', label: 'Better Summer Recipes', icon: '☀️' },
                     { to: '/video-series', label: 'Video Series', icon: '🎥' },
                     { to: '/contact', label: 'Contact', icon: '📧' },
                   ]}

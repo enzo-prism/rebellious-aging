@@ -106,6 +106,15 @@ export const seoRoutes: SeoRouteConfig[] = [
       'Browse plant-powered recipes from quick weeknight meals to celebratory favorites, built for vibrant, rebellious aging.',
   },
   {
+    path: '/recipes-for-a-better-summer',
+    title: 'Recipes for a Better Summer',
+    description:
+      'Original summer recipe and event links from the T. Colin Campbell Center for Nutrition Studies, curated for Rebellious Aging readers.',
+    ogType: 'article',
+    image:
+      'https://mcusercontent.com/51aa734ea43ee2d8487939510/images/71890411-4e18-397c-d89e-4a0d65471159.jpg',
+  },
+  {
     path: '/search',
     title: 'Search',
     description:

@@ -30,6 +30,7 @@ const keyPaths = [
   '/nutrition',
   '/blog',
   '/recipes',
+  '/recipes-for-a-better-summer',
   '/video-series',
   '/facebook-group',
   '/contact',
