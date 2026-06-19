@@ -102,6 +102,7 @@ const resolveBlogMeta = (postId: string): RouteMeta | undefined => {
     description: buildMetaDescription(post.seoDescription, post.excerpt),
     image: defaultImage,
     ogType: 'article',
+    noindex: post.gated === true,
   };
 };
 

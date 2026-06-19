@@ -431,6 +431,18 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
       'If consistency feels like the quiet superpower you want more of, join the group for steady encouragement, honest returns, and ordinary days that add up.',
     buttonLabel: 'Join the consistency circle',
   },
+  'what-if-superpowers-are-real': {
+    title: 'Notice what is hiding in plain sight',
+    body:
+      'If this made you wonder what gifts you have been overlooking, join the group and talk with women learning to honor what comes naturally.',
+    buttonLabel: 'Join the superpower circle',
+  },
+  'how-do-you-discover-your-superpower': {
+    title: 'Look for the clues together',
+    body:
+      'If you are curious about your own superpower, join the group and listen for the patterns, ease, joy, and encouragement others already see in you.',
+    buttonLabel: 'Join the discovery circle',
+  },
 };
 
 export const getBlogPostCta = (postId: string) => blogPostCtas[postId];

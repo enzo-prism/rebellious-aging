@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 
-import { blogPosts } from '@/data/blogPosts';
+import { getPublicBlogPosts } from '@/data/blogPosts';
 import { recipes, slugifyRecipeTitle } from '@/data/recipes';
 import { seoRoutes } from '@/data/seoRoutes';
 import { getSpeakingEventPath, speakingEvents } from '@/data/speakingEvents';
@@ -62,7 +62,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const blogEntries = blogPosts.map((post) => ({
+  const blogEntries = getPublicBlogPosts().map((post) => ({
     url: toAbsolute(`/blog/${post.id}`),
     lastModified: post.dateSort,
     changeFrequency: 'monthly' as const,

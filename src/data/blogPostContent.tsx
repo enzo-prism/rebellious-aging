@@ -5011,4 +5011,80 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       </>
     ),
   },
+
+  'what-if-superpowers-are-real': {
+    heading: <h1 className="text-4xl font-bold mb-4">What If Superpowers Are Real?</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>A few years ago, during a moderator meeting, the facilitator asked each person to share their superpower. My immediate reaction? Sheer panic. Is that even a thing outside of comic books? I recalled thinking, like a real thing? I was the proverbial "deer in the headlights".</p>
+          <p>Superpower?</p>
+          <p>I had no idea. Everyone else seemed ready with an answer. Meanwhile, I was frantically searching my brain for something, absolutely anything, that even approached reasonable and might qualify. My stomach is fluttering right now as I think back to that moment. Finally, I blurted out, with a caveat of course, "I think my superpower is seeing all sides of a situation."</p>
+          <p>At the time it felt like an extremely weak answer. Almost a placeholder, until I could think of something better. But, here is the thing, over the years, that question has continued to rattle around in my head. What if superpowers are real? Not fantasy. Actual human superpowers. The qualities that make each of us uniquely effective in the world. Ya know, the things we do so naturally that we do not even notice them. The things other people admire in us that we take for granted or we dismiss them with, "Oh that's nothing."</p>
+          <p>Maybe a superpower is persistence, kindness, curiosity, listening, seeing possibilities where others see problems. Perhaps it is making people feel welcome or helping others believe in themselves. The interesting thing about superpowers for me is that the person who possesses one is the last person to recognize it.</p>
+          <p>Why?</p>
+          <p>Because it comes so naturally. I think we assume if something is easy for us, it must be easy for everyone. That is rarely true.</p>
+          <p>Lately I have had consistency in my mind and have been writing about it here and there. For most of my life I viewed consistency as nothing special. Just stuff I did on the regular. Ya know, walk the dog, exercise, brush my teeth, show up, keep going, repeat.</p>
+          <p>Only recently did it occur to me that what feels ordinary to one person may be extraordinary to another. So maybe one of my superpowers is consistency. Definitely not because I am special. But because I have collected evidence. Years and years of evidence. The more I think about it, the more I wonder if we all have superpowers. Not one. Maybe several. Some obvious. Some hidden. Some wait patiently to be discovered.</p>
+          <p>So perhaps the most important question is not, "Do I have a superpower?" Perhaps the better question is, "What have I been doing all along that I have been overlooking?"</p>
+          <p>The challenge is not developing a superpower. The challenge is noticing it. Then honoring it. Using it. Sharing it.</p>
+          <p>I do not know. But I am beginning to believe that most of us already possess gifts that are uniquely ours. We just overlook them because they do not feel remarkable from the inside. But here is the thing, those gifts may be exactly what someone else needs.</p>
+          <p>So are superpowers the real deal?</p>
+          <p>Maybe.</p>
+          <p>And maybe they have been hiding in plain sight all along.</p>
+          <p>I suspect many of us are far more powerful than we realize. And maybe, just maybe, superpowers are real after all.</p>
+          <p><strong>💚 Suz, The Accidental Blogger</strong></p>
+        </div>
+      </>
+    ),
+  },
+
+  'how-do-you-discover-your-superpower': {
+    heading: <h1 className="text-4xl font-bold mb-4">How Do You Discover Your Superpower?</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>After writing my last blog #74 I find superpowers still rattling around in my head. So, if they are real how do we discover them? The more I thought about it, the more I realized something surprising. Most people do not find their superpower. Other people find it first.</p>
+          <p>WHY?</p>
+          <p>Because our superpowers feel completely normal to us. We assume everyone can do what we do, think the way we do, see what we see. But, they do not.</p>
+          <p>For example I recently realized that consistency may be one of my super powers. Not because I set out to develop it. It simply happened through years of showing up daily, walking, exercising, learning, writing, trying, failing, trying again. I showed up every single day, non-negotiable, I told myself. To me, it felt ordinary. To others it appeared remarkable. That got me wondering.</p>
+          <p>How many of our strengths are hiding in plain sight?</p>
+          <p>If you are curious about your own superpower, here are a few clues.</p>
+          <p><strong>People keep coming to you for the same thing.</strong></p>
+          <p>Maybe they seek your advice.</p>
+          <p>Maybe they trust you with their problems.</p>
+          <p>Maybe they ask you to help them organize stuff.</p>
+          <p>Maybe they call you when they need encouragement.</p>
+          <p>I say, keep your eyes wide open. Pay attention. Patterns matter.</p>
+          <p><strong>It feels easy to you.</strong></p>
+          <p>This is the biggest clue of all.</p>
+          <p>We tend to value things that are difficult.</p>
+          <p>But superpowers often feel effortless. You may dismiss them because they come naturally.</p>
+          <p><strong>How about? You have been doing it your whole life?</strong></p>
+          <p>Think back. What have you always done?</p>
+          <p>What role do you naturally assume in groups?</p>
+          <p>The peacemaker?</p>
+          <p>The encourager?</p>
+          <p>The organizer?</p>
+          <p>The connector?</p>
+          <p>The problem solver?</p>
+          <p>The listener?</p>
+          <p>The dreamer?</p>
+          <p>Other people notice it before you do. Sometimes the people around us can see our strengths more clearly than we can.</p>
+          <p>When several people tell you the same thing over the years, it might be worth listening to.</p>
+          <p><strong>You lose track of time when you are doing it.</strong></p>
+          <p>Superpowers often live at the intersection of ability and joy. Not always but often. You become absorbed. Engaged. Energized. You do it because you enjoy it. Not because you have to.</p>
+          <p>As I am writing and thinking about all of this, I am beginning to believe that discovering your superpower is not about becoming someone new. Nope. It is about recognizing who you have been all along. Perhaps the clues have been there for years. Perhaps you have been overlooking them because they feel too ordinary.</p>
+          <p>And how about this? Perhaps the very thing you take for granted is the thing that makes you extraordinary.</p>
+          <p>Maybe your superpower is not hiding after all.</p>
+          <p>Maybe it has been waving at you all along,</p>
+          <p><strong>💚 Suz, The Accidental Blogger</strong></p>
+        </div>
+      </>
+    ),
+  },
 };

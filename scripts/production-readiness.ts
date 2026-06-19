@@ -1,6 +1,6 @@
 import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { relative, resolve } from 'node:path';
-import { blogPosts } from '../src/data/blogPosts';
+import { getPublicBlogPosts } from '../src/data/blogPosts';
 import { recipes, slugifyRecipeTitle } from '../src/data/recipes';
 import { pillarContent } from '../src/data/pillarContent';
 import { seoRoutes } from '../src/data/seoRoutes';
@@ -206,7 +206,7 @@ const checkSearchIndex = () => {
 
 const buildExpectedPaths = () => {
   const staticPaths = seoRoutes.filter((route) => !route.noindex).map((route) => route.path);
-  const blogPaths = blogPosts.map((post) => `/blog/${post.id}`);
+  const blogPaths = getPublicBlogPosts().map((post) => `/blog/${post.id}`);
   const recipePaths = recipes.map((recipe) => `/recipes/${slugifyRecipeTitle(recipe.title)}`);
   const pillarPaths = Object.keys(pillarContent).map((id) => `/pillars/${id}`);
 

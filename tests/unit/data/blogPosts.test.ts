@@ -4,6 +4,11 @@ import {
   blogPosts,
   getBlogPostById,
   getBlogPostSeoTitle,
+  getBlogPostsByDateDesc,
+  getBlogReleaseLabel,
+  getNextBlogPost,
+  getPublicBlogPosts,
+  getSortedBlogPosts,
 } from '@/data/blogPosts';
 
 describe('blog post data', () => {
@@ -28,5 +33,60 @@ describe('blog post data', () => {
     };
 
     expect(getBlogPostSeoTitle(sample)).toBe(sample.title);
+  });
+});
+
+describe('gated (password-protected) blog posts', () => {
+  const gatedPosts = blogPosts.filter((post) => post.gated);
+
+  it('marks the superpower preview posts as gated', () => {
+    const gatedIds = gatedPosts.map((post) => post.id);
+    expect(gatedIds).toContain('what-if-superpowers-are-real');
+    expect(gatedIds).toContain('how-do-you-discover-your-superpower');
+  });
+
+  it('excludes gated posts from the machine-facing public list', () => {
+    const publicIds = getPublicBlogPosts().map((post) => post.id);
+    for (const post of gatedPosts) {
+      expect(publicIds).not.toContain(post.id);
+    }
+    expect(getPublicBlogPosts().length).toBe(blogPosts.length - gatedPosts.length);
+  });
+
+  it('lists gated posts in the blog index but not on homepage surfaces', () => {
+    const dateOrderedIds = getBlogPostsByDateDesc().map((post) => post.id);
+    const numberOrderedIds = getSortedBlogPosts().map((post) => post.id);
+    for (const post of gatedPosts) {
+      expect(dateOrderedIds).toContain(post.id); // shown on /blog with a lock badge
+      expect(numberOrderedIds).not.toContain(post.id); // kept off the homepage
+    }
+    expect(getBlogPostsByDateDesc().length).toBe(blogPosts.length);
+  });
+
+  it('still resolves gated posts by id for direct links', () => {
+    for (const post of gatedPosts) {
+      expect(getBlogPostById(post.id)?.id).toBe(post.id);
+    }
+  });
+
+  it('never links a public post to a gated next post', () => {
+    const latestPublic = getSortedBlogPosts().at(-1);
+    expect(latestPublic).toBeDefined();
+    const next = latestPublic ? getNextBlogPost(latestPublic.blogNumber) : undefined;
+    expect(next?.gated).not.toBe(true);
+  });
+
+  it('exposes a UTC-stable "Releasing …" label for the preview release dates', () => {
+    expect(getBlogReleaseLabel(getBlogPostById('what-if-superpowers-are-real')!)).toBe(
+      'Tuesday, June 23, 2026'
+    );
+    expect(getBlogReleaseLabel(getBlogPostById('how-do-you-discover-your-superpower')!)).toBe(
+      'Thursday, June 25, 2026'
+    );
+  });
+
+  it('does not attach a release label to public posts', () => {
+    const publicPost = getPublicBlogPosts()[0];
+    expect(getBlogReleaseLabel(publicPost)).toBeUndefined();
   });
 });

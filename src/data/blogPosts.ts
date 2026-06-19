@@ -10,7 +10,33 @@ export interface BlogPostMetadata {
   dateSort: Date;
   readTime: string;
   seoDescription?: string;
+  /**
+   * When true the post is gated behind a password. It is still listed in the
+   * public blog index (shown grayed out with a "Private" lock badge) and is
+   * reachable by direct link, but it is kept out of the sitemap, the on-site
+   * search index, and search-engine indexing until the reader unlocks it.
+   */
+  gated?: boolean;
+  /**
+   * For gated previews: the day the post goes public. Surfaced as a
+   * "Releasing …" label on the blog index card and the password gate.
+   */
+  releaseDate?: Date;
 }
+
+// Parsed from ISO date-only strings (UTC midnight), so format in UTC to keep the
+// weekday/day from drifting in timezones behind UTC.
+export const formatBlogReleaseDate = (date: Date) =>
+  new Intl.DateTimeFormat('en-US', {
+    weekday: 'long',
+    month: 'long',
+    day: 'numeric',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(date);
+
+export const getBlogReleaseLabel = (post: BlogPostMetadata) =>
+  post.releaseDate ? formatBlogReleaseDate(post.releaseDate) : undefined;
 
 export const getBlogPostSeoTitle = (post: BlogPostMetadata) =>
   blogSeoById[post.id]?.seoTitle?.trim() || post.seoTitle?.trim() || post.title;
@@ -750,18 +776,66 @@ export const blogPosts: BlogPostMetadata[] = [
     blogNumber: 73,
     seoDescription:
       'Suz explores why consistency, not perfection or speed, is the quiet superpower that builds momentum and changes everything over time.'
+  },
+  {
+    id: 'what-if-superpowers-are-real',
+    title: 'What If Superpowers Are Real?',
+    excerpt:
+      'Suz wonders whether ordinary-seeming gifts like consistency, curiosity, listening, and kindness may be the real superpowers hiding in plain sight.',
+    date: '6/2026',
+    dateSort: new Date('2026-06-23'),
+    readTime: '4 min read',
+    blogNumber: 74,
+    seoDescription:
+      'Suz reflects on human superpowers, why natural gifts are easy to overlook, and how noticing them can help us honor and share what makes us uniquely useful.',
+    gated: true,
+    releaseDate: new Date('2026-06-23')
+  },
+  {
+    id: 'how-do-you-discover-your-superpower',
+    title: 'How Do You Discover Your Superpower?',
+    excerpt:
+      'Suz follows the clues to discovering a superpower: what others ask from you, what feels easy, what has always been there, and what makes time disappear.',
+    date: '6/2026',
+    dateSort: new Date('2026-06-25'),
+    readTime: '3 min read',
+    blogNumber: 75,
+    seoDescription:
+      'Suz shares practical clues for discovering your superpower by noticing patterns, ease, lifelong roles, outside feedback, and the activities that energize you.',
+    gated: true,
+    releaseDate: new Date('2026-06-25')
   }
 ];
 
 export const getBlogPostById = (id: string) => blogPosts.find((post) => post.id === id);
 
-export const getNextBlogPost = (blogNumber: number) =>
-  [...blogPosts]
-    .filter((post) => post.blogNumber > blogNumber)
+export const isGatedBlogPost = (post: BlogPostMetadata) => post.gated === true;
+
+/**
+ * Posts safe to expose to machines (sitemap, on-site search index, SEO audit).
+ * Excludes password-gated posts so their bodies are not indexed. The blog index
+ * still lists gated posts (with a lock badge) via getBlogPostsByDateDesc.
+ */
+export const getPublicBlogPosts = () => blogPosts.filter((post) => !isGatedBlogPost(post));
+
+export const getNextBlogPost = (blogNumber: number) => {
+  const current = blogPosts.find((post) => post.blogNumber === blogNumber);
+  const includeGated = isGatedBlogPost(current ?? ({} as BlogPostMetadata));
+
+  // Keep navigation within the same visibility: public posts never link to a
+  // gated post, and a gated post can chain to the next gated post.
+  return [...blogPosts]
+    .filter((post) => post.blogNumber > blogNumber && isGatedBlogPost(post) === includeGated)
     .sort((a, b) => a.blogNumber - b.blogNumber)[0];
+};
 
-export const getSortedBlogPosts = () => [...blogPosts].sort((a, b) => a.blogNumber - b.blogNumber);
+// Homepage surfaces (hero "Latest" badge, latest-blogs carousel) link straight
+// to a post, so they only feature publicly readable posts.
+export const getSortedBlogPosts = () =>
+  getPublicBlogPosts().sort((a, b) => a.blogNumber - b.blogNumber);
 
+// The blog index lists every post, including gated ones (rendered grayed out
+// with a lock badge); the password is enforced on the post page itself.
 export const getBlogPostsByDateDesc = () =>
   [...blogPosts].sort((a, b) => {
     const timeDiff = b.dateSort.getTime() - a.dateSort.getTime();

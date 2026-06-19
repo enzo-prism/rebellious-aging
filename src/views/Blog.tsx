@@ -2,7 +2,9 @@
 
 import React, { useMemo, useState } from 'react';
 import Link from 'next/link';
-import { getBlogPostsByDateDesc } from '@/data/blogPosts';
+import { Lock } from 'lucide-react';
+import { getBlogPostsByDateDesc, getBlogReleaseLabel, isGatedBlogPost } from '@/data/blogPosts';
+import { Badge } from '@/components/ui/badge';
 import Seo from '@/components/seo/Seo';
 import PageShareButton from '@/components/share/PageShareButton';
 import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
@@ -91,24 +93,48 @@ const Blog = () => {
         </div>
       ) : (
         <div className="space-y-8">
-          {visiblePosts.map((post) => (
-            <article key={post.id}>
-              <Link
-                href={`/blog/${post.id}`}
-                className="block hover:opacity-70 transition-opacity"
-              >
-                <p className="text-sm text-muted-foreground mb-2">
-                  {post.dateSort.getUTCFullYear()} | {post.readTime}
-                </p>
-                <h2 className="text-2xl font-semibold mb-2">
-                  <span className="text-primary font-bold">#{post.blogNumber}</span>
-                  {' - '}
-                  {post.title}
-                </h2>
-                <p className="text-muted-foreground">{post.excerpt}</p>
-              </Link>
-            </article>
-          ))}
+          {visiblePosts.map((post) => {
+            const gated = isGatedBlogPost(post);
+            const releaseLabel = gated ? getBlogReleaseLabel(post) : undefined;
+
+            return (
+              <article key={post.id}>
+                <Link
+                  href={`/blog/${post.id}`}
+                  aria-label={gated ? `${post.title} (password protected)` : undefined}
+                  className={
+                    gated
+                      ? 'block opacity-60 transition-opacity hover:opacity-90'
+                      : 'block transition-opacity hover:opacity-70'
+                  }
+                >
+                  <div className="flex flex-wrap items-center gap-2 mb-2 text-sm text-muted-foreground">
+                    <span>
+                      {post.dateSort.getUTCFullYear()} | {post.readTime}
+                    </span>
+                    {gated && (
+                      <Badge
+                        variant="outline"
+                        className="gap-1 border-muted-foreground/30 font-medium uppercase tracking-wide text-muted-foreground"
+                      >
+                        <Lock className="h-3 w-3" aria-hidden />
+                        Private
+                      </Badge>
+                    )}
+                    {releaseLabel && (
+                      <span className="font-semibold text-teal">Releasing {releaseLabel}</span>
+                    )}
+                  </div>
+                  <h2 className="text-2xl font-semibold mb-2">
+                    <span className="text-primary font-bold">#{post.blogNumber}</span>
+                    {' - '}
+                    {post.title}
+                  </h2>
+                  <p className="text-muted-foreground">{post.excerpt}</p>
+                </Link>
+              </article>
+            );
+          })}
         </div>
       )}
     </div>

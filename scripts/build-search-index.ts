@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 
-import { blogPosts, getBlogPostSeoDescription } from '../src/data/blogPosts';
+import { getBlogPostSeoDescription, getPublicBlogPosts } from '../src/data/blogPosts';
 import { blogPostContent } from '../src/data/blogPostContent';
 import { nutritionTabs } from '../src/data/nutritionTabs';
 import { recipes, slugifyRecipeTitle } from '../src/data/recipes';
@@ -101,7 +101,7 @@ const buildGratitudeDoc = (): SearchDocument | null => {
 };
 
 const buildBlogDocs = (): SearchDocument[] =>
-  blogPosts.map<SearchDocument>((post) => {
+  getPublicBlogPosts().map<SearchDocument>((post) => {
     const contentEntry = blogPostContent[post.id];
     const bodyText = contentEntry ? extractText(contentEntry.body) : '';
 

@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-08T15:52:58.329Z",
-  "totalRoutes": 125,
-  "validRoutes": 125,
+  "generatedAt": "2026-06-19T03:37:06.367Z",
+  "totalRoutes": 127,
+  "validRoutes": 127,
   "failedRoutes": 0,
   "records": [
     {
@@ -587,7 +587,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -595,6 +596,7 @@
         "description": "Let's set the table for something deliciously different. I am excited to talk with you about something that has transformed my life - the Whole Food…",
         "canonical": "/blog/rebellious-guide-what-is-on-your-plate",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -610,7 +612,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -618,6 +621,7 @@
         "description": "Eight powerful principles that pave the way to success: from hard work and patience to self-confidence and focus. Discover the mindset shifts that…",
         "canonical": "/blog/the-road-to-success-8-thoughts",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -633,7 +637,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -641,6 +646,7 @@
         "description": "The WFPB lifestyle is NOT a diet. It is a lifestyle which promotes better health, greater energy, and a deeper connection with the way humans chose to…",
         "canonical": "/blog/wfpb-lifestyle-guide",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -656,7 +662,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -664,6 +671,7 @@
         "description": "There was a time I dressed to impress. Now? I dress to express. My closet is no longer a holding pen for solid black.",
         "canonical": "/blog/a-love-letter-to-my-closet",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -679,7 +687,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -687,6 +696,7 @@
         "description": "One bowl of wild blueberries, a casual walk out the door, and a bold little truth tucked into the confident grooves around my mouth—that was the day I…",
         "canonical": "/blog/blueberries-and-wrinkles",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -702,7 +712,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -710,6 +721,7 @@
         "description": "Exploring the transformative power of gratitude in our journey toward rebellious aging. Discover how appreciation and thankfulness can reshape our…",
         "canonical": "/blog/gratitude-rebellious-soul",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -725,7 +737,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -733,6 +746,7 @@
         "description": "Inspired by Dr. Kerry Burnight's wisdom on aging, this blog explores the concept of \"joyspan\" - living with connection, purpose, and soul-deep…",
         "canonical": "/blog/art-of-thriving-aging-expert",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -748,7 +762,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -756,6 +771,7 @@
         "description": "Who knew a shop window could deliver a life lesson? One early morning glance stopped me in my tracks and got me thinking about posture, presence, and how…",
         "canonical": "/blog/shop-window-aging-gracefully",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -771,7 +787,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -779,6 +796,7 @@
         "description": "Let's be honest. When you mention to other humans that you are eating mostly plants, the reactions range from curious to downright skeptical. Time to…",
         "canonical": "/blog/set-record-straight-wfpb",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -794,7 +812,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -802,6 +821,7 @@
         "description": "Let's get one thing straight. Those whispers in your head saying you are too old, too late, not stylish enough, they are NOT the truth. They are old…",
         "canonical": "/blog/limiting-beliefs-not-boss",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -817,7 +837,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -825,6 +846,7 @@
         "description": "The voices that taunt us, saying things like you are too old, or you are not enough, or you'll fail, are not a mystical curse. Here's the science behind…",
         "canonical": "/blog/what-is-behind-limiting-beliefs",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -840,7 +862,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -848,6 +871,7 @@
         "description": "When it comes to aging and fashion, society hands us a beige cardigan and whispers \"please, just fade away.\" Well thanks, but no thank you. Here at…",
         "canonical": "/blog/wearing-who-you-are-style-rebellion",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -863,7 +887,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -871,6 +896,7 @@
         "description": "Fashion legends like Coco Chanel, Christian Dior, and Yves Saint Laurent gave the world timeless rules for elegance. As rebels we just give these rules a…",
         "canonical": "/blog/the-new-classic-timeless-style",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -886,7 +912,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -894,6 +921,7 @@
         "description": "Who says aging gracefully has to be slow and quiet? Not me. I believe in aging rebelliously. With a plate full of vibrant colors, flavors, and life…",
         "canonical": "/blog/bold-sassy-truth-wfpb",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -909,7 +937,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -917,6 +946,7 @@
         "description": "A comprehensive collection of essential books from leading plant-based nutrition experts and doctors to guide your whole food plant-based journey.",
         "canonical": "/blog/wfpb-lifestyle-book-recommendations",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -932,7 +962,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -940,6 +971,7 @@
         "description": "The Summer of 2025 has been one long crash course in awkward situations. Some mine, some borrowed from others, but all pointing to one glaring truth, I…",
         "canonical": "/blog/boundaries-love-language",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -955,7 +987,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -963,6 +996,7 @@
         "description": "Let's be honest, sugar is seductive. There is no upside to sugar. It sneaks into your morning coffee, whispers from your cookie jar, and struts through…",
         "canonical": "/blog/ditch-the-sweet-stuff",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -978,7 +1012,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -986,6 +1021,7 @@
         "description": "Oil has a shiny reputation. Olive oil, avocado oil, coconut oil—sure, they are marketed as “healthy fats,” but the truth is oil is oil and even the…",
         "canonical": "/blog/eat-the-olive-not-the-oil",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1001,7 +1037,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1009,6 +1046,7 @@
         "description": "Let's be honest: salt has been riding high on its reputation as the magic dust that makes food taste better. Very fancy marketing, but let's cut through…",
         "canonical": "/blog/less-salt-more-sparkle",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1024,7 +1062,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1032,6 +1071,7 @@
         "description": "Critical Thinking is the rebel's power move. It is the ability to pause, question, and separate truth from noise. So instead of blindly accepting what…",
         "canonical": "/blog/critical-thinking-secret-weapon-rebellious-aging",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1047,7 +1087,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1055,6 +1096,7 @@
         "description": "Did you know that more than HALF of the average American diet comes from ultra-processed food? 70-73% of the U.S. food supply is classified as…",
         "canonical": "/blog/ultra-processed-trap-eat-whole-live-whole",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1070,7 +1112,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1078,6 +1121,7 @@
         "description": "Have you ever scrolled through your feed when a phrase suddenly grabs you by the collar? \"If not now, when?\" stopped me cold. How many women are quietly…",
         "canonical": "/blog/if-not-now-when-new-beginnings",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1093,7 +1137,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1101,6 +1146,7 @@
         "description": "A conversation between journalist Paul Von Zielbauer and Princeton Professor Colleen Murphy distilled the science of aging into practical, myth-busting…",
         "canonical": "/blog/optimal-aging-colleen-murphy",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1116,7 +1162,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1124,6 +1171,7 @@
         "description": "Managing weight doesn't have to be an uphill climb. When you choose the right foods, your body naturally regulates weight. The key is calorie density -…",
         "canonical": "/blog/calorie-density-secret-seals-deal",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1139,7 +1187,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1147,6 +1196,7 @@
         "description": "Step into a private Facebook community where women 55-105 gather to share stories, support, and the courage to live vibrantly while eating powerfully,…",
         "canonical": "/blog/join-rebellious-aging-facebook-group",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1162,7 +1212,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1170,6 +1221,7 @@
         "description": "As we age, movement becomes about confidence, balance, and extending our health span; strength and steady footing keep us vibrant.",
         "canonical": "/blog/strength-and-balance-for-the-win",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1185,7 +1237,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1193,6 +1246,7 @@
         "description": "Style has no expiration date - declutter with purpose, invest in flattering pieces, and embrace elegance that reflects your rebellious spirit.",
         "canonical": "/blog/style-still-counts-make-it-yours-at-every-age",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1208,7 +1262,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1216,6 +1271,7 @@
         "description": "Cut through nutrition confusion with curiosity, credible mentors like Dr. Campbell and Dr. Esselstyn, and your own common sense.",
         "canonical": "/blog/following-the-science-and-your-common-sense",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1231,7 +1287,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1239,6 +1296,7 @@
         "description": "Let go of optional movement, 25-year-old eating, people pleasing, comparisons, bottled emotions, and grudges so your next decades feel bold, conscious,…",
         "canonical": "/blog/graceful-maybe-rebellious-definitely",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1254,7 +1312,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1262,6 +1321,7 @@
         "description": "Shift from self-blame to awareness as UPFs, engineered calories, and system-level incentives fuel weight gain—and learn small steps to reclaim agency.",
         "canonical": "/blog/how-the-food-supply-stacks-the-deck-against-you",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1277,7 +1337,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1285,6 +1346,7 @@
         "description": "Discover how a Whole Food Plant Based lifestyle delivers natural weight loss, steady energy, and confidence without calorie counting or deprivation.",
         "canonical": "/blog/losing-weight-without-losing-your-sparkle",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1300,7 +1362,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1308,6 +1371,7 @@
         "description": "Learn how to prepare emotionally, mentally, and practically for retirement so you trade fading away for focused reinvention, connection, and purpose.",
         "canonical": "/blog/retirement-fade-or-focus",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1323,7 +1387,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1331,6 +1396,7 @@
         "description": "Why whole, unprocessed plants never disappoint and how welcoming more of them into your kitchen sparks honest nourishment at any age.",
         "canonical": "/blog/plants-do-not-disappoint",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1346,7 +1412,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1354,6 +1421,7 @@
         "description": "Discover why motion stays non-negotiable for Suz and how simple, steady routines keep bodies strong, sharp, and joyful at any age.",
         "canonical": "/blog/motion-is-not-negotiable",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1369,7 +1437,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1377,6 +1446,7 @@
         "description": "Explore the six Lifestyle Medicine pillars from ACLM and how simple daily habits power food-as-medicine, movement, rest, calm, community, and safer…",
         "canonical": "/blog/lifestyle-medicine-six-pillars",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1392,7 +1462,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1400,6 +1471,7 @@
         "description": "Follow Suz’s 7-day balance challenge—stand, walk, shift, and steady yourself with simple daily drills for lifelong stability.",
         "canonical": "/blog/seven-day-balance-challenge",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1415,7 +1487,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1423,6 +1496,7 @@
         "description": "Learn how The Pleasure Trap explains cravings, why willpower isn’t broken, and how whole foods plus gentle routines reset biology at any age.",
         "canonical": "/blog/the-pleasure-trap-why-it-is-not-your-fault",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1438,7 +1512,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1446,6 +1521,7 @@
         "description": "Dr. Greger’s B12 guidance explained: spot deficiency signs, choose cyanocobalamin, and test smarter so aging boldly never runs on empty.",
         "canonical": "/blog/b12-the-little-vitamin-with-a-big-job",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1461,7 +1537,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1469,6 +1546,7 @@
         "description": "The truth that can feel counterintuitive: rest is not quitting. Learn how intentional pauses help women 55+ stay stronger, healthier, and more motivated.",
         "canonical": "/blog/the-secret-strength-of-rest-days",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1484,7 +1562,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1492,6 +1571,7 @@
         "description": "Every 15 seconds a new cancer diagnosis lands - here is why food, movement, and choosing whole plants give you influence over your health span.",
         "canonical": "/blog/the-15-second-shock-why-food-matters",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1507,7 +1587,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1515,6 +1596,7 @@
         "description": "Discover how small, repeated choices around plants, movement, style, and self-compassion create rebellious results after 55.",
         "canonical": "/blog/the-quiet-magic-of-consistency",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1530,7 +1612,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1538,6 +1621,7 @@
         "description": "Reclaim weekends as rebellion—listen to your body, set boundaries with rest, and let joy-filled pauses fuel a vibrant life.",
         "canonical": "/blog/the-weekend-epiphany-why-resting-is-the-new-rebellion",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1553,7 +1637,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1561,6 +1646,7 @@
         "description": "Plantstrong Thanksgiving favorites with Ann Esselstyn’s mashed potatoes and gravy, sweet potato casserole, super salad, pumpkin pie tart, stuffing, and…",
         "canonical": "/blog/thanksgiving-recipes-plantstrong-favorites",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1576,7 +1662,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1584,6 +1671,7 @@
         "description": "Suz reflects on holidays after loss, how tears are love in motion, and why joy and sorrow can share space without canceling each other out.",
         "canonical": "/blog/when-joy-and-sorrow-share-a-seat-at-the-table",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1599,7 +1687,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1607,6 +1696,7 @@
         "description": "Suz reflects on passing the Thanksgiving hosting legacy to her daughter, embracing change while keeping gratitude and warmth at the heart of the holiday.",
         "canonical": "/blog/passing-the-baton-thanksgiving-reflection",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1622,7 +1712,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1630,6 +1721,7 @@
         "description": "Suz invites rebels 55+ to honor time as a teacher—choose joy, use your voice, invest in health, and align daily actions with what matters most.",
         "canonical": "/blog/time-is-calling-are-you-listening",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1645,7 +1737,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1653,6 +1746,7 @@
         "description": "Learn Diane Keaton’s rebel style playbook—signature looks, bold accessories, sharp tailoring, and humor—so you can own your lane at any age.",
         "canonical": "/blog/the-original-rebellious-ager-diane-keaton",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1668,7 +1762,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1676,6 +1771,7 @@
         "description": "A rebellious aging style manifesto: wear what makes your soul hum, refuse invisibility, and blend comfort with bold expression without apology.",
         "canonical": "/blog/a-rebellious-aging-guide-to-dressing-like-you-mean-it",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1691,7 +1787,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1699,6 +1796,7 @@
         "description": "Limiting beliefs shout loudly at any age—learn how to move before fear freezes you, borrow courage from Brene Brown and Mel Robbins, and choose new…",
         "canonical": "/blog/when-the-voice-gets-loud-limiting-beliefs",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1714,7 +1812,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1722,6 +1821,7 @@
         "description": "A gentle rebellion for the new year: begin without hustle, listen inward, and treat aging as a relationship with time, not a race.",
         "canonical": "/blog/beginning-again-gentle-reminder-year-ahead",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1737,7 +1837,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1745,6 +1846,7 @@
         "description": "Meet Enzo Sison and the cross-generational partnership that turns Rebellious Aging ideas into grounded, meaningful work.",
         "canonical": "/blog/meet-enzo-collaboration-across-generations",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1760,7 +1862,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1768,6 +1871,7 @@
         "description": "The protein panic is overblown. Most adults already meet protein needs, especially with a balanced, calorie-adequate plant-forward diet.",
         "canonical": "/blog/protein-panic-are-we-really-not-getting-enough",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1783,7 +1887,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1791,6 +1896,7 @@
         "description": "Unapologetic style for 2026: stop asking permission, embrace color, confident statements, and fashion that matches your inner energy.",
         "canonical": "/blog/unapologetic-style-2026-stop-asking-permission",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1806,7 +1912,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1814,6 +1921,7 @@
         "description": "A rebellious reminder that confidence does not require perfection—just the courage to keep going, stay with yourself, and take one honest step at a time.",
         "canonical": "/blog/i-dont-need-to-be-perfect-i-just-need-to-keep-going",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1829,7 +1937,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1837,6 +1946,7 @@
         "description": "Thrifting is a thoughtful style rebellion that values story, craftsmanship, sustainability, and intentional choices over fast fashion pressure.",
         "canonical": "/blog/thrifting-as-a-quiet-act-of-rebellion",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1852,7 +1962,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1860,6 +1971,7 @@
         "description": "A reminder to challenge nutrition myths, trust credible evidence, and protect your confidence from random opinions and fear-based noise.",
         "canonical": "/blog/aging-myths-self-doubt-oatmeal-lessons",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1875,7 +1987,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1883,6 +1996,7 @@
         "description": "How nutrient retention really works after harvest: what declines quickly, what stays stable, and practical ways to keep vegetables nourishing.",
         "canonical": "/blog/what-happens-to-vegetables-after-harvest",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1898,7 +2012,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1906,6 +2021,7 @@
         "description": "A practical 10-point style guide to look intentional and alive at every age: structure, color, fit, editing, posture, and presence.",
         "canonical": "/blog/prime-not-past-it-refuse-invisibility",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1921,7 +2037,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1929,6 +2046,7 @@
         "description": "Suz reflects on the Livelong Women’s Conference, source-vetting, movement, food, connection, and becoming CEO of your own health.",
         "canonical": "/blog/what-stayed-with-me-after-livelong-womens-conference",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1944,7 +2062,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1952,6 +2071,7 @@
         "description": "Suz reflects on fashion versus style after 55, self-permission, visibility, confidence, and dressing in alignment with who you are now.",
         "canonical": "/blog/fashion-vs-style-at-this-stage-of-life",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1967,7 +2087,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1975,6 +2096,7 @@
         "description": "Use Suz’s five-step style exercise to rediscover what feels authentic, energized, visible, and aligned at this stage of life.",
         "canonical": "/blog/what-even-is-my-style-anymore",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -1990,7 +2112,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -1998,6 +2121,7 @@
         "description": "Learn why balance improves with practice, how slow movement builds mastery, and five simple balance exercises for confident aging.",
         "canonical": "/blog/balance-is-a-practice-not-a-test",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -2013,7 +2137,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -2021,6 +2146,7 @@
         "description": "Suz explores retirement as emotional preparation, identity redesign, purpose, contribution, and one of life’s richest seasons.",
         "canonical": "/blog/retirement-freedom-or-identity-crisis",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -2036,7 +2162,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -2044,6 +2171,7 @@
         "description": "Suz reflects on imposter syndrome, self-permission, visibility, and the freeing realization that the cage was never locked.",
         "canonical": "/blog/the-cage-was-never-locked",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -2059,7 +2187,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -2067,6 +2196,7 @@
         "description": "Recognize the subtle signs of uncaging, from asking what you want to protecting your peace and seeing aging as an unfolding.",
         "canonical": "/blog/signs-you-are-beginning-to-uncage",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -2082,7 +2212,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -2090,6 +2221,7 @@
         "description": "Suz explores why uncaging is not always comfortable, and how fear, visibility, and newness can become signs of growth.",
         "canonical": "/blog/an-uncaged-woman-is-not-always-comfortable",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -2105,7 +2237,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -2113,6 +2246,7 @@
         "description": "Suz reflects on women’s health, medical research, self-advocacy, and why women deserve healthcare standards that truly reflect their bodies.",
         "canonical": "/blog/women-are-not-men",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -2128,7 +2262,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -2136,6 +2271,7 @@
         "description": "Suz shares how caregiving, learning, volunteering, coaching, and writing led her to become an accidental blogger and find her voice.",
         "canonical": "/blog/the-accidental-blogger",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -2151,7 +2287,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -2159,6 +2296,7 @@
         "description": "Suz reflects on courage, experience, self-belief, and why some of life’s most important lessons only arrive after you begin.",
         "canonical": "/blog/the-class-you-cannot-take",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -2174,7 +2312,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -2182,6 +2321,7 @@
         "description": "Suz reflects on six years of showing up, building confidence through evidence, and discovering consistency as a quiet superpower.",
         "canonical": "/blog/the-superpower-i-did-not-know-i-had",
         "ogType": "article",
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
@@ -2197,7 +2337,8 @@
         "title",
         "description",
         "image",
-        "ogType"
+        "ogType",
+        "noindex"
       ],
       "issues": [],
       "metadata": {
@@ -2205,6 +2346,57 @@
         "description": "Suz explores why consistency, not perfection or speed, is the quiet superpower that builds momentum and changes everything over time.",
         "canonical": "/blog/consistency-the-superpower-nobody-talks-about",
         "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/what-if-superpowers-are-real",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "What If Superpowers Are Real?",
+        "description": "Suz reflects on human superpowers, why natural gifts are easy to overlook, and how noticing them can help us honor and share what makes us uniquely useful.",
+        "canonical": "/blog/what-if-superpowers-are-real",
+        "ogType": "article",
+        "noindex": true,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/how-do-you-discover-your-superpower",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "How Do You Discover Your Superpower?",
+        "description": "Suz shares practical clues for discovering your superpower by noticing patterns, ease, lifelong roles, outside feedback, and the activities that energize…",
+        "canonical": "/blog/how-do-you-discover-your-superpower",
+        "ogType": "article",
+        "noindex": true,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },

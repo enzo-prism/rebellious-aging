@@ -2,7 +2,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { blogPosts } from '../src/data/blogPosts';
+import { getPublicBlogPosts } from '../src/data/blogPosts';
 import { seoRoutes } from '../src/data/seoRoutes';
 import { recipes, slugifyRecipeTitle } from '../src/data/recipes';
 import { getSpeakingEventPath, speakingEvents } from '../src/data/speakingEvents';
@@ -93,7 +93,7 @@ const generateSitemap = async () => {
     })
   );
 
-  const blogEntries = blogPosts.map((post) =>
+  const blogEntries = getPublicBlogPosts().map((post) =>
     buildUrlEntry(toAbsoluteUrl(`/blog/${post.id}`), {
       changefreq: 'monthly',
       priority: 0.7,

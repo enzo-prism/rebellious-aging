@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { BlogPasswordGate } from '@/components/blog/BlogPasswordGate';
 import { BlogPostFacebookCta } from '@/components/blog/BlogPostFacebookCta';
 import { BlogPostFooter } from '@/components/blog/BlogPostFooter';
 import Seo from '@/components/seo/Seo';
@@ -11,6 +12,7 @@ import {
   getBlogPostById,
   getBlogPostSeoDescription,
   getBlogPostSeoTitle,
+  getBlogReleaseLabel,
   getNextBlogPost,
 } from '@/data/blogPosts';
 import { buildMetaDescription, buildSeoTitle, getCanonicalUrl, resolveSocialImage } from '@/lib/seo';
@@ -56,7 +58,12 @@ const BlogPost = ({ postId }: BlogPostProps) => {
   const publishedTime = currentPost.dateSort.toISOString();
   const socialImage = resolveSocialImage(siteMetadata.defaultSocialImage);
 
+  const isGated = currentPost.gated === true;
+
+  // Gated posts are password-protected previews: skip article structured data so
+  // the gated content is not advertised to crawlers.
   const articleJsonLd =
+    !isGated &&
     canonicalUrl &&
     buildArticleJsonLd({
       title: buildSeoTitle(pageTitle),
@@ -76,8 +83,24 @@ const BlogPost = ({ postId }: BlogPostProps) => {
         ogType="article"
         publishedTime={publishedTime}
         jsonLd={articleJsonLd}
+        noindex={isGated}
       />
       {node}
+    </>
+  );
+
+  const postBody = (
+    <>
+      <div className="mb-4">
+        <span className="text-primary font-bold text-lg">Blog #{currentPost.blogNumber}</span>
+      </div>
+
+      {postContent.heading}
+      {postContent.body}
+
+      <BlogPostFacebookCta cta={getBlogPostCta(currentPost.id)} />
+
+      <BlogPostFooter nextPost={nextPost} />
     </>
   );
 
@@ -89,16 +112,11 @@ const BlogPost = ({ postId }: BlogPostProps) => {
         <PageShareButton />
       </PageTopUtilityRow>
 
-      <div className="mb-4">
-        <span className="text-primary font-bold text-lg">Blog #{currentPost.blogNumber}</span>
-      </div>
-
-      {postContent.heading}
-      {postContent.body}
-
-      <BlogPostFacebookCta cta={getBlogPostCta(currentPost.id)} />
-
-      <BlogPostFooter nextPost={nextPost} />
+      {isGated ? (
+        <BlogPasswordGate releaseLabel={getBlogReleaseLabel(currentPost)}>{postBody}</BlogPasswordGate>
+      ) : (
+        postBody
+      )}
     </div>
   );
 };

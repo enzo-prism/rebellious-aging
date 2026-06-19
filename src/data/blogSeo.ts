@@ -303,4 +303,14 @@ export const blogSeoById: Record<string, BlogSeoMeta> = {
     seoDescription:
       'Suz explores why consistency, not perfection or speed, is the quiet superpower that builds momentum and changes everything over time.',
   },
+  'what-if-superpowers-are-real': {
+    seoTitle: 'What If Superpowers Are Real?',
+    seoDescription:
+      'Suz reflects on human superpowers, why natural gifts are easy to overlook, and how noticing them can help us honor and share what makes us unique.',
+  },
+  'how-do-you-discover-your-superpower': {
+    seoTitle: 'How Do You Discover Your Superpower?',
+    seoDescription:
+      'Suz shares practical clues for discovering your superpower by noticing patterns, ease, lifelong roles, outside feedback, and what energizes you.',
+  },
 };

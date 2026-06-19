@@ -36,6 +36,9 @@ const resolvePostMeta = (postId: string) => {
     image: siteMetadata.defaultSocialImage,
     ogType: 'article' as const,
     publishedTime: post.date,
+    // Password-gated previews stay out of the search-engine index even though
+    // the route is still generated and linked from the public blog index.
+    noindex: post.gated === true,
   };
 };
 
