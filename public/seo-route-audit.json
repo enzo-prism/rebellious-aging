@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T03:37:06.367Z",
+  "generatedAt": "2026-06-23T22:57:36.584Z",
   "totalRoutes": 127,
   "validRoutes": 127,
   "failedRoutes": 0,
@@ -2371,7 +2371,7 @@
         "description": "Suz reflects on human superpowers, why natural gifts are easy to overlook, and how noticing them can help us honor and share what makes us uniquely useful.",
         "canonical": "/blog/what-if-superpowers-are-real",
         "ogType": "article",
-        "noindex": true,
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },

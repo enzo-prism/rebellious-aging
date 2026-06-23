@@ -787,9 +787,7 @@ export const blogPosts: BlogPostMetadata[] = [
     readTime: '4 min read',
     blogNumber: 74,
     seoDescription:
-      'Suz reflects on human superpowers, why natural gifts are easy to overlook, and how noticing them can help us honor and share what makes us uniquely useful.',
-    gated: true,
-    releaseDate: new Date('2026-06-23')
+      'Suz reflects on human superpowers, why natural gifts are easy to overlook, and how noticing them can help us honor and share what makes us uniquely useful.'
   },
   {
     id: 'how-do-you-discover-your-superpower',
