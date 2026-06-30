@@ -205,6 +205,14 @@ Post-deploy verification snapshot (Feb 26, 2026):
 - `vercel aliases ls --scope enzo-design-prisms-projects` shows rebelwithsuz.com points to ra-nextjs
 ```
 
+Latest content release snapshot (Jun 30, 2026):
+
+```text
+- Blog #75, `How Do You Discover Your Superpower?`, is public after its June 25, 2026 release date.
+- Suz email-derived blog mirrors `The Accidental Blogger` and `The Class You Cannot Take` are present in the repo, sitemap, search index, and production.
+- Release verification used `npm run lint`, `npm run test:unit`, `npm run build`, production deploy, and live readbacks for the updated blog URLs plus sitemap/search index.
+```
+
 Recommended setup commands:
 
 ```bash

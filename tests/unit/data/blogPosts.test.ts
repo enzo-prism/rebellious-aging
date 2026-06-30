@@ -39,11 +39,12 @@ describe('blog post data', () => {
 describe('gated (password-protected) blog posts', () => {
   const gatedPosts = blogPosts.filter((post) => post.gated);
 
-  it('marks the unreleased superpower preview post as gated', () => {
+  it('has no unreleased superpower preview posts gated after their release dates', () => {
     const gatedIds = gatedPosts.map((post) => post.id);
     // "What If Superpowers Are Real?" (#74) went public on its 2026-06-23 release date.
+    // "How Do You Discover Your Superpower?" (#75) went public after its 2026-06-25 release date.
     expect(gatedIds).not.toContain('what-if-superpowers-are-real');
-    expect(gatedIds).toContain('how-do-you-discover-your-superpower');
+    expect(gatedIds).not.toContain('how-do-you-discover-your-superpower');
   });
 
   it('excludes gated posts from the machine-facing public list', () => {
@@ -78,11 +79,9 @@ describe('gated (password-protected) blog posts', () => {
   });
 
   it('exposes a UTC-stable "Releasing …" label for the unreleased preview post', () => {
-    // #74 is public now, so it no longer carries a release label.
+    // #74 and #75 are public now, so neither carries a release label.
     expect(getBlogReleaseLabel(getBlogPostById('what-if-superpowers-are-real')!)).toBeUndefined();
-    expect(getBlogReleaseLabel(getBlogPostById('how-do-you-discover-your-superpower')!)).toBe(
-      'Thursday, June 25, 2026'
-    );
+    expect(getBlogReleaseLabel(getBlogPostById('how-do-you-discover-your-superpower')!)).toBeUndefined();
   });
 
   it('does not attach a release label to public posts', () => {

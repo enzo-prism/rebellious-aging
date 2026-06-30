@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-23T22:57:36.584Z",
+  "generatedAt": "2026-06-30T01:48:34.198Z",
   "totalRoutes": 127,
   "validRoutes": 127,
   "failedRoutes": 0,
@@ -2396,7 +2396,7 @@
         "description": "Suz shares practical clues for discovering your superpower by noticing patterns, ease, lifelong roles, outside feedback, and the activities that energize…",
         "canonical": "/blog/how-do-you-discover-your-superpower",
         "ogType": "article",
-        "noindex": true,
+        "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },

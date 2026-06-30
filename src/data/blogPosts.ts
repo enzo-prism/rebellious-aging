@@ -799,9 +799,7 @@ export const blogPosts: BlogPostMetadata[] = [
     readTime: '3 min read',
     blogNumber: 75,
     seoDescription:
-      'Suz shares practical clues for discovering your superpower by noticing patterns, ease, lifelong roles, outside feedback, and the activities that energize you.',
-    gated: true,
-    releaseDate: new Date('2026-06-25')
+      'Suz shares practical clues for discovering your superpower by noticing patterns, ease, lifelong roles, outside feedback, and the activities that energize you.'
   }
 ];
 

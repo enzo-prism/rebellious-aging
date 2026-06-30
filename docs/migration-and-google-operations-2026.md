@@ -1,6 +1,6 @@
 # Migration + Google Operations Checklist (2026)
 
-Last reviewed: 2026-02-26.
+Last reviewed: 2026-06-30.
 
 This document is the one-stop guide for repository migration ownership, deployment readiness, and Google Search visibility checks.
 
@@ -81,3 +81,11 @@ Vercel Web Analytics is enabled by the Vercel project dashboard plus the `@verce
 
 - When docs, metadata, or redirects change: update `README.md`, `docs/project-overview.md`, `docs/seo-best-practices-nextjs-vercel-2026.md`, and `docs/seo-metadata-implementation.md`.
 - Tag each pull request with the runbook command set used and the post-deploy verification URLs used.
+
+## 7) Latest production content release
+
+2026-06-30:
+
+- Published Blog #75, `How Do You Discover Your Superpower?`, by removing its password-gated preview state after the June 25, 2026 release date had passed.
+- Confirmed the two Suz email-derived Substack mirrors, `The Accidental Blogger` and `The Class You Cannot Take`, were already present in the codebase, sitemap, search index, and production.
+- Release checks for this run: `npm run lint`, `npm run test:unit`, `npm run build`, production deploy, and live `curl` readbacks for the blog pages, sitemap, and search index.
