@@ -27,6 +27,7 @@ const keyPaths = [
   '/events',
   '/speaking-events',
   '/dr-seuss',
+  '/the-talk',
   '/nutrition',
   '/blog',
   '/recipes',

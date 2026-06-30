@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-30T02:05:12.830Z",
-  "totalRoutes": 130,
-  "validRoutes": 130,
+  "generatedAt": "2026-06-30T18:44:08.421Z",
+  "totalRoutes": 131,
+  "validRoutes": 131,
   "failedRoutes": 0,
   "records": [
     {
@@ -423,6 +423,31 @@
         "ogType": "article",
         "noindex": false,
         "image": "https://mcusercontent.com/51aa734ea43ee2d8487939510/images/71890411-4e18-397c-d89e-4a0d65471159.jpg"
+      }
+    },
+    {
+      "path": "/the-talk",
+      "source": "seo-routes",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "title",
+        "description",
+        "canonical",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "The Talk: Be the CEO of Your Own Health",
+        "description": "Watch Suz's talk on whole-food, plant-based living and rebellious aging, then get the free guides, recommended books, and documentaries she shares.",
+        "canonical": "/the-talk",
+        "ogType": "article",
+        "noindex": false,
+        "image": "https://i.ytimg.com/vi/9g79lPoQNkU/maxresdefault.jpg"
       }
     },
     {

@@ -28,6 +28,7 @@ const STATIC_PATHS = new Set([
   '/events',
   '/speaking-events',
   '/dr-seuss',
+  '/the-talk',
   '/starter-kit',
   '/nutrition',
   '/video-series',

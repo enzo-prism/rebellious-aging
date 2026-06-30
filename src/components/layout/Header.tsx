@@ -127,6 +127,11 @@ const Header = () => {
                   📚 Dr. Seuss &amp; Aging
                 </Link>
               </DropdownMenuItem>
+              <DropdownMenuItem asChild className="focus:bg-accent focus:text-accent-foreground">
+                <Link href="/the-talk" className="w-full flex items-center gap-2 px-3 py-2">
+                  🎥 Watch: The Talk
+                </Link>
+              </DropdownMenuItem>
               <DropdownMenuSeparator />
               <DropdownMenuLabel className="px-3 pt-2 pb-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">
                 Pillars
@@ -302,6 +307,7 @@ const Header = () => {
                     { to: '/events', label: 'Community Events', icon: '📅' },
                     { to: '/speaking-events', label: 'Speaking Events', icon: '🎤' },
                     { to: '/dr-seuss', label: 'Dr. Seuss & Aging', icon: '📚' },
+                    { to: '/the-talk', label: 'Watch: The Talk', icon: '🎥' },
                     { to: '/pillars/confidence', label: 'Pillars: Confidence', icon: '🌟' },
                     { to: '/pillars/style', label: 'Pillars: Style', icon: '👗' },
                     { to: '/pillars/health', label: 'Pillars: Health', icon: '🌱' },

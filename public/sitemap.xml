@@ -86,6 +86,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.rebelwithsuz.com/the-talk</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.rebelwithsuz.com/pillars/confidence</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

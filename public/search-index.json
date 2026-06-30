@@ -150,6 +150,16 @@
     ]
   },
   {
+    "id": "page:/the-talk",
+    "type": "page",
+    "title": "The Talk: Be the CEO of Your Own Health",
+    "path": "/the-talk",
+    "summary": "Watch Suz's talk on whole-food, plant-based living and rebellious aging, then get the free guides, recommended books, and documentaries she shares.",
+    "tags": [
+      "page"
+    ]
+  },
+  {
     "id": "page:/search",
     "type": "page",
     "title": "Search",

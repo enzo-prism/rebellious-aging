@@ -115,6 +115,14 @@ export const seoRoutes: SeoRouteConfig[] = [
       'https://mcusercontent.com/51aa734ea43ee2d8487939510/images/71890411-4e18-397c-d89e-4a0d65471159.jpg',
   },
   {
+    path: '/the-talk',
+    title: 'The Talk: Be the CEO of Your Own Health',
+    description:
+      'Watch Suz\'s talk on whole-food, plant-based living and rebellious aging, then get the free guides, recommended books, and documentaries she shares.',
+    ogType: 'article',
+    image: 'https://i.ytimg.com/vi/9g79lPoQNkU/maxresdefault.jpg',
+  },
+  {
     path: '/search',
     title: 'Search',
     description:
