@@ -317,8 +317,8 @@ const TheTalk = () => {
       <section className="relative overflow-hidden border-b border-teal/10 bg-[#f7f1e6]">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(20,184,166,0.12),transparent_40%),radial-gradient(circle_at_82%_18%,rgba(251,146,60,0.14),transparent_34%)]" />
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-5xl pb-12 pt-24 md:pt-28 lg:pt-32">
-            <PageTopUtilityRow>
+          <div className="mx-auto max-w-5xl pb-10 pt-8 md:pb-14 md:pt-16 lg:pt-20">
+            <PageTopUtilityRow className="mb-3 sm:mb-5">
               <PageShareButton />
             </PageTopUtilityRow>
 
@@ -356,14 +356,14 @@ const TheTalk = () => {
               </div>
             </div>
 
-            <div className="relative z-10 mx-auto mt-8 flex max-w-xl flex-col gap-3 sm:flex-row sm:justify-center">
-              <Button asChild className="bg-teal text-white hover:bg-teal-dark">
+            <div className="relative z-10 mx-auto mt-8 flex max-w-md flex-col gap-3 sm:max-w-xl sm:flex-row sm:justify-center">
+              <Button asChild size="lg" className="w-full justify-center bg-teal text-white hover:bg-teal-dark sm:w-auto">
                 <a href="#resources">
                   Get the free downloads
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </Button>
-              <FacebookGroupButton variant="outline" size="md">
+              <FacebookGroupButton variant="outline" size="lg" className="w-full justify-center sm:w-auto">
                 Join the conversation
               </FacebookGroupButton>
             </div>
@@ -372,7 +372,7 @@ const TheTalk = () => {
       </section>
 
       <div className="container mx-auto px-4">
-        <div className="mx-auto max-w-6xl py-14 md:py-18 lg:py-20">
+        <div className="mx-auto max-w-6xl py-12 md:py-16 lg:py-20">
           {/* The story / premise */}
           <section className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-coral">Why this talk</p>
@@ -398,7 +398,7 @@ const TheTalk = () => {
           </section>
 
           {/* What rebellious aging is / is not */}
-          <section className="mt-14 grid gap-6 lg:grid-cols-2 md:mt-16">
+          <section className="mt-10 grid gap-5 md:mt-16 md:gap-6 lg:grid-cols-2">
             <div className="rounded-[2rem] border border-gray-200 bg-white/85 p-7 shadow-sm md:p-8">
               <p className="text-sm font-semibold uppercase tracking-[0.28em] text-gray-500">It is not</p>
               <ul className="mt-5 space-y-4">
@@ -424,7 +424,7 @@ const TheTalk = () => {
           </section>
 
           {/* The one simple tool */}
-          <section className="mt-14 rounded-[2.25rem] border border-coral/15 bg-[#fff7f2] px-6 py-9 shadow-sm md:mt-16 md:px-10 md:py-11">
+          <section className="mt-12 rounded-[2.25rem] border border-coral/15 bg-[#fff7f2] px-6 py-8 shadow-sm md:mt-16 md:px-10 md:py-11">
             <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 rounded-full border border-teal/20 bg-white px-4 py-2 text-sm font-semibold text-teal">
@@ -450,7 +450,7 @@ const TheTalk = () => {
           </section>
 
           {/* FREE DOWNLOADS */}
-          <section id="resources" className="mt-16 scroll-mt-24 md:mt-20">
+          <section id="resources" className="mt-12 scroll-mt-24 md:mt-20">
             <div className="mx-auto max-w-3xl text-center">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-teal">As promised in the talk</p>
               <h2 className="mt-3 text-3xl font-bold text-gray-900 md:text-4xl">Free downloads to get you started</h2>
@@ -498,7 +498,7 @@ const TheTalk = () => {
           </section>
 
           {/* BOOKS */}
-          <section className="mt-16 md:mt-20">
+          <section className="mt-12 md:mt-20">
             <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
               <div className="max-w-2xl">
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-coral">Suz&apos;s bookshelf</p>
@@ -514,12 +514,12 @@ const TheTalk = () => {
               {books.map((book) => (
                 <article
                   key={book.title}
-                  className="flex flex-col rounded-[1.75rem] border border-gray-200 bg-white p-6 shadow-sm transition hover:border-coral/40 hover:shadow-md sm:flex-row sm:items-start sm:gap-5"
+                  className="flex items-start gap-4 rounded-[1.75rem] border border-gray-200 bg-white p-5 shadow-sm transition hover:border-coral/40 hover:shadow-md md:gap-5 md:p-6"
                 >
-                  <div className="mb-4 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-coral/10 text-coral sm:mb-0">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-coral/10 text-coral">
                     <BookOpen className="h-5 w-5" />
                   </div>
-                  <div className="flex flex-1 flex-col">
+                  <div className="flex min-w-0 flex-1 flex-col">
                     <h3 className="text-lg font-bold text-gray-900">{book.title}</h3>
                     <p className="mt-1 text-sm font-medium text-teal">{book.author}</p>
                     <p className="mt-3 flex-1 leading-relaxed text-gray-700">{book.description}</p>
@@ -539,7 +539,7 @@ const TheTalk = () => {
           </section>
 
           {/* DOCUMENTARIES */}
-          <section className="mt-16 md:mt-20">
+          <section className="mt-12 md:mt-20">
             <div className="mx-auto max-w-2xl text-center">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-teal">Press play</p>
               <h2 className="mt-3 text-3xl font-bold text-gray-900 md:text-4xl">Documentaries worth watching</h2>
@@ -573,7 +573,7 @@ const TheTalk = () => {
           </section>
 
           {/* HOW TO BEGIN */}
-          <section className="mt-16 rounded-[2.25rem] border border-teal/10 bg-teal/5 px-6 py-9 shadow-sm md:mt-20 md:px-10 md:py-12">
+          <section className="mt-12 rounded-[2.25rem] border border-teal/10 bg-teal/5 px-6 py-9 shadow-sm md:mt-20 md:px-10 md:py-12">
             <div className="mx-auto max-w-2xl text-center">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-teal">How to begin</p>
               <h2 className="mt-3 text-3xl font-bold text-gray-900 md:text-4xl">You can start with one curious choice</h2>
@@ -592,7 +592,7 @@ const TheTalk = () => {
           </section>
 
           {/* THE POEM */}
-          <section className="mt-16 md:mt-20">
+          <section className="mt-12 md:mt-20">
             <div className="overflow-hidden rounded-[2.25rem] border border-coral/15 bg-gradient-to-br from-coral/10 via-white to-teal/10 px-6 py-12 shadow-sm md:px-12 md:py-16">
               <div className="mx-auto max-w-2xl text-center">
                 <Leaf className="mx-auto h-6 w-6 text-teal" />
@@ -620,7 +620,7 @@ const TheTalk = () => {
           </section>
 
           {/* QUOTES */}
-          <section className="mt-16 md:mt-20">
+          <section className="mt-12 md:mt-20">
             <div className="mx-auto max-w-2xl text-center">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-teal">Words to carry with you</p>
             </div>
@@ -643,7 +643,7 @@ const TheTalk = () => {
           </section>
 
           {/* CROSS LINKS */}
-          <section className="mt-16 md:mt-20">
+          <section className="mt-12 md:mt-20">
             <div className="mx-auto max-w-2xl text-center">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-coral">Keep going</p>
               <h2 className="mt-3 text-3xl font-bold text-gray-900 md:text-4xl">Where to go from here</h2>
@@ -673,7 +673,7 @@ const TheTalk = () => {
           </section>
 
           {/* Closing rallying cry */}
-          <section className="mt-16 md:mt-20">
+          <section className="mt-12 md:mt-20">
             <div className="rounded-[2.25rem] border border-teal/15 bg-teal/5 px-6 py-10 text-center shadow-sm md:px-12 md:py-12">
               <Heart className="mx-auto h-6 w-6 text-coral" />
               <p className="mx-auto mt-4 max-w-2xl text-2xl font-bold leading-tight text-gray-900 md:text-3xl">
@@ -683,14 +683,14 @@ const TheTalk = () => {
                 Your next chapter might start on your very next plate. If anything here sparked your curiosity, Suz would
                 love to hear from you.
               </p>
-              <div className="mt-7 flex flex-col justify-center gap-3 sm:flex-row">
-                <Button asChild className="bg-teal text-white hover:bg-teal-dark">
+              <div className="mx-auto mt-7 flex max-w-md flex-col justify-center gap-3 sm:max-w-none sm:flex-row">
+                <Button asChild size="lg" className="w-full justify-center bg-teal text-white hover:bg-teal-dark sm:w-auto">
                   <a href="#resources">
                     Back to the free downloads
                     <ArrowRight className="h-4 w-4" />
                   </a>
                 </Button>
-                <FacebookGroupButton variant="outline" size="md">
+                <FacebookGroupButton variant="outline" size="lg" className="w-full justify-center sm:w-auto">
                   Join the Facebook group
                 </FacebookGroupButton>
               </div>
