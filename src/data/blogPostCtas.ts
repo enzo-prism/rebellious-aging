@@ -443,6 +443,24 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
       'If you are curious about your own superpower, join the group and listen for the patterns, ease, joy, and encouragement others already see in you.',
     buttonLabel: 'Join the discovery circle',
   },
+  'the-problem-with-superpowers': {
+    title: 'Use what already helps',
+    body:
+      'If this helped you stop shrinking your own gifts, join the group and practice noticing the ordinary strengths that make life better around you.',
+    buttonLabel: 'Join the gift-spotting circle',
+  },
+  'do-superpowers-change': {
+    title: 'Keep becoming together',
+    body:
+      'If aging feels like it is uncovering more of who you have always been, join the group and keep exploring what your gifts look like now.',
+    buttonLabel: 'Join the becoming circle',
+  },
+  'the-superpower-epilogue': {
+    title: 'Come home to yourself',
+    body:
+      'If this series felt like a mirror, join the group and keep collecting evidence of who you are becoming with women doing the same.',
+    buttonLabel: 'Join the next chapter',
+  },
 };
 
 export const getBlogPostCta = (postId: string) => blogPostCtas[postId];

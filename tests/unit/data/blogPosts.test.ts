@@ -39,12 +39,16 @@ describe('blog post data', () => {
 describe('gated (password-protected) blog posts', () => {
   const gatedPosts = blogPosts.filter((post) => post.gated);
 
-  it('has no unreleased superpower preview posts gated after their release dates', () => {
+  it('keeps released superpower posts public and future previews gated', () => {
     const gatedIds = gatedPosts.map((post) => post.id);
     // "What If Superpowers Are Real?" (#74) went public on its 2026-06-23 release date.
     // "How Do You Discover Your Superpower?" (#75) went public after its 2026-06-25 release date.
+    // "The Problem With Superpowers" (#76) is public for its 2026-06-30 release date.
     expect(gatedIds).not.toContain('what-if-superpowers-are-real');
     expect(gatedIds).not.toContain('how-do-you-discover-your-superpower');
+    expect(gatedIds).not.toContain('the-problem-with-superpowers');
+    expect(gatedIds).toContain('do-superpowers-change');
+    expect(gatedIds).toContain('the-superpower-epilogue');
   });
 
   it('excludes gated posts from the machine-facing public list', () => {
@@ -79,9 +83,16 @@ describe('gated (password-protected) blog posts', () => {
   });
 
   it('exposes a UTC-stable "Releasing …" label for the unreleased preview post', () => {
-    // #74 and #75 are public now, so neither carries a release label.
+    // #74, #75, and #76 are public now, so none carries a release label.
     expect(getBlogReleaseLabel(getBlogPostById('what-if-superpowers-are-real')!)).toBeUndefined();
     expect(getBlogReleaseLabel(getBlogPostById('how-do-you-discover-your-superpower')!)).toBeUndefined();
+    expect(getBlogReleaseLabel(getBlogPostById('the-problem-with-superpowers')!)).toBeUndefined();
+    expect(getBlogReleaseLabel(getBlogPostById('do-superpowers-change')!)).toBe(
+      'Thursday, July 2, 2026'
+    );
+    expect(getBlogReleaseLabel(getBlogPostById('the-superpower-epilogue')!)).toBe(
+      'Tuesday, July 7, 2026'
+    );
   });
 
   it('does not attach a release label to public posts', () => {

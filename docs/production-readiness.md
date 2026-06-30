@@ -25,7 +25,7 @@ This project uses a codified readiness gate before public launch.
 ## Current baseline checks
 - Report file: `public/production-readiness-report.json`
 - Expected status in release conditions: `status: "pass"` with all checks green.
-- Latest content-release baseline: on 2026-06-30, Blog #75 (`/blog/how-do-you-discover-your-superpower`) was moved from preview-gated to public, then verified with lint, unit tests, full static build, production deployment, and live readbacks.
+- Latest content-release baseline: on 2026-06-30, Blog #76 (`/blog/the-problem-with-superpowers`) was added as public content, Blogs #77 (`/blog/do-superpowers-change`) and #78 (`/blog/the-superpower-epilogue`) were added as password-gated previews, and the run was verified with lint, unit tests, full static build, production deployment, and live readbacks.
 
 ## Share-specific verification
 - `tests/unit/components/PageShareButton.test.tsx` validates dialog open/close behavior, clipboard success, and clipboard failure fallback.

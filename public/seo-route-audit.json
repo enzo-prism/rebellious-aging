@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-30T01:48:34.198Z",
-  "totalRoutes": 127,
-  "validRoutes": 127,
+  "generatedAt": "2026-06-30T02:05:12.830Z",
+  "totalRoutes": 130,
+  "validRoutes": 130,
   "failedRoutes": 0,
   "records": [
     {
@@ -2397,6 +2397,81 @@
         "canonical": "/blog/how-do-you-discover-your-superpower",
         "ogType": "article",
         "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/the-problem-with-superpowers",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "The Problem With Superpowers",
+        "description": "Suz explores why superpowers do not have to be big, singular, effortless, famous, or profitable to make a meaningful difference.",
+        "canonical": "/blog/the-problem-with-superpowers",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/do-superpowers-change",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Do Superpowers Change?",
+        "description": "Suz reflects on whether superpowers change with age, or whether the same core gifts simply express themselves through different seasons of life.",
+        "canonical": "/blog/do-superpowers-change",
+        "ogType": "article",
+        "noindex": true,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/the-superpower-epilogue",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "The Superpower Epilogue",
+        "description": "Suz closes the superpower series by reframing the search as becoming, self-recognition, and collecting evidence of who she has become.",
+        "canonical": "/blog/the-superpower-epilogue",
+        "ogType": "article",
+        "noindex": true,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },

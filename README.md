@@ -209,6 +209,9 @@ Latest content release snapshot (Jun 30, 2026):
 
 ```text
 - Blog #75, `How Do You Discover Your Superpower?`, is public after its June 25, 2026 release date.
+- Blog #76, `The Problem With Superpowers`, is public for its June 30, 2026 release date.
+- Blog #77, `Do Superpowers Change?`, is deployed as a password-gated preview for July 2, 2026.
+- Blog #78, `The Superpower Epilogue`, is deployed as a password-gated preview for July 7, 2026.
 - Suz email-derived blog mirrors `The Accidental Blogger` and `The Class You Cannot Take` are present in the repo, sitemap, search index, and production.
 - Release verification used `npm run lint`, `npm run test:unit`, `npm run build`, production deploy, and live readbacks for the updated blog URLs plus sitemap/search index.
 ```

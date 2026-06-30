@@ -800,6 +800,46 @@ export const blogPosts: BlogPostMetadata[] = [
     blogNumber: 75,
     seoDescription:
       'Suz shares practical clues for discovering your superpower by noticing patterns, ease, lifelong roles, outside feedback, and the activities that energize you.'
+  },
+  {
+    id: 'the-problem-with-superpowers',
+    title: 'The Problem With Superpowers',
+    excerpt:
+      'Suz challenges the idea that superpowers have to be flashy, singular, effortless, famous, or profitable, and reminds us that gifts count when they help someone.',
+    date: '6/2026',
+    dateSort: new Date('2026-06-30'),
+    readTime: '3 min read',
+    blogNumber: 76,
+    seoDescription:
+      'Suz explores why superpowers do not have to be big, singular, effortless, famous, or profitable to make a meaningful difference.'
+  },
+  {
+    id: 'do-superpowers-change',
+    title: 'Do Superpowers Change?',
+    excerpt:
+      'Suz reflects on curiosity, reinvention, and aging, wondering whether superpowers change or simply reveal the steady core that has always been there.',
+    date: '7/2026',
+    dateSort: new Date('2026-07-02'),
+    readTime: '2 min read',
+    blogNumber: 77,
+    seoDescription:
+      'Suz reflects on whether superpowers change with age, or whether the same core gifts simply express themselves through different seasons of life.',
+    gated: true,
+    releaseDate: new Date('2026-07-02')
+  },
+  {
+    id: 'the-superpower-epilogue',
+    title: 'The Superpower Epilogue',
+    excerpt:
+      'Suz closes the superpower series with a quieter discovery: the search was less about finding one gift and more about coming home to herself.',
+    date: '7/2026',
+    dateSort: new Date('2026-07-07'),
+    readTime: '2 min read',
+    blogNumber: 78,
+    seoDescription:
+      'Suz closes the superpower series by reframing the search as becoming, self-recognition, and collecting evidence of who she has become.',
+    gated: true,
+    releaseDate: new Date('2026-07-07')
   }
 ];
 

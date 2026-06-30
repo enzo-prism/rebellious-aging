@@ -5087,4 +5087,74 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       </>
     ),
   },
+
+  'the-problem-with-superpowers': {
+    heading: <h1 className="text-4xl font-bold mb-4">The Problem With Superpowers</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>Who knew, right? The problem with superpowers is that we think bigger is better, if a little is enough a lot is better and onward we march. We look at someone who can fill a stadium, run a company, write a best selling book, or change the world and think, "<strong>Now, that is a superpower.</strong>"</p>
+          <p><strong>Meanwhile,</strong> we completely overlook the woman who quietly changes the lives of everyone around her by listening well. Or how about the women we know and love who are encouragers, or who always show up or the fabulous ladies who make others feel seen. <em>What I think we do is compare our inside to someone else's outside.</em> And then guess what happens? <strong>Suddenly our own superpower no longer seems very super.</strong></p>
+          <p><strong>Another problem?</strong> We think we only get one. I mean after all it is <strong>"SUPER". Who made that rule?</strong> We are not comic book characters. We are human beings. You might be curious, kind, honest, consistent, encouraging, resilient, grateful to name a few potential superpowers. In fact you might have an entire toolbox of gifts that work together that make you <strong>SUPER.</strong></p>
+          <p><strong>So,</strong> trying to narrow yourself down to one power can feel like trying to describe a sunset using one color.</p>
+          <p><strong>And then there is my favorite problem.</strong> We think superpowers should be effortless. They are not. Even natural gifts require practice. A person may be naturally compassionate. That does not mean they do not get tired. A natural speaker still has to prepare. A gifted listener still has to choose patience. A consistent person still has days when they do not feel like showing up.</p>
+          <p><strong>The superpower is not perfection. Nope! The superpower is continuing to use the gift.</strong></p>
+          <p><strong>And then there is the sneakiest problem of them all.</strong> The belief that if your superpower doesn't make money, build fame, or attract attention, it somehow does not count.</p>
+          <p><strong>NONSENSE</strong></p>
+          <p>Some of the most powerful people I have met will never stand on a stage. You know them. They simply leave every person they meet feeling better than before. Just imagine the ripple effect of that.</p>
+          <p><strong>And finally, perhaps the biggest problem.</strong> Sometimes we become so busy trying to identify our superpower that we forget to use it. We take personality tests, analyze, reflect, debate, wonder, question. In the meantime, life is standing right in front of us waiting. Think about this. You do not discover a superpower sitting on the sidelines. Nope. You discover it in motion. I am a ferocious believer in "Clarity comes from action". So you will discover your superpower in motion, in action, and in living.</p>
+          <p><strong>So here is the thing.</strong> Maybe the problem with superpowers is that we spend too much time trying to define them and not enough time just using them, as they are a natural flow.</p>
+          <p>Maybe your superpower isn't flashy, or furious, or famous. Heck, maybe it is not even fully developed yet. But if it helps someone, if it brings light, if it creates possibility, <strong>if it leaves the world a bit better than you found it, well I would call that a superpower.</strong></p>
+          <p><strong>No Cape Required.</strong></p>
+          <p><strong>💚 Suz, <em>The Accidental Blogger</em></strong></p>
+        </div>
+      </>
+    ),
+  },
+
+  'do-superpowers-change': {
+    heading: <h1 className="text-4xl font-bold mb-4">Do Superpowers Change?</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>After spending several weeks thinking about superpowers, one question keeps rattling around in my head.</p>
+          <p>Do superpowers change?</p>
+          <p><em>I don't think so. I think the expression changes, but the core stays remarkably the same.</em></p>
+          <p>When I was younger my curiosity led me into biochemistry. That same curiosity led me into many career choices and most recently into nutrition as a way to heal my body without meds. Moving on to coaching, volunteering at the Center For Nutrition Studies, then public speaking. Now it has led me into blogging.</p>
+          <p>Different seasons. Same curiosity. The woman raising a family, working in medical labs, owning her jewelry business, selling real estate, the caregiver, the student earning certifications in her late 70's, the moderator, the speaker, the Accidental Blogger, these may all look like different people. But underneath? <strong>They are all me.</strong></p>
+          <p>The older I get, the more I believe we don't become someone new. We just become more of who we have always been. Age does not create our superpowers. I think it uncovers them.</p>
+          <p>Perhaps that is why so many people discover themselves in later life. Not because something suddenly appeared, NOPE. But because all the noise finally began to quiet down enough to notice what had always been there.</p>
+          <p>And maybe that is the real gift of aging. Not becoming different. Nope, becoming unmistakably yourself.</p>
+          <p>So, FYI, I started this series thinking I might discover my superpower. <strong>Instead,</strong> I rediscovered myself. Not faster. Not smarter. Not extraordinary. Just more comfortable being Suz. And at 84, that feels like it's about time and a remarkable discovery.</p>
+          <p><strong>Truth: The cape never fit anyway.</strong></p>
+          <p><strong>💚 Suz, The Accidental Blogger</strong></p>
+        </div>
+      </>
+    ),
+  },
+
+  'the-superpower-epilogue': {
+    heading: <h1 className="text-4xl font-bold mb-4">The Superpower Epilogue</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>When I started writing about superpowers, I thought I was going to discover mine. Instead, I discovered something much more interesting. In fact I am not sure I believe in superpowers or ever have believed in them. At least not in the way people usually talk about them. I don't think, try as I might, that one magical gift explains a person's life. I think lives are built differently.</p>
+          <p>They are built on one conversation, habit, decision and on one ordinary day at a time.</p>
+          <p>Along the way I explored curiosity, consistency, confidence, recognition, and becoming. Every blog taught me something.</p>
+          <p>But my biggest surprise? I wasn't looking for a superpower. I think I was looking for me. And somewhere in the middle of my search, I found her.</p>
+          <p>Not a superhero. DEFINITELY not extraordinary. Nope, just someone who kept showing up, stayed curious, changed her mind often, kept learning, and had no fear of the pivot, in fact embraced it with an optimistic attitude.</p>
+          <p>At 84 I think that feels like enough. Actually, it feels like everything. So maybe that is the lesson. Instead of what is my superpower perhaps the better question is/was who am I becoming. Because becoming never really ends. I am still becoming, you are still becoming. Maybe that is the greatest gift of all.</p>
+          <p>So this is where I leave the superpower series. Not with a grand conclusion. Nope, just with a quiet, content smile. The superpower search led me home. AND, I discovered I was not missing a superpower. I was simply collecting evidence of who I had become. Thank you for taking this journey with me. But know this, if I get asked again, "what is my superpower". I will no longer panic but I suspect my answer will remain the same, the ability to see all sides of a situation.</p>
+          <p>Stay tuned for what starts rattling around in my head next.</p>
+          <p><strong>💚 Suz, The Accidental Blogger</strong></p>
+        </div>
+      </>
+    ),
+  },
 };

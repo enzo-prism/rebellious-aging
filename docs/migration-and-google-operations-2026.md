@@ -87,5 +87,6 @@ Vercel Web Analytics is enabled by the Vercel project dashboard plus the `@verce
 2026-06-30:
 
 - Published Blog #75, `How Do You Discover Your Superpower?`, by removing its password-gated preview state after the June 25, 2026 release date had passed.
+- Added Suz's newly shared superpower-series follow-ups: Blog #76, `The Problem With Superpowers`, as public content for June 30, 2026; Blog #77, `Do Superpowers Change?`, as a password-gated preview for July 2, 2026; and Blog #78, `The Superpower Epilogue`, as a password-gated preview for July 7, 2026.
 - Confirmed the two Suz email-derived Substack mirrors, `The Accidental Blogger` and `The Class You Cannot Take`, were already present in the codebase, sitemap, search index, and production.
 - Release checks for this run: `npm run lint`, `npm run test:unit`, `npm run build`, production deploy, and live `curl` readbacks for the blog pages, sitemap, and search index.

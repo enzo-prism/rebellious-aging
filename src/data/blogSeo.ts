@@ -313,4 +313,19 @@ export const blogSeoById: Record<string, BlogSeoMeta> = {
     seoDescription:
       'Suz shares practical clues for discovering your superpower by noticing patterns, ease, lifelong roles, outside feedback, and what energizes you.',
   },
+  'the-problem-with-superpowers': {
+    seoTitle: 'The Problem With Superpowers',
+    seoDescription:
+      'Suz explores why superpowers do not have to be big, singular, effortless, famous, or profitable to make a meaningful difference.',
+  },
+  'do-superpowers-change': {
+    seoTitle: 'Do Superpowers Change?',
+    seoDescription:
+      'Suz reflects on whether superpowers change with age, or whether the same core gifts simply express themselves through different seasons of life.',
+  },
+  'the-superpower-epilogue': {
+    seoTitle: 'The Superpower Epilogue',
+    seoDescription:
+      'Suz closes the superpower series by reframing the search as becoming, self-recognition, and collecting evidence of who she has become.',
+  },
 };
