@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 
 import { getPublicBlogPosts } from '@/data/blogPosts';
+import { guides, getGuidePath } from '@/data/guides';
 import { recipes, slugifyRecipeTitle } from '@/data/recipes';
 import { seoRoutes } from '@/data/seoRoutes';
 import { getSpeakingEventPath, speakingEvents } from '@/data/speakingEvents';
@@ -75,5 +76,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticEntries, ...recipeEntries, ...blogEntries, ...speakingEventEntries];
+  const guideEntries = guides.map((guide) => ({
+    url: toAbsolute(getGuidePath(guide.slug)),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  return [
+    ...staticEntries,
+    ...recipeEntries,
+    ...blogEntries,
+    ...speakingEventEntries,
+    ...guideEntries,
+  ];
 }
