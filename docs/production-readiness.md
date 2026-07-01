@@ -4,7 +4,7 @@ This project uses a codified readiness gate before public launch.
 
 ## What it validates
 - Route and content integrity via build-time metadata audit (`npm run prerender`) and route matrix checks.
-- SEO coverage (`public/sitemap.xml`, `public/search-index.json`, `public/seo-route-audit.json`).
+- SEO coverage (`public/sitemap.xml`, `public/search-index.json`, `public/seo-route-audit.json`, `public/llms.txt`). Note the shipped `/sitemap.xml` is produced by `app/sitemap.ts` at `next build`; `public/sitemap.xml` is the build-artifact copy the readiness checks read.
 - Component/unit coverage for metadata, search, pages, and key layout primitives.
 - Browser readiness for route rendering, command palette/search behavior, resilience states, and keyboard/accessibility checks.
 - Browser readiness for the universal share dialog, including public-route visibility, exact URL copying, manual-copy fallback, and 404 exclusion.

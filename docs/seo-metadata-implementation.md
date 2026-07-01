@@ -1,22 +1,24 @@
 # SEO Metadata Implementation
 
-Last reviewed: 2026-03-07.
+Last reviewed: 2026-07-01.
 
 This document describes how title tags, meta descriptions, canonicals, robots rules, and SEO validation actually work in the current codebase.
 
 ## Source of truth
 
-- Static route metadata lives in `src/data/seoRoutes.ts`.
+- Static route metadata lives in `src/data/seoRoutes.ts`, resolved via `src/lib/routeMetadata.ts` (`getRouteMetaByPath` / `getHomeMeta`).
 - Dynamic blog metadata lives in `src/data/blogPosts.ts`.
 - Dynamic recipe metadata lives in `src/data/recipes.ts`.
+- Dynamic guide metadata lives in `src/data/guides.ts`. The `/guides` hub is a static route in `seoRoutes.ts`; each `/guides/[slug]` detail page resolves its title/description from `guides.ts` in `app/guides/[slug]/page.tsx` (per-guide `generateMetadata`, canonical, `ogType: 'article'`).
 - Shared site defaults live in `src/lib/siteMetadata.ts`.
 
 ## Title tag policy
 
-- Homepage: `rebelwithsuz.com`
-- Static pages: short page labels only, for example `Blog`, `Welcome Letter`, `Nutrition`, `Search`
+- Homepage: `Rebellious Aging | Age Boldly, Live Loudly`
+- Static pages: concise route titles from `seoRoutes.ts`, for example `Blog`, `Welcome Letter`, `Nutrition`, `Search`, `Free Plant-Based Booklets & Guides`
 - Blog posts: the post title only
 - Recipes: the recipe title only
+- Guides: the guide title only (for example `Free Esselstyn Plant-Based Jumpstart Booklet`)
 - No global site-name suffix is appended to page titles
 
 This is enforced by:
@@ -30,6 +32,7 @@ This is enforced by:
 - Static page descriptions come from `src/data/seoRoutes.ts`.
 - Blog post descriptions prefer `seoDescription`, then fall back to `excerpt`.
 - Recipe descriptions come from recipe content data.
+- Guide descriptions come from the `summary` field in `src/data/guides.ts`.
 - All descriptions are normalized through `buildMetaDescription()` in `src/lib/seo.ts`.
 - `buildMetaDescription()` trims values and truncates them to 155 characters when needed.
 
@@ -56,6 +59,10 @@ Current role:
 - legacy non-route SEO support where needed
 
 Do not rely on `<Seo title="..." description="...">` to drive the document title for App Router pages. Route-level metadata should be changed through `generateMetadata()`, `src/data/seoRoutes.ts`, and the dynamic metadata helpers instead.
+
+## Structured data (JSON-LD)
+
+Reusable JSON-LD builders live in `src/lib/structuredData.ts`: `buildOrganizationJsonLd`, `buildWebSiteJsonLd`, `buildArticleJsonLd`, `buildRecipeJsonLd`, and `buildFaqJsonLd`. They are rendered through `src/components/seo/Seo.tsx` (which only emits `<script type="application/ld+json">` tags). Guide detail pages (`/guides/[slug]`) instead inject a `CreativeWork` object built inline in `src/views/GuideDetail.tsx` — not through `structuredData.ts`.
 
 ## Important caveat: `npm run prerender`
 

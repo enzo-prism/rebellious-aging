@@ -1,6 +1,6 @@
 # SEO Best Practices for This Project (Next.js + Vercel, Google-first)
 
-Last reviewed: 2026-02-26.
+Last reviewed: 2026-07-01.
 
 This project is a static-exported Next.js App Router site. SEO should be treated as a build-time artifact quality system, not a one-time page-level task.
 
@@ -13,17 +13,19 @@ This project is a static-exported Next.js App Router site. SEO should be treated
   - A canonical URL resolved to the final HTTPS route.
   - Open Graph and Twitter card fields populated consistently.
 - Keep titles simple and readable:
-  - homepage: `rebelwithsuz.com`
-  - static routes: short labels like `Blog`, `Recipes`, `Welcome Letter`
+  - homepage: `Rebellious Aging | Age Boldly, Live Loudly`
+  - static routes: concise titles from `seoRoutes.ts` (`Blog`, `Recipes`, `Welcome Letter`, `Free Plant-Based Booklets & Guides`)
   - dynamic content routes: the content title itself
   - do not append a global site-name suffix
 - Keep `robots.txt` explicit and minimal:
   - Block only private/admin areas you truly want hidden.
   - Do not rely on unsupported regex-like entries in broad bots lists.
 - Ensure `sitemap.xml` includes all indexable routes from:
-  - `src/data/seoRoutes.ts` (excluding `noindex: true`)
-  - `blogPosts`
+  - `src/data/seoRoutes.ts` (excluding `noindex: true`) — now includes the `/guides` hub
+  - `blogPosts` (public, non-gated posts only)
   - recipe pages
+  - speaking-event detail pages (`src/data/speakingEvents.ts`)
+  - guide detail pages (`src/data/guides.ts`, `/guides/[slug]`)
 - Keep `noindex` pages intentional:
   - `/search`
   - `/404`

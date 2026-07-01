@@ -5,8 +5,8 @@
 - **Routing:** File-based routes under `app/` with metadata-driven routes for SEO parity (`generateMetadata`) and legacy route compatibility.
 - **Styling/UI:** Tailwind CSS, shadcn/ui primitives (Radix), Framer Motion.
 - **State/Async:** TanStack Query and shared shadcn/Toast patterns for feedback, with page-level lazy loading for embeds.
-- **SEO/Indexing:** `src/lib/seo.ts`, `src/lib/nextMetadata.ts`, route metadata in `src/data/seoRoutes.ts`, search index generation via `scripts/build-search-index.ts`.
-- **Build/Release:** `npm run build` runs `npm run sitemap`, `npm run build:search`, `next build`, and `npm run prerender` (metadata audit validation).
+- **SEO/Indexing:** `src/lib/seo.ts`, `src/lib/routeMetadata.ts`, `src/lib/nextMetadata.ts`, route metadata in `src/data/seoRoutes.ts`, native sitemap/robots via `app/sitemap.ts` and `app/robots.ts`, search index generation via `scripts/build-search-index.ts`, and `public/llms.txt` via `scripts/generate-llms.ts`.
+- **Build/Release:** `npm run build` runs `npm run llms`, `npm run sitemap`, `npm run build:search`, `next build`, and `npm run prerender` (metadata audit validation).
 - **Analytics/Embeds:** Vercel Web Analytics is injected from `app/layout.tsx`; GA, Hotjar, and GPT Engineer remain env-gated and are inserted there via `next/script`.
 - **SEO Ops Guide:** `docs/seo-best-practices-nextjs-vercel-2026.md` documents the current Search Console + deployment operating model.
 - **Migration + Ownership:** `docs/migration-and-google-operations-2026.md` tracks repo migration state and command-level verification.
@@ -14,13 +14,13 @@
 ## Routing & Features
 - **Entry/structure:** `app/layout.tsx` provides global providers and layout chrome; page UIs remain in `src/views`.
 - **Core pages:**  
-  - Home, Our Story, Welcome Letter, Starter Kit, Nutrition, Video Series, Pillars (dynamic), Recipe listing/detail, Blog listing/detail, Search, Team, Contact, Facebook Group, and not-found flows.
+  - Home, Our Story, Welcome Letter, Starter Kit, Nutrition, Video Series, Pillars (dynamic), Recipe listing/detail, Blog listing/detail, Free Booklets & Guides listing/detail (`/guides` + `/guides/[slug]`), Speaking Events, Community Events, Dr. Seuss, The Talk, Recipes for a Better Summer, Search, Team, Contact, Facebook Group, and not-found flows.
 - **Special routing behavior:** `/pillars/longevity` redirects to `/pillars/health`. Production HTTP redirect behavior is enforced in `vercel.json`, while `app/pillars/longevity/page.tsx` provides an App Router fallback during local/runtime navigation.
 - **Reusable CTAs:** `ConnectCTA`, `WelcomeBanner`, `VideoCard`, `MobileMenuSection`, `GallerySection`, and shared content modules.
 - **Reusable share UI:** `src/components/share/PageShareButton.tsx`, `PageShareDialog.tsx`, and `PageTopUtilityRow.tsx` provide a single share pattern across public page shells and hero blocks.
 
 ## Data & Integrations
-- **Static content:** Blog metadata (`src/data/blogPosts.ts`), pillar copy, video series, and recipe indexes are maintained in deterministic TS modules.
+- **Static content:** Blog metadata (`src/data/blogPosts.ts`) with bodies in `src/data/blogPostContent.tsx`, pillar copy, video series, recipe indexes, speaking events (`src/data/speakingEvents.ts`), and free guides (`src/data/guides.ts`, the `Guide` interface) are maintained in deterministic TS modules.
 - **Canonical route metadata:** `src/data/seoRoutes.ts` drives per-route SEO defaults.
 - **Supabase:** `src/components/pillar/QuizSection.tsx` uses the `submit-quiz` Edge Function; table/policies reside in `supabase/migrations/`.
 - **Client-only quiz boundary:** `src/views/PillarPage.tsx` loads `QuizSection` dynamically with `ssr: false` so pillar routes stay stable while the quiz owns browser-only Supabase and Typeform behavior.
@@ -31,10 +31,10 @@
 ## SEO & Operations
 - `src/lib/seo.ts` and `src/lib/siteMetadata.ts` provide base metadata helpers.
 - `src/lib/nextMetadata.ts` converts route metadata into Next `Metadata`.
-- Route title policy is intentionally minimal: the homepage title is `rebelwithsuz.com`, static pages use short labels from `src/data/seoRoutes.ts`, and blog/recipe detail pages use their content title without a site-name suffix.
+- Route title policy is intentionally minimal: the homepage title is `Rebellious Aging | Age Boldly, Live Loudly` (the `/` entry in `src/data/seoRoutes.ts`), static pages use concise titles from `seoRoutes.ts`, and blog/recipe/guide detail pages use their content title without a site-name suffix.
 - `src/components/seo/Seo.tsx` and script utilities are retained for non-route flows; route-level tags are now driven by Next Metadata, while `Seo.tsx` is mainly for JSON-LD and legacy support.
 - `scripts/prerender.tsx` performs an SEO route audit and emits `public/seo-route-audit.json` for route coverage checks; it does not rewrite exported HTML.
-- `scripts/generate-sitemap.ts` writes `public/sitemap.xml`; `public/search-index.json` is generated by `scripts/build-search-index.ts`.
+- Sitemap generation is dual: `scripts/generate-sitemap.ts` writes `public/sitemap.xml` (a build artifact), but `app/sitemap.ts` — a native Next `MetadataRoute.Sitemap` — regenerates `out/sitemap.xml` during `next build` and that is the file that actually ships. Edit `app/sitemap.ts` for the live sitemap and keep `scripts/generate-sitemap.ts` in sync (both iterate `seoRoutes`, recipes, blog posts, speaking events, and guides). `public/search-index.json` is generated by `scripts/build-search-index.ts`, and `public/llms.txt` by `scripts/generate-llms.ts`.
 - `scripts/production-readiness.ts` validates sitemap, search index, metadata completeness, and outbound link hardening; output is written to `public/production-readiness-report.json`.
 - `app/robots.ts` now controls crawler directives and sitemap declaration under Next.js file conventions.
 - `app/not-found.tsx` enforces `noindex, nofollow` for unexpected/404 URLs.
@@ -61,10 +61,10 @@
 - Blog post ordering behavior mirrors the original repo ordering contract: `blogPosts` entries are normalized and `getNextBlogPost` resolves by `blogNumber`, not by array position.
 
 ## Opportunities & Caveats
-1. The long-form blog content remains in `src/views/BlogPost.tsx` (single renderer); consider extracting per-post modules for contributor scale.
+1. Long-form blog bodies are already extracted into `src/data/blogPostContent.tsx` (keyed by post id) with `src/views/BlogPost.tsx` as a thin renderer; the remaining scale concern is that all bodies share one large module — consider splitting per-post files as volume grows.
 2. Ensure `src/data/seoRoutes.ts` and dynamic route params stay in sync when adding content routes.
 3. Tests are now expanded across unit, component, accessibility, and readiness routes, but coverage should continue to grow as content and integrations expand.
 4. Analytics and third-party script settings should stay env-gated for secure preview behavior.
-5. If new public routes are added, update `tests/e2e/route-matrix.spec.ts` so the universal share contract remains explicit.
+5. When adding a new public route, keep the whole chain in sync (as `/guides` did): `src/data/seoRoutes.ts`, `app/sitemap.ts` + `scripts/generate-sitemap.ts`, `scripts/build-search-index.ts`, `scripts/generate-llms.ts`, Header/Footer nav, and `tests/e2e/route-matrix.spec.ts` (so the universal share contract stays explicit).
 
 Sparkle on! ✨

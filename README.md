@@ -23,16 +23,23 @@ app/                   # App Router route entries
 
 src/
   components/          # Layout, home, pillar, nutrition, ui primitives, seo helpers
-  data/                # blogPosts, pillarContent, videoSeries metadata
+  data/                # blogPosts, blogPostContent, blogPostCtas, blogSeo,
+                       #   pillarContent, recipes, guides, speakingEvents,
+                       #   communityEvents, videoSeries, nutritionTabs, etc.
     seoRoutes.ts       # Canonical metadata per static route
   hooks/               # Scroll, mobile, toast utilities
-  lib/                 # SEO helpers, structured data, constants, Facebook helpers
+  lib/                 # SEO helpers (routeMetadata, nextMetadata, structuredData), constants, Facebook helpers
   views/               # Shared page components reused by App Router
   integrations/        # Supabase typed client
+app/
+  sitemap.ts           # Native Next MetadataRoute.Sitemap → out/sitemap.xml (the LIVE sitemap)
+  robots.ts            # Native robots.txt
 scripts/
-  generate-sitemap.ts  # Rebuild `public/sitemap.xml`
+  generate-llms.ts     # Rebuild `public/llms.txt` (runs first in `npm run build`)
+  generate-sitemap.ts  # Rebuild `public/sitemap.xml` (build artifact; see app/sitemap.ts note)
   build-search-index.ts # Rebuild `public/search-index.json`
   prerender.tsx        # Audits SEO metadata coverage (`public/seo-route-audit.json`)
+  production-readiness.ts # Writes `public/production-readiness-report.json`
 supabase/
   config.toml
   functions/           # Edge functions (submit-quiz)
@@ -59,8 +66,16 @@ Key conventions:
 - **Pillars (`/pillars/:pillarId`)** – Confidence, Style, and Health share a common data model for hero copy, galleries, quizzes, and downloadable checklists, while Gratitude features a custom long-form experience and Health links to the dedicated WFPB Nutrition Guide.
 - **Nutrition (`src/views/Nutrition.tsx`)** – Query-param-driven tabs that cover foundations, benefits, Dr. Esselstyn/Dr. Campbell material, “why & how,” and recipes.
 - **Blog (`/blog` + `/blog/:postId`)** – Metadata list plus long-form posts with canonical tags, share actions, and article navigation.
+- **Recipes (`/recipes` + `/recipes/:slug`)** – Plant-based recipe archive (`src/data/recipes.ts`) with individual recipe detail pages (`src/views/RecipeDetail.tsx`), plus the curated **Better Summer Recipes** page (`/recipes-for-a-better-summer`).
+- **Free Booklets & Guides (`/guides` + `/guides/:slug`)** – The free plant-based booklets Suz recommends (Esselstyn jumpstart, Campbell WFPB guide, and Suz's one-page starter), driven by `src/data/guides.ts` (`src/views/Guides.tsx` / `GuideDetail.tsx`). Each has its own shareable page and is surfaced in nav, on-site search, sitemap, and `llms.txt`.
+- **Health sub-guides** – **Nutrition Guide** (`/pillars/health/nutrition-guide`, printable WFPB roadmap) and **Resource Guide** (`/pillars/health/resource-guide`, curated documentary/book/cookbook library).
+- **The Talk (`/the-talk`, `src/views/TheTalk.tsx`)** – "Be the CEO of Your Own Health" video talk plus the free guides, books, and documentaries Suz shares.
+- **Events** – **Community Events** (`/events`, live Zoom gatherings from `src/data/communityEvents.ts`) and **Speaking Events** (`/speaking-events` + `/speaking-events/:slug`, `src/data/speakingEvents.ts`).
+- **Editorial** – **Dr. Seuss & Aging** (`/dr-seuss`) and **Starter Kit** (`/starter-kit`).
+- **Search (`/search`)** – Client-side search over `public/search-index.json` (marked `noindex`).
 - **Video Series (`src/views/VideoSeries.tsx`)** – Card grid fed by `src/data/videoSeries.ts`.
 - **Community touchpoints** – Welcome Letter, Contact (Typeform embed), Facebook Group, Team, etc.
+- **Global navigation (`src/components/layout/Header.tsx` / `Footer.tsx`)** – Primary nav is Home, Blog, Recipes, **Free Guides** (`/guides`), Facebook Group, and a **More** dropdown grouped into Discover, Pillars, and Nutrition (WFPB). The footer's Health column also links Free Booklets & Guides, Nutrition Guide, and Resource Guide.
 - **Page sharing (`src/components/share/*`)** – Public pages now use a shared top-of-page share action that opens a copy-link dialog, preserves query params, and falls back to manual copy when clipboard APIs are unavailable.
 
 Use this map when adding new sections so the navigation, voice, and CTAs remain cohesive.
@@ -71,13 +86,17 @@ Use this map when adding new sections so the navigation, voice, and CTAs remain 
 
 | Content type | Location | Purpose |
 |--------------|----------|---------|
-| Blog metadata | `src/data/blogPosts.ts` | Drives the blog archive, sitemap generation, SEO fields, and article ordering. |
-| Blog articles | `src/views/BlogPost.tsx` | Each post is rendered by `postId` switch logic inside shared article page component. |
+| Blog metadata | `src/data/blogPosts.ts` | Drives the blog archive, sitemap generation, SEO fields, and article ordering (by `blogNumber`). |
+| Blog article bodies | `src/data/blogPostContent.tsx` | `Record<postId, { heading, body }>` looked up via `blogPostContent[postId]` in `src/views/BlogPost.tsx` (no per-post switch statement). |
+| Blog CTAs / SEO overrides | `src/data/blogPostCtas.ts`, `src/data/blogSeo.ts` | Per-post Facebook CTA copy and per-post SEO title/description overrides. |
 | Pillar content | `src/data/pillarContent.ts` | Hero text, gallery images, quiz titles, and checklist links for Confidence/Style/Health. |
+| Recipes | `src/data/recipes.ts` | Recipes powering `/recipes` and `/recipes/:slug`. |
+| Free guides | `src/data/guides.ts` | The three free booklets (`Guide` interface) powering `/guides` and `/guides/:slug`. |
+| Speaking / community events | `src/data/speakingEvents.ts`, `src/data/communityEvents.ts` | Talks/appearances (`/speaking-events`) and live Zoom gatherings (`/events`). |
 | Video episodes | `src/data/videoSeries.ts` | Update YouTube metadata here to refresh the video grid. |
 | Site metadata | `src/lib/siteMetadata.ts` | Central place for `baseUrl`, default descriptions, social images, and social profile links. |
-| JSON-LD builders | `src/lib/structuredData.ts` | Generates Organization, WebSite, Article, and FAQ schema objects. |
-| Route SEO config | `src/data/seoRoutes.ts` | Canonical metadata for static routes, aligned with App Router route files. |
+| JSON-LD builders | `src/lib/structuredData.ts` | Generates Organization, WebSite, Article, Recipe, and FAQ schema objects (guide pages emit a CreativeWork schema inline). |
+| Route SEO config | `src/data/seoRoutes.ts` | Canonical metadata for static routes, resolved via `src/lib/routeMetadata.ts` (`getRouteMetaByPath`) and aligned with App Router route files. |
 | Facebook group link/logic | `src/lib/facebook.ts` + `src/lib/constants.ts` | Keeps outbound navigation consistent (open in new tab + fallback toast). |
 
 After editing these files, rerun:
@@ -90,8 +109,8 @@ to keep generated assets and metadata aligned.
 
 Current title-tag policy:
 
-- Homepage: `rebelwithsuz.com`
-- Static routes: short labels like `Blog`, `Recipes`, and `Welcome Letter`
+- Homepage: `Rebellious Aging | Age Boldly, Live Loudly` (from the `/` entry in `seoRoutes.ts`)
+- Static routes: concise titles from `seoRoutes.ts` — short labels where possible (`Blog`, `Recipes`, `Welcome Letter`) and descriptive titles where clearer (e.g. `The Talk: Be the CEO of Your Own Health`, `Free Plant-Based Booklets & Guides`)
 - Blog and recipe detail routes: the content title only
 - No site-name suffix is appended to page titles
 
@@ -129,9 +148,10 @@ npm install
 
 npm run dev      # start Next.js dev server on http://localhost:3000
 npm run lint     # TypeScript + React linting via eslint.config.js
-npm run sitemap  # regenerate public/sitemap.xml from routes + blog posts
+npm run llms     # regenerate public/llms.txt (LLM crawler guide)
+npm run sitemap  # regenerate public/sitemap.xml (build artifact; app/sitemap.ts ships the live one)
 npm run build:search # regenerate public/search-index.json
-npm run build    # sitemap + search index + static export + SEO route audit
+npm run build    # llms + sitemap + search index + static export + SEO route audit
 npm run preview  # serve exported output locally on port 4173
 ```
 
@@ -205,15 +225,14 @@ Post-deploy verification snapshot (Feb 26, 2026):
 - `vercel aliases ls --scope enzo-design-prisms-projects` shows rebelwithsuz.com points to ra-nextjs
 ```
 
-Latest content release snapshot (Jun 30, 2026):
+Latest content release snapshot (Jul 1, 2026):
 
 ```text
-- Blog #75, `How Do You Discover Your Superpower?`, is public after its June 25, 2026 release date.
-- Blog #76, `The Problem With Superpowers`, is public for its June 30, 2026 release date.
-- Blog #77, `Do Superpowers Change?`, is deployed as a password-gated preview for July 2, 2026.
-- Blog #78, `The Superpower Epilogue`, is deployed as a password-gated preview for July 7, 2026.
+- Blogs #75–#78 (the "superpower" series: `How Do You Discover Your Superpower?`, `The Problem With Superpowers`, `Do Superpowers Change?`, `The Superpower Epilogue`) are all public and indexable.
+- No blog post is currently password-gated. The gate infrastructure (`gated`/`releaseDate` fields, `BlogPasswordGate`) remains in the codebase but is inactive because no post sets `gated: true`.
+- Free Booklets & Guides launched: `/guides` hub plus `/guides/:slug` detail pages for the Esselstyn jumpstart booklet, the T. Colin Campbell Center for Nutrition Studies guide, and Suz's one-page starter (see `src/data/guides.ts`).
 - Suz email-derived blog mirrors `The Accidental Blogger` and `The Class You Cannot Take` are present in the repo, sitemap, search index, and production.
-- Release verification used `npm run lint`, `npm run test:unit`, `npm run build`, production deploy, and live readbacks for the updated blog URLs plus sitemap/search index.
+- Release verification used `npm run lint`, `npm run test:unit`, `npm run build`, production deploy, and live readbacks for the updated URLs plus sitemap/search index.
 ```
 
 Recommended setup commands:
@@ -270,9 +289,11 @@ Blog content is managed in two places:
 1. **Metadata list:** `src/data/blogPosts.ts`
    - Add a new object with `id`, `title`, `excerpt`, `date`, `readTime`, `blogNumber`, and optional `seoDescription`.
    - `blogNumber` is the source of truth for ordering and prev/next resolution. Keep IDs and blog numbers aligned with the reference content source so archive order stays stable across deployments.
-2. **Long-form article:** `src/views/BlogPost.tsx`
-   - Add or update an `if (postId === '<slug>')` block.
-   - Keep `<BlogPostFooter>` and share metadata parity intact.
+2. **Long-form article body:** `src/data/blogPostContent.tsx`
+   - Add or update the entry keyed by the post's `id` in the `blogPostContent` record (`{ heading, body }`). `src/views/BlogPost.tsx` renders it via `blogPostContent[postId]`; there is no per-post switch statement.
+   - Optionally add a per-post Facebook CTA in `src/data/blogPostCtas.ts` and SEO overrides in `src/data/blogSeo.ts`.
+   - `<BlogPostFooter>` and next-post navigation resolve automatically from `blogNumber`.
+   - To ship a post as a password-gated preview, set `gated: true` (and optional `releaseDate`) on its `blogPosts.ts` entry; omit them to publish it fully (public, indexed, in sitemap/search).
 
 Deployment note:
 - Production URL: https://rebelwithsuz.com
@@ -302,7 +323,9 @@ npm run build
 
 - Site-wide defaults live in `src/lib/siteMetadata.ts`; keep social profile values current.
 - Route SEO data lives in `src/data/seoRoutes.ts` and should be kept in sync with App Router routes.
-- JSON-LD is emitted through page-level metadata helpers (`buildMetadata`) and optional schema helpers in `src/lib/nextMetadata.ts` / `src/components/seo/Seo.tsx`.
+- App Router pages resolve their metadata through `src/lib/routeMetadata.ts` (`getRouteMetaByPath` / `getHomeMeta`), which reads `seoRoutes.ts` and feeds `buildMetadata` in `src/lib/nextMetadata.ts`.
+- **Sitemap duality:** `app/sitemap.ts` (native Next `MetadataRoute.Sitemap`) regenerates `out/sitemap.xml` during `next build` and is the sitemap that actually ships. `scripts/generate-sitemap.ts` only refreshes the `public/sitemap.xml` build artifact. Edit `app/sitemap.ts` for the live sitemap and keep the script in sync (both iterate `seoRoutes`, recipes, blog posts, speaking events, and guides). Same pattern for `app/robots.ts`.
+- JSON-LD is emitted through the builders in `src/lib/structuredData.ts` (Organization, WebSite, Article, Recipe, FAQ) rendered via `src/components/seo/Seo.tsx`; guide detail pages inject a `CreativeWork` schema inline in `src/views/GuideDetail.tsx`.
 - `src/components/seo/Seo.tsx` is not the source of route-level title tags; App Router metadata is.
 - `scripts/prerender.tsx` runs during build as a validation step and writes route audit output to `public/seo-route-audit.json`; it does not inject tags into `out/`.
 - Search and discovery pipeline runs `npm run build:search` → `public/search-index.json`.
@@ -371,9 +394,9 @@ Baseline launch checklist:
 
 ## Deployment
 
-1. `npm run build` — runs sitemap, search index, Next static export, and SEO audit.
-2. Commit and push to `main` before production deploys so GitHub stays the source of truth for the live site.
-3. Deploy the current repository to Vercel with `vercel --prod --yes`.
+1. `npm run build` — runs llms.txt generation, sitemap, search index, Next static export, and SEO audit.
+2. Commit and push to `main` before production deploys so GitHub stays the source of truth for the live site. Pushing `main` auto-deploys production via Vercel's git integration.
+3. Optionally trigger/force a production deploy from the CLI with `vercel --prod` (or `vercel redeploy <url> --target production` to rebuild + bust the edge cache). Note: `sitemap.xml`/`robots.txt` can sit behind a sticky edge cache for a few minutes after deploy even when other paths update immediately.
 4. Keep legacy HTTP redirects in `vercel.json`; do not rely on `next.config.js` redirects for static-export production behavior.
 
 Supabase function (`submit-quiz`) can be deployed with:
