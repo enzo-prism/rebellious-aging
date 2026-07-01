@@ -8,6 +8,7 @@ const routeMatrix = [
   '/nutrition',
   '/video-series',
   '/recipes',
+  '/guides',
   '/blog',
   '/contact',
   '/facebook-group',
@@ -27,6 +28,8 @@ const dynamicChecks = [
   { path: '/blog/ultra-processed-trap-eat-whole-live-whole', found: true },
   { path: '/recipes/kale-and-red-cabbage-salad-with-apples-and-dried-cherries', found: true },
   { path: '/recipes/big-bean-barley-and-sweet-potato-soup', found: true },
+  { path: '/guides/esselstyn-plant-based-jumpstart', found: true },
+  { path: '/guides/campbell-whole-food-plant-based-guide', found: true },
 ];
 
 test.describe('Public route matrix', () => {

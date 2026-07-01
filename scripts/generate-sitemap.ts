@@ -3,6 +3,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { getPublicBlogPosts } from '../src/data/blogPosts';
+import { guides, getGuidePath } from '../src/data/guides';
 import { seoRoutes } from '../src/data/seoRoutes';
 import { recipes, slugifyRecipeTitle } from '../src/data/recipes';
 import { getSpeakingEventPath, speakingEvents } from '../src/data/speakingEvents';
@@ -115,6 +116,13 @@ const generateSitemap = async () => {
     })
   );
 
+  const guideEntries = guides.map((guide) =>
+    buildUrlEntry(toAbsoluteUrl(getGuidePath(guide.slug)), {
+      changefreq: 'monthly',
+      priority: 0.7,
+    })
+  );
+
   const xmlContent = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
@@ -122,6 +130,7 @@ const generateSitemap = async () => {
     ...blogEntries,
     ...recipeEntries,
     ...speakingEventEntries,
+    ...guideEntries,
     '</urlset>',
     '',
   ].join('\n');

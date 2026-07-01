@@ -2,6 +2,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { guides, getGuidePath } from '../src/data/guides';
 import { getSpeakingEventPath, speakingEvents } from '../src/data/speakingEvents';
 import { siteMetadata } from '../src/lib/siteMetadata';
 
@@ -28,6 +29,7 @@ const keyPaths = [
   '/speaking-events',
   '/dr-seuss',
   '/the-talk',
+  '/guides',
   '/nutrition',
   '/blog',
   '/recipes',
@@ -51,6 +53,10 @@ const lines = [
   '',
   '## Key sections',
   ...keyPaths.map((path) => `- ${toAbsoluteUrl(path)}`),
+  '',
+  '## Free plant-based booklets and guides',
+  `- ${toAbsoluteUrl('/guides')}`,
+  ...guides.map((guide) => `- ${toAbsoluteUrl(getGuidePath(guide.slug))} (${guide.navLabel})`),
   '',
   '## Speaking events',
   `- ${toAbsoluteUrl('/speaking-events')}`,

@@ -160,6 +160,16 @@
     ]
   },
   {
+    "id": "page:/guides",
+    "type": "page",
+    "title": "Free Plant-Based Booklets & Guides",
+    "path": "/guides",
+    "summary": "The free plant-based booklets Suz recommends most — the Esselstyn Family Foundation jumpstart booklet and the T. Colin Campbell Center for Nutrition Studies guide — plus her own one-page starter, all in one place.",
+    "tags": [
+      "page"
+    ]
+  },
+  {
     "id": "page:/search",
     "type": "page",
     "title": "Search",
@@ -201,6 +211,98 @@
       "pillar",
       "health"
     ]
+  },
+  {
+    "id": "guide:esselstyn-plant-based-jumpstart",
+    "type": "resource",
+    "title": "Free Esselstyn Plant-Based Jumpstart Booklet",
+    "path": "/guides/esselstyn-plant-based-jumpstart",
+    "summary": "Download the free Esselstyn Family Foundation Plant-Based Jumpstart Guide — the gentle \"begin where you are\" booklet Suz shares with everyone starting whole-food, plant-based living.",
+    "content": "This is the free Plant-Based Jumpstart Guide from the Esselstyn Family Foundation — the work of Dr. Caldwell Esselstyn (author of Prevent and Reverse Heart Disease) and Ann Esselstyn. It is the resource Suz reaches for first when someone asks, \"Where do I even begin?\" Warm, practical, and completely free — the PDF opens straight from the Foundation with no sign-up. Suz points nearly everyone here first. It is the kindest, least overwhelming on-ramp she knows, and it comes straight from the people who pioneered this approach. Esselstyn Family Foundation Dr. Caldwell B. Esselstyn Jr. & Ann Crile Esselstyn Easy \"build-a-bowl\" formulas — a Breakfast Bowl, Salad Bowl, and Supper Bowl Simple 4 steps per bowl: whole grains, then fruit or beans, then vegetables and greens, then flavor Long shopping lists of approved, oil-free whole-plant foods Beginner-friendly nutrition graphics and \"begin where you are\" encouragement esselstyn caldwell esselstyn ann esselstyn esselstyn family foundation jumpstart jump start booklet prevent and reverse heart disease heart disease plant-based plant based whole food plant based wfpb free guide free booklet",
+    "tags": [
+      "guide",
+      "resource",
+      "nutrition",
+      "wfpb",
+      "free",
+      "esselstyn",
+      "caldwell esselstyn",
+      "ann esselstyn",
+      "esselstyn family foundation",
+      "jumpstart",
+      "jump start",
+      "booklet",
+      "prevent and reverse heart disease",
+      "heart disease",
+      "plant-based",
+      "plant based",
+      "whole food plant based",
+      "wfpb",
+      "free guide",
+      "free booklet"
+    ],
+    "section": "nutrition"
+  },
+  {
+    "id": "guide:campbell-whole-food-plant-based-guide",
+    "type": "resource",
+    "title": "Free Campbell Whole Food, Plant-Based Guide",
+    "path": "/guides/campbell-whole-food-plant-based-guide",
+    "summary": "Download the free \"Living a Whole Food, Plant-Based Life\" guide from the T. Colin Campbell Center for Nutrition Studies — a clear, friendly companion to the Esselstyn booklet.",
+    "content": "A free introductory guide from the T. Colin Campbell Center for Nutrition Studies — founded on the research behind The China Study. It covers the same essentials as the Esselstyn booklet in a slightly different voice, so read whichever one clicks for you (most people love having both). Suz recommends it as the perfect companion to the Esselstyn booklet — same heart, slightly different voice. Between the two, almost everyone finds the words that finally make it click. T. Colin Campbell Center for Nutrition Studies T. Colin Campbell, PhD A plain-language explanation of what whole-food, plant-based really means Foods to eat freely, eat sparingly, and set aside — sorted for you Everyday basics like reading labels, B12, and simple substitutions A friendly, non-judgmental tone for anyone just getting started campbell t. colin campbell colin campbell china study the china study center for nutrition studies nutrition studies nutritionstudies living a whole food plant-based life whole food plant based plant-based plant based wfpb beginner guide beginner's guide free guide booklet",
+    "tags": [
+      "guide",
+      "resource",
+      "nutrition",
+      "wfpb",
+      "free",
+      "campbell",
+      "t. colin campbell",
+      "colin campbell",
+      "china study",
+      "the china study",
+      "center for nutrition studies",
+      "nutrition studies",
+      "nutritionstudies",
+      "living a whole food plant-based life",
+      "whole food plant based",
+      "plant-based",
+      "plant based",
+      "wfpb",
+      "beginner guide",
+      "beginner's guide",
+      "free guide",
+      "booklet"
+    ],
+    "section": "nutrition"
+  },
+  {
+    "id": "guide:suz-plant-based-starter",
+    "type": "resource",
+    "title": "Suz's Plant-Based Starter (Free PDF)",
+    "path": "/guides/suz-plant-based-starter",
+    "summary": "Suz's one-page plant-based starter: the books, documentaries, and free guides she recommends, plus her plant-strong poem — made to print and stick on your fridge.",
+    "content": "A one-page handout from Suz that gathers everything in one place — the books and documentaries she recommends, links to the free Esselstyn and Campbell guides above, her plant-strong poem, and the words she keeps close. Made to print and stick on your fridge. It is the cheat sheet Suz wishes she had at the beginning — one page that points you to everything else, so you never have to hunt for a link again. Rebellious Aging Suz Suz’s recommended books and documentaries Links to the free Esselstyn and Campbell guides Her plant-strong poem and the words she keeps close A one-page format made to print and post on your fridge suz starter plant-based starter printable fridge poem plant-strong poem recommendations books documentaries free download pdf",
+    "tags": [
+      "guide",
+      "resource",
+      "nutrition",
+      "wfpb",
+      "free",
+      "suz",
+      "starter",
+      "plant-based starter",
+      "printable",
+      "fridge",
+      "poem",
+      "plant-strong poem",
+      "recommendations",
+      "books",
+      "documentaries",
+      "free download",
+      "pdf"
+    ],
+    "section": "nutrition"
   },
   {
     "id": "section:nutrition:what-is-wfpb",

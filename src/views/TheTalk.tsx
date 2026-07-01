@@ -49,12 +49,12 @@ const whatItIs = [
 
 const freeDownloads = [
   {
-    eyebrow: 'Free guide · Esselstyn Family Foundation',
-    title: 'Plant-Based Jumpstart Guide',
+    eyebrow: 'Free booklet · Esselstyn Family Foundation',
+    title: 'Plant-Based Jumpstart Booklet',
     description:
-      'A practical, encouraging jump-start booklet from the Esselstyn Family Foundation — exactly the kind of "begin where you are" resource Suz points people toward.',
-    href: 'https://esselstynfamilyfoundation.org/',
-    buttonLabel: 'Get the free guide',
+      'A practical, encouraging jump-start booklet from the Esselstyn Family Foundation — exactly the kind of "begin where you are" resource Suz points people toward. Opens the free PDF, no sign-up.',
+    href: 'https://esselstynfamilyfoundation.org/ef-content/uploads/2022/06/PB-jumpstart-guide.pdf',
+    buttonLabel: 'Get the free booklet',
     external: true,
     icon: Sprout,
   },
@@ -495,6 +495,14 @@ const TheTalk = () => {
               The Esselstyn and Center for Nutrition Studies guides open on their original sites. Rebellious Aging is
               sharing them, not rehosting them.
             </p>
+            <div className="mt-8 text-center">
+              <Button asChild variant="outline" className="border-teal text-teal hover:bg-teal hover:text-white">
+                <Link href="/guides">
+                  Find these anytime on the Free Guides page
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </Button>
+            </div>
           </section>
 
           {/* BOOKS */}

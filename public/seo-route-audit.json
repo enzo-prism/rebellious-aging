@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-06-30T18:44:08.421Z",
-  "totalRoutes": 131,
-  "validRoutes": 131,
+  "generatedAt": "2026-07-01T17:11:22.515Z",
+  "totalRoutes": 132,
+  "validRoutes": 132,
   "failedRoutes": 0,
   "records": [
     {
@@ -448,6 +448,31 @@
         "ogType": "article",
         "noindex": false,
         "image": "https://i.ytimg.com/vi/9g79lPoQNkU/maxresdefault.jpg"
+      }
+    },
+    {
+      "path": "/guides",
+      "source": "seo-routes",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "title",
+        "description",
+        "canonical",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Free Plant-Based Booklets & Guides",
+        "description": "The free plant-based booklets Suz recommends most — the Esselstyn Family Foundation jumpstart booklet and the T. Colin Campbell Center for Nutrition Studies guide — plus her own one-page starter, all in one place.",
+        "canonical": "/guides",
+        "ogType": "website",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },
     {

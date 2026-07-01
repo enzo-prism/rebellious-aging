@@ -123,6 +123,12 @@ export const seoRoutes: SeoRouteConfig[] = [
     image: 'https://i.ytimg.com/vi/9g79lPoQNkU/maxresdefault.jpg',
   },
   {
+    path: '/guides',
+    title: 'Free Plant-Based Booklets & Guides',
+    description:
+      'The free plant-based booklets Suz recommends most — the Esselstyn Family Foundation jumpstart booklet and the T. Colin Campbell Center for Nutrition Studies guide — plus her own one-page starter, all in one place.',
+  },
+  {
     path: '/search',
     title: 'Search',
     description:

@@ -91,6 +91,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.rebelwithsuz.com/guides</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.rebelwithsuz.com/pillars/confidence</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -706,6 +711,21 @@
   </url>
   <url>
     <loc>https://www.rebelwithsuz.com/speaking-events/eat-for-the-earth-santa-cruz</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.rebelwithsuz.com/guides/esselstyn-plant-based-jumpstart</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.rebelwithsuz.com/guides/campbell-whole-food-plant-based-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.rebelwithsuz.com/guides/suz-plant-based-starter</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

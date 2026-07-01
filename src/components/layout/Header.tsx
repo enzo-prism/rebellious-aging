@@ -84,11 +84,17 @@ const Header = () => {
           >
             Blog
           </Link>
-          <Link 
-            href="/recipes" 
+          <Link
+            href="/recipes"
             className={`nav-link ${isActivePath(pathname, '/recipes') ? 'active-nav-link' : ''}`}
           >
             Recipes
+          </Link>
+          <Link
+            href="/guides"
+            className={`nav-link ${isActivePath(pathname, '/guides') ? 'active-nav-link' : ''}`}
+          >
+            Free Guides
           </Link>
           <FacebookGroupButton variant="nav" size="sm" showArrow={false} className="ml-1">
             Facebook Group
@@ -160,6 +166,11 @@ const Header = () => {
               <DropdownMenuLabel className="px-3 pt-2 pb-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">
                 Nutrition (WFPB)
               </DropdownMenuLabel>
+              <DropdownMenuItem asChild className="focus:bg-accent focus:text-accent-foreground">
+                <Link href="/guides" className="w-full flex items-center gap-2 px-3 py-2">
+                  📗 Free Booklets &amp; Guides
+                </Link>
+              </DropdownMenuItem>
               <DropdownMenuItem asChild className="focus:bg-accent focus:text-accent-foreground">
                 <Link href="/nutrition?tab=what-is-wfpb" className="w-full flex items-center gap-2 px-3 py-2">
                   🌱 What is WFPB?
@@ -281,6 +292,13 @@ const Header = () => {
                   Recipes
                 </MobileNavItem>
                 <MobileNavItem
+                  to="/guides"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  icon="📗"
+                >
+                  Free Guides
+                </MobileNavItem>
+                <MobileNavItem
                   onClick={() => {
                     setIsSearchOpen(true);
                     setIsMobileMenuOpen(false);
@@ -312,6 +330,7 @@ const Header = () => {
                     { to: '/pillars/style', label: 'Pillars: Style', icon: '👗' },
                     { to: '/pillars/health', label: 'Pillars: Health', icon: '🌱' },
                     { to: '/pillars/gratitude', label: 'Pillars: Gratitude', icon: '💖' },
+                    { to: '/guides', label: 'Free Booklets & Guides', icon: '📗' },
                     { to: '/nutrition?tab=what-is-wfpb', label: 'Nutrition: What is WFPB?', icon: '🌱' },
                     { to: '/pillars/health/nutrition-guide', label: 'Nutrition: Guide', icon: '🥗' },
                     { to: '/pillars/health/resource-guide', label: 'Nutrition: Resource Guide', icon: '📚' },

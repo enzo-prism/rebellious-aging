@@ -86,6 +86,17 @@ const Footer = () => {
               </li>
               <li>
                 <Link
+                  href="/guides"
+                  className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group"
+                >
+                  <span className="group-hover:translate-x-1 transition-transform font-medium">
+                    Free Booklets &amp; Guides
+                  </span>
+                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/nutrition?tab=what-is-wfpb"
                   className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group"
                 >

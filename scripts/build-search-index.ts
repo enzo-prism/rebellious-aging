@@ -7,6 +7,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 
 import { getBlogPostSeoDescription, getPublicBlogPosts } from '../src/data/blogPosts';
 import { blogPostContent } from '../src/data/blogPostContent';
+import { guides, getGuidePath } from '../src/data/guides';
 import { nutritionTabs } from '../src/data/nutritionTabs';
 import { recipes, slugifyRecipeTitle } from '../src/data/recipes';
 import { nutritionGuideSections } from '../src/data/nutritionGuideSections';
@@ -29,6 +30,7 @@ const STATIC_PATHS = new Set([
   '/speaking-events',
   '/dr-seuss',
   '/the-talk',
+  '/guides',
   '/starter-kit',
   '/nutrition',
   '/video-series',
@@ -190,6 +192,27 @@ const buildRecipeDocs = (): SearchDocument[] =>
     };
   });
 
+const buildGuideDocs = (): SearchDocument[] =>
+  guides.map<SearchDocument>((guide) => ({
+    id: `guide:${guide.slug}`,
+    type: 'resource',
+    title: guide.title,
+    path: getGuidePath(guide.slug),
+    summary: guide.summary,
+    content: [
+      guide.intro,
+      guide.whySuz,
+      guide.source,
+      guide.author,
+      ...guide.whatsInside,
+      ...guide.keywords,
+    ]
+      .filter(Boolean)
+      .join(' '),
+    tags: ['guide', 'resource', 'nutrition', 'wfpb', 'free', ...guide.keywords],
+    section: 'nutrition',
+  }));
+
 const buildNutritionGuideSectionDocs = (): SearchDocument[] =>
   nutritionGuideSections.map<SearchDocument>((section) => ({
     id: `section:nutrition-guide:${section.id}`,
@@ -223,6 +246,7 @@ const buildSearchIndex = (): SearchDocument[] => {
   const docs: SearchDocument[] = [
     ...buildStaticPageDocs(),
     ...buildPillarDocs(),
+    ...buildGuideDocs(),
     ...buildNutritionTabDocs(),
     ...buildRecipeDocs(),
     ...buildNutritionGuideSectionDocs(),
