@@ -39,16 +39,16 @@ describe('blog post data', () => {
 describe('gated (password-protected) blog posts', () => {
   const gatedPosts = blogPosts.filter((post) => post.gated);
 
-  it('keeps released superpower posts public and future previews gated', () => {
+  it('keeps the full superpower series public with no gated previews', () => {
     const gatedIds = gatedPosts.map((post) => post.id);
-    // "What If Superpowers Are Real?" (#74) went public on its 2026-06-23 release date.
-    // "How Do You Discover Your Superpower?" (#75) went public after its 2026-06-25 release date.
-    // "The Problem With Superpowers" (#76) is public for its 2026-06-30 release date.
+    // The entire superpower series (#74–#78) is public and indexable; #77 and #78
+    // were ungated from their password-protected previews on 2026-07-01.
     expect(gatedIds).not.toContain('what-if-superpowers-are-real');
     expect(gatedIds).not.toContain('how-do-you-discover-your-superpower');
     expect(gatedIds).not.toContain('the-problem-with-superpowers');
-    expect(gatedIds).toContain('do-superpowers-change');
-    expect(gatedIds).toContain('the-superpower-epilogue');
+    expect(gatedIds).not.toContain('do-superpowers-change');
+    expect(gatedIds).not.toContain('the-superpower-epilogue');
+    expect(gatedPosts).toHaveLength(0);
   });
 
   it('excludes gated posts from the machine-facing public list', () => {
@@ -82,17 +82,13 @@ describe('gated (password-protected) blog posts', () => {
     expect(next?.gated).not.toBe(true);
   });
 
-  it('exposes a UTC-stable "Releasing …" label for the unreleased preview post', () => {
-    // #74, #75, and #76 are public now, so none carries a release label.
+  it('does not attach a "Releasing …" label to any superpower post now that they are public', () => {
+    // The whole superpower series (#74–#78) is public, so none carries a release label.
     expect(getBlogReleaseLabel(getBlogPostById('what-if-superpowers-are-real')!)).toBeUndefined();
     expect(getBlogReleaseLabel(getBlogPostById('how-do-you-discover-your-superpower')!)).toBeUndefined();
     expect(getBlogReleaseLabel(getBlogPostById('the-problem-with-superpowers')!)).toBeUndefined();
-    expect(getBlogReleaseLabel(getBlogPostById('do-superpowers-change')!)).toBe(
-      'Thursday, July 2, 2026'
-    );
-    expect(getBlogReleaseLabel(getBlogPostById('the-superpower-epilogue')!)).toBe(
-      'Tuesday, July 7, 2026'
-    );
+    expect(getBlogReleaseLabel(getBlogPostById('do-superpowers-change')!)).toBeUndefined();
+    expect(getBlogReleaseLabel(getBlogPostById('the-superpower-epilogue')!)).toBeUndefined();
   });
 
   it('does not attach a release label to public posts', () => {

@@ -823,9 +823,7 @@ export const blogPosts: BlogPostMetadata[] = [
     readTime: '2 min read',
     blogNumber: 77,
     seoDescription:
-      'Suz reflects on whether superpowers change with age, or whether the same core gifts simply express themselves through different seasons of life.',
-    gated: true,
-    releaseDate: new Date('2026-07-02')
+      'Suz reflects on whether superpowers change with age, or whether the same core gifts simply express themselves through different seasons of life.'
   },
   {
     id: 'the-superpower-epilogue',
@@ -837,9 +835,7 @@ export const blogPosts: BlogPostMetadata[] = [
     readTime: '2 min read',
     blogNumber: 78,
     seoDescription:
-      'Suz closes the superpower series by reframing the search as becoming, self-recognition, and collecting evidence of who she has become.',
-    gated: true,
-    releaseDate: new Date('2026-07-07')
+      'Suz closes the superpower series by reframing the search as becoming, self-recognition, and collecting evidence of who she has become.'
   }
 ];
 
