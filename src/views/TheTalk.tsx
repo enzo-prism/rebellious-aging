@@ -29,7 +29,7 @@ import { siteMetadata } from '@/lib/siteMetadata';
 import { buildArticleJsonLd, buildOrganizationJsonLd } from '@/lib/structuredData';
 
 const pagePath = '/the-talk';
-const youtubeId = '9g79lPoQNkU';
+const youtubeId = 'vGDZRW8FTWw';
 const videoTitle =
   'Rebellious Aging: A Whole Food Plant-Based Lifestyle Before Illness Forces a Choice';
 const watchUrl = `https://www.youtube.com/watch?v=${youtubeId}`;
@@ -59,12 +59,12 @@ const freeDownloads = [
     icon: Sprout,
   },
   {
-    eyebrow: 'Free guide · Center for Nutrition Studies',
+    eyebrow: 'Free PDF · Center for Nutrition Studies',
     title: 'Living a Whole Food, Plant-Based Life',
     description:
-      'A free guide from the T. Colin Campbell Center for Nutrition Studies that covers the same essentials in a slightly different voice. Great as a companion to the Esselstyn booklet.',
-    href: 'https://nutritionstudies.org/whole-food-plant-based-diet-guide/',
-    buttonLabel: 'Open the free guide',
+      'A free downloadable guide from the T. Colin Campbell Center for Nutrition Studies that covers the same essentials in a slightly different voice. Great as a companion to the Esselstyn booklet.',
+    href: 'https://nutritionstudies.s3.us-east-2.amazonaws.com/resources/CNS_Whole_Food_Plant-Based_Guide.pdf',
+    buttonLabel: 'Download the PDF',
     external: true,
     icon: Leaf,
   },
@@ -100,7 +100,7 @@ const books = [
     author: 'T. Colin Campbell, PhD (2013)',
     description:
       'Campbell’s follow-up on why whole foods work the way they do — and why reductionist, one-nutrient-at-a-time thinking falls short.',
-    href: 'https://www.simonandschuster.com/books/Whole/T-Colin-Campbell/9781939529848',
+    href: 'https://nutritionstudies.org/whole/',
   },
   {
     title: 'Prevent and Reverse Heart Disease',
@@ -492,7 +492,7 @@ const TheTalk = () => {
               })}
             </div>
             <p className="mt-5 text-center text-sm text-gray-500">
-              The Esselstyn and Center for Nutrition Studies guides open on their original sites. Rebellious Aging is
+              The Esselstyn and Center for Nutrition Studies PDFs open from their original providers. Rebellious Aging is
               sharing them, not rehosting them.
             </p>
             <div className="mt-8 text-center">

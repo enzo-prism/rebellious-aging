@@ -14,7 +14,7 @@ export const generateMetadata = (): Metadata => {
       description:
         "Watch Suz's talk on whole-food, plant-based living and rebellious aging, then get the free guides, recommended books, and documentaries she shares.",
       ogType: 'article',
-      image: 'https://i.ytimg.com/vi/9g79lPoQNkU/maxresdefault.jpg',
+      image: 'https://i.ytimg.com/vi/vGDZRW8FTWw/maxresdefault.jpg',
     }
   );
 };
