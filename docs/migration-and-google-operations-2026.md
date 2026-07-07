@@ -98,3 +98,9 @@ Vercel Web Analytics is enabled by the Vercel project dashboard plus the `@verce
 - Published Blog #77, `Do Superpowers Change?` (`/blog/do-superpowers-change`), and Blog #78, `The Superpower Epilogue` (`/blog/the-superpower-epilogue`), by removing their password-gated preview state so the full superpower series is live, indexable, and included in the sitemap and search index. No blog post is gated in the current codebase (`grep 'gated: true' src/` returns nothing).
 - Release checks for this run: `npm run lint`, `npm run test:unit`, `npm run build`, production deploy (git push `main` → Vercel auto-deploy), and live `curl` readbacks for the new pages, sitemap, and search index.
 - Note on caching: `sitemap.xml`/`robots.txt` and freshly-changed HTML can sit behind a sticky Vercel edge cache for a few minutes after a deploy even when other paths update immediately; re-check with a cache-buster or `vercel redeploy … --target production` if a page looks stale.
+
+2026-07-07:
+
+- Added Suz's newest Google Docs blog shares as public, indexable posts: Blog #79, `Is Being Ferociously Independent a Good Thing?` (`/blog/is-being-ferociously-independent-a-good-thing`), and Blog #80, `The Gift I Almost Forgot to Accept` (`/blog/the-gift-i-almost-forgot-to-accept`).
+- Updated blog metadata, article bodies, Facebook CTAs, generated sitemap/search/SEO audit assets, and route-matrix coverage for both new posts. No blog post is gated in the current codebase.
+- Release checks for this run: `npm run lint`, `npm run test:unit`, `npm run build`, focused `npm run test:e2e -- tests/e2e/route-matrix.spec.ts tests/e2e/search.spec.ts`, production deploy, and live readbacks for the two new pages, sitemap, and search index.

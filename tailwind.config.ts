@@ -60,9 +60,9 @@ export default {
 					dark: '#004A4D'
 				},
 				coral: {
-					DEFAULT: '#FF715B',
-					light: '#FF9380',
-					dark: '#DD5041'
+					DEFAULT: '#B83F31',
+					light: '#D87567',
+					dark: '#8F3027'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

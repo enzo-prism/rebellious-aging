@@ -25,7 +25,7 @@ This project uses a codified readiness gate before public launch.
 ## Current baseline checks
 - Report file: `public/production-readiness-report.json`
 - Expected status in release conditions: `status: "pass"` with all checks green.
-- Latest content-release baseline: on 2026-07-01, Blogs #77 (`/blog/do-superpowers-change`) and #78 (`/blog/the-superpower-epilogue`) were published (ungated from their password-protected previews) so the full superpower series is live and indexable. Prior baseline: on 2026-06-30, Blog #76 (`/blog/the-problem-with-superpowers`) was added as public content and #77/#78 were added as password-gated previews. Each run was verified with lint, unit tests, full static build, production deployment, and live readbacks.
+- Latest content-release baseline: on 2026-07-07, Blogs #79 (`/blog/is-being-ferociously-independent-a-good-thing`) and #80 (`/blog/the-gift-i-almost-forgot-to-accept`) were added as public, indexable posts from Suz's July 5–6 Google Docs share notifications. Prior baseline: on 2026-07-01, Blogs #77 (`/blog/do-superpowers-change`) and #78 (`/blog/the-superpower-epilogue`) were published (ungated from their password-protected previews) so the full superpower series is live and indexable. Each run was verified with lint, unit tests, full static build, production deployment, and live readbacks.
 
 ## Share-specific verification
 - `tests/unit/components/PageShareButton.test.tsx` validates dialog open/close behavior, clipboard success, and clipboard failure fallback.

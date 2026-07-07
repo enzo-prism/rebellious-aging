@@ -225,10 +225,11 @@ Post-deploy verification snapshot (Feb 26, 2026):
 - `vercel aliases ls --scope enzo-design-prisms-projects` shows rebelwithsuz.com points to ra-nextjs
 ```
 
-Latest content release snapshot (Jul 1, 2026):
+Latest content release snapshot (Jul 7, 2026):
 
 ```text
 - Blogs #75–#78 (the "superpower" series: `How Do You Discover Your Superpower?`, `The Problem With Superpowers`, `Do Superpowers Change?`, `The Superpower Epilogue`) are all public and indexable.
+- Blogs #79–#80 (`Is Being Ferociously Independent a Good Thing?`, `The Gift I Almost Forgot to Accept`) are public and indexable, sourced from Suz's July 5–6, 2026 Google Docs share notifications.
 - No blog post is currently password-gated. The gate infrastructure (`gated`/`releaseDate` fields, `BlogPasswordGate`) remains in the codebase but is inactive because no post sets `gated: true`.
 - Free Booklets & Guides launched: `/guides` hub plus `/guides/:slug` detail pages for the Esselstyn jumpstart booklet, the T. Colin Campbell Center for Nutrition Studies guide, and Suz's one-page starter (see `src/data/guides.ts`).
 - Suz email-derived blog mirrors `The Accidental Blogger` and `The Class You Cannot Take` are present in the repo, sitemap, search index, and production.

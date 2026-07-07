@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-03T21:47:08.957Z",
-  "totalRoutes": 132,
-  "validRoutes": 132,
+  "generatedAt": "2026-07-07T13:14:44.909Z",
+  "totalRoutes": 134,
+  "validRoutes": 134,
   "failedRoutes": 0,
   "records": [
     {
@@ -2520,6 +2520,56 @@
         "title": "The Superpower Epilogue",
         "description": "Suz closes the superpower series by reframing the search as becoming, self-recognition, and collecting evidence of who she has become.",
         "canonical": "/blog/the-superpower-epilogue",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/is-being-ferociously-independent-a-good-thing",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Is Being Ferociously Independent a Good Thing?",
+        "description": "Suz reflects on fierce independence, accepting help, and the wisdom of letting others experience the joy of being useful.",
+        "canonical": "/blog/is-being-ferociously-independent-a-good-thing",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/the-gift-i-almost-forgot-to-accept",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "The Gift I Almost Forgot to Accept",
+        "description": "Suz reflects on help, independence, friendship, and why accepting kindness can give someone else the joy of being useful.",
+        "canonical": "/blog/the-gift-i-almost-forgot-to-accept",
         "ogType": "article",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"

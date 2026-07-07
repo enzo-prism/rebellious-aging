@@ -19,7 +19,7 @@ const ChecklistCTA: React.FC<ChecklistCTAProps> = ({ content }) => {
               Download our practical checklist with daily actions you can take to build your {content.title.toLowerCase()} and transform your experience of aging.
             </p>
             <Button 
-              className="bg-coral hover:bg-coral-dark text-gray-900"
+              className="bg-coral text-white hover:bg-coral-dark"
               onClick={() => window.open(content.checklistUrl, '_blank')}
             >
               Download Free PDF

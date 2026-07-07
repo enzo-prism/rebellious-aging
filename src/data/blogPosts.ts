@@ -836,6 +836,30 @@ export const blogPosts: BlogPostMetadata[] = [
     blogNumber: 78,
     seoDescription:
       'Suz closes the superpower series by reframing the search as becoming, self-recognition, and collecting evidence of who she has become.'
+  },
+  {
+    id: 'is-being-ferociously-independent-a-good-thing',
+    title: 'Is Being Ferociously Independent a Good Thing?',
+    excerpt:
+      'Suz questions whether fierce independence always serves us, and whether accepting help can be wisdom instead of weakness.',
+    date: '7/2026',
+    dateSort: new Date('2026-07-07T01:00:00'),
+    readTime: '3 min read',
+    blogNumber: 79,
+    seoDescription:
+      'Suz reflects on fierce independence, accepting help, and the wisdom of letting others experience the joy of being useful.'
+  },
+  {
+    id: 'the-gift-i-almost-forgot-to-accept',
+    title: 'The Gift I Almost Forgot to Accept',
+    excerpt:
+      'After offering help to a friend, Suz sees independence from the other side and realizes accepting help can be a gift of connection.',
+    date: '7/2026',
+    dateSort: new Date('2026-07-07T02:00:00'),
+    readTime: '3 min read',
+    blogNumber: 80,
+    seoDescription:
+      'Suz reflects on help, independence, friendship, and why accepting kindness can give someone else the joy of being useful.'
   }
 ];
 

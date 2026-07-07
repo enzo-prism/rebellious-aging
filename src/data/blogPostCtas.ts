@@ -461,6 +461,18 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
       'If this series felt like a mirror, join the group and keep collecting evidence of who you are becoming with women doing the same.',
     buttonLabel: 'Join the next chapter',
   },
+  'is-being-ferociously-independent-a-good-thing': {
+    title: 'Talk independence and help',
+    body:
+      'If fierce independence has ever made accepting help feel complicated, join the group and talk with women learning where strength and connection meet.',
+    buttonLabel: 'Join the independence talk',
+  },
+  'the-gift-i-almost-forgot-to-accept': {
+    title: 'Let kindness move both ways',
+    body:
+      'If accepting help now feels more like connection than weakness, join the group and share the small ways kindness becomes a two-way gift.',
+    buttonLabel: 'Join the kindness circle',
+  },
 };
 
 export const getBlogPostCta = (postId: string) => blogPostCtas[postId];

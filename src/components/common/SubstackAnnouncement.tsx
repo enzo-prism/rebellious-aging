@@ -39,7 +39,7 @@ const BannerAnnouncement: React.FC<{ className?: string }> = ({ className }) => 
 
 const FeatureAnnouncement: React.FC<{ className?: string }> = ({ className }) => (
   <div
-    className={`group relative overflow-hidden rounded-[1.75rem] border border-coral/20 bg-gradient-to-br from-coral/10 via-white to-teal/10 p-6 shadow-sm card-lift-coral animate-slide-up-fade sm:p-9 ${
+    className={`group relative overflow-hidden rounded-[1.75rem] border border-coral/20 bg-gradient-to-br from-coral/10 via-white to-teal/10 p-6 shadow-sm card-lift-coral sm:p-9 ${
       className ?? ''
     }`}
   >
@@ -76,13 +76,16 @@ const FeatureAnnouncement: React.FC<{ className?: string }> = ({ className }) =>
       </div>
 
       <div className="flex shrink-0 flex-col items-start gap-2 sm:ml-auto sm:items-end">
-        <Button asChild size="lg" className="bg-coral text-white hover:bg-coral-dark">
-          <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer" className="group/cta">
-            Read on Substack
-            <ArrowUpRight className="ml-2 h-4 w-4 transition-transform duration-300 ease-out motion-safe:group-hover/cta:-translate-y-0.5 motion-safe:group-hover/cta:translate-x-0.5" />
-            <span className="sr-only"> (opens in a new tab)</span>
-          </a>
-        </Button>
+        <a
+          href={SUBSTACK_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group/cta inline-flex min-h-[44px] items-center justify-center gap-2 whitespace-nowrap rounded-md border border-coral bg-white px-8 py-3 text-sm font-medium text-coral shadow-sm ring-offset-background transition-all duration-200 ease-out hover:bg-coral hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 motion-safe:active:scale-[0.97]"
+        >
+          Read on Substack
+          <ArrowUpRight className="ml-2 h-4 w-4 shrink-0 transition-transform duration-300 ease-out motion-safe:group-hover/cta:-translate-y-0.5 motion-safe:group-hover/cta:translate-x-0.5" />
+          <span className="sr-only"> (opens in a new tab)</span>
+        </a>
         <span className="text-xs font-medium tracking-wide text-gray-500">{SUBSTACK_HANDLE}</span>
       </div>
     </div>

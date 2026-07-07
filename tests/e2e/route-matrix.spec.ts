@@ -26,6 +26,8 @@ const dynamicChecks = [
   { path: '/blog/rebellious-guide-what-is-on-your-plate', found: true },
   { path: '/recipes/orange-mango-bean-salad', found: true },
   { path: '/blog/ultra-processed-trap-eat-whole-live-whole', found: true },
+  { path: '/blog/is-being-ferociously-independent-a-good-thing', found: true },
+  { path: '/blog/the-gift-i-almost-forgot-to-accept', found: true },
   { path: '/recipes/kale-and-red-cabbage-salad-with-apples-and-dried-cherries', found: true },
   { path: '/recipes/big-bean-barley-and-sweet-potato-soup', found: true },
   { path: '/guides/esselstyn-plant-based-jumpstart', found: true },
