@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-07T13:14:44.909Z",
-  "totalRoutes": 134,
-  "validRoutes": 134,
+  "generatedAt": "2026-07-08T01:23:59.126Z",
+  "totalRoutes": 135,
+  "validRoutes": 135,
   "failedRoutes": 0,
   "records": [
     {
@@ -2570,6 +2570,31 @@
         "title": "The Gift I Almost Forgot to Accept",
         "description": "Suz reflects on help, independence, friendship, and why accepting kindness can give someone else the joy of being useful.",
         "canonical": "/blog/the-gift-i-almost-forgot-to-accept",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/the-day-my-ankles-stole-the-show",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "The Day My Ankles Stole the Show",
+        "description": "Suz shares a funny Father’s Day style story about confidence, self-tanner, being noticed in unexpected ways, and choosing to be fully yourself at any age.",
+        "canonical": "/blog/the-day-my-ankles-stole-the-show",
         "ogType": "article",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"

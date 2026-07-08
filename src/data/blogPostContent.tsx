@@ -5214,4 +5214,43 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       </>
     ),
   },
+
+
+  'the-day-my-ankles-stole-the-show': {
+    heading: <h1 className="text-4xl font-bold mb-4">The Day My Ankles Stole the Show</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>I recently attended a family Father’s Day gathering wearing a gorgeous new satin skirt in the most beautiful shade of rose. The skirt was new. The color was stunning. I felt good, confident, and perhaps a little bit elegant. And for sure, in my opinion, said skirt deserved attention.</p>
+          <p><strong>Side note:</strong> As I have gotten older, my skin seems to have morphed into a pasty white color much different than the light golden brown that had served me well most of my life. So what’s a girl to do? Pasty white just seems dreary, pale, and lifeless, so I have been known, for special occasions, to commit a small act of vanity and apply a self-tanning lotion.</p>
+          <p>It is not easy to determine the result. Side note to side note: I have been known to have heavy-handed results. But I felt that the result of this particular application was acceptable, maybe even quite good. Just enough to give my legs a nice color. I felt great.</p>
+          <p>This is also important to note: my skirt was calf length. There was not more than six inches of ankle visible between the skirt and my very soft and pretty straw, slingback kitten heels. Back to the story.</p>
+          <p>When I arrived, the first and only thing my daughter commented on was my tanned legs. Note to self, interesting. Toward the end of the event, my daughter-in-law also only commented on my tanned legs. Doubly interesting.</p>
+          <p>Meanwhile, my gorgeous new skirt stood quietly, wondering why nobody was talking about it.</p>
+          <p>I admit I found this both amusing and concerning.</p>
+          <p>Let’s talk about “amusing” first. I chose my outfit carefully, I mused. But the ankles stole the show. I knew I was not trying to look younger. For sure, at 84, I have no interest in pretending I am 24. Those days are clearly gone and I do not want them back. What I wanted was to look less ghost-like and a bit more vibrant and alive. Ya know, a little color. A little contrast. A little something to keep my legs from looking like they had been stored in a drawer all winter. So was that vanity? A little, I suppose.</p>
+          <p>I think most women understand that caring about how you look at any age and trying to look younger are not the same thing. I think it is simply about feeling put together, feeling polished, feeling good and confident, and feeling like you are presenting your best self.</p>
+          <p>Anyway, being an admitted “overthinker,” the event got me thinking about how often people notice things we never expect them to notice. We worry about one thing, they NOTICE another. We spend time perfecting the presentation. They focus on a tiny, or not so tiny, detail. In this case, six inches of ankle managed to outshine, in my humble opinion, a fabulous satin, shiny, flowy, rose-colored skirt. Secretly I wondered, did the skirt SCREAM, AMAZON?</p>
+          <p>Life is funny. And perhaps there is a lesson or two hidden in all of this. We must admit, hard as we try not to, we spend a lot of energy worrying about what other people think. Yet most of the time, they are not seeing what we think they are seeing at all. They are busy noticing something entirely different, or nothing at all. So the moral of this story is hold your head high and “you do YOU.”</p>
+          <p>Let’s unpack why I thought the tanned ankle sighting was concerning to me.</p>
+          <p>Had I accidentally overdone the tanning lotion?</p>
+          <p>Was I now entering some sort of intervention territory?</p>
+          <p>Should I be concerned, I mused?</p>
+          <p>When I asked, ya know, I needed to know or this would haunt me at least through the night.</p>
+          <p>My fabulous daughter responded and assured me that nobody was judging me and that my legs looked fine. Wait for it, there was a but: “I don’t think you should add more,” she offered. Apparently, OBVIOUSLY, they were just noticeable.</p>
+          <p>NOTICEABLE. Really. More noticeable than my fab skirt, I quietly thought?</p>
+          <p>On the other hand, my fabulous daughter-in-law responded that I looked like I had just returned from Hawaii and she knew I had not. Honesty is the best policy, I thought.</p>
+          <p>The whole thing strikes me as hilarious and curious at the same time. It was but a fleeting second in our wonderful family afternoon together, but what also struck me was that everyone showed up, the setting was gorgeous, the food deelish, and when I stopped and just listened for a moment, what I heard was everyone talking and laughing and celebrating and enjoying this special day and honoring the amazing fathers in our tribe.</p>
+          <p>The yo-yos were a hit. Just saying!</p>
+          <p>I am blessed a billion times over.</p>
+          <p>For the record, I remain firmly on Team Skirt.</p>
+          <p>The ankles may have stolen the show.</p>
+          <p>But in my mind, the skirt deserved better.</p>
+          <p><strong>💚 Suz, The Accidental Blogger</strong></p>
+        </div>
+      </>
+    ),
+  },
 };

@@ -860,6 +860,19 @@ export const blogPosts: BlogPostMetadata[] = [
     blogNumber: 80,
     seoDescription:
       'Suz reflects on help, independence, friendship, and why accepting kindness can give someone else the joy of being useful.'
+
+  },
+  {
+    id: 'the-day-my-ankles-stole-the-show',
+    title: 'The Day My Ankles Stole the Show',
+    excerpt:
+      'Suz arrives at a Father’s Day gathering expecting her rose satin skirt to shine, only to find six inches of self-tanned ankle stealing the spotlight.',
+    date: '7/16/2026',
+    dateSort: new Date('2026-07-16'),
+    readTime: '4 min read',
+    blogNumber: 81,
+    seoDescription:
+      'Suz shares a funny Father’s Day style story about confidence, self-tanner, being noticed in unexpected ways, and choosing to be fully yourself at any age.'
   }
 ];
 
