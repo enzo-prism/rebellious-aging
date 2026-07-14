@@ -867,12 +867,48 @@ export const blogPosts: BlogPostMetadata[] = [
     title: 'The Day My Ankles Stole the Show',
     excerpt:
       'Suz arrives at a Father’s Day gathering expecting her rose satin skirt to shine, only to find six inches of self-tanned ankle stealing the spotlight.',
-    date: '7/16/2026',
-    dateSort: new Date('2026-07-16'),
+    date: '7/7/2026',
+    dateSort: new Date('2026-07-07T03:00:00'),
     readTime: '4 min read',
     blogNumber: 81,
     seoDescription:
       'Suz shares a funny Father’s Day style story about confidence, self-tanner, being noticed in unexpected ways, and choosing to be fully yourself at any age.'
+  },
+  {
+    id: 'curiosity-is-the-courage-to-let-your-life-surprise-you',
+    title: 'Curiosity is the Courage to Let Your Life Surprise You',
+    excerpt:
+      'Suz discovers that curiosity comes before confidence and invites us to trade certainty for the courage to explore what might happen next.',
+    date: '7/14/2026',
+    dateSort: new Date('2026-07-14T01:00:00'),
+    readTime: '2 min read',
+    blogNumber: 82,
+    seoDescription:
+      'Suz reflects on curiosity, courage, confidence, and why giving life permission to surprise us can open the door to meaningful change.'
+  },
+  {
+    id: 'the-power-of-the-pivot',
+    title: 'The Power of the Pivot',
+    excerpt:
+      'Curiosity opens the door, but a pivot takes us through it. Suz reframes changing direction as wisdom, attention, and growth rather than failure.',
+    date: '7/14/2026',
+    dateSort: new Date('2026-07-14T02:00:00'),
+    readTime: '3 min read',
+    blogNumber: 83,
+    seoDescription:
+      'Suz explores the power of pivoting, paying attention, and changing direction when new possibilities fit better than the original plan.'
+  },
+  {
+    id: 'looking-back',
+    title: 'Looking Back',
+    excerpt:
+      'Looking back, Suz sees that life’s detours, decisions, and unexpected turns were not wasted—they were quietly shaping who she was becoming.',
+    date: '7/14/2026',
+    dateSort: new Date('2026-07-14T03:00:00'),
+    readTime: '3 min read',
+    blogNumber: 84,
+    seoDescription:
+      'Suz reflects on life in reverse and how curiosity, pivots, detours, and unexpected turns reveal the story of who we are becoming.'
   }
 ];
 

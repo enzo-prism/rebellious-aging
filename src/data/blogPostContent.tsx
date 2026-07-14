@@ -5253,4 +5253,81 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       </>
     ),
   },
+
+  'curiosity-is-the-courage-to-let-your-life-surprise-you': {
+    heading: <h1 className="text-4xl font-bold mb-4">Curiosity is the Courage to Let Your Life Surprise You</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>Lately I’ve been thinking about curiosity. Not the kind that wins trivia contests. Nope. The kind that changes lives. For most of my life I believed confidence came first. Then I started trying a bunch of new things. Now I think I had it backwards.</p>
+          <p>I discovered that curiosity comes first and confidence follows.</p>
+          <p>Curiosity asks, “I wonder what would happen if...?”</p>
+          <p>Confidence says, “I can do this again.”</p>
+          <p>Every meaningful thing I have done over the last several years started with curiosity. I wondered what would happen if I gave up animal products. I wondered what would happen if I went back to school at 77. I wondered if I could become a life coach or build a website. I wondered, if I wrote the blogs, who would read them? The list goes on. Here is the thing. None of these questions, if answered, came with guarantees. Nope. Only possibilities.</p>
+          <p>Curiosity has a beautiful quality. It does not demand certainty. It simply invites exploration. Children understand this naturally. They touch. They ask. They experiment. They fail. And then they laugh it all off and try again.</p>
+          <p>I think somewhere along the way many of us stopped asking. We traded curiosity for certainty. We wanted guarantees before taking the first step. I have learned something different. Life rarely rewards certainty. It rewards curiosity.</p>
+          <p>Curiosity has introduced me to new friends, new ideas, new possibilities, new passions, and even revealed a bit of a new version of me. None of which I could have planned.</p>
+          <p>The older I get, the more convinced I become that curiosity isn’t childish at all. In fact, it is courageous. Because every curious question carries risk. Right?</p>
+          <p>What if I fail?</p>
+          <p>What if people laugh?</p>
+          <p>What if it doesn’t work?</p>
+          <p>But here’s the thing. What if it does?</p>
+          <p>Perhaps curiosity is not about finding answers. Perhaps it is about giving life permission to surprise us?</p>
+          <p>And, I have to say, some of life’s greatest surprises have become my favorite chapters.</p>
+          <p><strong>💚 Suz, The Accidental Blogger</strong></p>
+        </div>
+      </>
+    ),
+  },
+
+  'the-power-of-the-pivot': {
+    heading: <h1 className="text-4xl font-bold mb-4">The Power of the Pivot</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>Curiosity opens the door. The pivot is having the courage to walk through it.</p>
+          <p>I have noticed something interesting. Almost none of the best things in my life happened according to plan. They happened because I changed direction. Not because the first idea failed. Nope. Because the next idea fit better.</p>
+          <p>When I started blogging, my passion was to share a whole-food, plant-based lifestyle. (Eating only plants has changed my life dramatically, and I am passionate about sharing and pointing interested people to great resources to learn more, such as on my website, rebelwithsuz.com.)</p>
+          <p>Here is the thing. I soon realized I was really writing about life. I was loving that and became furiously committed to life’s reveals. So here we are and here it is:</p>
+          <p className="text-center font-bold">THE PIVOT!</p>
+          <p>My pivot examples:</p>
+          <p>When I started making videos, I thought I needed to teach. Instead, people connected with ordinary stories and little observations. PIVOT!</p>
+          <p>Leading the monthly “Getting Your Project Started” at the Center for Nutrition Studies started as a place to help people start projects. Recently, it has become a place to help people believe they were capable of starting. PIVOT!</p>
+          <p>Even “NUDGE” was not planned. I imagined it representative of an idea waiting to grow. Instead, it appears to be one black fuzzy ball wearing a gold crown and is becoming a symbol of courage, possibility, and hope. PIVOT!</p>
+          <p>Many years ago, I might have called changing direction inconsistency. Now I call it paying attention. For sure, it is not even close to quitting or failure. It isn’t even admitting the first idea was wrong. A pivot is simply saying, “Now that I know more, I am willing to shift my direction.” That is wisdom.</p>
+          <p>I am beginning to realize that life does not unfold in straight lines. It unfolds in gentle turns. Each pivot teaches us something. Each course correction reveals something we couldn’t have seen from where we started.</p>
+          <p>Looking back, nearly everything I treasure today exists because I was willing to change direction. Not always dramatically, just enough. As needed.</p>
+          <p>Sometimes the smallest turn leads to an entirely different destination. Maybe that is why I am so grateful for curiosity. Curiosity helps us notice and grow.</p>
+          <p>Looking back, I don’t think life has been asking me to stick to the plan. I think it has been asking me to keep observing, listening, processing, and pivoting when appropriate.</p>
+          <p><strong>💚 The Accidental Blogger</strong></p>
+        </div>
+      </>
+    ),
+  },
+
+  'looking-back': {
+    heading: <h1 className="text-4xl font-bold mb-4">Looking Back</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>Have you ever noticed that life only makes sense in reverse? While we are living it, everything feels random. Right? One decision here. A chance meeting there. A book someone recommended. A conversation you almost didn’t have. A class you almost didn’t take. A path you never intended to walk. At the time, none of it seems connected. It’s only later, when we look over our shoulder, that the dots begin to join.</p>
+          <p>I certainly couldn’t see it while I was living it. I didn’t know becoming vegetarian 20+ years ago would eventually lead me to whole-food, plant-based nutrition. I didn’t know that decision would send me back to school. Or that school would lead me to coaching. Or that writing would accidentally turn me into... well... The Accidental Blogger. On and on it went over the last 7 years. (Truth be known, over the last 84, but who’s counting?)</p>
+          <p>None of those steps were part of some brilliant master plan. Each one simply became the doorway to the next. Looking back, I can see that curiosity opened many of those doors. A willingness to pivot carried me through them. At the time, though, I thought I was simply following whatever happened to be interesting. Now I see something different.</p>
+          <p>I wasn’t wandering. I was becoming.</p>
+          <p>I think this is true of many of us. We spend so much time worrying that we’re off track when, in reality, we’re simply too close to the picture to see it. It’s a bit like standing with your nose against a giant mural. All you can see is one tiny brushstroke. Step back a few feet and suddenly the whole image begins to appear.</p>
+          <p>Perhaps that is one of the hidden gifts of growing older. We finally have enough distance to appreciate the masterpiece life has quietly been painting all along. Here is the thing. The beauty isn’t that everything happened exactly as planned. The beauty is that it didn’t.</p>
+          <p>Nope. Every unexpected turn introduced me to another version of myself. A version I had not met, yet. These days I don’t spend nearly as much time asking, “Where is this leading?” Instead, I find myself asking, “I wonder what this is preparing me for?”</p>
+          <p>Looking back has taught me something I wish my younger self had known. Very little of life is wasted. All of it, the mistakes, the detours, the pauses, the pivots, the unexpected joys. Well, they all become part of the story. Not because we understood their purpose at the time. But because, eventually, we understand what they were building.</p>
+          <p>So maybe that’s why I enjoy looking back now. Not to relive the past. But to appreciate how faithfully it carried me here.</p>
+          <p><strong>💚 The Accidental Blogger</strong></p>
+        </div>
+      </>
+    ),
+  },
 };
