@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
@@ -31,37 +31,8 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
 
   const typeformId = pillarId ? typeformEmbeds[pillarId] : undefined;
 
-  const sectionRef = useRef<HTMLDivElement | null>(null);
   const [isQuizVisible, setIsQuizVisible] = useState(false);
   const [embedState, setEmbedState] = useState<'idle' | 'loading' | 'ready' | 'failed'>('idle');
-
-  useEffect(() => {
-    if (!isQuizVisible) {
-      setEmbedState('idle');
-      return;
-    }
-    if (!typeformId) {
-      setEmbedState('ready');
-      return;
-    }
-
-    const target = sectionRef.current;
-    if (!target) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsQuizVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.25 }
-    );
-
-    observer.observe(target);
-
-    return () => observer.disconnect();
-  }, [isQuizVisible, typeformId]);
 
   useEffect(() => {
     if (!isQuizVisible || !typeformId) {
@@ -71,8 +42,18 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
     setEmbedState('loading');
 
     const scriptSrc = "https://embed.typeform.com/next/embed.js";
+    const loadTimeout = window.setTimeout(() => {
+      setEmbedState('failed');
+    }, 6000);
+
+    const markFailed = () => {
+      window.clearTimeout(loadTimeout);
+      setEmbedState('failed');
+    };
+
     const ensureTypeformLoaded = () => {
       if (window.tf && typeof window.tf.load === 'function') {
+        window.clearTimeout(loadTimeout);
         window.tf.load();
         setEmbedState('ready');
         return true;
@@ -83,21 +64,29 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
     const existingScript = document.querySelector<HTMLScriptElement>(`script[src="${scriptSrc}"]`);
 
     if (existingScript) {
+      if (existingScript.dataset.loadState === 'failed') {
+        markFailed();
+        return () => window.clearTimeout(loadTimeout);
+      }
+
       if (ensureTypeformLoaded()) {
-        return;
+        return () => window.clearTimeout(loadTimeout);
       }
 
       const handleExistingLoad = () => {
+        existingScript.dataset.loadState = 'ready';
         ensureTypeformLoaded();
       };
       const handleExistingError = () => {
-        setEmbedState('failed');
+        existingScript.dataset.loadState = 'failed';
+        markFailed();
       };
 
       existingScript.addEventListener('load', handleExistingLoad, { once: true });
       existingScript.addEventListener('error', handleExistingError, { once: true });
 
       return () => {
+        window.clearTimeout(loadTimeout);
         existingScript.removeEventListener('load', handleExistingLoad);
         existingScript.removeEventListener('error', handleExistingError);
       };
@@ -108,10 +97,12 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
     script.async = true;
 
     const handleNewLoad = () => {
+      script.dataset.loadState = 'ready';
       ensureTypeformLoaded();
     };
     const handleNewError = () => {
-      setEmbedState('failed');
+      script.dataset.loadState = 'failed';
+      markFailed();
     };
 
     script.addEventListener('load', handleNewLoad, { once: true });
@@ -119,8 +110,12 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
     document.body.appendChild(script);
 
     return () => {
+      window.clearTimeout(loadTimeout);
       script.removeEventListener('load', handleNewLoad);
       script.removeEventListener('error', handleNewError);
+      if (!script.dataset.loadState) {
+        script.remove();
+      }
     };
   }, [typeformId, isQuizVisible]);
 
@@ -231,7 +226,7 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
   };
 
   return (
-    <section className="py-16 bg-gray-50" ref={sectionRef}>
+    <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold mb-6">{content.quizTitle}</h2>
