@@ -32,7 +32,12 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
   const typeformId = pillarId ? typeformEmbeds[pillarId] : undefined;
 
   const [isQuizVisible, setIsQuizVisible] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
   const [embedState, setEmbedState] = useState<'idle' | 'loading' | 'ready' | 'failed'>('idle');
+
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
 
   useEffect(() => {
     if (!isQuizVisible || !typeformId) {
@@ -353,6 +358,7 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
                   </p>
                   <Button
                     onClick={() => setIsQuizVisible(true)}
+                    disabled={!isHydrated}
                     className="bg-teal text-white hover:bg-teal/90"
                   >
                     Load Quiz

@@ -52,6 +52,7 @@ const getCloudinaryHeroUrl = (src: string, width: number) =>
 const Home = () => {
   const [requestedImages, setRequestedImages] = useState<Set<number>>(new Set([0]));
   const [api, setApi] = useState<CarouselApi>();
+  const [isHydrated, setIsHydrated] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
   const [activeSearchType, setActiveSearchType] = useState<SearchType | 'all'>('all');
@@ -62,6 +63,9 @@ const Home = () => {
   // Prevent auto-scrolling during initial load
   // Removed scroll lock to fix intermittent scrolling issues
 
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
 
   // Track carousel current slide
   useEffect(() => {
@@ -344,6 +348,7 @@ const Home = () => {
                       key={index}
                       aria-label={`Show hero image ${index + 1} of ${heroImages.length}`}
                       aria-current={index === currentSlide ? 'true' : undefined}
+                      disabled={!isHydrated}
                       className="group flex h-7 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800"
                       onClick={() => api?.scrollTo(index)}
                     >
