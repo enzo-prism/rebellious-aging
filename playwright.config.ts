@@ -6,7 +6,9 @@ export default defineConfig({
   testDir: './tests/e2e',
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,
-  workers: 2,
+  // Web-vital smoke tests need an uncontended browser on shared CI runners.
+  // Local development keeps two workers for faster feedback.
+  workers: process.env.CI ? 1 : 2,
   timeout: 60_000,
   expect: {
     timeout: 10_000,
