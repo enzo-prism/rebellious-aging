@@ -1,9 +1,11 @@
-import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { relative, resolve } from 'node:path';
 import { getPublicBlogPosts } from '../src/data/blogPosts';
+import { getGuidePath, guides } from '../src/data/guides';
 import { recipes, slugifyRecipeTitle } from '../src/data/recipes';
 import { pillarContent } from '../src/data/pillarContent';
 import { seoRoutes } from '../src/data/seoRoutes';
+import { getSpeakingEventPath, speakingEvents } from '../src/data/speakingEvents';
 import { buildMetaDescription, buildSeoTitle } from '../src/lib/seo';
 import { siteMetadata } from '../src/lib/siteMetadata';
 
@@ -36,7 +38,6 @@ const stripBaseFromUrl = (value: string) => {
   }
 };
 
-const checks: ReadinessCheck[] = [];
 const checkResults: Array<{ name: string; ok: boolean; details: string }> = [];
 const sourceRoots = [
   resolve(rootDir, 'app'),
@@ -71,11 +72,9 @@ const walkTextFiles = (directory: string, collected: string[] = []): string[] =>
 const runCheck = (name: string, check: () => ReadinessCheck) => {
   try {
     const result = check();
-    checks.push(result);
     checkResults.push({ name, ok: result.ok, details: result.details });
   } catch (error) {
     const details = error instanceof Error ? error.message : String(error);
-    checks.push({ ok: false, details });
     checkResults.push({ name, ok: false, details });
   }
 };
@@ -209,8 +208,12 @@ const buildExpectedPaths = () => {
   const blogPaths = getPublicBlogPosts().map((post) => `/blog/${post.id}`);
   const recipePaths = recipes.map((recipe) => `/recipes/${slugifyRecipeTitle(recipe.title)}`);
   const pillarPaths = Object.keys(pillarContent).map((id) => `/pillars/${id}`);
+  const guidePaths = guides.map((guide) => getGuidePath(guide.slug));
+  const speakingEventPaths = speakingEvents.map((event) => getSpeakingEventPath(event.slug));
 
-  return Array.from(new Set([...staticPaths, ...blogPaths, ...recipePaths, ...pillarPaths]));
+  return Array.from(
+    new Set([...staticPaths, ...blogPaths, ...recipePaths, ...pillarPaths, ...guidePaths, ...speakingEventPaths])
+  );
 };
 
 const checkSitemapCoverage = () => {
@@ -289,7 +292,11 @@ const checkSeoAudit = () => {
     return { ok: false, details: `Missing SEO audit at ${publicSeoAuditPath}` };
   }
 
-  const raw = parseJson<{ failedRoutes?: number; totalRoutes?: number }>(publicSeoAuditPath);
+  const raw = parseJson<{
+    failedRoutes?: number;
+    totalRoutes?: number;
+    records?: Array<{ path?: string }>;
+  }>(publicSeoAuditPath);
   if (typeof raw.failedRoutes !== 'number' || raw.failedRoutes > 0) {
     return {
       ok: false,
@@ -300,7 +307,27 @@ const checkSeoAudit = () => {
     return { ok: false, details: 'SEO audit payload is malformed.' };
   }
 
-  return { ok: true, details: `${raw.totalRoutes} routes verified with complete metadata.` };
+  if (!Array.isArray(raw.records)) {
+    return { ok: false, details: 'SEO audit payload is missing route records.' };
+  }
+
+  const auditedPaths = new Set(raw.records.map((record) => record.path).filter(Boolean));
+  const expectedPaths = buildExpectedPaths().filter((path) => path !== '/404');
+  const missing = expectedPaths.filter((path) => !auditedPaths.has(path));
+
+  if (missing.length > 0) {
+    return {
+      ok: false,
+      details: `SEO audit is missing ${missing.length} expected routes: ${missing.slice(0, 8).join(', ')}${
+        missing.length > 8 ? ', ...' : ''
+      }`,
+    };
+  }
+
+  return {
+    ok: true,
+    details: `${raw.totalRoutes} routes verified with complete metadata and all ${expectedPaths.length} expected routes covered.`,
+  };
 };
 
 const report: ReadinessReport = {

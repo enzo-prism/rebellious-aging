@@ -473,6 +473,30 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
       'If accepting help now feels more like connection than weakness, join the group and share the small ways kindness becomes a two-way gift.',
     buttonLabel: 'Join the kindness circle',
   },
+  'the-day-my-ankles-stole-the-show': {
+    title: 'Laugh about the style surprises',
+    body:
+      'If a tiny fashion mishap has ever stolen the spotlight, join the group and share the funny moments that make confidence more human.',
+    buttonLabel: 'Join the style stories',
+  },
+  'curiosity-is-the-courage-to-let-your-life-surprise-you': {
+    title: 'Stay curious together',
+    body:
+      'If curiosity feels like the first brave step, join the group and explore what can happen when women give life permission to surprise them.',
+    buttonLabel: 'Join the curiosity circle',
+  },
+  'the-power-of-the-pivot': {
+    title: 'Make room for the pivot',
+    body:
+      'If changing direction now feels more like wisdom than failure, join the group and talk with women learning to follow what fits next.',
+    buttonLabel: 'Join the pivot conversation',
+  },
+  'looking-back': {
+    title: 'Look back, then keep becoming',
+    body:
+      'If your own detours make more sense in reverse, join the group and share the turns that quietly shaped who you are becoming.',
+    buttonLabel: 'Join the reflection circle',
+  },
 };
 
 export const getBlogPostCta = (postId: string) => blogPostCtas[postId];

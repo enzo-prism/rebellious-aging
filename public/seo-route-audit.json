@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-08T01:23:59.126Z",
-  "totalRoutes": 135,
-  "validRoutes": 135,
+  "generatedAt": "2026-07-27T00:33:10.715Z",
+  "totalRoutes": 141,
+  "validRoutes": 141,
   "failedRoutes": 0,
   "records": [
     {
@@ -2601,6 +2601,81 @@
       }
     },
     {
+      "path": "/blog/curiosity-is-the-courage-to-let-your-life-surprise-you",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Curiosity is the Courage to Let Your Life Surprise You",
+        "description": "Suz reflects on curiosity, courage, confidence, and why giving life permission to surprise us can open the door to meaningful change.",
+        "canonical": "/blog/curiosity-is-the-courage-to-let-your-life-surprise-you",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/the-power-of-the-pivot",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "The Power of the Pivot",
+        "description": "Suz explores the power of pivoting, paying attention, and changing direction when new possibilities fit better than the original plan.",
+        "canonical": "/blog/the-power-of-the-pivot",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/looking-back",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Looking Back",
+        "description": "Suz reflects on life in reverse and how curiosity, pivots, detours, and unexpected turns reveal the story of who we are becoming.",
+        "canonical": "/blog/looking-back",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
       "path": "/recipes/orange-mango-bean-salad",
       "source": "recipe",
       "hasMeta": true,
@@ -3287,6 +3362,75 @@
         "description": "A fresh, crunchy salad with crisp vegetables and a flavorful sesame ginger dressing that brings Asian-inspired flavors to your table.",
         "canonical": "/recipes/asian-chopped-salad-with-sesame-ginger-dressing",
         "ogType": "website",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/guides/esselstyn-plant-based-jumpstart",
+      "source": "guide",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Free Esselstyn Plant-Based Jumpstart Booklet",
+        "description": "Download the free Esselstyn Family Foundation Plant-Based Jumpstart Guide — the gentle \"begin where you are\" booklet Suz shares with everyone starting…",
+        "canonical": "/guides/esselstyn-plant-based-jumpstart",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/guides/campbell-whole-food-plant-based-guide",
+      "source": "guide",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Free Campbell Whole Food, Plant-Based Guide",
+        "description": "Download the free \"Living a Whole Food, Plant-Based Life\" guide from the T. Colin Campbell Center for Nutrition Studies — a clear, friendly companion to…",
+        "canonical": "/guides/campbell-whole-food-plant-based-guide",
+        "ogType": "article",
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/guides/suz-plant-based-starter",
+      "source": "guide",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Suz's Plant-Based Starter (Free PDF)",
+        "description": "Suz's one-page plant-based starter: the books, documentaries, and free guides she recommends, plus her plant-strong poem — made to print and stick on…",
+        "canonical": "/guides/suz-plant-based-starter",
+        "ogType": "article",
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
       }
     },

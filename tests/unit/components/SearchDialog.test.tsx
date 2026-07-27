@@ -1,7 +1,7 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { SearchDialog } from '@/components/search/SearchDialog';
 
@@ -42,15 +42,32 @@ vi.mock('@/hooks/useSearch', () => ({
 }));
 
 describe('SearchDialog', () => {
+  beforeEach(() => {
+    mockUseSearch.ensureIndex.mockClear();
+  });
+
+  it('does not load the index while the global dialog stays closed', () => {
+    render(<SearchDialog open={false} onOpenChange={vi.fn()} />);
+
+    expect(mockUseSearch.ensureIndex).not.toHaveBeenCalled();
+  });
+
   it('shows results and supports filtering by recipe', async () => {
     const user = userEvent.setup();
     render(<SearchDialog open onOpenChange={vi.fn()} />);
+
+    await waitFor(() => {
+      expect(mockUseSearch.ensureIndex).toHaveBeenCalledTimes(1);
+    });
 
     const input = screen.getByPlaceholderText('Search recipes, blog posts, speaking events, nutrition...');
     await user.type(input, 'banana');
 
     expect(screen.getByText('Banana Oat Muffins')).toBeInTheDocument();
     expect(screen.queryByText('Rebellious Aging Basics')).not.toBeInTheDocument();
+    expect(screen.getByText('A soft and sweet breakfast favorite.')).toHaveClass(
+      'group-data-[selected=true]:text-accent-foreground'
+    );
 
     await user.click(screen.getByRole('button', { name: 'Recipes' }));
     await user.click(screen.getByText('Banana Oat Muffins'));

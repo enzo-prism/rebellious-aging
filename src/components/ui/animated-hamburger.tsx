@@ -1,28 +1,27 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 
-interface AnimatedHamburgerProps {
+interface AnimatedHamburgerProps
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'onClick'> {
   isOpen: boolean;
-  onClick: () => void;
-  className?: string;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export const AnimatedHamburger: React.FC<AnimatedHamburgerProps> = ({
-  isOpen,
-  onClick,
-  className
-}) => {
-  return (
+export const AnimatedHamburger = React.forwardRef<HTMLButtonElement, AnimatedHamburgerProps>(
+  ({ isOpen, onClick, className, ...buttonProps }, ref) => (
     <button
+      ref={ref}
+      type="button"
       onClick={onClick}
       className={cn(
-        "lg:hidden relative w-8 h-8 flex flex-col justify-center items-center",
+        "lg:hidden relative w-11 h-11 flex flex-col justify-center items-center",
         "focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-md",
         "transition-all duration-200 hover:bg-accent/10",
         className
       )}
       aria-label={isOpen ? 'Close menu' : 'Open menu'}
       aria-expanded={isOpen}
+      {...buttonProps}
     >
       <span
         className={cn(
@@ -43,5 +42,7 @@ export const AnimatedHamburger: React.FC<AnimatedHamburgerProps> = ({
         )}
       />
     </button>
-  );
-};
+  )
+);
+
+AnimatedHamburger.displayName = 'AnimatedHamburger';

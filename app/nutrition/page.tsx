@@ -1,13 +1,9 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
-import dynamic from 'next/dynamic';
 
 import { buildMetadata } from '@/lib/nextMetadata';
 import { getRouteMetaByPath } from '@/lib/routeMetadata';
-
-const NutritionClientPage = dynamic(() => import('@/views/Nutrition'), {
-  ssr: false,
-});
+import Nutrition from '@/views/Nutrition';
 
 const routeMeta = getRouteMetaByPath('/nutrition');
 
@@ -31,7 +27,7 @@ export default function NutritionPage() {
         </div>
       }
     >
-      <NutritionClientPage />
+      <Nutrition />
     </Suspense>
   );
 }

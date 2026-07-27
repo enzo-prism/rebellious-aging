@@ -14,7 +14,6 @@ import PageShareButton from '@/components/share/PageShareButton';
 import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 import { recipes, slugifyRecipeTitle, type Recipe } from '@/data/recipes';
-import { siteMetadata } from '@/lib/siteMetadata';
 
 const recipeTags = [
   'Breakfast',
@@ -267,9 +266,15 @@ const Recipes = () => {
               {activeTags.length > 0 && (
                 <div className="flex flex-wrap gap-2">
                   {activeTags.map((tag) => (
-                    <Badge key={tag} variant="secondary" className="cursor-pointer" onClick={() => setActiveTags(activeTags.filter((item) => item !== tag))}>
+                    <button
+                      key={tag}
+                      type="button"
+                      aria-label={`Remove ${tag} filter`}
+                      className="inline-flex items-center rounded-full border border-transparent bg-secondary px-2.5 py-0.5 text-xs font-semibold text-secondary-foreground transition-colors hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                      onClick={() => setActiveTags(activeTags.filter((item) => item !== tag))}
+                    >
                       {tag}
-                    </Badge>
+                    </button>
                   ))}
                 </div>
               )}
@@ -278,9 +283,11 @@ const Recipes = () => {
               {recipeTags.map((tag) => {
                 const isActive = activeTags.includes(tag);
                 return (
-                  <Badge
+                  <button
                     key={tag}
-                    className={`cursor-pointer px-3 py-1.5 ${isActive ? 'bg-teal text-white hover:bg-teal-dark' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+                    type="button"
+                    aria-pressed={isActive}
+                    className={`inline-flex items-center rounded-full border border-transparent px-3 py-1.5 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${isActive ? 'bg-teal text-white hover:bg-teal-dark' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
                     onClick={() =>
                       setActiveTags((current) =>
                         current.includes(tag) ? current.filter((item) => item !== tag) : [...current, tag]
@@ -288,7 +295,7 @@ const Recipes = () => {
                     }
                   >
                     {tag}
-                  </Badge>
+                  </button>
                 );
               })}
             </div>
@@ -308,19 +315,33 @@ const Recipes = () => {
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {filteredRecipes.map((recipe) => {
                 const slug = slugifyRecipeTitle(recipe.title);
-                const image = recipe.image ?? siteMetadata.defaultSocialImage;
-                const alt = recipe.imageAlt ?? recipe.title;
 
                 return (
                     <Link key={recipe.id} href={`/recipes/${slug}`} className="group">
                     <Card className="h-full overflow-hidden border-gray-200 hover:border-teal transition">
                       <div className="relative">
-                        <img
-                          src={image}
-                          alt={alt}
-                          className="h-48 w-full object-cover"
-                          loading="lazy"
-                        />
+                        {recipe.image ? (
+                          <img
+                            src={recipe.image}
+                            alt={recipe.imageAlt ?? recipe.title}
+                            className="h-48 w-full object-cover"
+                            loading="lazy"
+                          />
+                        ) : (
+                          <div
+                            role="img"
+                            aria-label={`No recipe photo available for ${recipe.title}`}
+                            data-recipe-image-placeholder
+                            className="flex h-48 w-full items-center justify-center bg-gradient-to-br from-teal/10 via-white to-coral/10 px-6 text-center"
+                          >
+                            <div className="space-y-2 text-teal">
+                              <ChefHat className="mx-auto h-9 w-9" aria-hidden="true" />
+                              <p className="text-xs font-semibold uppercase tracking-[0.24em]">
+                                Plant-powered recipe
+                              </p>
+                            </div>
+                          </div>
+                        )}
                         <div className="absolute top-3 left-3">
                           <Badge variant="secondary" className="capitalize">
                             {recipe.category}

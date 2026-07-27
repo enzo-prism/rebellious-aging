@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { renderHook, waitFor } from '@testing-library/react';
+import { act, renderHook, waitFor } from '@testing-library/react';
 
 import type { SearchDocument } from '@/data/searchRecords';
 
@@ -43,9 +43,16 @@ describe('useSearch hook', () => {
     await Promise.resolve();
   });
 
-  it('loads index and returns docs on empty query', async () => {
+  it('waits for explicit intent before loading the index', async () => {
     const useSearch = (await import('@/hooks/useSearch')).useSearch;
     const { result } = renderHook(() => useSearch());
+
+    expect(fetchSpy).not.toHaveBeenCalled();
+    expect(result.current.docs).toEqual([]);
+
+    await act(async () => {
+      await result.current.ensureIndex();
+    });
 
     await waitFor(() => {
       expect(result.current.docs.length).toBe(searchDocs.length);
@@ -60,8 +67,8 @@ describe('useSearch hook', () => {
     const useSearch = (await import('@/hooks/useSearch')).useSearch;
     const { result } = renderHook(() => useSearch());
 
-    await waitFor(() => {
-      expect(result.current.loading).toBe(false);
+    await act(async () => {
+      await result.current.ensureIndex();
     });
 
     const recipesOnly = result.current.search('apple', { types: ['recipe'] });
@@ -74,8 +81,8 @@ describe('useSearch hook', () => {
     const useSearch = (await import('@/hooks/useSearch')).useSearch;
     const { result } = renderHook(() => useSearch());
 
-    await waitFor(() => {
-      expect(result.current.loading).toBe(false);
+    await act(async () => {
+      await result.current.ensureIndex();
     });
 
     expect(result.current.error).toContain('Unable to load search index (500)');

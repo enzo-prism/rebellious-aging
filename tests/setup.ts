@@ -24,12 +24,12 @@ declare global {
 
 vi.mock('next/link', () => ({
   __esModule: true,
-  default: ({
-    href,
-    children,
-    ...props
-  }: React.ComponentProps<'a'> & { href?: string }) =>
-    React.createElement('a', { href, ...props }, children),
+  default: React.forwardRef<
+    HTMLAnchorElement,
+    React.ComponentProps<'a'> & { href?: string }
+  >(({ href, children, ...props }, ref) =>
+    React.createElement('a', { ref, href, ...props }, children)
+  ),
 }));
 
 vi.mock('next/navigation', () => ({

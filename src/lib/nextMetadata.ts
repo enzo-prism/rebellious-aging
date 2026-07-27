@@ -6,7 +6,9 @@ import { siteMetadata } from './siteMetadata';
 import type { RouteMeta } from './routeMetadata';
 
 type RouteMetadataInput = Pick<RouteMeta, 'path' | 'title' | 'description'> &
-  Partial<Pick<RouteMeta, 'canonical' | 'image' | 'ogType' | 'noindex'>>;
+  Partial<Pick<RouteMeta, 'canonical' | 'image' | 'ogType' | 'noindex'>> & {
+    publishedTime?: string;
+  };
 
 export type MetadataOverrides = {
   title?: string;
@@ -42,7 +44,7 @@ const buildTwitterMetadata = (title: string, description: string, image?: string
 export const buildMetadata = (meta: RouteMetadataInput, overrides: MetadataOverrides = {}): Metadata => {
   const title = overrides.title ?? meta.title;
   const description = buildMetaDescription(overrides.description ?? meta.description);
-  const publishedTime = overrides.publishedTime;
+  const publishedTime = overrides.publishedTime ?? meta.publishedTime;
   const ogType = overrides.ogType ?? meta.ogType ?? 'website';
   const canonical = resolveCanonical(overrides.path ?? meta.canonical ?? meta.path, overrides.canonical);
   const image = overrides.image ?? meta.image ?? siteMetadata.defaultSocialImage;

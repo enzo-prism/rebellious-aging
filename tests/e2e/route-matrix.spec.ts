@@ -36,6 +36,8 @@ const dynamicChecks = [
   { path: '/recipes/big-bean-barley-and-sweet-potato-soup', found: true },
   { path: '/guides/esselstyn-plant-based-jumpstart', found: true },
   { path: '/guides/campbell-whole-food-plant-based-guide', found: true },
+  { path: '/guides/suz-plant-based-starter', found: true },
+  { path: '/speaking-events/eat-for-the-earth-santa-cruz', found: true },
 ];
 
 test.describe('Public route matrix', () => {

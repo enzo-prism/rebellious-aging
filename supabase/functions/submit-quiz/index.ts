@@ -50,16 +50,6 @@ serve(async (req) => {
       userName
     }: QuizSubmissionRequest = await req.json();
 
-    // Log received data for debugging
-    console.log('Received quiz submission:', { 
-      pillarType, 
-      rating, 
-      challenge: challenge ? 'present' : 'empty', 
-      goals: goals ? 'present' : 'empty', 
-      userEmail: userEmail ? 'present' : 'empty', 
-      userName: userName ? 'present' : 'empty' 
-    });
-
     // Validate required fields
     if (!pillarType || !rating || !userEmail) {
       return new Response(JSON.stringify({ error: 'Missing required fields: pillarType, rating, and userEmail are required' }), {
@@ -112,7 +102,7 @@ serve(async (req) => {
         user_email: userEmail,
         user_name: userName || null,
       })
-      .select()
+      .select('id')
       .single();
 
     if (error) {
@@ -122,8 +112,6 @@ serve(async (req) => {
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       });
     }
-
-    console.log('Quiz submission saved:', data);
 
     return new Response(JSON.stringify({ 
       success: true, 

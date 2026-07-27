@@ -1,7 +1,16 @@
 import { expect, test, type Page } from '@playwright/test';
 import { AxeBuilder } from '@axe-core/playwright';
 
-const criticalRoutes = ['/', '/search', '/recipes', '/blog', '/contact', '/pillars/health', '/404'];
+const criticalRoutes = [
+  '/',
+  '/search',
+  '/recipes',
+  '/blog',
+  '/contact',
+  '/pillars/health',
+  '/video-series',
+  '/404',
+];
 const gotoWithRetry = async (page: Page, path: string) => {
   const expectedStatus = path === '/404' ? 404 : 200;
   let response = await page.goto(path, { waitUntil: 'domcontentloaded' });
@@ -15,6 +24,39 @@ const gotoWithRetry = async (page: Page, path: string) => {
 };
 
 test.describe('Accessibility smoke', () => {
+  test('skip link moves keyboard focus to main content', async ({ page }) => {
+    await gotoWithRetry(page, '/');
+
+    const skipLink = page.getByRole('link', { name: 'Skip to main content' });
+    const main = page.locator('#main-content');
+
+    await page.keyboard.press('Tab');
+    await expect(skipLink).toBeFocused();
+    await expect(skipLink).toBeVisible();
+
+    await page.keyboard.press('Enter');
+    await expect(main).toBeFocused();
+  });
+
+  test('video play controls show a strong keyboard focus indicator', async ({ page }) => {
+    await gotoWithRetry(page, '/video-series');
+
+    const playButton = page.getByRole('button', { name: /^Play / }).first();
+    await playButton.focus();
+    await expect(playButton).toBeFocused();
+
+    const focusIndicator = await playButton.evaluate((element) => {
+      const styles = window.getComputedStyle(element);
+      return {
+        outlineStyle: styles.outlineStyle,
+        outlineWidth: styles.outlineWidth,
+      };
+    });
+
+    expect(focusIndicator.outlineStyle).toBe('solid');
+    expect(Number.parseFloat(focusIndicator.outlineWidth)).toBeGreaterThanOrEqual(4);
+  });
+
   for (const path of criticalRoutes) {
     test(`run axe on ${path}`, async ({ page }) => {
       await gotoWithRetry(page, path);

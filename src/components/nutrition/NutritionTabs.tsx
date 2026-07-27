@@ -3,7 +3,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import WhatIsWFPB from './WhatIsWFPB';
 import Benefits from './Benefits';
 import Protocol from './Protocol';
@@ -54,8 +53,10 @@ const NutritionTabs = () => {
   );
 
   const triggerClass = (id: string) =>
-    `px-4 py-3 border-b-2 rounded-none whitespace-nowrap text-sm font-semibold ${
-      activeTab === id ? 'border-teal text-teal' : 'border-transparent text-slate-600 hover:text-slate-900'
+    `h-full min-h-[52px] whitespace-normal rounded-2xl border px-3 py-3 text-center text-sm font-semibold leading-snug transition-colors ${
+      activeTab === id
+        ? 'border-teal/30 bg-teal/10 text-teal shadow-sm'
+        : 'border-slate-200 bg-white text-slate-600 hover:border-teal/25 hover:bg-teal/5 hover:text-slate-900'
     }`;
 
   return (
@@ -100,17 +101,14 @@ const NutritionTabs = () => {
             </div>
           </div>
 
-          <div className="mb-6 hidden border-b md:block">
-            <ScrollArea className="w-full">
-              <TabsList className="h-auto w-max justify-start bg-transparent p-0">
-                {nutritionTabs.map((tab) => (
-                  <TabsTrigger key={tab.id} value={tab.id} className={triggerClass(tab.id)}>
-                    {tab.label}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-              <ScrollBar orientation="horizontal" />
-            </ScrollArea>
+          <div className="mb-6 hidden md:block">
+            <TabsList className="grid h-auto w-full grid-cols-2 gap-2 bg-transparent p-0 lg:grid-cols-4">
+              {nutritionTabs.map((tab) => (
+                <TabsTrigger key={tab.id} value={tab.id} className={triggerClass(tab.id)}>
+                  {tab.label}
+                </TabsTrigger>
+              ))}
+            </TabsList>
           </div>
 
           {nutritionTabs.map((tab) => (

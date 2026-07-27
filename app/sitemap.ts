@@ -1,4 +1,4 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
 
 import { getPublicBlogPosts } from '@/data/blogPosts';
 import { guides, getGuidePath } from '@/data/guides';

@@ -10,22 +10,27 @@ This project uses a codified readiness gate before public launch.
 - Browser readiness for the universal share dialog, including public-route visibility, exact URL copying, manual-copy fallback, and 404 exclusion.
 - Web-vitals smoke thresholds for key public routes.
 - Security guardrails for outbound links with `target="_blank"` using `rel="noopener noreferrer"`.
+- Production response headers defined in `vercel.json`.
 
 ## Required execution commands
 - `npm run readiness:assets` – rebuild generated SEO/search assets and readiness report.
-- `npm run lint` – lint + type-checked script quality.
+- `npm run typecheck` – TypeScript validation.
+- `npm run lint` – ESLint validation.
 - `npm run build` – full Next static export flow including sitemap generation, search index generation, static export, and metadata audit.
-- `npm run test:unit` – unit + component checks.
-- `npm run test:e2e:readiness` – browser readiness checks.
+- `npm run test:unit:coverage` – unit + component checks with enforced coverage thresholds.
+- `npm run test:e2e` – full browser suite.
+- `npm run test:e2e:readiness` – focused browser readiness checks.
 - `npm run readiness:verify` – full readiness pipeline (all above).
 
 ### Full launch gate
-`npm run readiness:verify` should pass three consecutive runs before release.
+`npm run readiness:verify` must pass locally, then the matching GitHub Actions gate must be green on `main`.
 
 ## Current baseline checks
 - Report file: `public/production-readiness-report.json`
 - Expected status in release conditions: `status: "pass"` with all checks green.
-- Latest content-release baseline: on 2026-07-07, Blogs #79 (`/blog/is-being-ferociously-independent-a-good-thing`) and #80 (`/blog/the-gift-i-almost-forgot-to-accept`) were added as public, indexable posts from Suz's July 5–6 Google Docs share notifications. Prior baseline: on 2026-07-01, Blogs #77 (`/blog/do-superpowers-change`) and #78 (`/blog/the-superpower-epilogue`) were published (ungated from their password-protected previews) so the full superpower series is live and indexable. Each run was verified with lint, unit tests, full static build, production deployment, and live readbacks.
+- July 26, 2026 release-candidate baseline: 146 static pages, 141 audited SEO routes, 57 passing unit tests, 76 passing browser tests, and 86.65% line coverage. Typecheck, lint, build, readiness report, and `git diff --check` also pass.
+- Current hardening covers responsive hero/gallery images, on-demand search indexing, server-rendered nutrition content, keyboard/mobile navigation, event email handoff, consistent recipe fallbacks, sitemap policy alignment, and baseline Vercel response headers.
+- GitHub Actions runs the same release checks from `.github/workflows/ci.yml`.
 
 ## Share-specific verification
 - `tests/unit/components/PageShareButton.test.tsx` validates dialog open/close behavior, clipboard success, and clipboard failure fallback.
@@ -35,6 +40,7 @@ This project uses a codified readiness gate before public launch.
 
 ## Notes
 - Run with `npm run preview` after `npm run build` for manual smoke.
+- Real `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` values must exist in Vercel for the quiz fallback to work. Apply pending `supabase/migrations/` changes separately from the Vercel release.
 - For legacy URLs that must return a real HTTP redirect in production, verify the rule in `vercel.json` as part of release review; static export alone is not enough.
 - Keep generated files in sync after SEO/content updates:
   - `npm run sitemap`

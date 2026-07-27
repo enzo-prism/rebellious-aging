@@ -316,10 +316,6 @@ export const useSearch = () => {
     };
   }, []);
 
-  useEffect(() => {
-    void ensureIndex();
-  }, []);
-
   const search = useCallback(
     (query: string, filters?: SearchFilters) => searchIndex(query, filters),
     []

@@ -29,7 +29,7 @@ export const VideoCard = ({ video }: VideoCardProps) => {
         ) : (
           <button
             type="button"
-            className="h-full w-full relative group focus:outline-none"
+            className="group relative h-full w-full focus-visible:outline focus-visible:outline-[4px] focus-visible:outline-offset-[-4px] focus-visible:outline-white"
             onClick={() => setIsPlayerVisible(true)}
             aria-label={`Play ${video.title}`}
           >
@@ -41,7 +41,7 @@ export const VideoCard = ({ video }: VideoCardProps) => {
               decoding="async"
             />
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-              <div className="bg-white/90 text-teal rounded-full w-16 h-16 flex items-center justify-center shadow-lg transition-transform group-hover:scale-105">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 text-teal shadow-lg transition-all group-hover:scale-105 group-focus-visible:scale-105 group-focus-visible:ring-4 group-focus-visible:ring-teal-dark group-focus-visible:ring-offset-4 group-focus-visible:ring-offset-white">
                 <Play className="w-6 h-6 fill-teal text-teal" />
               </div>
             </div>

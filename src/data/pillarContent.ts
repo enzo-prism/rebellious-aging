@@ -8,6 +8,8 @@ export interface PillarContent {
   galleryImages: Array<{
     src: string;
     description: string;
+    width: number;
+    height: number;
   }>;
 }
 
@@ -22,15 +24,21 @@ export const pillarContent: Record<string, PillarContent> = {
     galleryImages: [
       {
         src: "/lovable-uploads/de04437d-18b0-4eca-86c4-53077d082060.png",
-        description: "Embrace your authentic self with confidence"
+        description: "Embrace your authentic self with confidence",
+        width: 997,
+        height: 1562
       },
       {
         src: "/lovable-uploads/80d36c2d-c6e2-4381-b9a9-60b9a000b58f.png",
-        description: "Stand tall and own your power"
+        description: "Stand tall and own your power",
+        width: 1080,
+        height: 1620
       },
       {
         src: "/lovable-uploads/8a5c92a9-a9f5-46c7-a24a-8c9ce5b620d2.png",
-        description: "Radiate confidence from within"
+        description: "Radiate confidence from within",
+        width: 1920,
+        height: 1440
       }
     ],
   },
@@ -44,15 +52,21 @@ export const pillarContent: Record<string, PillarContent> = {
     galleryImages: [
       {
         src: "/lovable-uploads/17f809d1-a0f0-4a27-90d7-c993471f07de.png",
-        description: "Elegant style with sophistication and grace"
+        description: "Elegant style with sophistication and grace",
+        width: 540,
+        height: 810
       },
       {
         src: "/lovable-uploads/94ed8310-7c9b-41fe-8292-33065ffa56eb.png",
-        description: "Bold fashion choices for the rebellious spirit"
+        description: "Bold fashion choices for the rebellious spirit",
+        width: 1080,
+        height: 1620
       },
       {
         src: "/lovable-uploads/a624ace1-6dc9-4ab4-846c-176e441f514f.png",
-        description: "Timeless elegance meets modern rebellion"
+        description: "Timeless elegance meets modern rebellion",
+        width: 1080,
+        height: 1620
       }
     ],
   },
@@ -66,15 +80,21 @@ export const pillarContent: Record<string, PillarContent> = {
     galleryImages: [
       {
         src: "/lovable-uploads/cf105833-6fd8-4909-9750-38675de6241b.png",
-        description: "Essential nutrition guides for plant-based living"
+        description: "Essential nutrition guides for plant-based living",
+        width: 1920,
+        height: 1440
       },
       {
         src: "/lovable-uploads/34efa388-151a-455e-b488-c2eab5762e90.png",
-        description: "Nourishing whole foods for vibrant health"
+        description: "Nourishing whole foods for vibrant health",
+        width: 1200,
+        height: 618
       },
       {
         src: "/lovable-uploads/035da362-e4a4-4878-9f56-1bf7c28634b7.png",
-        description: "Fresh ingredients for a thriving lifestyle"
+        description: "Fresh ingredients for a thriving lifestyle",
+        width: 1600,
+        height: 898
       }
     ],
   },

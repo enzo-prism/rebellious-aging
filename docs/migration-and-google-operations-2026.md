@@ -1,6 +1,6 @@
 # Migration + Google Operations Checklist (2026)
 
-Last reviewed: 2026-07-01.
+Last reviewed: 2026-07-26.
 
 This document is the one-stop guide for repository migration ownership, deployment readiness, and Google Search visibility checks.
 
@@ -17,7 +17,7 @@ This document is the one-stop guide for repository migration ownership, deployme
 Use this after each content, metadata, redirect, or analytics change:
 
 ```bash
-npm run build
+npm run readiness:verify
 git status
 git push origin main
 vercel --prod --yes --scope enzo-design-prisms-projects
@@ -27,6 +27,8 @@ Notes:
 
 - Preferred release flow is commit -> push `main` -> production deploy. Avoid treating an uncommitted local tree as the long-term source of truth for production.
 - For legacy URLs that require real HTTP redirect status codes in production, define the rule in `vercel.json`.
+- GitHub Actions must finish green on `main` before the release is considered complete.
+- Vercel deploys do not apply Supabase migrations. Confirm the intended Supabase project, run `supabase db push`, and verify policies separately when a release includes migration files.
 
 Then run the verification checks:
 
@@ -70,11 +72,15 @@ vercel env ls
 
 At deployment time, ensure production env includes:
 
+- `NEXT_PUBLIC_SUPABASE_URL=<production project URL>`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY=<production anon key>`
 - `NEXT_PUBLIC_ENABLE_ANALYTICS=true`
 - `NEXT_PUBLIC_GA_ID=<GA4 property ID>`
 - `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=<token>`
 
 Vercel Web Analytics is enabled by the Vercel project dashboard plus the `@vercel/analytics` component mounted in `app/layout.tsx`; it does not require an additional env var.
+
+Do not ship placeholder Supabase values when the quiz fallback must work.
 
 `NEXT_PUBLIC_HOTJAR_ID` is optional if session recordings are still required.
 

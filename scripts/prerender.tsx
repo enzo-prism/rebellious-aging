@@ -3,11 +3,12 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { blogPosts, getBlogPostById, getBlogPostSeoTitle } from '../src/data/blogPosts';
+import { getGuideBySlug, getGuidePath, guides } from '../src/data/guides';
 import { seoRoutes } from '../src/data/seoRoutes';
 import { recipes, slugifyRecipeTitle } from '../src/data/recipes';
 import { pillarContent } from '../src/data/pillarContent';
 import { getSpeakingEventBySlug, getSpeakingEventPath, speakingEvents } from '../src/data/speakingEvents';
-import { buildMetaDescription, buildSeoTitle } from '../src/lib/seo';
+import { buildMetaDescription } from '../src/lib/seo';
 import { getRouteMetaByPath } from '../src/lib/routeMetadata';
 import type { RouteMeta } from '../src/lib/routeMetadata';
 import { siteMetadata } from '../src/lib/siteMetadata';
@@ -19,7 +20,7 @@ const __dirname = dirname(__filename);
 const projectRoot = join(__dirname, '..');
 const outputPath = join(projectRoot, 'public', 'seo-route-audit.json');
 
-type RouteSource = 'seo-routes' | 'blog' | 'recipe' | 'pillar' | 'speaking-event';
+type RouteSource = 'seo-routes' | 'blog' | 'recipe' | 'pillar' | 'guide' | 'speaking-event';
 
 interface AuditRecord {
   path: string;
@@ -77,8 +78,12 @@ const buildExpectedPaths = (): Array<{ path: string; source: RouteSource }> => {
     path: getSpeakingEventPath(event.slug),
     source: 'speaking-event' as RouteSource,
   }));
+  const guidePaths = guides.map((guide) => ({
+    path: getGuidePath(guide.slug),
+    source: 'guide' as RouteSource,
+  }));
 
-  return [...staticPaths, ...blogPaths, ...recipePaths, ...pillarPaths, ...speakingEventPaths];
+  return [...staticPaths, ...blogPaths, ...recipePaths, ...pillarPaths, ...guidePaths, ...speakingEventPaths];
 };
 
 const resolveBlogMeta = (postId: string): RouteMeta | undefined => {
@@ -184,6 +189,34 @@ const resolveSpeakingEventMeta = (slug: string): RouteMeta => {
   };
 };
 
+const resolveGuideMeta = (slug: string): RouteMeta => {
+  const guide = getGuideBySlug(slug);
+  const path = getGuidePath(slug);
+
+  if (!guide) {
+    return {
+      path,
+      canonical: path,
+      title: 'Guide Not Found',
+      description: buildMetaDescription(
+        "The guide you are looking for does not exist. Browse all of Suz's free plant-based booklets and guides."
+      ),
+      image: defaultImage,
+      noindex: true,
+      ogType: 'article',
+    };
+  }
+
+  return {
+    path,
+    canonical: path,
+    title: guide.title,
+    description: buildMetaDescription(guide.summary),
+    image: defaultImage,
+    ogType: 'article',
+  };
+};
+
 const resolveStaticMeta = (path: string): RouteMeta | undefined => {
   return getRouteMetaByPath(path);
 };
@@ -203,6 +236,10 @@ const resolveMeta = (path: string, source: RouteSource): RouteMeta | undefined =
 
   if (path.startsWith('/speaking-events/')) {
     return resolveSpeakingEventMeta(path.replace('/speaking-events/', ''));
+  }
+
+  if (path.startsWith('/guides/')) {
+    return resolveGuideMeta(path.replace('/guides/', ''));
   }
 
   if (path === '/') {

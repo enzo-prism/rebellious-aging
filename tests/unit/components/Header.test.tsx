@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
@@ -36,6 +36,45 @@ describe('Header', () => {
     const openButton = screen.getByLabelText('Open search');
     await user.click(openButton);
     expect(screen.getAllByRole('button', { name: 'Close search' })[0]).toBeInTheDocument();
+  });
+
+  it('uses a 44px mobile menu target', () => {
+    render(<Header />);
+
+    expect(screen.getByRole('button', { name: 'Open menu' })).toHaveClass('h-11', 'w-11');
+  });
+
+  it('opens a modal mobile menu, locks scrolling, and restores focus on Escape', async () => {
+    const user = userEvent.setup();
+    render(<Header />);
+
+    const trigger = screen.getByRole('button', { name: 'Open menu' });
+    await user.click(trigger);
+
+    const menu = await screen.findByRole('dialog', { name: 'Mobile menu' });
+    expect(within(menu).getByRole('navigation', { name: 'Mobile navigation' })).toBeInTheDocument();
+    expect(document.body.style.overflow).toBe('hidden');
+    expect(document.body.style.pointerEvents).toBe('none');
+    expect(screen.getByRole('button', { name: 'Close menu' })).toHaveFocus();
+
+    await user.keyboard('{Escape}');
+
+    await waitFor(() => {
+      expect(screen.queryByRole('dialog', { name: 'Mobile menu' })).not.toBeInTheDocument();
+      expect(document.body.style.overflow).toBe('');
+      expect(trigger).toHaveFocus();
+    });
+  });
+
+  it('opens search from the action-only mobile menu item', async () => {
+    const user = userEvent.setup();
+    render(<Header />);
+
+    await user.click(screen.getByRole('button', { name: 'Open menu' }));
+    const menu = await screen.findByRole('dialog', { name: 'Mobile menu' });
+    await user.click(within(menu).getByRole('button', { name: /Search/ }));
+
+    expect(await screen.findByRole('dialog', { name: 'Search' })).toBeInTheDocument();
   });
 
   it('highlights active nav path', () => {

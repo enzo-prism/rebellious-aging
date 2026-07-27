@@ -18,127 +18,113 @@ const thresholds = {
   tbtMs: 200,
 } as const;
 
-const collectWebVitals = async (page: import('@playwright/test').Page): Promise<WebVitals> =>
-  page.evaluate(() => {
-    return new Promise<WebVitals>((resolve) => {
-      const metrics: WebVitals = {
-        lcp: 0,
-        fcp: 0,
-        cls: 0,
-        tbt: 0,
-        inp: 0,
-      };
+type WebVitalsWindow = Window & {
+  __webVitals?: WebVitals;
+  __webVitalsObservers?: PerformanceObserver[];
+};
 
-      const paintEntries = performance.getEntriesByType('paint');
-      metrics.fcp = paintEntries.find((entry) => entry.name === 'first-contentful-paint')?.startTime ?? 0;
+const installWebVitalsObservers = async (page: import('@playwright/test').Page): Promise<void> => {
+  await page.addInitScript(() => {
+    const metrics: WebVitals = {
+      lcp: 0,
+      cls: 0,
+      fcp: 0,
+      tbt: 0,
+      inp: 0,
+    };
+    const observers: PerformanceObserver[] = [];
+    const metricsWindow = window as WebVitalsWindow;
 
-      const lcpEntries = performance.getEntriesByType('largest-contentful-paint');
-      if (lcpEntries.length > 0) {
-        metrics.lcp = lcpEntries[lcpEntries.length - 1].startTime;
-      }
+    metricsWindow.__webVitals = metrics;
+    metricsWindow.__webVitalsObservers = observers;
 
-      const layoutShiftEntries = performance.getEntriesByType('layout-shift') as Array<
-        PerformanceEntry & { value: number; hadRecentInput: boolean }
-      >;
-      metrics.cls = layoutShiftEntries
-        .filter((entry) => !entry.hadRecentInput)
-        .reduce((total, entry) => total + entry.value, 0);
-
-      const longTasks = performance.getEntriesByType('longtask') as Array<PerformanceEntry & { duration: number }>;
-      metrics.tbt = longTasks.reduce((total, entry) => total + (entry.duration ?? 0), 0);
-
-      const eventEntries = performance.getEntriesByType('event') as Array<
-        PerformanceEntry & { duration: number; processingStart: number; startTime: number }
-      >;
-      metrics.inp = eventEntries.length > 0 ? Math.max(...eventEntries.map((entry) => entry.duration || 0), 0) : 0;
-
+    const observe = (
+      type: string,
+      handleEntries: (entries: PerformanceEntry[]) => void
+    ): void => {
       try {
         const observer = new PerformanceObserver((list) => {
-          for (const entry of list.getEntries()) {
-            if (entry.entryType === 'largest-contentful-paint') {
-              metrics.lcp = entry.startTime;
-            }
-
-            if (entry.entryType === 'layout-shift') {
-              const layoutShift = entry as PerformanceEntry & { value: number; hadRecentInput: boolean };
-              if (!layoutShift.hadRecentInput) {
-                metrics.cls += layoutShift.value;
-              }
-            }
-
-            if (entry.entryType === 'longtask') {
-              metrics.tbt += (entry as PerformanceEntry & { duration: number }).duration ?? 0;
-            }
-
-            if (entry.entryType === 'event') {
-              const evt = entry as PerformanceEntry & { duration: number; processingStart: number; startTime: number };
-              const inputDelay = evt.processingStart ? evt.processingStart - evt.startTime : 0;
-              metrics.inp = Math.max(metrics.inp, inputDelay, evt.duration || 0);
-            }
-          }
+          handleEntries(list.getEntries());
         });
-
-        observer.observe({ type: 'largest-contentful-paint', buffered: true });
-        observer.observe({ type: 'layout-shift', buffered: true });
-        observer.observe({ type: 'longtask', buffered: true });
-        observer.observe({ type: 'event', buffered: true } as PerformanceObserverInit);
-
-        window.setTimeout(() => {
-          observer.disconnect();
-          const paintEntries = performance.getEntriesByType('paint');
-          const finalFcp = paintEntries.find((entry) => entry.name === 'first-contentful-paint')?.startTime ?? 0;
-          const finalLcpEntries = performance.getEntriesByType('largest-contentful-paint');
-          const finalLcp = finalLcpEntries.length > 0 ? finalLcpEntries[finalLcpEntries.length - 1].startTime : 0;
-          const finalLongTasks = performance.getEntriesByType('longtask') as Array<PerformanceEntry & { duration: number }>;
-          const finalEventEntries = performance.getEntriesByType('event') as Array<
-            PerformanceEntry & { duration: number; processingStart: number; startTime: number }
-          >;
-
-          if (finalFcp > 0) {
-            metrics.fcp = finalFcp;
-          }
-
-          if (finalLcp > 0) {
-            metrics.lcp = finalLcp;
-          }
-
-          metrics.tbt = finalLongTasks.reduce((total, entry) => total + (entry.duration ?? 0), 0);
-          metrics.inp = finalEventEntries.length > 0
-            ? Math.max(...finalEventEntries.map((entry) => entry.duration || 0))
-            : metrics.inp;
-
-          resolve(metrics);
-        }, 2500);
+        observer.observe({ type, buffered: true });
+        observers.push(observer);
       } catch {
-        window.setTimeout(() => {
-          resolve(metrics);
-        }, 2500);
+        // Unsupported performance entry types are expected in some browsers.
+      }
+    };
+
+    observe('paint', (entries) => {
+      const fcp = entries.find((entry) => entry.name === 'first-contentful-paint');
+      if (fcp) {
+        metrics.fcp = fcp.startTime;
+      }
+    });
+
+    observe('largest-contentful-paint', (entries) => {
+      const lcp = entries.at(-1);
+      if (lcp) {
+        metrics.lcp = lcp.startTime;
+      }
+    });
+
+    observe('layout-shift', (entries) => {
+      for (const entry of entries as Array<
+        PerformanceEntry & { value: number; hadRecentInput: boolean }
+      >) {
+        if (!entry.hadRecentInput) {
+          metrics.cls += entry.value;
+        }
+      }
+    });
+
+    observe('longtask', (entries) => {
+      for (const entry of entries) {
+        // Total Blocking Time counts only the portion of each long task over 50ms.
+        metrics.tbt += Math.max(0, entry.duration - 50);
+      }
+    });
+
+    observe('event', (entries) => {
+      for (const entry of entries) {
+        metrics.inp = Math.max(metrics.inp, entry.duration);
       }
     });
   });
+};
+
+const collectWebVitals = async (page: import('@playwright/test').Page): Promise<WebVitals> => {
+  await page.waitForTimeout(2500);
+
+  return page.evaluate(() => {
+    const metricsWindow = window as WebVitalsWindow;
+    metricsWindow.__webVitalsObservers?.forEach((observer) => observer.disconnect());
+
+    return metricsWindow.__webVitals ?? {
+      lcp: 0,
+      cls: 0,
+      fcp: 0,
+      tbt: 0,
+      inp: 0,
+    };
+  });
+};
 
 test.describe('Performance readiness web-vitals smoke', () => {
   for (const route of routesToMeasure) {
-    test(`captures metrics for ${route}`, async ({ page }) => {
-      await page.goto(route, { waitUntil: 'domcontentloaded' });
-      await page.waitForLoadState('networkidle');
+    test(`captures metrics for ${route}`, async ({ page, request }) => {
+      // Compile the route before measuring when Playwright is using the local
+      // development server. This keeps framework compilation out of page vitals.
+      const warmupResponse = await request.get(route);
+      expect(warmupResponse.ok()).toBe(true);
 
+      await installWebVitalsObservers(page);
+      await page.goto(route, { waitUntil: 'load' });
       const metrics = await collectWebVitals(page);
 
-      if (metrics.fcp === 0 && metrics.lcp === 0) {
-        test.skip(
-          true,
-          'Web-vital paint markers are unavailable in this runtime; collecting meaningful LCP/FCP thresholds is not currently possible.'
-        );
-      }
-
-      if (metrics.lcp > 0) {
-        expect(metrics.lcp).toBeLessThanOrEqual(thresholds.lcpMs);
-      }
-
-      if (metrics.fcp > 0) {
-        expect(metrics.fcp).toBeLessThanOrEqual(thresholds.fcpMs);
-      }
+      expect(metrics.lcp, `LCP was not reported for ${route}`).toBeGreaterThan(0);
+      expect(metrics.fcp, `FCP was not reported for ${route}`).toBeGreaterThan(0);
+      expect(metrics.lcp).toBeLessThanOrEqual(thresholds.lcpMs);
+      expect(metrics.fcp).toBeLessThanOrEqual(thresholds.fcpMs);
 
       if (metrics.inp > 0) {
         expect(metrics.inp).toBeLessThanOrEqual(thresholds.inpMs);
@@ -147,9 +133,6 @@ test.describe('Performance readiness web-vitals smoke', () => {
       if (metrics.tbt > 0) {
         expect(metrics.tbt).toBeLessThanOrEqual(thresholds.tbtMs);
       }
-
-      expect(metrics.lcp).toBeLessThanOrEqual(thresholds.lcpMs);
-      expect(metrics.fcp).toBeLessThanOrEqual(thresholds.fcpMs);
 
       expect(metrics.cls).toBeLessThanOrEqual(thresholds.cls);
       expect(metrics.cls).toBeGreaterThanOrEqual(0);

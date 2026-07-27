@@ -1,27 +1,52 @@
 import React from 'react';
 
-interface SeoProps {
+type JsonLdSchema = Record<string, unknown>;
+type JsonLdValue = JsonLdSchema | JsonLdSchema[];
+
+interface LegacyMetadataProps {
+  /** @deprecated Set route metadata with Next.js generateMetadata instead. */
   title?: string;
+  /** @deprecated Set route metadata with Next.js generateMetadata instead. */
   description?: string;
+  /** @deprecated Set route metadata with Next.js generateMetadata instead. */
   canonicalPath?: string;
+  /** @deprecated Set route metadata with Next.js generateMetadata instead. */
   canonicalUrl?: string;
+  /** @deprecated Set route metadata with Next.js generateMetadata instead. */
   image?: string;
-  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
+  /** @deprecated Set route metadata with Next.js generateMetadata instead. */
   noindex?: boolean;
+  /** @deprecated Set route metadata with Next.js generateMetadata instead. */
   publishedTime?: string;
+  /** @deprecated Set route metadata with Next.js generateMetadata instead. */
   ogType?: 'website' | 'article';
-  children?: React.ReactNode;
 }
 
-const normalizeJsonLd = (
-  value?: Record<string, unknown> | Array<Record<string, unknown>>
-) => {
+interface SeoProps extends LegacyMetadataProps {
+  jsonLd?: JsonLdValue;
+}
+
+const normalizeJsonLd = (value?: JsonLdValue) => {
   if (!value) {
     return undefined;
   }
 
   return Array.isArray(value) ? value : [value];
 };
+
+const jsonLdEscapeCharacters: Record<string, string> = {
+  '<': '\\u003c',
+  '>': '\\u003e',
+  '&': '\\u0026',
+  '\u2028': '\\u2028',
+  '\u2029': '\\u2029',
+};
+
+export const serializeJsonLd = (schema: JsonLdSchema) =>
+  JSON.stringify(schema).replace(
+    /[<>&\u2028\u2029]/g,
+    (character) => jsonLdEscapeCharacters[character]
+  );
 
 export const Seo: React.FC<SeoProps> = ({ jsonLd }) => {
   const structuredData = normalizeJsonLd(jsonLd);
@@ -32,7 +57,7 @@ export const Seo: React.FC<SeoProps> = ({ jsonLd }) => {
         <script
           key={index}
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          dangerouslySetInnerHTML={{ __html: serializeJsonLd(schema) }}
         />
       ))}
     </>

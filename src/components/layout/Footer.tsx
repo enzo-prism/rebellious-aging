@@ -11,7 +11,7 @@ const Footer = () => {
     <footer className="bg-gradient-to-br from-teal/5 to-coral/5 pt-20 pb-8">
       <div className="container mx-auto px-4">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-6 gap-10 mb-14">
+        <div className="mb-14 grid grid-cols-1 gap-10 lg:grid-cols-6">
           {/* Brand */}
           <div className="lg:col-span-2 space-y-4">
             <h3 className="text-2xl font-bold text-teal">Rebellious Aging</h3>
@@ -45,6 +45,10 @@ const Footer = () => {
           </div>
 
           {/* Pillar Columns */}
+          <nav
+            aria-label="Footer navigation"
+            className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:col-span-4 lg:grid-cols-5"
+          >
           <div className="space-y-4">
             <h4 className="font-bold text-foreground text-lg flex items-center gap-2">
               <span className="text-xl">🌟</span> Confidence
@@ -250,6 +254,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
+          </nav>
         </div>
 
         {/* Bottom Section */}

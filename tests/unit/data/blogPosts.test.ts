@@ -10,8 +10,22 @@ import {
   getPublicBlogPosts,
   getSortedBlogPosts,
 } from '@/data/blogPosts';
+import { blogPostCtas } from '@/data/blogPostCtas';
+import { blogPostContent } from '@/data/blogPostContent';
 
 describe('blog post data', () => {
+  it('provides a community CTA for every blog post', () => {
+    const missingCtaIds = blogPosts.filter((post) => !blogPostCtas[post.id]).map((post) => post.id);
+
+    expect(missingCtaIds).toEqual([]);
+  });
+
+  it('provides rendered content for every blog post', () => {
+    const missingContentIds = blogPosts.filter((post) => !blogPostContent[post.id]).map((post) => post.id);
+
+    expect(missingContentIds).toEqual([]);
+  });
+
   it('loads blog posts with required metadata', () => {
     expect(blogPosts.length).toBeGreaterThan(0);
     const first = blogPosts[0];

@@ -20,18 +20,31 @@ const GallerySection: React.FC<GallerySectionProps> = ({ content }) => {
   const [api, setApi] = React.useState<CarouselApi>();
   const [current, setCurrent] = React.useState(0);
   const [count, setCount] = React.useState(0);
+  const [requestedImages, setRequestedImages] = React.useState<Set<number>>(new Set([0]));
 
   React.useEffect(() => {
     if (!api) {
       return;
     }
 
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
+    const handleSelect = () => {
+      const selectedIndex = api.selectedScrollSnap();
+      setCount(api.scrollSnapList().length);
+      setCurrent(selectedIndex + 1);
+      setRequestedImages((requested) => {
+        if (requested.has(selectedIndex)) {
+          return requested;
+        }
+        return new Set(requested).add(selectedIndex);
+      });
+    };
 
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-    });
+    handleSelect();
+    api.on("select", handleSelect);
+
+    return () => {
+      api.off("select", handleSelect);
+    };
   }, [api]);
 
   return (
@@ -56,11 +69,23 @@ const GallerySection: React.FC<GallerySectionProps> = ({ content }) => {
                     <div className="text-center">
                       <div className="bg-gray-50 rounded-lg overflow-hidden shadow-md mx-auto max-w-lg">
                         <AspectRatio ratio={4 / 3}>
-                          <img
-                            src={image.src}
-                            alt={image.description}
-                            className="w-full h-full object-contain"
-                          />
+                          {requestedImages.has(index) ? (
+                            <img
+                              src={image.src}
+                              alt={image.description}
+                              width={image.width}
+                              height={image.height}
+                              sizes="(min-width: 640px) 512px, calc(100vw - 2rem)"
+                              loading="lazy"
+                              decoding="async"
+                              className="w-full h-full object-contain"
+                            />
+                          ) : (
+                            <div
+                              className="h-full w-full bg-gray-100 animate-pulse"
+                              aria-hidden="true"
+                            />
+                          )}
                         </AspectRatio>
                       </div>
                       <p className="text-gray-600 text-sm mt-4 italic font-light max-w-md mx-auto">

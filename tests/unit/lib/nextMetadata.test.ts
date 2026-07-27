@@ -28,4 +28,20 @@ describe('nextMetadata', () => {
     expect(meta.robots).toMatchObject({ index: false, follow: false });
     expect(meta.alternates?.canonical).toBe(`${siteMetadata.baseUrl}/hidden`);
   });
+
+  it('keeps article publish dates passed in route metadata', () => {
+    const publishedTime = '2026-07-26T12:00:00.000Z';
+    const meta = buildMetadata({
+      path: '/blog/test-post',
+      title: 'Test Post',
+      description: 'A useful test post description.',
+      ogType: 'article',
+      publishedTime,
+    });
+
+    expect(meta.openGraph).toMatchObject({
+      type: 'article',
+      publishedTime,
+    });
+  });
 });

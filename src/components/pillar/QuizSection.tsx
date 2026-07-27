@@ -179,11 +179,9 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
         userEmail: formData.userEmail.trim(),
         userName: formData.userName || undefined,
       };
-      
-      console.log('Submitting quiz with data:', requestData);
-      
+
       // Submit quiz to Supabase edge function
-      const { data, error } = await supabase.functions.invoke('submit-quiz', {
+      const { error } = await supabase.functions.invoke('submit-quiz', {
         body: requestData
       });
 

@@ -147,11 +147,15 @@ Verification coverage:
 npm install
 
 npm run dev      # start Next.js dev server on http://localhost:3000
+npm run typecheck # TypeScript validation
 npm run lint     # TypeScript + React linting via eslint.config.js
+npm run test:unit:coverage # unit/component suite with enforced coverage thresholds
+npm run test:e2e # full Chromium browser suite
 npm run llms     # regenerate public/llms.txt (LLM crawler guide)
 npm run sitemap  # regenerate public/sitemap.xml (build artifact; app/sitemap.ts ships the live one)
 npm run build:search # regenerate public/search-index.json
 npm run build    # llms + sitemap + search index + static export + SEO route audit
+npm run readiness:verify # complete pre-release gate
 npm run preview  # serve exported output locally on port 4173
 ```
 
@@ -168,7 +172,9 @@ NEXT_PUBLIC_HOTJAR_ID=<optional-hotjar-id>
 NEXT_PUBLIC_ENABLE_GPTENGINEER=true|false
 ```
 
-Vercel Web Analytics does not require an environment variable. It is enabled from the Vercel project dashboard and injected by `@vercel/analytics` in [`app/layout.tsx`](/Users/enzo/ra-nextjs/app/layout.tsx).
+Vercel Web Analytics does not require an environment variable. It is enabled from the Vercel project dashboard and injected by `@vercel/analytics` in [`app/layout.tsx`](app/layout.tsx).
+
+Real `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` values are required in every Vercel environment that must support the quiz fallback. Placeholder values allow a static build to finish but do not provide a working submission path.
 
 For rollout compatibility, the app also reads legacy keys:
 
@@ -178,7 +184,7 @@ VITE_SUPABASE_ANON_KEY=<legacy-anon-key>
 VITE_APP_VERSION=<legacy-build-version>
 ```
 
-The Supabase Edge function expects `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` to be available when deployed via the Supabase CLI.
+The Supabase Edge function expects `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` to be available when deployed via the Supabase CLI. Database migrations under `supabase/migrations/` must be applied separately from a Vercel deployment.
 
 ---
 
@@ -195,9 +201,11 @@ This repository is now the primary source of truth for the live site:
 Current deployment model:
 
 - Git branch `main` is the source branch for Vercel production.
-- Vercel Web Analytics is wired through [`app/layout.tsx`](/Users/enzo/ra-nextjs/app/layout.tsx) via `@vercel/analytics`; the dashboard toggle must stay enabled for the Vercel project.
-- Legacy production redirects that need true HTTP status codes are defined in [`vercel.json`](/Users/enzo/ra-nextjs/vercel.json), not `next.config.js`, because this app ships as a static export.
+- Vercel Web Analytics is wired through [`app/layout.tsx`](app/layout.tsx) via `@vercel/analytics`; the dashboard toggle must stay enabled for the Vercel project.
+- Legacy production redirects and baseline response headers are defined in [`vercel.json`](vercel.json), not `next.config.js`, because this app ships as a static export.
 - Production and preview builds inherit environment variables for:
+  - `NEXT_PUBLIC_SUPABASE_URL`
+  - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
   - `NEXT_PUBLIC_ENABLE_ANALYTICS`
   - `NEXT_PUBLIC_GA_ID`
   - `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` (required for Search Console verification metadata)
@@ -325,7 +333,7 @@ npm run build
 - Site-wide defaults live in `src/lib/siteMetadata.ts`; keep social profile values current.
 - Route SEO data lives in `src/data/seoRoutes.ts` and should be kept in sync with App Router routes.
 - App Router pages resolve their metadata through `src/lib/routeMetadata.ts` (`getRouteMetaByPath` / `getHomeMeta`), which reads `seoRoutes.ts` and feeds `buildMetadata` in `src/lib/nextMetadata.ts`.
-- **Sitemap duality:** `app/sitemap.ts` (native Next `MetadataRoute.Sitemap`) regenerates `out/sitemap.xml` during `next build` and is the sitemap that actually ships. `scripts/generate-sitemap.ts` only refreshes the `public/sitemap.xml` build artifact. Edit `app/sitemap.ts` for the live sitemap and keep the script in sync (both iterate `seoRoutes`, recipes, blog posts, speaking events, and guides). Same pattern for `app/robots.ts`.
+- **Sitemap source:** `app/sitemap.ts` owns the shared sitemap entries and regenerates `out/sitemap.xml` during `next build`. `scripts/generate-sitemap.ts` serializes the same entries into `public/sitemap.xml` for readiness tooling. `app/robots.ts` separately owns `robots.txt`.
 - JSON-LD is emitted through the builders in `src/lib/structuredData.ts` (Organization, WebSite, Article, Recipe, FAQ) rendered via `src/components/seo/Seo.tsx`; guide detail pages inject a `CreativeWork` schema inline in `src/views/GuideDetail.tsx`.
 - `src/components/seo/Seo.tsx` is not the source of route-level title tags; App Router metadata is.
 - `scripts/prerender.tsx` runs during build as a validation step and writes route audit output to `public/seo-route-audit.json`; it does not inject tags into `out/`.
@@ -364,7 +372,9 @@ This project now includes a readiness pipeline that validates functional, SEO, a
 - Run full readiness pass:
   - `npm run readiness:verify`
 - If needed, run focused suites:
+  - `npm run typecheck`
   - `npm run test:unit`
+  - `npm run test:unit:coverage`
   - `npm run test:e2e`
   - `npm run test:readiness`
   - `npm run test:accessibility`
@@ -376,15 +386,22 @@ This project now includes a readiness pipeline that validates functional, SEO, a
   - `public/production-readiness-report.json`
 
 Baseline launch checklist:
+- `npm run typecheck` passes.
 - `npm run lint` passes.
 - `npm run build` (sitemap + search index + static build + SEO prerender audit) passes.
+- `npm run test:unit:coverage` passes its enforced thresholds.
+- The full `npm run test:e2e` suite passes.
 - Search, accessibility, route matrix, resilience, and performance checks pass under `test:e2e:readiness`.
 - `public/production-readiness-report.json` is green.
 - No open critical-severity issues in recent readiness runs.
 
+GitHub Actions mirrors the release gate in [`.github/workflows/ci.yml`](.github/workflows/ci.yml) with Node 20, `npm ci`, Chromium installation, typecheck, lint, unit coverage, build, and the full browser suite.
+
 ## Performance & Embed Guardrails
 
 - Home now uses inline welcome patterns instead of auto-opening modals; avoid blocking interstitials.
+- Hero and pillar gallery images use responsive, selected-slide loading instead of downloading every original asset.
+- The search index loads on demand when search is opened.
 - Embeds are lazy by default:
   - Contact Typeform loads on user interaction.
   - Pillar quizzes load on interaction + intersection.
@@ -400,13 +417,14 @@ Baseline launch checklist:
 3. Optionally trigger/force a production deploy from the CLI with `vercel --prod` (or `vercel redeploy <url> --target production` to rebuild + bust the edge cache). Note: `sitemap.xml`/`robots.txt` can sit behind a sticky edge cache for a few minutes after deploy even when other paths update immediately.
 4. Keep legacy HTTP redirects in `vercel.json`; do not rely on `next.config.js` redirects for static-export production behavior.
 
-Supabase function (`submit-quiz`) can be deployed with:
+Apply pending database migrations separately, then deploy the `submit-quiz` function:
 
 ```bash
+supabase db push
 supabase functions deploy submit-quiz
 ```
 
-Ensure `supabase/config.toml` matches the project you deploy to.
+Ensure `supabase/config.toml` matches the intended production project before either command.
 
 ---
 

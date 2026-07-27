@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
+import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { Button } from '@/components/ui/button';
 import { 
   DropdownMenu, 
@@ -51,6 +52,19 @@ const Header = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isMobileMenuOpen]);
+
   return (
     <header 
       className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 ${
@@ -66,10 +80,10 @@ const Header = () => {
           />
         </Link>
 
-        <AnimatedHamburger
-          isOpen={isMobileMenuOpen}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        />
+        <DialogPrimitive.Root open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+          <DialogPrimitive.Trigger asChild>
+            <AnimatedHamburger isOpen={isMobileMenuOpen} />
+          </DialogPrimitive.Trigger>
 
         <nav className="hidden lg:flex items-center space-x-1">
           <Link 
@@ -256,10 +270,27 @@ const Header = () => {
 
         </nav>
 
-        {isMobileMenuOpen && (
-          <div className="lg:hidden fixed top-[80px] left-0 w-full bg-background/95 backdrop-blur-md shadow-lg border-b animate-fade-in max-h-[calc(100vh-80px)] overflow-y-auto z-[9998]">
-            <div className="min-h-0">
-              <nav className="flex flex-col">
+          <DialogPrimitive.Portal>
+            <DialogPrimitive.Overlay className="lg:hidden fixed inset-0 z-[9997] bg-black/45 backdrop-blur-[1px] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0" />
+            <DialogPrimitive.Content
+              className="lg:hidden fixed inset-y-0 right-0 z-[9998] flex h-[100dvh] w-[min(92vw,28rem)] flex-col overflow-hidden border-l bg-background shadow-2xl outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-right data-[state=closed]:slide-out-to-right"
+              onCloseAutoFocus={(event) => {
+                if (isSearchOpen) {
+                  event.preventDefault();
+                }
+              }}
+            >
+              <DialogPrimitive.Title className="sr-only">Mobile menu</DialogPrimitive.Title>
+              <DialogPrimitive.Description className="sr-only">
+                Navigate to another section of Rebellious Aging.
+              </DialogPrimitive.Description>
+              <div className="flex h-20 shrink-0 items-center justify-between border-b px-4">
+                <span className="font-semibold text-foreground">Menu</span>
+                <DialogPrimitive.Close asChild>
+                  <AnimatedHamburger isOpen />
+                </DialogPrimitive.Close>
+              </div>
+              <nav aria-label="Mobile navigation" className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain">
                 <MobileNavItem
                   to="/"
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -344,9 +375,9 @@ const Header = () => {
                   ]}
                 />
               </nav>
-            </div>
-          </div>
-        )}
+            </DialogPrimitive.Content>
+          </DialogPrimitive.Portal>
+        </DialogPrimitive.Root>
       </div>
       <SearchDialog open={isSearchOpen} onOpenChange={setIsSearchOpen} />
     </header>

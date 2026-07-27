@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { CalendarClock, CheckCircle2, Clock, PartyPopper, Users, Video } from 'lucide-react';
+import { CalendarClock, CheckCircle2, Clock, Users, Video } from 'lucide-react';
 
 import ConnectCTA from '@/components/common/ConnectCTA';
 import { FacebookGroupButton, FacebookLogoMark } from '@/components/common/FacebookGroupCta';
@@ -36,31 +36,33 @@ const joinSteps = [
 ];
 
 const SignupForm = () => {
-  const [submitted, setSubmitted] = React.useState(false);
+  const [facebookMember, setFacebookMember] = React.useState(false);
 
-  // Front-end only for now — submission is wired to a backend later.
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSubmitted(true);
-  };
+    if (!facebookMember) return;
 
-  if (submitted) {
-    return (
-      <div className="flex h-full flex-col items-center justify-center rounded-[2rem] border border-teal/20 bg-white p-8 text-center shadow-sm">
-        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-teal/10">
-          <PartyPopper className="h-7 w-7 text-teal" />
-        </div>
-        <h3 className="mt-5 text-2xl font-bold text-gray-900">You&apos;re on the list!</h3>
-        <p className="mt-3 max-w-sm leading-relaxed text-gray-700">
-          Thanks for letting us know when works for you. We&apos;ll pick a time that suits the most rebels and share
-          the date and Zoom link in the Facebook group.
-        </p>
-        <FacebookGroupButton variant="primary" size="md" className="mt-6">
-          Join the Facebook Group
-        </FacebookGroupButton>
-      </div>
-    );
-  }
+    const data = new FormData(event.currentTarget);
+    const name = String(data.get('name') ?? '').trim();
+    const email = String(data.get('email') ?? '').trim();
+    const days = data.getAll('preference-days').map(String);
+    const times = data.getAll('preference-times').map(String);
+    const note = String(data.get('note') ?? '').trim();
+
+    const subject = `Community Zoom availability from ${name}`;
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Preferred days: ${days.length ? days.join(', ') : 'No preference'}`,
+      `Preferred times: ${times.length ? times.join(', ') : 'No preference'}`,
+      'Facebook group member: Yes',
+      '',
+      'Topic or note:',
+      note || 'None',
+    ].join('\n');
+
+    window.location.href = `mailto:suz@rebelwithsuz.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
 
   return (
     <form
@@ -122,28 +124,56 @@ const SignupForm = () => {
           />
         </div>
 
-        <label
-          htmlFor="event-fb-member"
-          className="flex cursor-pointer items-start gap-3 rounded-2xl border border-[#0866ff]/20 bg-[#0866ff]/5 p-4"
-        >
-          <Checkbox id="event-fb-member" name="facebookMember" className="mt-0.5" />
-          <span className="text-sm leading-relaxed text-gray-700">
-            I&apos;m a member of the Rebellious Aging Facebook group (required to join the call).
-            <span className="mt-2 block">
-              <FacebookGroupButton variant="soft" size="sm" showArrow={false}>
-                Not yet? Join the group
-              </FacebookGroupButton>
-            </span>
-          </span>
-        </label>
+        <div className="rounded-2xl border border-[#0866ff]/20 bg-[#0866ff]/5 p-4">
+          <div className="flex items-start gap-3">
+            <Checkbox
+              id="event-fb-member"
+              name="facebookMember"
+              checked={facebookMember}
+              onCheckedChange={(checked) => setFacebookMember(checked === true)}
+              required
+              aria-describedby="event-fb-requirement"
+              className="mt-0.5"
+            />
+            <Label
+              htmlFor="event-fb-member"
+              id="event-fb-requirement"
+              className="cursor-pointer text-sm font-normal leading-relaxed text-gray-700"
+            >
+              I&apos;m a member of the Rebellious Aging Facebook group (required to join the call).
+            </Label>
+          </div>
+          <div className="mt-3 pl-7">
+            <FacebookGroupButton variant="soft" size="sm" showArrow={false}>
+              Not yet? Join the group
+            </FacebookGroupButton>
+          </div>
+        </div>
       </div>
 
       <div className="mt-6">
-        <Button type="submit" className="w-full bg-teal text-white hover:bg-teal-dark" size="lg">
-          Save my spot
+        <Button
+          type="submit"
+          className="w-full bg-teal text-white hover:bg-teal-dark"
+          size="lg"
+          disabled={!facebookMember}
+        >
+          Email my availability
         </Button>
+        {!facebookMember && (
+          <p className="mt-2 text-center text-xs font-medium text-[#0548b8]">
+            Confirm your Facebook group membership to continue.
+          </p>
+        )}
         <p className="mt-2 text-center text-xs text-muted-foreground">
-          We&apos;ll share the final time and Zoom link in the Facebook group.
+          This opens your email app. Send the prepared email to complete your registration.
+        </p>
+        <p className="mt-2 text-center text-xs text-muted-foreground">
+          Email not opening? Write to{' '}
+          <a className="font-semibold text-teal underline" href="mailto:suz@rebelwithsuz.com">
+            suz@rebelwithsuz.com
+          </a>
+          .
         </p>
       </div>
     </form>

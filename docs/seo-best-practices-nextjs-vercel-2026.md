@@ -1,6 +1,6 @@
 # SEO Best Practices for This Project (Next.js + Vercel, Google-first)
 
-Last reviewed: 2026-07-01.
+Last reviewed: 2026-07-26.
 
 This project is a static-exported Next.js App Router site. SEO should be treated as a build-time artifact quality system, not a one-time page-level task.
 
@@ -36,8 +36,8 @@ This project is a static-exported Next.js App Router site. SEO should be treated
 - Route metadata source of truth: `src/data/seoRoutes.ts`
 - Build-time metadata composer: `src/lib/nextMetadata.ts`
 - Route-driven metadata coverage check: `scripts/prerender.tsx` (audit only, no HTML mutation)
-- Runtime sitemap: `app/sitemap.ts`
-- Generated sitemap artifact: `scripts/generate-sitemap.ts` -> `public/sitemap.xml`
+- Sitemap source: `app/sitemap.ts` exports shared entries and generates the live `out/sitemap.xml`.
+- Generated sitemap artifact: `scripts/generate-sitemap.ts` serializes the shared entries to `public/sitemap.xml`.
 - SEO audit output: `public/seo-route-audit.json`
 - Implementation reference: `docs/seo-metadata-implementation.md`
 
@@ -62,7 +62,7 @@ Current hardening already in place:
 
 - Keep `@vercel/analytics` mounted in `app/layout.tsx` so Vercel Web Analytics can auto-track page views on deployed builds.
 - Vercel Web Analytics is enabled from the Vercel project dashboard and does not need a public env var.
-- Keep tracking gated behind `NEXT_PUBLIC_ENABLE_ANALYTICS`.
+- Keep GA and optional behavior scripts gated behind `NEXT_PUBLIC_ENABLE_ANALYTICS`. Vercel Web Analytics is controlled separately by the project dashboard and its mounted component.
 - Set `NEXT_PUBLIC_GA_ID=G-...` in Production.
 - Confirm tags load only on final rendered routes (no missing script errors).
 - Track:

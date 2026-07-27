@@ -9,6 +9,7 @@ import SubstackAnnouncement from '@/components/common/SubstackAnnouncement';
 import TrustedVoicesSection from '@/components/common/TrustedVoicesSection';
 import { FacebookGroupButton } from '@/components/common/FacebookGroupCta';
 import { getSortedBlogPosts } from '@/data/blogPosts';
+import { recipes, slugifyRecipeTitle } from '@/data/recipes';
 import { useSearch } from '@/hooks/useSearch';
 import type { SearchType } from '@/data/searchRecords';
 import { Button } from '@/components/ui/button';
@@ -40,9 +41,16 @@ const heroImages = [
   'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1774621518/IMG_7527_hrk5sa.jpg',
 ] as const;
 
+const HERO_IMAGE_WIDTHS = [480, 768, 1080] as const;
+
+const getCloudinaryHeroUrl = (src: string, width: number) =>
+  src.replace(
+    '/image/upload/',
+    `/image/upload/c_limit,w_${width},f_auto,q_auto:good/`
+  );
+
 const Home = () => {
-  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set([0]));
-  const [preloadedImages, setPreloadedImages] = useState<Set<number>>(new Set());
+  const [requestedImages, setRequestedImages] = useState<Set<number>>(new Set([0]));
   const [api, setApi] = useState<CarouselApi>();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
@@ -61,11 +69,23 @@ const Home = () => {
       return;
     }
 
-    setCurrentSlide(api.selectedScrollSnap());
+    const handleSelect = () => {
+      const selectedIndex = api.selectedScrollSnap();
+      setCurrentSlide(selectedIndex);
+      setRequestedImages((current) => {
+        if (current.has(selectedIndex)) {
+          return current;
+        }
+        return new Set(current).add(selectedIndex);
+      });
+    };
 
-    api.on("select", () => {
-      setCurrentSlide(api.selectedScrollSnap());
-    });
+    handleSelect();
+    api.on("select", handleSelect);
+
+    return () => {
+      api.off("select", handleSelect);
+    };
   }, [api]);
 
   const pillars = [
@@ -147,8 +167,18 @@ const Home = () => {
     [activeSearchType, searchQuery, search]
   );
   const featuredRecipes = useMemo(
-    () => docs.filter((doc) => doc.type === 'recipe').slice(0, 2),
-    [docs]
+    () =>
+      recipes.slice(0, 2).map((recipe) => {
+        const slug = slugifyRecipeTitle(recipe.title);
+        return {
+          id: `recipe:${slug}`,
+          title: recipe.title,
+          summary: recipe.description,
+          path: `/recipes/${slug}`,
+          type: 'recipe' as const,
+        };
+      }),
+    []
   );
   const featuredVideos = useMemo(
     () => docs.filter((doc) => doc.type === 'video').slice(0, 2),
@@ -187,43 +217,6 @@ const Home = () => {
   );
   const displayItems = searchQuery ? searchResults : defaultItems;
   const topItemId = displayItems[0]?.id;
-
-  useEffect(() => {
-    void ensureIndex();
-  }, [ensureIndex]);
-
-  // Preload the second image immediately
-  useEffect(() => {
-    if (heroImages.length > 1) {
-      const img = new Image();
-      img.onload = () => {
-        setPreloadedImages(prev => new Set(prev).add(1));
-      };
-      img.src = heroImages[1];
-    }
-  }, []);
-
-  // Progressive loading function
-  const loadImage = (index: number) => {
-    if (!loadedImages.has(index) && !preloadedImages.has(index)) {
-      const img = new Image();
-      img.onload = () => {
-        setLoadedImages(prev => new Set(prev).add(index));
-      };
-      img.src = heroImages[index];
-    }
-  };
-
-  // Load next images when carousel becomes active
-  const handleCarouselSelect = (index: number) => {
-    // Load current image if not loaded
-    loadImage(index);
-    
-    // Preload next image
-    const nextIndex = (index + 1) % heroImages.length;
-    loadImage(nextIndex);
-  };
-
 
   return (
     <>
@@ -311,9 +304,13 @@ const Home = () => {
                       <CarouselItem key={index} className="pl-0 basis-full">
                         <div className="relative w-full">
                           <AspectRatio ratio={1} className="bg-gray-200 overflow-hidden">
-                            {(loadedImages.has(index) || preloadedImages.has(index) || index === 0) ? (
+                            {requestedImages.has(index) ? (
                              <img 
-                                src={image}
+                                src={getCloudinaryHeroUrl(image, 768)}
+                                srcSet={HERO_IMAGE_WIDTHS.map(
+                                  (width) => `${getCloudinaryHeroUrl(image, width)} ${width}w`
+                                ).join(', ')}
+                                sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, (min-width: 640px) 672px, calc(100vw - 2rem)"
                                 alt={`Vibrant aging lifestyle ${index + 1}`}
                                 className="w-full h-full object-cover transition-opacity duration-1000"
                                 draggable={false}
@@ -321,16 +318,15 @@ const Home = () => {
                                   objectPosition: 'center 30%'
                                 }}
                                 loading={index === 0 ? "eager" : "lazy"}
+                                fetchPriority={index === 0 ? "high" : "auto"}
                                 decoding="async"
-                                onLoad={() => {
-                                  if (index !== 0) {
-                                    handleCarouselSelect(index);
-                                  }
-                                }}
                               />
                             ) : (
-                              <div className="w-full h-full bg-gray-200 animate-pulse flex items-center justify-center">
-                                <div className="text-gray-400">Loading...</div>
+                              <div
+                                className="w-full h-full bg-gray-200 animate-pulse"
+                                aria-hidden="true"
+                              >
+                                <span className="sr-only">Image loads when selected</span>
                               </div>
                             )}
                           </AspectRatio>
@@ -343,15 +339,22 @@ const Home = () => {
                 {/* Progress Bar */}
                 <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
                   {heroImages.map((_, index) => (
-                    <div
+                    <button
+                      type="button"
                       key={index}
-                      className={`h-2 md:h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
-                        index === currentSlide 
-                          ? 'w-10 md:w-8 bg-white' 
-                          : 'w-2 md:w-1.5 bg-white/40 hover:bg-white/60'
-                      }`}
+                      aria-label={`Show hero image ${index + 1} of ${heroImages.length}`}
+                      aria-current={index === currentSlide ? 'true' : undefined}
+                      className="group flex h-7 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800"
                       onClick={() => api?.scrollTo(index)}
-                    />
+                    >
+                      <span
+                        className={`block h-2 md:h-1.5 rounded-full transition-all duration-300 ${
+                          index === currentSlide
+                            ? 'w-10 md:w-8 bg-white'
+                            : 'w-2 md:w-1.5 bg-white/40 group-hover:bg-white/60'
+                        }`}
+                      />
+                    </button>
                   ))}
                 </div>
               </div>
@@ -492,7 +495,13 @@ const Home = () => {
               <input
                 type="search"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => {
+                  void ensureIndex();
+                }}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  void ensureIndex();
+                }}
                 placeholder="Search recipes, blogs, pillars, speaking events, video series…"
                 className="w-full rounded-full border border-gray-200 bg-white px-11 py-3.5 text-base shadow-sm focus:border-teal focus:ring-2 focus:ring-teal/20 transition"
               />
@@ -515,7 +524,11 @@ const Home = () => {
                 key={filter.value}
                 variant={activeSearchType === filter.value ? 'default' : 'outline'}
                 className="rounded-full px-4 py-2 text-xs"
-                onClick={() => setActiveSearchType(filter.value)}
+                type="button"
+                onClick={() => {
+                  setActiveSearchType(filter.value);
+                  void ensureIndex();
+                }}
               >
                 {filter.label}
               </Button>

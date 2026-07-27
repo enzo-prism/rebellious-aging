@@ -2,9 +2,7 @@ import { expect, test } from '@playwright/test';
 
 test.describe('Resilience readiness', () => {
   test('search page surfaces fallback state when search index is unavailable', async ({ page }) => {
-    const isolatedPage = await page.context().newPage();
-
-    await isolatedPage.route('**/search-index.json*', (route) => {
+    await page.route('**/search-index.json*', (route) => {
       void route.fulfill({
         status: 503,
         contentType: 'application/json',
@@ -12,22 +10,24 @@ test.describe('Resilience readiness', () => {
       });
     });
 
-    await isolatedPage.goto('/search');
+    await page.goto('/search');
 
-    await expect(isolatedPage.getByPlaceholder('Search blog, pillars, speaking events, nutrition guide…')).toBeVisible();
-    await expect(isolatedPage.getByText(/Unable to load search index/)).toBeVisible({ timeout: 10000 });
-    await isolatedPage.close();
+    await expect(page.getByPlaceholder('Search blog, pillars, speaking events, nutrition guide…')).toBeVisible();
+    await expect(page.getByText(/Unable to load search index/)).toBeVisible({ timeout: 10000 });
   });
 
-test('quiz block shows fallback form when embed script fails', async ({ page }) => {
-    const isolatedPage = await page.context().newPage();
-    await isolatedPage.route('https://embed.typeform.com/next/embed.js', (route) => route.abort());
-    await isolatedPage.goto('/pillars/health');
+  test('quiz block shows fallback form when embed script fails', async ({ page }) => {
+    let embedRequestBlocked = false;
+    await page.route('https://embed.typeform.com/next/embed.js*', (route) => {
+      embedRequestBlocked = true;
+      void route.abort();
+    });
+    await page.goto('/pillars/health');
 
-    await isolatedPage.getByRole('button', { name: 'Load Quiz' }).click();
+    await page.getByRole('button', { name: 'Load Quiz' }).click();
     await expect(
-      isolatedPage.getByText('Please use the fallback form below.')
+      page.getByText('Please use the fallback form below.')
     ).toBeVisible({ timeout: 10000 });
-    await isolatedPage.close();
+    expect(embedRequestBlocked).toBe(true);
   });
 });

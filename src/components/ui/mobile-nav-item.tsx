@@ -9,7 +9,7 @@ interface MobileNavItemProps {
   to?: string;
   href?: string;
   children: React.ReactNode;
-  onClick?: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  onClick?: React.MouseEventHandler<HTMLElement>;
   icon?: string;
 }
 
@@ -27,7 +27,8 @@ export const MobileNavItem: React.FC<MobileNavItemProps> = ({
     "hover:bg-accent/10 hover:translate-x-1",
     "focus:outline-none focus:bg-accent/10",
     "border-l-2 border-transparent hover:border-primary/30",
-    "touch-manipulation"
+    "touch-manipulation",
+    "w-full text-left"
   );
 
   if (href) {
@@ -46,7 +47,20 @@ export const MobileNavItem: React.FC<MobileNavItemProps> = ({
   }
 
   if (!to) {
-    return null;
+    if (!onClick) {
+      return null;
+    }
+
+    return (
+      <button
+        type="button"
+        className={cn(baseClasses, "text-foreground hover:text-primary")}
+        onClick={(event) => onClick(event)}
+      >
+        {icon && <span className="text-lg flex-shrink-0">{icon}</span>}
+        <span>{children}</span>
+      </button>
+    );
   }
 
   const isActive = pathname === to || pathname.startsWith(`${to}/`);

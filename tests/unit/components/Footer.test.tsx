@@ -20,4 +20,13 @@ describe('Footer', () => {
     expect(screen.getAllByText(/Rebellious Aging/i)).toHaveLength(2);
     expect(screen.getByText(/Medical Disclaimer/i)).toBeInTheDocument();
   });
+
+  it('keeps all desktop link groups in one footer navigation grid', () => {
+    render(<Footer />);
+
+    const navigation = screen.getByRole('navigation', { name: 'Footer navigation' });
+    expect(navigation).toHaveClass('lg:col-span-4', 'lg:grid-cols-5');
+    expect(navigation).toContainElement(screen.getByRole('heading', { name: /Confidence/ }));
+    expect(navigation).toContainElement(screen.getByRole('heading', { name: 'More Suz' }));
+  });
 });

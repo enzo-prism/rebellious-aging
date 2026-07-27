@@ -131,51 +131,17 @@ export const SearchDialog: React.FC<SearchDialogProps> = ({
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [ensureIndex, setOpen, pathname, focusPageSearch]);
 
-  // Prefetch the index at idle time so mobile opens feel fast
-  useEffect(() => {
-    type IdleHandle = number;
-    type IdleDeadline = { didTimeout: boolean; timeRemaining: () => number };
-    type IdleCallback = (deadline: IdleDeadline) => void;
-    type IdleOptions = { timeout?: number };
-
-    const supportsIdleCallback =
-      typeof window !== 'undefined' && 'requestIdleCallback' in window && 'cancelIdleCallback' in window;
-
-    const schedule: (fn: () => void) => IdleHandle = supportsIdleCallback
-      ? (fn) =>
-          (
-            window as Window & {
-              requestIdleCallback: (callback: IdleCallback, options?: IdleOptions) => IdleHandle;
-            }
-          ).requestIdleCallback(() => fn(), { timeout: 1500 })
-      : (fn) => window.setTimeout(fn, 500);
-
-    const cancel: (id: IdleHandle) => void = supportsIdleCallback
-      ? (id) =>
-          (
-            window as Window & {
-              cancelIdleCallback: (handle: IdleHandle) => void;
-            }
-          ).cancelIdleCallback(id)
-      : (id) => window.clearTimeout(id);
-
-    const id = schedule(() => {
-      void ensureIndex();
-    });
-
-    return () => cancel(id);
-  }, [ensureIndex]);
-
   useEffect(() => {
     if (!resolvedOpen) {
       return;
     }
 
-  if (pathname.startsWith('/search')) {
+    if (pathname.startsWith('/search')) {
       setOpen(false);
       return;
     }
 
+    void ensureIndex();
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     inputRef.current?.focus();
@@ -183,7 +149,7 @@ export const SearchDialog: React.FC<SearchDialogProps> = ({
     return () => {
       document.body.style.overflow = previousOverflow;
     };
-  }, [resolvedOpen, pathname, setOpen]);
+  }, [ensureIndex, resolvedOpen, pathname, setOpen]);
 
   const markUserScrollIntent = () => {
     userScrollIntentRef.current = true;
@@ -378,7 +344,7 @@ export const SearchDialog: React.FC<SearchDialogProps> = ({
                               Recipe
                             </Badge>
                           </div>
-                          <p className="text-xs text-muted-foreground line-clamp-2">{item.summary}</p>
+                          <p className="text-xs text-muted-foreground line-clamp-2 group-data-[selected=true]:text-accent-foreground">{item.summary}</p>
                         </div>
                         <CommandShortcut>🍽️</CommandShortcut>
                       </CommandItem>
@@ -402,7 +368,7 @@ export const SearchDialog: React.FC<SearchDialogProps> = ({
                               </Badge>
                             ) : null}
                           </div>
-                          <p className="text-xs text-muted-foreground line-clamp-2">{item.summary}</p>
+                          <p className="text-xs text-muted-foreground line-clamp-2 group-data-[selected=true]:text-accent-foreground">{item.summary}</p>
                         </div>
                         <CommandShortcut>{typeLabel[item.type]}</CommandShortcut>
                       </CommandItem>
@@ -421,7 +387,7 @@ export const SearchDialog: React.FC<SearchDialogProps> = ({
                             {typeLabel[item.type]}
                           </Badge>
                         </div>
-                        <p className="text-xs text-muted-foreground line-clamp-2">{item.summary}</p>
+                        <p className="text-xs text-muted-foreground line-clamp-2 group-data-[selected=true]:text-accent-foreground">{item.summary}</p>
                       </div>
                       <CommandShortcut>{typeEmoji[item.type]}</CommandShortcut>
                     </CommandItem>
