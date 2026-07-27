@@ -6,7 +6,7 @@
 - **Styling/UI:** Tailwind CSS, shadcn/ui primitives (Radix), Framer Motion.
 - **State/Async:** TanStack Query and shared shadcn/Toast patterns for feedback, with page-level lazy loading for embeds.
 - **SEO/Indexing:** `src/lib/seo.ts`, `src/lib/routeMetadata.ts`, `src/lib/nextMetadata.ts`, route metadata in `src/data/seoRoutes.ts`, native sitemap/robots via `app/sitemap.ts` and `app/robots.ts`, search index generation via `scripts/build-search-index.ts`, and `public/llms.txt` via `scripts/generate-llms.ts`.
-- **Build/Release:** `npm run build` runs `npm run llms`, `npm run sitemap`, `npm run build:search`, `next build`, and `npm run prerender` (metadata audit validation). GitHub Actions runs typecheck, lint, unit coverage, build, and the full browser suite on pushes to `main` and pull requests.
+- **Build/Release:** `npm run build` runs `npm run llms`, `npm run sitemap`, `npm run build:search`, `next build`, and `npm run prerender` (metadata audit validation). GitHub Actions runs typecheck, lint, unit coverage, build, functional browser coverage, and production-export performance tests on pushes to `main` and pull requests.
 - **Analytics/Embeds:** Vercel Web Analytics is injected from `app/layout.tsx`; GA, Hotjar, and GPT Engineer remain env-gated and are inserted there via `next/script`.
 - **SEO Ops Guide:** `docs/seo-best-practices-nextjs-vercel-2026.md` documents the current Search Console + deployment operating model.
 - **Migration + Ownership:** `docs/migration-and-google-operations-2026.md` tracks repo migration state and command-level verification.

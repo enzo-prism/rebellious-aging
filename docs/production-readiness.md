@@ -20,6 +20,7 @@ This project uses a codified readiness gate before public launch.
 - `npm run test:unit:coverage` – unit + component checks with enforced coverage thresholds.
 - `npm run test:e2e` – full browser suite.
 - `npm run test:e2e:readiness` – focused browser readiness checks.
+- CI splits the browser gate: functional and route-status coverage uses the Next.js development server, while `npm run test:e2e:perf` measures the built production export.
 - `npm run readiness:verify` – full readiness pipeline (all above).
 
 ### Full launch gate

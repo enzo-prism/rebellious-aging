@@ -2,7 +2,9 @@ import { expect, test } from '@playwright/test';
 
 test.describe('Core site interactions', () => {
   test('recipe tag filters update the visible results and pressed state', async ({ page }) => {
-    await page.goto('/recipes');
+    // Wait for client hydration before exercising stateful filters. A click
+    // during the initial server-rendered handoff can otherwise be discarded.
+    await page.goto('/recipes', { waitUntil: 'networkidle' });
 
     const noBakeFilter = page.getByRole('button', { name: 'No-Bake', exact: true });
     await expect(noBakeFilter).toHaveAttribute('aria-pressed', 'false');

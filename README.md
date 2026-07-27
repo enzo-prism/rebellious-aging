@@ -395,7 +395,7 @@ Baseline launch checklist:
 - `public/production-readiness-report.json` is green.
 - No open critical-severity issues in recent readiness runs.
 
-GitHub Actions mirrors the release gate in [`.github/workflows/ci.yml`](.github/workflows/ci.yml) with Node 20, `npm ci`, Chromium installation, typecheck, lint, unit coverage, build, and the full browser suite.
+GitHub Actions mirrors the release gate in [`.github/workflows/ci.yml`](.github/workflows/ci.yml) with Node 20, `npm ci`, Chromium installation, typecheck, lint, unit coverage, build, and the full browser suite. Functional browser tests run against Next.js development routing; performance tests run separately against the built production export so framework compilation does not distort Web Vitals.
 
 ## Performance & Embed Guardrails
 

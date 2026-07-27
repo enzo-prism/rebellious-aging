@@ -25,4 +25,7 @@ jobs:
       - run: npm run lint
       - run: npm run test:unit:coverage
       - run: npm run build
-      - run: npm run test:e2e
+      - run: npm run test:e2e -- --grep-invert "Performance readiness web-vitals smoke"
+      - run: npm run test:e2e:perf
+        env:
+          PW_PRODUCTION_SERVER: "true"
