@@ -5,7 +5,7 @@ import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Search as SearchIcon, Loader2, ArrowLeft, X } from 'lucide-react';
 
-import { Badge } from '@/components/ui/badge';
+import { Badge, badgeVariants } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Seo from '@/components/seo/Seo';
@@ -169,14 +169,18 @@ const Search = () => {
 
             <div className="flex flex-wrap gap-2">
               {typeFilters.map((filter) => (
-                <Badge
+                <button
                   key={filter.type}
-                  variant={selectedTypes.includes(filter.type) ? 'default' : 'outline'}
-                  className="cursor-pointer px-3 py-2 text-sm rounded-full"
+                  type="button"
+                  aria-pressed={selectedTypes.includes(filter.type)}
+                  className={badgeVariants({
+                    variant: selectedTypes.includes(filter.type) ? 'default' : 'outline',
+                    className: 'cursor-pointer px-3 py-2 text-sm rounded-full',
+                  })}
                   onClick={() => toggleType(filter.type)}
                 >
                   {filter.label}
-                </Badge>
+                </button>
               ))}
               <Button
                 variant="ghost"
@@ -191,17 +195,20 @@ const Search = () => {
             {recent.length > 0 && (
               <div className="flex flex-wrap gap-2">
                 {recent.map((item) => (
-                  <Badge
+                  <button
                     key={item}
-                    variant="secondary"
-                    className="cursor-pointer px-3 py-2 rounded-full"
+                    type="button"
+                    className={badgeVariants({
+                      variant: 'secondary',
+                      className: 'cursor-pointer px-3 py-2 rounded-full',
+                    })}
                     onClick={() => {
                       setQuery(item);
                       applyQueryParam(item);
                     }}
                   >
                     {item}
-                  </Badge>
+                  </button>
                 ))}
               </div>
             )}

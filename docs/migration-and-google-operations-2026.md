@@ -1,6 +1,6 @@
 # Migration + Google Operations Checklist (2026)
 
-Last reviewed: 2026-07-26.
+Last reviewed: 2026-07-27.
 
 This document is the one-stop guide for repository migration ownership, deployment readiness, and Google Search visibility checks.
 
@@ -29,6 +29,7 @@ Notes:
 - For legacy URLs that require real HTTP redirect status codes in production, define the rule in `vercel.json`.
 - GitHub Actions must finish green on `main` before the release is considered complete.
 - Vercel deploys do not apply Supabase migrations. Confirm the intended Supabase project, run `supabase db push`, and verify policies separately when a release includes migration files.
+- Vercel deploys also do not publish Supabase Edge Functions. When `supabase/functions/submit-quiz` changes, deploy that function separately and verify its allowed-origin and validation behavior.
 
 Then run the verification checks:
 
@@ -110,3 +111,12 @@ Do not ship placeholder Supabase values when the quiz fallback must work.
 - Added Suz's newest Google Docs blog shares as public, indexable posts: Blog #79, `Is Being Ferociously Independent a Good Thing?` (`/blog/is-being-ferociously-independent-a-good-thing`), and Blog #80, `The Gift I Almost Forgot to Accept` (`/blog/the-gift-i-almost-forgot-to-accept`).
 - Updated blog metadata, article bodies, Facebook CTAs, generated sitemap/search/SEO audit assets, and route-matrix coverage for both new posts. No blog post is gated in the current codebase.
 - Release checks for this run: `npm run lint`, `npm run test:unit`, `npm run build`, focused `npm run test:e2e -- tests/e2e/route-matrix.spec.ts tests/e2e/search.spec.ts`, production deploy, and live readbacks for the two new pages, sitemap, and search index.
+
+2026-07-27:
+
+- Added Suz's Blogs #81–#88 as public, indexable posts. Blogs #85–#88 are `When Science Finally Caught Up With My Birthdays`, `Awareness Must Precede Action`, `Five Seconds`, and `Nobody is Thinking About You (As Much As You Think They Are)`.
+- Added Valerie Sims' endorsement to the shared trusted-voices data used by the Movement and Speaking Events pages.
+- Upgraded the site from Next.js 14 to 16.2.12 and updated dynamic routes for the asynchronous `params` contract. Robots and sitemap metadata routes are explicitly static.
+- Improved search-filter semantics, responsive search-dialog sizing, share-button contrast, and server-rendered pillar content.
+- Hardened quiz submissions with client-side field limits plus Edge Function origin, method, body-size, field-length, email, rating, and pillar validation. The Edge Function must be deployed separately from Vercel.
+- Release gate: `npm run readiness:verify` passed with 150 static pages, 145 audited SEO routes, 57 unit tests, and 76 browser tests. Lint completed with 26 existing image-optimization warnings and no errors.

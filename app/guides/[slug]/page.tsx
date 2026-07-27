@@ -41,11 +41,13 @@ export const generateStaticParams = () =>
 export const generateMetadata = async ({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> => {
-  return buildMetadata(resolveGuideMeta(params.slug));
+  const { slug } = await params;
+  return buildMetadata(resolveGuideMeta(slug));
 };
 
-export default function GuideDetailRoute({ params }: { params: { slug: string } }) {
-  return <GuideDetail slug={params.slug} />;
+export default async function GuideDetailRoute({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  return <GuideDetail slug={slug} />;
 }

@@ -29,8 +29,8 @@ This project uses a codified readiness gate before public launch.
 ## Current baseline checks
 - Report file: `public/production-readiness-report.json`
 - Expected status in release conditions: `status: "pass"` with all checks green.
-- July 26, 2026 release-candidate baseline: 146 static pages, 141 audited SEO routes, 57 passing unit tests, 76 passing browser tests, and 86.65% line coverage. Typecheck, lint, build, readiness report, and `git diff --check` also pass.
-- Current hardening covers responsive hero/gallery images, on-demand search indexing, server-rendered nutrition content, keyboard/mobile navigation, event email handoff, consistent recipe fallbacks, sitemap policy alignment, and baseline Vercel response headers.
+- July 27, 2026 release-candidate baseline: 150 static pages, 145 audited SEO routes, 57 passing unit tests, and 76 passing browser tests. Typecheck, lint, build, readiness report, and `git diff --check` pass.
+- Current hardening covers responsive hero/gallery images, on-demand search indexing, server-rendered nutrition and pillar content, keyboard/mobile navigation, accessible search filters, event email handoff, consistent recipe fallbacks, sitemap policy alignment, quiz request validation, and baseline Vercel response headers.
 - GitHub Actions runs the same release checks from `.github/workflows/ci.yml`.
 
 ## Share-specific verification
@@ -42,6 +42,7 @@ This project uses a codified readiness gate before public launch.
 ## Notes
 - Run with `npm run preview` after `npm run build` for manual smoke.
 - Real `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` values must exist in Vercel for the quiz fallback to work. Apply pending `supabase/migrations/` changes separately from the Vercel release.
+- Changes under `supabase/functions/submit-quiz` require a separate Supabase function deployment; pushing `main` or deploying Vercel does not publish the Edge Function.
 - For legacy URLs that must return a real HTTP redirect in production, verify the rule in `vercel.json` as part of release review; static export alone is not enough.
 - Keep generated files in sync after SEO/content updates:
   - `npm run sitemap`

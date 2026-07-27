@@ -12,6 +12,7 @@ dist
 dist-ssr
 out
 .next
+test-results/
 *.local
 
 # Env files

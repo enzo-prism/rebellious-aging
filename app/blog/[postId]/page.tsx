@@ -51,11 +51,13 @@ export const generateStaticParams = () => {
 export const generateMetadata = async ({
   params,
 }: {
-  params: { postId: string };
+  params: Promise<{ postId: string }>;
 }): Promise<Metadata> => {
-  return buildMetadata(resolvePostMeta(params.postId));
+  const { postId } = await params;
+  return buildMetadata(resolvePostMeta(postId));
 };
 
-export default function BlogPostRoute({ params }: { params: { postId: string } }) {
-  return <BlogPost postId={params.postId} />;
+export default async function BlogPostRoute({ params }: { params: Promise<{ postId: string }> }) {
+  const { postId } = await params;
+  return <BlogPost postId={postId} />;
 }

@@ -135,8 +135,9 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (!formData.rating) {
+
+    const rating = Number(formData.rating);
+    if (!Number.isInteger(rating) || rating < 1 || rating > 5) {
       toast({
         title: "Please complete the quiz",
         description: "Please select a rating for the first question.",
@@ -173,11 +174,11 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
       
       const requestData = {
         pillarType,
-        rating: parseInt(formData.rating),
-        challenge: formData.challenge,
-        goals: formData.goals,
+        rating,
+        challenge: formData.challenge.trim(),
+        goals: formData.goals.trim(),
         userEmail: formData.userEmail.trim(),
-        userName: formData.userName || undefined,
+        userName: formData.userName.trim() || undefined,
       };
 
       // Submit quiz to Supabase edge function
@@ -280,6 +281,7 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
                             value={formData.challenge}
                             onChange={(e) => setFormData(prev => ({ ...prev, challenge: e.target.value }))}
                             rows={4}
+                            maxLength={2000}
                           />
                         </div>
 
@@ -291,6 +293,7 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
                             value={formData.goals}
                             onChange={(e) => setFormData(prev => ({ ...prev, goals: e.target.value }))}
                             rows={4}
+                            maxLength={2000}
                           />
                         </div>
 
@@ -304,6 +307,7 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
                               value={formData.userName}
                               onChange={(e) => setFormData(prev => ({ ...prev, userName: e.target.value }))}
                               placeholder="Enter your name"
+                              maxLength={100}
                             />
                           </div>
                           <div>
@@ -316,6 +320,7 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
                               onChange={(e) => setFormData(prev => ({ ...prev, userEmail: e.target.value }))}
                               placeholder="Enter your email for personalized follow-up"
                               required
+                              maxLength={254}
                             />
                           </div>
                         </div>
@@ -394,6 +399,7 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
                       value={formData.challenge}
                       onChange={(e) => setFormData(prev => ({ ...prev, challenge: e.target.value }))}
                       rows={4}
+                      maxLength={2000}
                     />
                   </div>
                   
@@ -405,6 +411,7 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
                       value={formData.goals}
                       onChange={(e) => setFormData(prev => ({ ...prev, goals: e.target.value }))}
                       rows={4}
+                      maxLength={2000}
                     />
                   </div>
                   
@@ -418,6 +425,7 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
                         value={formData.userName}
                         onChange={(e) => setFormData(prev => ({ ...prev, userName: e.target.value }))}
                         placeholder="Enter your name"
+                        maxLength={100}
                       />
                     </div>
                     <div>
@@ -430,6 +438,7 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
                         onChange={(e) => setFormData(prev => ({ ...prev, userEmail: e.target.value }))}
                         placeholder="Enter your email for personalized follow-up"
                         required
+                        maxLength={254}
                       />
                     </div>
                   </div>

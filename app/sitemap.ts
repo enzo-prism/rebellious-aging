@@ -9,6 +9,8 @@ import { siteMetadata } from '@/lib/siteMetadata';
 
 const baseUrl = siteMetadata.baseUrl?.replace(/\/$/, '') ?? 'https://www.rebelwithsuz.com';
 
+export const dynamic = 'force-static';
+
 const isIndexableRoute = (route: { noindex?: boolean }) => !route.noindex;
 
 const toAbsolute = (path: string) => {

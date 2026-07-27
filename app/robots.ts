@@ -4,6 +4,8 @@ import { siteMetadata } from '@/lib/siteMetadata';
 
 const baseUrl = siteMetadata.baseUrl.replace(/\/$/, '');
 
+export const dynamic = 'force-static';
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [

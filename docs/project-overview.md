@@ -1,7 +1,7 @@
 # Rebellious Aging – Project Overview
 
 ## Stack & Tooling
-- **Frontend:** React 18 + TypeScript, migrated to Next.js 14 App Router (`app/`), static-first export mode.
+- **Frontend:** React 18 + TypeScript on Next.js 16 App Router (`app/`), static-first export mode.
 - **Routing:** File-based routes under `app/` with metadata-driven routes for SEO parity (`generateMetadata`) and legacy route compatibility.
 - **Styling/UI:** Tailwind CSS, shadcn/ui primitives (Radix), Framer Motion.
 - **State/Async:** TanStack Query and shared shadcn/Toast patterns for feedback, with page-level lazy loading for embeds.
@@ -23,7 +23,7 @@
 - **Static content:** Blog metadata (`src/data/blogPosts.ts`) with bodies in `src/data/blogPostContent.tsx`, pillar copy, video series, recipe indexes, speaking events (`src/data/speakingEvents.ts`), and free guides (`src/data/guides.ts`, the `Guide` interface) are maintained in deterministic TS modules.
 - **Canonical route metadata:** `src/data/seoRoutes.ts` drives per-route SEO defaults.
 - **Supabase:** `src/components/pillar/QuizSection.tsx` uses the `submit-quiz` Edge Function; table/policies reside in `supabase/migrations/`, including service-role-only update access.
-- **Client-only quiz boundary:** `src/views/PillarPage.tsx` loads `QuizSection` dynamically with `ssr: false` so pillar routes stay stable while the quiz owns browser-only Supabase and Typeform behavior.
+- **Quiz boundary:** `src/views/PillarPage.tsx` renders `QuizSection` directly so the section shell is present in static HTML; browser-only submission and Typeform behavior remain inside the client component.
 - **Typeform:** Contact/newsletter embeds load on interaction; quiz scripts are intersection-triggered and global cached.
 - **Facebook CTA:** Central helper in `src/lib/facebook.ts` keeps popup + fallback behavior consistent.
 - **Share behavior:** The share flow copies `window.location.href` so query-param state is preserved, uses `document.title` only for dialog context, and falls back to manual selection if clipboard access fails.
@@ -61,6 +61,8 @@
 - Last migration focus: Vite SPA → Next.js App Router conversion with static-first export strategy.
 - Keep `npm run build` as the canonical verification command after content/route changes.
 - Blog post ordering behavior mirrors the original repo ordering contract: `blogPosts` entries are normalized and `getNextBlogPost` resolves by `blogNumber`, not by array position.
+- The July 27, 2026 release adds Blogs #85–#88 and Valerie Sims' endorsement, upgrades Next.js to 16.2.12, and hardens quiz submission validation and CORS handling.
+- `app/robots.ts` and `app/sitemap.ts` are explicitly static, while dynamic App Router pages await the Next.js 16 `params` promise.
 
 ## Opportunities & Caveats
 1. Long-form blog bodies are already extracted into `src/data/blogPostContent.tsx` (keyed by post id) with `src/views/BlogPost.tsx` as a thin renderer; the remaining scale concern is that all bodies share one large module — consider splitting per-post files as volume grows.

@@ -497,6 +497,30 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
       'If your own detours make more sense in reverse, join the group and share the turns that quietly shaped who you are becoming.',
     buttonLabel: 'Join the reflection circle',
   },
+  'when-science-finally-caught-up-with-my-birthdays': {
+    title: 'Greet the next season together',
+    body:
+      'If your body has ever surprised you with a new season, join the group and share how curiosity, care, and humor help you meet change.',
+    buttonLabel: 'Join the aging conversation',
+  },
+  'awareness-must-precede-action': {
+    title: 'Practice the pause together',
+    body:
+      'If awareness feels like the first step toward wiser choices, join the group and explore the small pauses that can change an ordinary day.',
+    buttonLabel: 'Join the awareness circle',
+  },
+  'five-seconds': {
+    title: 'Count down, then begin',
+    body:
+      'If hesitation has ever kept you waiting, join the group and share the tiny moments of courage that helped you move.',
+    buttonLabel: 'Join the courage circle',
+  },
+  'nobody-is-thinking-about-you-as-much-as-you-think-they-are': {
+    title: 'Think for yourself together',
+    body:
+      'If imagined opinions have ever kept you small, join the group and practice choosing authenticity, clarity, and your own brave yes.',
+    buttonLabel: 'Join the authenticity talk',
+  },
 };
 
 export const getBlogPostCta = (postId: string) => blogPostCtas[postId];

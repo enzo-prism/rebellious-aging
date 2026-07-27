@@ -6,7 +6,7 @@ Rebellious Aging is a Next.js App Router site that helps women 55+ “age boldly
 
 ## Tech Stack
 
-- **Build tooling:** Next.js 14 App Router (static-first), TypeScript, React 18
+- **Build tooling:** Next.js 16 App Router (static-first), TypeScript, React 18
 - **UI:** Tailwind CSS, shadcn/ui components, Radix Primitives, Framer Motion
 - **State & data:** TanStack Query, custom hooks, local data files under `src/data`
 - **SEO tooling:** Shared route metadata (`src/data/seoRoutes.ts`), Next Metadata API, structured data helpers, minimal title-tag policy, SEO route audit pipeline
@@ -233,15 +233,16 @@ Post-deploy verification snapshot (Feb 26, 2026):
 - `vercel aliases ls --scope enzo-design-prisms-projects` shows rebelwithsuz.com points to ra-nextjs
 ```
 
-Latest content release snapshot (Jul 7, 2026):
+Latest content and hardening release snapshot (Jul 27, 2026):
 
 ```text
-- Blogs #75–#78 (the "superpower" series: `How Do You Discover Your Superpower?`, `The Problem With Superpowers`, `Do Superpowers Change?`, `The Superpower Epilogue`) are all public and indexable.
-- Blogs #79–#80 (`Is Being Ferociously Independent a Good Thing?`, `The Gift I Almost Forgot to Accept`) are public and indexable, sourced from Suz's July 5–6, 2026 Google Docs share notifications.
+- Blogs #81–#88 are public and indexable. The latest four are `When Science Finally Caught Up With My Birthdays`, `Awareness Must Precede Action`, `Five Seconds`, and `Nobody is Thinking About You (As Much As You Think They Are)`.
+- Valerie Sims' endorsement is included in the shared trusted-voices section used by the Movement and Speaking Events pages.
 - No blog post is currently password-gated. The gate infrastructure (`gated`/`releaseDate` fields, `BlogPasswordGate`) remains in the codebase but is inactive because no post sets `gated: true`.
-- Free Booklets & Guides launched: `/guides` hub plus `/guides/:slug` detail pages for the Esselstyn jumpstart booklet, the T. Colin Campbell Center for Nutrition Studies guide, and Suz's one-page starter (see `src/data/guides.ts`).
-- Suz email-derived blog mirrors `The Accidental Blogger` and `The Class You Cannot Take` are present in the repo, sitemap, search index, and production.
-- Release verification used `npm run lint`, `npm run test:unit`, `npm run build`, production deploy, and live readbacks for the updated URLs plus sitemap/search index.
+- Next.js is upgraded to 16.2.12, including the asynchronous App Router params contract and static robots/sitemap generation.
+- Search filters use native buttons, the search dialog has stable responsive sizing, and the share button keeps readable disabled-state contrast.
+- Quiz input and Edge Function validation now enforce allowed origins, request sizes, field limits, and normalized values. Deploy `supabase/functions/submit-quiz` separately from Vercel when this function changes.
+- Generated sitemap, search, and SEO audit artifacts are refreshed during `npm run build`.
 ```
 
 Recommended setup commands:
@@ -404,7 +405,7 @@ GitHub Actions mirrors the release gate in [`.github/workflows/ci.yml`](.github/
 - The search index loads on demand when search is opened.
 - Embeds are lazy by default:
   - Contact Typeform loads on user interaction.
-  - Pillar quizzes load on interaction + intersection.
+  - Pillar quiz markup is present in the static page; Typeform fallback scripts still load only when needed.
   - Video cards use placeholder thumbnails before mounting YouTube iframes.
 - Add new third-party scripts behind user intent and avoid broad global loading in `layout`.
 

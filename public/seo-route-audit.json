@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-27T00:33:10.715Z",
-  "totalRoutes": 141,
-  "validRoutes": 141,
+  "generatedAt": "2026-07-27T20:37:38.669Z",
+  "totalRoutes": 145,
+  "validRoutes": 145,
   "failedRoutes": 0,
   "records": [
     {
@@ -2670,6 +2670,106 @@
         "title": "Looking Back",
         "description": "Suz reflects on life in reverse and how curiosity, pivots, detours, and unexpected turns reveal the story of who we are becoming.",
         "canonical": "/blog/looking-back",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/when-science-finally-caught-up-with-my-birthdays",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "When Science Finally Caught Up With My Birthdays",
+        "description": "Suz reflects on birthdays, the physical seasons of aging, research into biological turning points, and choosing to greet change with curiosity.",
+        "canonical": "/blog/when-science-finally-caught-up-with-my-birthdays",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/awareness-must-precede-action",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Awareness Must Precede Action",
+        "description": "Suz reflects on awareness, autopilot, everyday choices, and why meaningful change begins by noticing before taking action.",
+        "canonical": "/blog/awareness-must-precede-action",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/five-seconds",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Five Seconds",
+        "description": "Suz shares how the 5 Second Rule helped her act through fear, begin blogging, build Rebellious Aging, and make tiny moments of courage count.",
+        "canonical": "/blog/five-seconds",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/nobody-is-thinking-about-you-as-much-as-you-think-they-are",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Nobody is Thinking About You (As Much As You Think They Are)",
+        "description": "Suz reflects on fear of judgment, imagined opinions, authenticity, and the freedom that comes from thinking for yourself.",
+        "canonical": "/blog/nobody-is-thinking-about-you-as-much-as-you-think-they-are",
         "ogType": "article",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"

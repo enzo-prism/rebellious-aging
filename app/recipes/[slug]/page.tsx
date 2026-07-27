@@ -40,11 +40,13 @@ export const generateStaticParams = () =>
 export const generateMetadata = async ({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> => {
-  return buildMetadata(resolveRecipeMeta(params.slug));
+  const { slug } = await params;
+  return buildMetadata(resolveRecipeMeta(slug));
 };
 
-export default function RecipeDetailRoute({ params }: { params: { slug: string } }) {
-  return <RecipeDetail slug={params.slug} />;
+export default async function RecipeDetailRoute({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  return <RecipeDetail slug={slug} />;
 }

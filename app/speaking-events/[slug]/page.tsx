@@ -6,9 +6,9 @@ import { getSpeakingEventBySlug, getSpeakingEventPath, speakingEvents } from '@/
 import { buildMetadata } from '@/lib/nextMetadata';
 
 interface SpeakingEventPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export const generateStaticParams = () =>
@@ -16,12 +16,13 @@ export const generateStaticParams = () =>
     slug: event.slug,
   }));
 
-export const generateMetadata = ({ params }: SpeakingEventPageProps): Metadata => {
-  const event = getSpeakingEventBySlug(params.slug);
+export const generateMetadata = async ({ params }: SpeakingEventPageProps): Promise<Metadata> => {
+  const { slug } = await params;
+  const event = getSpeakingEventBySlug(slug);
 
   if (!event) {
     return buildMetadata({
-      path: getSpeakingEventPath(params.slug),
+      path: getSpeakingEventPath(slug),
       title: 'Speaking Event Not Found',
       description: 'The speaking event you are looking for could not be found.',
     });
@@ -35,8 +36,9 @@ export const generateMetadata = ({ params }: SpeakingEventPageProps): Metadata =
   });
 };
 
-export default function SpeakingEventPage({ params }: SpeakingEventPageProps) {
-  const event = getSpeakingEventBySlug(params.slug);
+export default async function SpeakingEventPage({ params }: SpeakingEventPageProps) {
+  const { slug } = await params;
+  const event = getSpeakingEventBySlug(slug);
 
   if (!event) {
     notFound();

@@ -25,4 +25,10 @@ export const trustedVoiceEndorsements: Endorsement[] = [
     href: 'https://nutritionstudies.org/',
     linkLabel: 'Visit NutritionStudies.org',
   },
+  {
+    quote:
+      'Suzanne decided not to bow to the standard notions about aging, and she is taking the lead in guiding others to stand up to the outdated concepts about what people should do and how they should be as they get older. With her ideas and energy, people can learn how to improve or maintain their health and confidence as the years go by. She knows what she is talking about and gives her time graciously to work with those who have questions. Suzanne is undeniably wisdom in action!',
+    name: 'Valerie Sims',
+    title: 'Retired RN and teacher, moderator with CNS Whole Communities, and inveterate volunteer',
+  },
 ];

@@ -215,8 +215,7 @@ export const SearchDialog: React.FC<SearchDialogProps> = ({
 
   const trigger = renderTrigger ? renderTrigger(openHandler) : null;
 
-  const isMobile = typeof window !== 'undefined' ? window.matchMedia('(max-width: 1023px)').matches : false;
-  const contentWidth = isMobile ? 'w-full h-full rounded-none border-0' : 'w-[min(100vw-1.5rem,720px)] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-4rem)] rounded-2xl sm:rounded-xl border border-border';
+  const contentWidth = 'w-full h-full rounded-none border-0 lg:w-[min(100vw-1.5rem,720px)] lg:h-auto lg:max-h-[calc(100vh-4rem)] lg:rounded-xl lg:border lg:border-border';
   const emptyMessage = query
     ? 'No matches found.'
     : activeType === 'recipe'

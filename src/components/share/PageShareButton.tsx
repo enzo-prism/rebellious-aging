@@ -103,7 +103,7 @@ const PageShareButton: React.FC<PageShareButtonProps> = ({
           disabled={!isReady}
           className={cn(
             'rounded-full border-teal/30 bg-white/90 px-4 text-teal shadow-sm hover:border-teal hover:bg-teal hover:text-white',
-            !isReady && 'cursor-wait opacity-75',
+            !isReady && 'cursor-wait disabled:text-teal-dark disabled:opacity-100',
             className
           )}
           onClick={() => {

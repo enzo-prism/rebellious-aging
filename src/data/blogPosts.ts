@@ -909,6 +909,54 @@ export const blogPosts: BlogPostMetadata[] = [
     blogNumber: 84,
     seoDescription:
       'Suz reflects on life in reverse and how curiosity, pivots, detours, and unexpected turns reveal the story of who we are becoming.'
+  },
+  {
+    id: 'when-science-finally-caught-up-with-my-birthdays',
+    title: 'When Science Finally Caught Up With My Birthdays',
+    excerpt:
+      'Suz reflects on the physical seasons of aging, the science behind sudden biological shifts, and greeting each new chapter with curiosity.',
+    date: '7/17/2026',
+    dateSort: new Date('2026-07-17'),
+    readTime: '4 min read',
+    blogNumber: 85,
+    seoDescription:
+      'Suz reflects on birthdays, the physical seasons of aging, research into biological turning points, and choosing to greet change with curiosity.'
+  },
+  {
+    id: 'awareness-must-precede-action',
+    title: 'Awareness Must Precede Action',
+    excerpt:
+      'Suz explores the small pause between impulse and action, where awareness makes wiser choices and meaningful change possible.',
+    date: '7/26/2026',
+    dateSort: new Date('2026-07-26T01:00:00'),
+    readTime: '2 min read',
+    blogNumber: 86,
+    seoDescription:
+      'Suz reflects on awareness, autopilot, everyday choices, and why meaningful change begins by noticing before taking action.'
+  },
+  {
+    id: 'five-seconds',
+    title: 'Five Seconds',
+    excerpt:
+      'Suz shares how a five-second countdown helped her move before doubt, fear, and hesitation could take over.',
+    date: '7/26/2026',
+    dateSort: new Date('2026-07-26T02:00:00'),
+    readTime: '3 min read',
+    blogNumber: 87,
+    seoDescription:
+      'Suz shares how the 5 Second Rule helped her act through fear, begin blogging, build Rebellious Aging, and make tiny moments of courage count.'
+  },
+  {
+    id: 'nobody-is-thinking-about-you-as-much-as-you-think-they-are',
+    title: 'Nobody is Thinking About You (As Much As You Think They Are)',
+    excerpt:
+      'Suz lets go of imagined opinions and discovers the freedom to ask what she thinks, wants, and believes about her own life.',
+    date: '7/26/2026',
+    dateSort: new Date('2026-07-26T03:00:00'),
+    readTime: '3 min read',
+    blogNumber: 88,
+    seoDescription:
+      'Suz reflects on fear of judgment, imagined opinions, authenticity, and the freedom that comes from thinking for yourself.'
   }
 ];
 

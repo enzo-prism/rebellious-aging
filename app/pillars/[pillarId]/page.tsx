@@ -65,11 +65,13 @@ export const generateStaticParams = () =>
 export const generateMetadata = async ({
   params,
 }: {
-  params: { pillarId: string };
+  params: Promise<{ pillarId: string }>;
 }): Promise<Metadata> => {
-  return buildMetadata(resolvePillarMeta(params.pillarId));
+  const { pillarId } = await params;
+  return buildMetadata(resolvePillarMeta(pillarId));
 };
 
-export default function PillarPageRoute({ params }: { params: { pillarId: string } }) {
-  return <PillarPage pillarId={params.pillarId} />;
+export default async function PillarPageRoute({ params }: { params: Promise<{ pillarId: string }> }) {
+  const { pillarId } = await params;
+  return <PillarPage pillarId={pillarId} />;
 }

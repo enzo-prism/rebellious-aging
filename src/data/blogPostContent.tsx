@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { FacebookGroupButton } from '@/components/common/FacebookGroupCta';
 
 const calorieDensityChart = '/calorie-density-chart.png';
@@ -611,44 +612,44 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
 
           <p>
             <strong>Keep learning.</strong> Stay curious. Try new things. Yes, even if it scares you a little, or a lot. That is the point. A curious mind keeps us alive, engaged, and fabulously unpredictable. If that nudge speaks to you, keep going with{' '}
-            <a href="/blog/optimal-aging-colleen-murphy" className="text-primary underline underline-offset-4">
+            <Link href="/blog/optimal-aging-colleen-murphy" className="text-primary underline underline-offset-4">
               Optimal Aging
-            </a>{' '}
+            </Link>{' '}
             and{' '}
-            <a href="/blog/if-not-now-when-new-beginnings" className="text-primary underline underline-offset-4">
+            <Link href="/blog/if-not-now-when-new-beginnings" className="text-primary underline underline-offset-4">
               If Not Now, When?
-            </a>.
+            </Link>.
           </p>
 
           <p>
             <strong>Relationships are the elixir.</strong> Whether it&apos;s rekindling old friendships, hugging tighter, or even starting new connections online, being seen and known matters. If connection is the piece you&apos;ve been missing, revisit{' '}
-            <a href="/blog/gratitude-rebellious-soul" className="text-primary underline underline-offset-4">
+            <Link href="/blog/gratitude-rebellious-soul" className="text-primary underline underline-offset-4">
               Gratitude and the Rebellious Soul
-            </a>{' '}
+            </Link>{' '}
             and join our{' '}
-            <a href="/blog/join-rebellious-aging-facebook-group" className="text-primary underline underline-offset-4">
+            <Link href="/blog/join-rebellious-aging-facebook-group" className="text-primary underline underline-offset-4">
               private Rebellious Aging Facebook group
-            </a>.
+            </Link>.
           </p>
 
           <p>
             <strong>Change is a constant companion in later life.</strong> The key? Flexibility. Grace. Maybe even a sense of humor, when gravity starts getting sassy. And if you want the physical side of thriving to feel more doable, pair this with{' '}
-            <a href="/blog/strength-and-balance-for-the-win" className="text-primary underline underline-offset-4">
+            <Link href="/blog/strength-and-balance-for-the-win" className="text-primary underline underline-offset-4">
               Strength and Balance for the Win!
-            </a>.
+            </Link>.
           </p>
 
           <p><strong>Your life experience has value.</strong> Share it. Mentor, support, volunteer, or simply smile at someone who looks lost. Giving adds meaning and texture to our days.</p>
 
           <p>
             Dr. Burnight paints a vivid contrast between two women. One is resigned to decline, the other is lit up with curiosity and confidence. The difference was not luck or money. It was mindset. If you are wrestling with that inner critic, read{' '}
-            <a href="/blog/limiting-beliefs-not-boss" className="text-primary underline underline-offset-4">
+            <Link href="/blog/limiting-beliefs-not-boss" className="text-primary underline underline-offset-4">
               Shhh…That Voice in Your Head is Not the Boss of You
-            </a>{' '}
+            </Link>{' '}
             and{' '}
-            <a href="/blog/what-is-behind-limiting-beliefs" className="text-primary underline underline-offset-4">
+            <Link href="/blog/what-is-behind-limiting-beliefs" className="text-primary underline underline-offset-4">
               What is Behind Limiting Beliefs?
-            </a>.
+            </Link>.
           </p>
 
           <p>Reading this article reminded me that the work we are doing here, embracing radiant health, confidence and unapologetic style, is not superficial. It's survival. It's joy. It's rebellion.</p>
@@ -1033,7 +1034,7 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
             <p><strong>Dr. T Colin Campbell</strong></p>
             <p>The China Study <a href="https://www.amazon.com/China-Study-Comprehensive-Nutrition-Implications/dp/1932100660" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://www.amazon.com/China-Study-Comprehensive-Nutrition-Implications/dp/1932100660</a></p>
             <p>Whole <a href="https://www.amazon.com/Whole-Rethinking-Nutrition-Colin-Campbell/dp/1939529840" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://www.amazon.com/Whole-Rethinking-Nutrition-Colin-Campbell/dp/1939529840</a></p>
-            <p>The Future of Nutrition <a href="https://www.amazon.com/Whole-Rethinking-Nutrition-Colin-Campbell/dp/1939529840" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">https://www.amazon.com/Whole-Rethinking-Nutrition-Colin-Campbell/dp/1939529840</a></p>
+            <p>The Future of Nutrition <a href="https://nutritionstudies.org/the-future-of-nutrition/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">nutritionstudies.org/the-future-of-nutrition</a></p>
           </div>
 
           <div className="space-y-2">
@@ -1545,7 +1546,7 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
           
           <p><strong>So let's not just age in place. Let's Rebel, Reign and Sparkle.</strong></p>
           
-          <p>You can access the full article here: <a href="https://agingwithstrength.substack.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">agingwithstrength@substack.com</a></p>
+          <p>You can access the full article here: <a href="https://agingwithstrength.substack.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">agingwithstrength.substack.com</a></p>
           
           <p>What is one "healthspan choice" you will commit to this week, more movement, better sleep, or maybe swapping out a processed snack for something whole and nutritious and delicious.</p>
           
@@ -5326,6 +5327,121 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
           <p>Looking back has taught me something I wish my younger self had known. Very little of life is wasted. All of it, the mistakes, the detours, the pauses, the pivots, the unexpected joys. Well, they all become part of the story. Not because we understood their purpose at the time. But because, eventually, we understand what they were building.</p>
           <p>So maybe that’s why I enjoy looking back now. Not to relive the past. But to appreciate how faithfully it carried me here.</p>
           <p><strong>💚 The Accidental Blogger</strong></p>
+        </div>
+      </>
+    ),
+  },
+  'when-science-finally-caught-up-with-my-birthdays': {
+    heading: <h1 className="text-4xl font-bold mb-4">When Science Finally Caught Up With My Birthdays</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>Birthdays have never bothered me. The numbers got bigger, but I always felt like me. People often ask, “So how does 20 feel?” or “How does 60 feel?” Honestly for me the answer has always been pretty much like 19 or 59.</p>
+          <p className="text-center font-bold">Until…</p>
+          <p>One birthday in my thirties. I can’t remember the exact year, but I clearly remember the awareness and the moment. Nothing dramatic happened. I hadn’t gained weight. I simply noticed my body looked different. My waist and hips seemed to have quietly negotiated a merger. It wasn’t bad. It wasn’t good. It was noticeable, at least to me. I did not dwell on it. I noticed it, accepted it as part of the aging process, and moved on.</p>
+          <p>Years later, sometime in my sixties, another birthday brought another surprise. This time it was my face. Also, somewhere along the way I had lost nearly three inches in height. Again there was nothing I could fix, I thought. It simply felt like another season had arrived.</p>
+          <p>I remember mentioning to my daughter that that particular birthday in my 60s made me realize aging comes with some physical changes that we do not get to vote on.</p>
+          <p><strong>Life continued.</strong></p>
+          <p>Then last month I turned 84. A couple of months prior to my birthday, I began noticing something new. Not pain. Not illness. Just… a little less zip. I found myself moving a bit slower, recovering a little longer, thinking a little more carefully before tackling certain projects. Once again I mentioned it to my daughter. Then something funny happened.</p>
+          <p>Suddenly articles began to appear in my feed showing that our bodies don’t age in one slow, steady decline. Scientific evidence shows that human aging happens in rapid waves rather than a steady, slow crawl. Research identifies three major milestones when the body shifts gears and experiences dramatic, universal biological changes.</p>
+          <p>A well-known Stanford Medicine study discovered these three biological turning points by testing the blood of thousands of people. Blood contains proteins that do important jobs in the body. The study found that the levels of these proteins stay the same for years. Then at <strong>ages 34, 60, and 78</strong>, the protein levels suddenly shift. These shifts change how our organs work and how we heal.</p>
+          <p>Researchers describe this like the seasons changing. Instead of a gradual fade from summer to fall, the body leaps into a new “season” of aging.</p>
+          <p><strong>I laughed.</strong></p>
+          <p>Not because my birthday matched the research exactly. Because it didn’t. But because my body had been quietly telling me this story for decades.</p>
+          <p>Only now did science hand me a vocabulary for what I had already noticed. I thought maybe trying to take care of myself delayed the shifts. Maybe not. Honestly I don’t know. But if my body waited until 84 to whisper, “Let’s slow the pace just a little,” I’ll take that as a pretty good bargain.</p>
+          <p>One thing has not changed. I am still curious. I still walk 2–3 miles a day. I still lift weights and practice my balance and yoga three times a week. I still laugh, and I still have many projects that I am involved in. And I still wake up every morning wondering what ordinary life will teach me today.</p>
+          <p>Maybe that’s the biggest lesson. We cannot always choose the season our bodies enter, but we can choose how we greet it. I am planning to greet this one with comfortable shoes and curiosity, and continue enjoying the nourishment of a whole-food, plant-based lifestyle.</p>
+          <p><strong>💚 The Accidental Blogger</strong></p>
+        </div>
+      </>
+    ),
+  },
+  'awareness-must-precede-action': {
+    heading: <h1 className="text-4xl font-bold mb-4">Awareness Must Precede Action</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>Lately I have been noticing a simple thought.</p>
+          <p><strong>“Just because you can does not mean you should.”</strong></p>
+          <p>I have said this many times, especially to my children. At first it sounded like common sense. But the more I sit with it, the more I realize it isn’t about restraint. Nope. It is about awareness. Because awareness must always precede action. You can’t choose wisely if you don’t first notice that you’re making a choice.</p>
+          <p>I am sure you have noticed that much of life runs on autopilot.</p>
+          <p>We react before we think. We answer before we listen. We eat because food is in front of us. We say yes because we can. We keep doing what we have always done because, well, we have always done it. Then one day we wonder how we ended up where we are.</p>
+          <p>The answer is rarely one big decision.</p>
+          <p><strong>Nope.</strong></p>
+          <p>It is usually hundreds of unnoticed little ones. The magic happens in that tiny space between impulse and action. That pause. That breath. That moment when we ask ourselves, “Just because I can, should I?” I think that is where wisdom lives. Not in having more choices. It happens in becoming aware that we have a choice.</p>
+          <p>I have come to believe that almost every meaningful change begins the same way. Not with action. With awareness.</p>
+          <p>Because awareness precedes action.</p>
+          <p>Action precedes clarity.</p>
+          <p>And clarity changes everything.</p>
+          <p>Just something I have been noticing.</p>
+          <p><strong>💚 Suz, The Accidental Blogger</strong></p>
+        </div>
+      </>
+    ),
+  },
+  'five-seconds': {
+    heading: <h1 className="text-4xl font-bold mb-4">Five Seconds</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>There are moments in life that take years to understand.</p>
+          <p>For me, one of them lasted only five seconds.</p>
+          <p>My daughter has recommended many books over the years. She knows me well. She handed me Mel Robbins’ <em>The 5 Second Rule</em>, and I thought, Really? A countdown?</p>
+          <p><strong>Note:</strong> In <em>The 5 Second Rule</em>, Mel Robbins explains how you can assert agency over your life by counting down from five to one over the course of five seconds and acting when you reach one. According to Mel, you can use the rule to jump into action, be bold and follow your gut, and control impulsiveness.</p>
+          <p>It seemed almost too simple.</p>
+          <p className="font-bold">Five…</p>
+          <p className="font-bold">Four…</p>
+          <p className="font-bold">Three…</p>
+          <p className="font-bold">Two…</p>
+          <p className="font-bold">One…</p>
+          <p>I had no idea those five seconds would quietly direct the next chapter of my life. Not because they made me confident. Because they got me moving before my doubts had a chance to take over.</p>
+          <p>Looking back, I can see how those five seconds are hiding in so many moments.</p>
+          <p>Every morning when I practice getting down on the floor to a prone position and raising myself back up to standing without any use of my hands and arms, I am good all the way until the last push to upright. Every time I get to that point, the voice appears telling me I cannot do that final push without falling over. With the five-second countdown, no problem.</p>
+          <p>And this one is huge: when my grandson Will offered that he had a web designer who might help me create a Rebellious Aging website, which I had been longing for since before COVID, the thought of the reality of such a happening nearly had me faint in terror. 5… 4… 3… 2… 1… mind shift. Bring it, Will. The rest is history. Check it out at <Link href="/">rebelwithsuz.com</Link>.</p>
+          <p>This has been life changing in the best way.</p>
+          <p>Getting up out of bed in the morning is a tough one, but five, four, three, two, one and done.</p>
+          <p>The 5 Second Rule gave me the courage to push send on my first blog, say yes to a Rebellious Aging talk, and, this one is huge, say yes to TikTok.</p>
+          <p>Most of these moments seem quite ordinary, but they have had an extraordinary effect on me and my life. They were simply tiny decisions made before fear, terror, laziness, and hesitation had time to win.</p>
+          <p>At 84, I’ve learned something that surprised me. The biggest changes in my life did not begin with giant leaps. They began with tiny moments of courage, actually measured in seconds.</p>
+          <p><strong>Five, four, three, two, one, JUST DO IT!</strong> The rest has a remarkable way of taking care of itself.</p>
+          <p><strong>💚 Suz, The Accidental Blogger</strong></p>
+        </div>
+      </>
+    ),
+  },
+  'nobody-is-thinking-about-you-as-much-as-you-think-they-are': {
+    heading: <h1 className="text-4xl font-bold mb-4">Nobody is Thinking About You (As Much As You Think They Are)</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>So, there. I said it.</p>
+          <p>It sounds almost rude. But what if it is one of the most freeing truths you will ever hear?</p>
+          <p>Nobody is thinking about you as much as you think they are. I know this from my own worries and experiences. For sure, they are not analyzing your outfit, replaying what you said in a meeting, wondering why you stumbled over your words, or a million other things you are losing sleep over.</p>
+          <p><strong>NOPE.</strong> Listen or read carefully here. “They” are too busy wondering if you noticed their outfit. Their awkward comments. Their wrinkles. Their mistakes. Are you laughing? Yup, you guessed it. They are too busy starring in their own movie, same as you are starring in yours.</p>
+          <p>Looking back over 84 years, I can honestly say I gave far too many imaginary, but real, people far too much authority over my life. Here is the creepy part: they were mostly people I did not like and feared, but, on the flip side, also some I loved and respected. I wonder, “Why did I allow them to be the boss of me?”</p>
+          <p>I declined opportunities, stayed small, stayed quiet, and I waited.</p>
+          <p>Not because anyone told me I couldn’t. Because I imagined what they might think.</p>
+          <p>Here is the irony.</p>
+          <p>The people I am thinking about were most likely not thinking about me at all. They were lying awake worrying about a million other things which I doubt even included what I thought of them.</p>
+          <p>Isn’t that wonderfully absurd?</p>
+          <p>Imagine millions of us walking around, convinced everyone else is watching, while everyone else is busy worrying about being watched.</p>
+          <p>What a colossal misunderstanding.</p>
+          <p>These days I ask a different question. Not, “What will people think?” Instead, “What do I think?”</p>
+          <p><strong>That’s right.</strong></p>
+          <p>Am I kind?</p>
+          <p>Am I honest?</p>
+          <p>Am I fun?</p>
+          <p>Am I the best me?</p>
+          <p>Am I authentic?</p>
+          <p>Do I want this?</p>
+          <p>If the answer is yes, well then I press “post,” sign up for a certification, walk into a room of scary people, raise my hand, wear red lipstick, and say yes because I want to, or no because I am clear I do not want to. I just go for it.</p>
+          <p>The day I realized nobody was thinking about me as much as I imagined was the day I started thinking for myself.</p>
+          <p><strong>“Sadly, the opinions that held me back the longest were the ones nobody ever actually had.”</strong></p>
+          <p><strong>💚 Suz, The Accidental Blogger</strong></p>
         </div>
       </>
     ),
