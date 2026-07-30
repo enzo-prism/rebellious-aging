@@ -61,7 +61,7 @@
 - Last migration focus: Vite SPA → Next.js App Router conversion with static-first export strategy.
 - Keep `npm run build` as the canonical verification command after content/route changes.
 - Blog post ordering behavior mirrors the original repo ordering contract: `blogPosts` entries are normalized and `getNextBlogPost` resolves by `blogNumber`, not by array position.
-- The July 27, 2026 release adds Blogs #85–#88 and Valerie Sims' endorsement, upgrades Next.js to 16.2.12, and hardens quiz submission validation and CORS handling.
+- The July 30, 2026 release adds public Blogs #89–#91 with Facebook CTAs, route coverage, and refreshed sitemap, search, and SEO artifacts. Valerie Sims' endorsement remains in the shared trusted-voices data from the July 27 release.
 - `app/robots.ts` and `app/sitemap.ts` are explicitly static, while dynamic App Router pages await the Next.js 16 `params` promise.
 
 ## Opportunities & Caveats

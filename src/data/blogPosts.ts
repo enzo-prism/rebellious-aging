@@ -957,6 +957,42 @@ export const blogPosts: BlogPostMetadata[] = [
     blogNumber: 88,
     seoDescription:
       'Suz reflects on fear of judgment, imagined opinions, authenticity, and the freedom that comes from thinking for yourself.'
+  },
+  {
+    id: 'and-just-like-that',
+    title: 'And Just Like That…',
+    excerpt:
+      'Suz reflects on the quiet accumulation of ordinary choices, moments, and acts of courage that shape a life over time.',
+    date: '7/29/2026',
+    dateSort: new Date('2026-07-29'),
+    readTime: '3 min read',
+    blogNumber: 89,
+    seoDescription:
+      'Suz reflects on how confidence, health, relationships, and courage grow through small ordinary moments rather than sudden transformation.'
+  },
+  {
+    id: 'the-signature-that-started-talking',
+    title: 'The Signature That Started Talking',
+    excerpt:
+      'A changing signature inspires Suz to practice her handwriting, pay closer attention, and stay connected to her remarkable mind.',
+    date: '7/30/2026',
+    dateSort: new Date('2026-07-30T01:00:00'),
+    readTime: '4 min read',
+    blogNumber: 90,
+    seoDescription:
+      'Suz turns daily handwriting practice into an exercise in awareness, curiosity, and staying connected to her mind as she ages.'
+  },
+  {
+    id: 'nobody-applauds-the-roots',
+    title: 'Nobody Applauds the Roots',
+    excerpt:
+      'Suz compares new projects and personal growth to a garden, where the most important work happens quietly beneath the surface.',
+    date: '7/30/2026',
+    dateSort: new Date('2026-07-30T02:00:00'),
+    readTime: '4 min read',
+    blogNumber: 91,
+    seoDescription:
+      'Suz reflects on patience, consistency, quiet progress, and why unseen roots matter when growing a project, dream, or new life chapter.'
   }
 ];
 

@@ -521,6 +521,24 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
       'If imagined opinions have ever kept you small, join the group and practice choosing authenticity, clarity, and your own brave yes.',
     buttonLabel: 'Join the authenticity talk',
   },
+  'and-just-like-that': {
+    title: 'Let the small moments add up',
+    body:
+      'If ordinary choices have quietly shaped your life, join the group and share the little moments that are already creating what comes next.',
+    buttonLabel: 'Join the everyday moments',
+  },
+  'the-signature-that-started-talking': {
+    title: 'Practice paying attention together',
+    body:
+      'If a familiar task has ever revealed something new, join the group and explore the small practices that keep us curious and connected.',
+    buttonLabel: 'Join the awareness practice',
+  },
+  'nobody-applauds-the-roots': {
+    title: 'Keep tending what is growing',
+    body:
+      'If progress feels quiet right now, join the group for patience, encouragement, and women who understand the unseen work beneath every new beginning.',
+    buttonLabel: 'Join the roots conversation',
+  },
 };
 
 export const getBlogPostCta = (postId: string) => blogPostCtas[postId];

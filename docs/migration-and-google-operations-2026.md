@@ -1,6 +1,6 @@
 # Migration + Google Operations Checklist (2026)
 
-Last reviewed: 2026-07-27.
+Last reviewed: 2026-07-30.
 
 This document is the one-stop guide for repository migration ownership, deployment readiness, and Google Search visibility checks.
 
@@ -120,3 +120,11 @@ Do not ship placeholder Supabase values when the quiz fallback must work.
 - Improved search-filter semantics, responsive search-dialog sizing, share-button contrast, and server-rendered pillar content.
 - Hardened quiz submissions with client-side field limits plus Edge Function origin, method, body-size, field-length, email, rating, and pillar validation. The Edge Function must be deployed separately from Vercel.
 - Release gate: `npm run readiness:verify` passed with 150 static pages, 145 audited SEO routes, 57 unit tests, and 76 browser tests. Lint completed with 26 existing image-optimization warnings and no errors.
+
+2026-07-30:
+
+- Added Suz's Blogs #89–#91 as public, indexable posts: `And Just Like That…`, `The Signature That Started Talking`, and `Nobody Applauds the Roots`.
+- Added matching Facebook community CTAs and browser route coverage for all three posts.
+- Confirmed Valerie Sims' endorsement was already present in the shared trusted-voices data, so no duplicate was added.
+- Refreshed the sitemap, search index, static export, and SEO audit. The build produced 153 static pages, 148 audited SEO routes, and 166 search documents.
+- Release gate: `npm run readiness:verify` passed with 57 unit tests and 79 browser tests. Lint completed with 26 existing image-optimization warnings and no errors.

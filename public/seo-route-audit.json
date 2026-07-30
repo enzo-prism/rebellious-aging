@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-27T20:37:38.669Z",
-  "totalRoutes": 145,
-  "validRoutes": 145,
+  "generatedAt": "2026-07-30T14:10:10.042Z",
+  "totalRoutes": 148,
+  "validRoutes": 148,
   "failedRoutes": 0,
   "records": [
     {
@@ -2770,6 +2770,81 @@
         "title": "Nobody is Thinking About You (As Much As You Think They Are)",
         "description": "Suz reflects on fear of judgment, imagined opinions, authenticity, and the freedom that comes from thinking for yourself.",
         "canonical": "/blog/nobody-is-thinking-about-you-as-much-as-you-think-they-are",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/and-just-like-that",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "And Just Like That…",
+        "description": "Suz reflects on how confidence, health, relationships, and courage grow through small ordinary moments rather than sudden transformation.",
+        "canonical": "/blog/and-just-like-that",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/the-signature-that-started-talking",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "The Signature That Started Talking",
+        "description": "Suz turns daily handwriting practice into an exercise in awareness, curiosity, and staying connected to her mind as she ages.",
+        "canonical": "/blog/the-signature-that-started-talking",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/nobody-applauds-the-roots",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Nobody Applauds the Roots",
+        "description": "Suz reflects on patience, consistency, quiet progress, and why unseen roots matter when growing a project, dream, or new life chapter.",
+        "canonical": "/blog/nobody-applauds-the-roots",
         "ogType": "article",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"

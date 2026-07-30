@@ -233,16 +233,16 @@ Post-deploy verification snapshot (Feb 26, 2026):
 - `vercel aliases ls --scope enzo-design-prisms-projects` shows rebelwithsuz.com points to ra-nextjs
 ```
 
-Latest content and hardening release snapshot (Jul 27, 2026):
+Latest content release snapshot (Jul 30, 2026):
 
 ```text
-- Blogs #81–#88 are public and indexable. The latest four are `When Science Finally Caught Up With My Birthdays`, `Awareness Must Precede Action`, `Five Seconds`, and `Nobody is Thinking About You (As Much As You Think They Are)`.
+- Blogs #81–#91 are public and indexable. The newest three are `And Just Like That…`, `The Signature That Started Talking`, and `Nobody Applauds the Roots`.
 - Valerie Sims' endorsement is included in the shared trusted-voices section used by the Movement and Speaking Events pages.
 - No blog post is currently password-gated. The gate infrastructure (`gated`/`releaseDate` fields, `BlogPasswordGate`) remains in the codebase but is inactive because no post sets `gated: true`.
 - Next.js is upgraded to 16.2.12, including the asynchronous App Router params contract and static robots/sitemap generation.
 - Search filters use native buttons, the search dialog has stable responsive sizing, and the share button keeps readable disabled-state contrast.
 - Quiz input and Edge Function validation now enforce allowed origins, request sizes, field limits, and normalized values. Deploy `supabase/functions/submit-quiz` separately from Vercel when this function changes.
-- Generated sitemap, search, and SEO audit artifacts are refreshed during `npm run build`.
+- Generated sitemap, search, and SEO audit artifacts are refreshed during `npm run build`; the Jul 30 build produced 153 static pages, 148 audited SEO routes, and 166 search documents.
 ```
 
 Recommended setup commands:

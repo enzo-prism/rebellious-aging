@@ -29,7 +29,7 @@ This project uses a codified readiness gate before public launch.
 ## Current baseline checks
 - Report file: `public/production-readiness-report.json`
 - Expected status in release conditions: `status: "pass"` with all checks green.
-- July 27, 2026 release-candidate baseline: 150 static pages, 145 audited SEO routes, 57 passing unit tests, and 76 passing browser tests. Typecheck, lint, build, readiness report, and `git diff --check` pass.
+- July 30, 2026 release-candidate baseline: 153 static pages, 148 audited SEO routes, 166 search documents, 57 passing unit tests, and 79 passing browser tests. Typecheck, lint, build, readiness report, and `git diff --check` pass; lint reports 26 existing image-optimization warnings and no errors.
 - Current hardening covers responsive hero/gallery images, on-demand search indexing, server-rendered nutrition and pillar content, keyboard/mobile navigation, accessible search filters, event email handoff, consistent recipe fallbacks, sitemap policy alignment, quiz request validation, and baseline Vercel response headers.
 - GitHub Actions runs the same release checks from `.github/workflows/ci.yml`.
 
