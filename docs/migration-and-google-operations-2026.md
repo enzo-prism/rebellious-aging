@@ -128,3 +128,10 @@ Do not ship placeholder Supabase values when the quiz fallback must work.
 - Confirmed Valerie Sims' endorsement was already present in the shared trusted-voices data, so no duplicate was added.
 - Refreshed the sitemap, search index, static export, and SEO audit. The build produced 153 static pages, 148 audited SEO routes, and 166 search documents.
 - Release gate: `npm run readiness:verify` passed with 57 unit tests and 79 browser tests. Lint completed with 26 existing image-optimization warnings and no errors.
+
+2026-08-10:
+
+- Removed the numerical age range from the homepage hero, welcome banner, living-room invitation, Starter Kit teaser, Welcome Letter body, and the homepage/Welcome Letter metadata so the welcome experience no longer reads as age-restricted.
+- Confirmed Valerie Sims' endorsement remains present in the shared trusted-voices data and requires no duplicate content change.
+- Regenerated the search index and SEO route audit as part of the production build.
+- Release checks for this run: lint, unit tests, production build, focused homepage/Welcome Letter browser tests, production deploy, and live HTML/metadata readbacks.
