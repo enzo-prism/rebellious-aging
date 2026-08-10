@@ -1,6 +1,6 @@
 # Migration + Google Operations Checklist (2026)
 
-Last reviewed: 2026-07-30.
+Last reviewed: 2026-08-10.
 
 This document is the one-stop guide for repository migration ownership, deployment readiness, and Google Search visibility checks.
 
