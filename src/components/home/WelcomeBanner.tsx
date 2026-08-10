@@ -18,7 +18,7 @@ const WelcomeBanner = () => (
           </h2>
         </div>
         <p className="text-gray-700 leading-relaxed">
-          It&apos;s a safe, supportive space for women 55-105 to eat vibrantly, speak boldly, and live loudly.
+          It&apos;s a safe, supportive space for women to eat vibrantly, speak boldly, and live loudly.
           Start with Suz&apos;s welcome letter or dive right into the pillars that call your name.
         </p>
         <div className="flex flex-col sm:flex-row gap-3">

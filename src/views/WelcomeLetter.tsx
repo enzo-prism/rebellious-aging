@@ -41,7 +41,7 @@ const WelcomeLetter = () => {
             <p>Welcome, you’ve just stepped into a space that celebrates aging as the boldest adventure yet.</p>
 
             <p>
-              This space was created for women 55 - 105, who are ready to rewrite their story, by learning more about the
+              This space was created for women who are ready to rewrite their story by learning more about the
               transformative, medicinal and weight stabilizing power of dining on plants, gaining confidence, embracing authentic
               style, and sharing experiences.
             </p>

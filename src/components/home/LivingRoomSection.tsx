@@ -58,7 +58,7 @@ const LivingRoomSection = () => (
       <div className="mt-10 lg:mt-14 max-w-3xl mx-auto text-center space-y-7">
         <p className="text-lg md:text-xl text-gray-800 leading-relaxed">
           And a huge welcome is waiting just for you.{' '}
-          <span className="font-semibold text-gray-900">All ladies 55&ndash;105 are welcome here.</span>
+          <span className="font-semibold text-gray-900">All women are welcome here.</span>
         </p>
 
         <div className="flex flex-col items-center gap-2">

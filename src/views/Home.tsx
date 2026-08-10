@@ -152,7 +152,7 @@ const Home = () => {
     },
     {
       title: 'Starter Kit',
-      description: 'A gentle beginning for women 55-105: Nibble, Wiggle, Dazzle, Be Grateful.',
+      description: 'A gentle beginning: Nibble, Wiggle, Dazzle, Be Grateful.',
       link: '/starter-kit',
       icon: '✨'
     }
@@ -255,7 +255,7 @@ const Home = () => {
                   You do not have to figure this stage of life out alone.
                 </p>
                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  Rebellious Aging is a warm, supportive community for women 55&ndash;105 who want to age with
+                  Rebellious Aging is a warm, supportive community for women who want to age with
                   vitality, curiosity, laughter, confidence, and connection.
                 </p>
                 <div className="flex flex-col sm:flex-row sm:flex-wrap button-spacing">

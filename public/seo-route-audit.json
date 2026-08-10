@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-30T14:10:10.042Z",
+  "generatedAt": "2026-08-10T14:11:17.820Z",
   "totalRoutes": 148,
   "validRoutes": 148,
   "failedRoutes": 0,
@@ -68,7 +68,7 @@
       "issues": [],
       "metadata": {
         "title": "Welcome Letter",
-        "description": "A heartfelt welcome from Suz inviting women 55-105 to join a bold movement centered on community, plant-strong nourishment, and confidence.",
+        "description": "A heartfelt welcome from Suz inviting women to join a bold movement centered on community, plant-strong nourishment, and confidence.",
         "canonical": "/welcome-letter",
         "ogType": "website",
         "noindex": false,

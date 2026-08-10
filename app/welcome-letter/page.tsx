@@ -12,7 +12,7 @@ export const generateMetadata = (): Metadata => {
       path: '/welcome-letter',
       title: 'Welcome Letter',
       description:
-        'A heartfelt welcome from Suz inviting women 55-105 to join a bold movement centered on community, plant-strong nourishment, and confidence.',
+        'A heartfelt welcome from Suz inviting women to join a bold movement centered on community, plant-strong nourishment, and confidence.',
     }
   );
 };
