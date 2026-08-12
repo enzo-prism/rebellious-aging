@@ -65,7 +65,7 @@
 - The July 30, 2026 release adds public Blogs #89–#91 with Facebook CTAs, route coverage, and refreshed sitemap, search, and SEO artifacts. Valerie Sims' endorsement remains in the shared trusted-voices data from the July 27 release.
 - The August 10, 2026 release removes the `55–105` age range from homepage and Welcome Letter copy and metadata. Other age-specific editorial references remain intentionally unchanged because they are outside the welcome-page scope.
 - The August 12, 2026 update adds Wanda McDaniel's endorsement (`I think you are phenomenal!`) to the shared trusted-voices data shown on the homepage, Movement, and Speaking Events pages.
-- The August 12, 2026 content pass also publishes Suz's Google Doc Blog #92, `Become "HER" First`, after confirming Blog #91 was already live.
+- The August 12, 2026 content pass also publishes Suz's Google Doc Blog #92, `Become "HER" First`, after confirming Blog #91 was already live. Generated artifacts for that post: 154 static pages, 149 audited SEO routes, 147 sitemap URLs, and 167 search documents.
 - `app/robots.ts` and `app/sitemap.ts` are explicitly static, while dynamic App Router pages await the Next.js 16 `params` promise.
 
 ## Opportunities & Caveats

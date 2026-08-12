@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-10T14:15:59.495Z",
-  "totalRoutes": 148,
-  "validRoutes": 148,
+  "generatedAt": "2026-08-12T17:40:11.582Z",
+  "totalRoutes": 149,
+  "validRoutes": 149,
   "failedRoutes": 0,
   "records": [
     {
@@ -2845,6 +2845,31 @@
         "title": "Nobody Applauds the Roots",
         "description": "Suz reflects on patience, consistency, quiet progress, and why unseen roots matter when growing a project, dream, or new life chapter.",
         "canonical": "/blog/nobody-applauds-the-roots",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/become-her-first",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Become \"HER\" First",
+        "description": "Suz reflects on career transitions, identity, and why asking who you want to become is more powerful than asking what to do next.",
+        "canonical": "/blog/become-her-first",
         "ogType": "article",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"

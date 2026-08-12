@@ -244,7 +244,7 @@ Latest content release snapshot (Aug 12, 2026):
 - Next.js is upgraded to 16.2.12, including the asynchronous App Router params contract and static robots/sitemap generation.
 - Search filters use native buttons, the search dialog has stable responsive sizing, and the share button keeps readable disabled-state contrast.
 - Quiz input and Edge Function validation now enforce allowed origins, request sizes, field limits, and normalized values. Deploy `supabase/functions/submit-quiz` separately from Vercel when this function changes.
-- Generated sitemap, search, and SEO audit artifacts are refreshed during `npm run build`; the Jul 30 build produced 153 static pages, 148 audited SEO routes, and 166 search documents.
+- Generated sitemap, search, and SEO audit artifacts are refreshed during `npm run build`; the Aug 12 Blog #92 build produced 154 static pages, 149 audited SEO routes, 147 sitemap URLs, and 167 search documents.
 ```
 
 Recommended setup commands:

@@ -1,6 +1,6 @@
 # SEO Best Practices for This Project (Next.js + Vercel, Google-first)
 
-Last reviewed: 2026-07-26.
+Last reviewed: 2026-08-12.
 
 This project is a static-exported Next.js App Router site. SEO should be treated as a build-time artifact quality system, not a one-time page-level task.
 

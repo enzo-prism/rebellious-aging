@@ -1,6 +1,6 @@
 # SEO Metadata Implementation
 
-Last reviewed: 2026-07-01.
+Last reviewed: 2026-08-12.
 
 This document describes how title tags, meta descriptions, canonicals, robots rules, and SEO validation actually work in the current codebase.
 
