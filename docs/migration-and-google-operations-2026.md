@@ -138,6 +138,7 @@ Do not ship placeholder Supabase values when the quiz fallback must work.
 
 2026-08-12:
 
+- Added Suz's Google Doc Blog #92, `Become "HER" First` (`/blog/become-her-first`), as a public, indexable post. Confirmed Blog #91, `Nobody Applauds the Roots`, was already live and matched the Google Doc. Historical Drive gaps #36 and #40 were not added: #40 is the earlier draft of #59 (`The Secret Strength of Rest Days`), and #36 (`Balancing Act`) sits in the long-standing numbering skip next to the later balance posts.
 - Added Wanda McDaniel's endorsement (`I think you are phenomenal!`, Student at the T. Colin Campbell Center for Nutrition Studies) to `src/data/endorsements.ts` so it appears in the shared trusted-voices section on the homepage, Movement (`/our-story`), and Speaking Events pages.
 - Trusted-voices endorsements are now documented as a first-class content module (`src/data/endorsements.ts` → `TrustedVoicesSection` on Home/Speaking Events, plus the inline grid on Movement). Current voices: Rachael J. Brown, Natasha Lantz, Valerie Sims, Wanda McDaniel.
 - Release checks for this run: lint, merge to `main` (`579cf9d`), GitHub Actions CI green, Vercel Production deployment for that SHA, and live HTML readbacks confirming Wanda's quote on `https://www.rebelwithsuz.com/`, `/our-story`, and `/speaking-events` (also on `https://ra-nextjs.vercel.app/`).

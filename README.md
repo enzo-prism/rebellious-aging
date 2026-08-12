@@ -237,7 +237,7 @@ Post-deploy verification snapshot (Feb 26, 2026):
 Latest content release snapshot (Aug 12, 2026):
 
 ```text
-- Blogs #81–#91 are public and indexable. The newest three are `And Just Like That…`, `The Signature That Started Talking`, and `Nobody Applauds the Roots`.
+- Blogs #81–#92 are public and indexable. The newest post is `Become "HER" First`, following `Nobody Applauds the Roots` and `The Signature That Started Talking`.
 - Trusted-voices endorsements (Rachael J. Brown, Natasha Lantz, Valerie Sims, and Wanda McDaniel) are included in the shared section used by the homepage, Movement, and Speaking Events pages.
 - The homepage and Welcome Letter no longer use a numerical age range in their welcome copy or route metadata, keeping the invitation inclusive while preserving the site's aging-focused mission.
 - No blog post is currently password-gated. The gate infrastructure (`gated`/`releaseDate` fields, `BlogPasswordGate`) remains in the codebase but is inactive because no post sets `gated: true`.

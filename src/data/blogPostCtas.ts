@@ -539,6 +539,12 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
       'If progress feels quiet right now, join the group for patience, encouragement, and women who understand the unseen work beneath every new beginning.',
     buttonLabel: 'Join the roots conversation',
   },
+  'become-her-first': {
+    title: 'Practice becoming her together',
+    body:
+      'If you are in a transition and still figuring out what comes next, join the group and share who you are becoming while the path catches up.',
+    buttonLabel: 'Join the becoming conversation',
+  },
 };
 
 export const getBlogPostCta = (postId: string) => blogPostCtas[postId];

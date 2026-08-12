@@ -5564,4 +5564,45 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       </>
     ),
   },
+  'become-her-first': {
+    heading: <h1 className="text-4xl font-bold mb-4">Become “HER” First</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>One of the questions I hear most often from people in transition is this: “I don’t know what I want to do next.”</p>
+          <p>Usually they are leaving a job, thinking about retiring, starting over after a divorce, or they are burned out, restless or simply waking up one morning realizing, “This isn’t me anymore.”</p>
+          <p>Naturally their first instinct is to hunt for the next job.</p>
+          <p>I think we all get that. Right?</p>
+          <p>But I wonder if we are solving the wrong problem. Perhaps the question isn’t, What do I want to do?</p>
+          <p>Nope.</p>
+          <p>Maybe it’s: Who do “I” want to become?</p>
+          <p>Here is the thing, jobs change and titles change. BUT, the person you are becoming, that person follows you everywhere.</p>
+          <p>So I say, instead of making a list of careers, make a list of characteristics.</p>
+          <p>Begin with, who are you?</p>
+          <p>Are you curious, healthy or how about creative, financially independent, kind, confident, calm under pressure, generous, funny, someone who enjoys mornings, or someone who laughs more than she worries? I think you get the point. Figure it out!</p>
+          <p>Watch now how something interesting begins to happen. Once you have described “HER”, ya know the person you want to become.</p>
+          <p>Guess what? YOU can begin becoming her today.</p>
+          <p>Oh, yes, you can.</p>
+          <p>Way before the next job, before the promotion, before the business, etc.</p>
+          <p>You do not have to wait for your circumstances to change. YOU can begin practicing being that person that you have been dreaming of this afternoon. The opportunities begin to look different because YOU are looking different, feeling different because you are looking through a new lens of hope and renewal.</p>
+          <p>I have noticed something else. Whenever I have been the most confused about my next step, I realized, clarity never arrived because I tried harder.</p>
+          <p>It arrived because I became someone slightly different.</p>
+          <p>More curious.</p>
+          <p>More courageous.</p>
+          <p>More willing to say yes.</p>
+          <p>More willing to notice the nudges.</p>
+          <p>And somehow, the path seemed to notice me back.</p>
+          <p>Maybe, just maybe, that is why transitions feel so uncomfortable. We are trying to discover the future. And life is actually introducing us to a new version of ourselves.</p>
+          <p>Sooooooo, if you are standing in the middle of uncertainty today, don’t ask only,</p>
+          <p>“What should I do?”</p>
+          <p>ASK,</p>
+          <p>“Who do I want to become?”</p>
+          <p>Then “just like that”, begin becoming that person.</p>
+          <p>The work will often find you.</p>
+          <p><strong>💚 The Accidental Blogger</strong></p>
+        </div>
+      </>
+    ),
+  },
 };

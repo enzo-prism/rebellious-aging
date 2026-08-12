@@ -993,6 +993,18 @@ export const blogPosts: BlogPostMetadata[] = [
     blogNumber: 91,
     seoDescription:
       'Suz reflects on patience, consistency, quiet progress, and why unseen roots matter when growing a project, dream, or new life chapter.'
+  },
+  {
+    id: 'become-her-first',
+    title: 'Become "HER" First',
+    excerpt:
+      'Suz invites women in transition to stop hunting for the next job and start becoming the person they want to be.',
+    date: '8/10/2026',
+    dateSort: new Date('2026-08-10'),
+    readTime: '3 min read',
+    blogNumber: 92,
+    seoDescription:
+      'Suz reflects on career transitions, identity, and why asking who you want to become is more powerful than asking what to do next.'
   }
 ];
 
