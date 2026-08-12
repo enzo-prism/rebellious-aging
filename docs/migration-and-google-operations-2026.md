@@ -1,6 +1,6 @@
 # Migration + Google Operations Checklist (2026)
 
-Last reviewed: 2026-08-10.
+Last reviewed: 2026-08-12.
 
 This document is the one-stop guide for repository migration ownership, deployment readiness, and Google Search visibility checks.
 
@@ -139,3 +139,5 @@ Do not ship placeholder Supabase values when the quiz fallback must work.
 2026-08-12:
 
 - Added Wanda McDaniel's endorsement (`I think you are phenomenal!`, Student at the T. Colin Campbell Center for Nutrition Studies) to `src/data/endorsements.ts` so it appears in the shared trusted-voices section on the homepage, Movement (`/our-story`), and Speaking Events pages.
+- Trusted-voices endorsements are now documented as a first-class content module (`src/data/endorsements.ts` → `TrustedVoicesSection` on Home/Speaking Events, plus the inline grid on Movement). Current voices: Rachael J. Brown, Natasha Lantz, Valerie Sims, Wanda McDaniel.
+- Release checks for this run: lint, merge to `main`, production deploy (`vercel --prod`), and live HTML readbacks confirming Wanda's quote on `/`, `/our-story`, and `/speaking-events`.
