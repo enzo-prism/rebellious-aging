@@ -233,7 +233,7 @@ Post-deploy verification snapshot (Feb 26, 2026):
 - `vercel aliases ls --scope enzo-design-prisms-projects` shows rebelwithsuz.com points to ra-nextjs
 ```
 
-Latest content release snapshot (Aug 10, 2026):
+Latest content release snapshot (Aug 12, 2026):
 
 ```text
 - Blogs #81–#91 are public and indexable. The newest three are `And Just Like That…`, `The Signature That Started Talking`, and `Nobody Applauds the Roots`.
