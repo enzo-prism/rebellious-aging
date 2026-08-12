@@ -237,7 +237,7 @@ Latest content release snapshot (Aug 10, 2026):
 
 ```text
 - Blogs #81–#91 are public and indexable. The newest three are `And Just Like That…`, `The Signature That Started Talking`, and `Nobody Applauds the Roots`.
-- Valerie Sims' endorsement is included in the shared trusted-voices section used by the Movement and Speaking Events pages.
+- Trusted-voices endorsements (Rachael J. Brown, Natasha Lantz, Valerie Sims, and Wanda McDaniel) are included in the shared section used by the homepage, Movement, and Speaking Events pages.
 - The homepage and Welcome Letter no longer use a numerical age range in their welcome copy or route metadata, keeping the invitation inclusive while preserving the site's aging-focused mission.
 - No blog post is currently password-gated. The gate infrastructure (`gated`/`releaseDate` fields, `BlogPasswordGate`) remains in the codebase but is inactive because no post sets `gated: true`.
 - Next.js is upgraded to 16.2.12, including the asynchronous App Router params contract and static robots/sitemap generation.

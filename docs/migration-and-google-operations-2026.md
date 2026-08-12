@@ -135,3 +135,7 @@ Do not ship placeholder Supabase values when the quiz fallback must work.
 - Confirmed Valerie Sims' endorsement remains present in the shared trusted-voices data and requires no duplicate content change.
 - Regenerated the search index and SEO route audit as part of the production build.
 - Release checks for this run: lint, unit tests, production build, focused homepage/Welcome Letter browser tests, production deploy, and live HTML/metadata readbacks.
+
+2026-08-12:
+
+- Added Wanda McDaniel's endorsement (`I think you are phenomenal!`, Student at the T. Colin Campbell Center for Nutrition Studies) to `src/data/endorsements.ts` so it appears in the shared trusted-voices section on the homepage, Movement (`/our-story`), and Speaking Events pages.
