@@ -93,6 +93,7 @@ Use this map when adding new sections so the navigation, voice, and CTAs remain 
 | Recipes | `src/data/recipes.ts` | Recipes powering `/recipes` and `/recipes/:slug`. |
 | Free guides | `src/data/guides.ts` | The three free booklets (`Guide` interface) powering `/guides` and `/guides/:slug`. |
 | Speaking / community events | `src/data/speakingEvents.ts`, `src/data/communityEvents.ts` | Talks/appearances (`/speaking-events`) and live Zoom gatherings (`/events`). |
+| Trusted-voices endorsements | `src/data/endorsements.ts` | Quote cards for Suz on Home, `/our-story`, and `/speaking-events` via `TrustedVoicesSection` (Movement inlines the same array). |
 | Video episodes | `src/data/videoSeries.ts` | Update YouTube metadata here to refresh the video grid. |
 | Site metadata | `src/lib/siteMetadata.ts` | Central place for `baseUrl`, default descriptions, social images, and social profile links. |
 | JSON-LD builders | `src/lib/structuredData.ts` | Generates Organization, WebSite, Article, Recipe, and FAQ schema objects (guide pages emit a CreativeWork schema inline). |
