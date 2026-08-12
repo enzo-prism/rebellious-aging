@@ -31,4 +31,9 @@ export const trustedVoiceEndorsements: Endorsement[] = [
     name: 'Valerie Sims',
     title: 'Retired RN and teacher, moderator with CNS Whole Communities, and inveterate volunteer',
   },
+  {
+    quote: 'I think you are phenomenal!',
+    name: 'Wanda McDaniel',
+    title: 'Student at the T. Colin Campbell Center for Nutrition Studies',
+  },
 ];

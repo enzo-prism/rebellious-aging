@@ -20,7 +20,8 @@
 - **Reusable share UI:** `src/components/share/PageShareButton.tsx`, `PageShareDialog.tsx`, and `PageTopUtilityRow.tsx` provide a single share pattern across public page shells and hero blocks.
 
 ## Data & Integrations
-- **Static content:** Blog metadata (`src/data/blogPosts.ts`) with bodies in `src/data/blogPostContent.tsx`, pillar copy, video series, recipe indexes, speaking events (`src/data/speakingEvents.ts`), and free guides (`src/data/guides.ts`, the `Guide` interface) are maintained in deterministic TS modules.
+- **Static content:** Blog metadata (`src/data/blogPosts.ts`) with bodies in `src/data/blogPostContent.tsx`, pillar copy, video series, recipe indexes, speaking events (`src/data/speakingEvents.ts`), free guides (`src/data/guides.ts`, the `Guide` interface), and trusted-voices endorsements (`src/data/endorsements.ts`) are maintained in deterministic TS modules.
+- **Trusted voices:** `trustedVoiceEndorsements` in `src/data/endorsements.ts` powers the homepage and Speaking Events `TrustedVoicesSection`, and the matching inline grid on Movement (`/our-story`). Add or edit quotes there only — do not duplicate endorsement copy in page views.
 - **Canonical route metadata:** `src/data/seoRoutes.ts` drives per-route SEO defaults.
 - **Supabase:** `src/components/pillar/QuizSection.tsx` uses the `submit-quiz` Edge Function; table/policies reside in `supabase/migrations/`, including service-role-only update access.
 - **Quiz boundary:** `src/views/PillarPage.tsx` renders `QuizSection` directly so the section shell is present in static HTML; browser-only submission and Typeform behavior remain inside the client component.
@@ -63,6 +64,7 @@
 - Blog post ordering behavior mirrors the original repo ordering contract: `blogPosts` entries are normalized and `getNextBlogPost` resolves by `blogNumber`, not by array position.
 - The July 30, 2026 release adds public Blogs #89–#91 with Facebook CTAs, route coverage, and refreshed sitemap, search, and SEO artifacts. Valerie Sims' endorsement remains in the shared trusted-voices data from the July 27 release.
 - The August 10, 2026 release removes the `55–105` age range from homepage and Welcome Letter copy and metadata. Other age-specific editorial references remain intentionally unchanged because they are outside the welcome-page scope.
+- The August 12, 2026 update adds Wanda McDaniel's endorsement (`I think you are phenomenal!`) to the shared trusted-voices data shown on the homepage, Movement, and Speaking Events pages.
 - `app/robots.ts` and `app/sitemap.ts` are explicitly static, while dynamic App Router pages await the Next.js 16 `params` promise.
 
 ## Opportunities & Caveats

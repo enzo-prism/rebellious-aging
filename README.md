@@ -93,6 +93,7 @@ Use this map when adding new sections so the navigation, voice, and CTAs remain 
 | Recipes | `src/data/recipes.ts` | Recipes powering `/recipes` and `/recipes/:slug`. |
 | Free guides | `src/data/guides.ts` | The three free booklets (`Guide` interface) powering `/guides` and `/guides/:slug`. |
 | Speaking / community events | `src/data/speakingEvents.ts`, `src/data/communityEvents.ts` | Talks/appearances (`/speaking-events`) and live Zoom gatherings (`/events`). |
+| Trusted-voices endorsements | `src/data/endorsements.ts` | Quote cards for Suz on Home, `/our-story`, and `/speaking-events` via `TrustedVoicesSection` (Movement inlines the same array). |
 | Video episodes | `src/data/videoSeries.ts` | Update YouTube metadata here to refresh the video grid. |
 | Site metadata | `src/lib/siteMetadata.ts` | Central place for `baseUrl`, default descriptions, social images, and social profile links. |
 | JSON-LD builders | `src/lib/structuredData.ts` | Generates Organization, WebSite, Article, Recipe, and FAQ schema objects (guide pages emit a CreativeWork schema inline). |
@@ -233,11 +234,11 @@ Post-deploy verification snapshot (Feb 26, 2026):
 - `vercel aliases ls --scope enzo-design-prisms-projects` shows rebelwithsuz.com points to ra-nextjs
 ```
 
-Latest content release snapshot (Aug 10, 2026):
+Latest content release snapshot (Aug 12, 2026):
 
 ```text
 - Blogs #81–#91 are public and indexable. The newest three are `And Just Like That…`, `The Signature That Started Talking`, and `Nobody Applauds the Roots`.
-- Valerie Sims' endorsement is included in the shared trusted-voices section used by the Movement and Speaking Events pages.
+- Trusted-voices endorsements (Rachael J. Brown, Natasha Lantz, Valerie Sims, and Wanda McDaniel) are included in the shared section used by the homepage, Movement, and Speaking Events pages.
 - The homepage and Welcome Letter no longer use a numerical age range in their welcome copy or route metadata, keeping the invitation inclusive while preserving the site's aging-focused mission.
 - No blog post is currently password-gated. The gate infrastructure (`gated`/`releaseDate` fields, `BlogPasswordGate`) remains in the codebase but is inactive because no post sets `gated: true`.
 - Next.js is upgraded to 16.2.12, including the asynchronous App Router params contract and static robots/sitemap generation.
