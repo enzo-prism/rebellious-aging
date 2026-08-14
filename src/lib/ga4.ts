@@ -147,23 +147,11 @@ export function resolveTypeformFormLead(
 }
 
 function getGtag(): GtagFunction | null {
-  if (typeof window === 'undefined') {
+  if (typeof window === 'undefined' || typeof window.gtag !== 'function') {
     return null;
   }
 
-  window.dataLayer = window.dataLayer || [];
-
-  if (typeof window.gtag === 'function') {
-    return window.gtag;
-  }
-
-  const gtagBridge: GtagFunction = function gtagBridge() {
-    // Preserve Google's queue shape by pushing the arguments object.
-    window.dataLayer?.push(arguments);
-  };
-
-  window.gtag = gtagBridge;
-  return gtagBridge;
+  return window.gtag;
 }
 
 export function trackGenerateLead(params: GenerateLeadParams): void {
