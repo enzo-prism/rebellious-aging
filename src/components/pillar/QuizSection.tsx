@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { toast } from '@/hooks/use-toast';
 import { PillarContent } from '@/data/pillarContent';
 import { supabase } from '@/integrations/supabase/client';
+import { locationFromPathname, quizFormLeadParams, recordFormLead } from '@/lib/ga4';
 
 interface QuizSectionProps {
   content: PillarContent;
@@ -190,6 +191,8 @@ const QuizSection: React.FC<QuizSectionProps> = ({ content, pillarId }) => {
         console.error('Supabase function error:', error);
         throw error;
       }
+
+      recordFormLead(quizFormLeadParams(pillarType, locationFromPathname(window.location.pathname)));
 
       toast({
         title: "Quiz Submitted Successfully!",

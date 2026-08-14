@@ -6,6 +6,7 @@ import { Analytics as VercelAnalytics } from '@vercel/analytics/next';
 
 import '@/index.css';
 import AppProviders from '@/App';
+import Ga4LeadTracker from '@/components/analytics/Ga4LeadTracker';
 import Layout from '@/components/layout/Layout';
 import { siteMetadata } from '@/lib/siteMetadata';
 
@@ -118,6 +119,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
         <AppProviders>
           <Layout>{children}</Layout>
         </AppProviders>
+        <Ga4LeadTracker />
         <VercelAnalytics />
       </body>
     </html>
