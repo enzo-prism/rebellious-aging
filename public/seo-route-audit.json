@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-12T17:40:11.582Z",
-  "totalRoutes": 149,
-  "validRoutes": 149,
+  "generatedAt": "2026-08-14T06:11:57.327Z",
+  "totalRoutes": 150,
+  "validRoutes": 150,
   "failedRoutes": 0,
   "records": [
     {
@@ -2870,6 +2870,31 @@
         "title": "Become \"HER\" First",
         "description": "Suz reflects on career transitions, identity, and why asking who you want to become is more powerful than asking what to do next.",
         "canonical": "/blog/become-her-first",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/awareness-is-the-work",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Awareness is the Work",
+        "description": "Suz invites women in transition to slow down, meet themselves, and use ten areas of awareness before deciding what comes next.",
+        "canonical": "/blog/awareness-is-the-work",
         "ogType": "article",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"

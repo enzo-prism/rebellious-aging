@@ -147,4 +147,5 @@ Do not ship placeholder Supabase values when the quiz fallback must work.
 2026-08-14:
 
 - Added Suz's Google Doc Blog #93, `Awareness is the Work` (`/blog/awareness-is-the-work`), as a public, indexable follow-up to Blog #92. The post keeps the Drive title and subtitle `(Before You Decide, Meet Yourself)` and walks through ten areas of noticing before the next decision.
-- Added a matching Facebook community CTA and browser route coverage for Blog #93.
+- Added a matching Facebook community CTA and browser route coverage for Blog #93. Refreshed sitemap, search index, SEO route audit, and production-readiness report: 150 audited SEO routes, 148 sitemap URLs, and 168 search documents.
+- Release checks for this run: lint (26 existing image-optimization warnings, no errors), 67 unit tests, focused route-matrix coverage for `/blog/awareness-is-the-work`, `npm run prerender`, and `npm run readiness:report`.
