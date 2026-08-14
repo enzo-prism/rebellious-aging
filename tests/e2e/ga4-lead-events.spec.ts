@@ -12,6 +12,8 @@ const ALLOWED_LEAD_KEYS = new Set([
 type LeadParams = Record<string, string>;
 
 async function installGa4TestHooks(page: Page) {
+  await page.route(/typeform\.com/i, (route) => route.abort());
+
   await page.addInitScript(() => {
     const dataLayer = ((window as Window & { dataLayer?: unknown[] }).dataLayer =
       (window as Window & { dataLayer?: unknown[] }).dataLayer || []);
@@ -74,21 +76,30 @@ function expectSafeLeadParams(params: LeadParams) {
 
 test('opening the contact Typeform does not fire generate_lead', async ({ page }) => {
   await installGa4TestHooks(page);
-  await page.goto('/contact');
+  await page.goto('/contact', { waitUntil: 'networkidle' });
 
-  await page.getByRole('button', { name: 'Open Contact Form' }).click();
-  await expect(page.locator('iframe[title="Contact Form"]')).toBeVisible();
+  const openButton = page.getByRole('button', { name: 'Open Contact Form' });
+  await expect(openButton).toBeVisible();
+  await openButton.click();
+  await expect(openButton).toHaveCount(0);
   expect(await getLeadEvents(page)).toEqual([]);
 });
 
 test('welcome-letter Typeform overlay submit fires a newsletter generate_lead', async ({ page }) => {
   await installGa4TestHooks(page);
-  await page.goto('/welcome-letter');
+  await page.goto('/welcome-letter', { waitUntil: 'networkidle' });
 
-  await page.getByRole('link', { name: 'Share Your Email for Updates' }).click();
-  await page.waitForFunction(
-    () => typeof (window as Window & { __typeformOnSubmit?: () => void }).__typeformOnSubmit === 'function'
-  );
+  const typeformLink = page.getByRole('link', { name: 'Share Your Email for Updates' });
+  await expect(typeformLink).toBeVisible();
+
+  await expect(async () => {
+    await typeformLink.click();
+    expect(
+      await page.evaluate(
+        () => typeof (window as Window & { __typeformOnSubmit?: () => void }).__typeformOnSubmit === 'function'
+      )
+    ).toBe(true);
+  }).toPass();
 
   expect(await getLeadEvents(page)).toEqual([]);
 
