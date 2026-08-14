@@ -74,6 +74,45 @@ export function locationFromPathname(pathname: string): string {
   return SAFE_PARAM_VALUE.test(slug) ? slug : 'unknown';
 }
 
+export function isTypeformOrigin(origin: string): boolean {
+  try {
+    const hostname = new URL(origin).hostname;
+    return hostname === 'typeform.com' || hostname.endsWith('.typeform.com');
+  } catch {
+    return false;
+  }
+}
+
+export function readTypeformSubmitFormId(data: unknown): string | undefined {
+  if (!data || typeof data !== 'object') {
+    return undefined;
+  }
+
+  const message = data as { type?: unknown; formId?: unknown; data?: { formId?: unknown } };
+  if (message.type !== 'form-submit' && message.type !== 'form-submitted') {
+    return undefined;
+  }
+
+  if (typeof message.formId === 'string') {
+    return message.formId;
+  }
+
+  if (typeof message.data?.formId === 'string') {
+    return message.data.formId;
+  }
+
+  return undefined;
+}
+
+export function isTypeformSubmitMessage(data: unknown): boolean {
+  if (!data || typeof data !== 'object') {
+    return false;
+  }
+
+  const message = data as { type?: unknown };
+  return message.type === 'form-submit' || message.type === 'form-submitted';
+}
+
 export function isContactTypeformHref(href: string, baseUrl?: string): boolean {
   try {
     const url = new URL(href, baseUrl ?? 'https://www.rebelwithsuz.com');

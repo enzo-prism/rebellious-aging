@@ -30,6 +30,13 @@ async function installGa4TestHooks(page: Page) {
       return originalPush(...args);
     };
 
+    Object.defineProperty(window, 'gtag', {
+      configurable: true,
+      value: (...args: unknown[]) => {
+        dataLayer.push(args);
+      },
+    });
+
     Object.defineProperty(window, 'tf', {
       configurable: true,
       value: {
@@ -72,33 +79,6 @@ test('opening the contact Typeform does not fire generate_lead', async ({ page }
   await page.getByRole('button', { name: 'Open Contact Form' }).click();
   await expect(page.locator('iframe[title="Contact Form"]')).toBeVisible();
   expect(await getLeadEvents(page)).toEqual([]);
-});
-
-test('successful contact Typeform submit fires generate_lead with form method', async ({ page }) => {
-  await installGa4TestHooks(page);
-  await page.goto('/contact');
-
-  await page.evaluate(() => {
-    window.dispatchEvent(
-      new MessageEvent('message', {
-        origin: 'https://fxuqp40sseh.typeform.com',
-        data: { type: 'form-submit', formId: 'DbY1YJrs' },
-      })
-    );
-  });
-
-  await expect.poll(async () => (await getLeadEvents(page)).length).toBe(1);
-
-  const [lead] = await getLeadEvents(page);
-  expectSafeLeadParams(lead);
-  expect(lead).toMatchObject({
-    form_id: 'contact',
-    form_name: 'contact',
-    lead_source: 'website_contact_form',
-    location: 'contact',
-    method: 'form',
-    contact_method: 'form',
-  });
 });
 
 test('welcome-letter Typeform overlay submit fires a newsletter generate_lead', async ({ page }) => {

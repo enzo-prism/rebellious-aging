@@ -5,6 +5,9 @@ import { useEffect } from 'react';
 import {
   CONTACT_TYPEFORM_ID,
   isContactTypeformHref,
+  isTypeformOrigin,
+  isTypeformSubmitMessage,
+  readTypeformSubmitFormId,
   recordFormLead,
   resolveTypeformFormLead,
 } from '@/lib/ga4';
@@ -150,45 +153,6 @@ async function openContactTypeform(pathname: string): Promise<boolean> {
 
 function isModifiedClick(event: MouseEvent): boolean {
   return event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey;
-}
-
-function isTypeformOrigin(origin: string): boolean {
-  try {
-    const hostname = new URL(origin).hostname;
-    return hostname === 'typeform.com' || hostname.endsWith('.typeform.com');
-  } catch {
-    return false;
-  }
-}
-
-function readTypeformSubmitFormId(data: unknown): string | undefined {
-  if (!data || typeof data !== 'object') {
-    return undefined;
-  }
-
-  const message = data as { type?: unknown; formId?: unknown; data?: { formId?: unknown } };
-  if (message.type !== 'form-submit' && message.type !== 'form-submitted') {
-    return undefined;
-  }
-
-  if (typeof message.formId === 'string') {
-    return message.formId;
-  }
-
-  if (typeof message.data?.formId === 'string') {
-    return message.data.formId;
-  }
-
-  return undefined;
-}
-
-function isTypeformSubmitMessage(data: unknown): boolean {
-  if (!data || typeof data !== 'object') {
-    return false;
-  }
-
-  const message = data as { type?: unknown };
-  return message.type === 'form-submit' || message.type === 'form-submitted';
 }
 
 const Ga4LeadTracker = () => {

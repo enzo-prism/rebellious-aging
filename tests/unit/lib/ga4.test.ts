@@ -4,8 +4,11 @@ import {
   CONTACT_TYPEFORM_ID,
   contactFormLeadParams,
   isContactTypeformHref,
+  isTypeformOrigin,
+  isTypeformSubmitMessage,
   locationFromPathname,
   quizFormLeadParams,
+  readTypeformSubmitFormId,
   recordFormLead,
   resolveTypeformFormLead,
   sanitizeGenerateLeadParams,
@@ -140,6 +143,31 @@ describe('ga4 generate_lead helpers', () => {
     expect(shouldRecordFormLead('contact')).toBe(true);
     expect(shouldRecordFormLead('quiz_health')).toBe(true);
     expect(shouldRecordFormLead('contact')).toBe(false);
+  });
+
+  it('accepts Typeform submit postMessages from Typeform origins only', () => {
+    expect(isTypeformOrigin('https://fxuqp40sseh.typeform.com')).toBe(true);
+    expect(isTypeformOrigin('https://form.typeform.com')).toBe(true);
+    expect(isTypeformOrigin('https://evil.example')).toBe(false);
+    expect(isTypeformSubmitMessage({ type: 'form-submit', formId: CONTACT_TYPEFORM_ID })).toBe(true);
+    expect(isTypeformSubmitMessage({ type: 'form-ready', formId: CONTACT_TYPEFORM_ID })).toBe(false);
+    expect(readTypeformSubmitFormId({ type: 'form-submit', formId: CONTACT_TYPEFORM_ID })).toBe(
+      CONTACT_TYPEFORM_ID
+    );
+    expect(readTypeformSubmitFormId({ type: 'form-submitted', data: { formId: '01K7MBQQJ3SQJKTM3T3SPQKZC3' } })).toBe(
+      '01K7MBQQJ3SQJKTM3T3SPQKZC3'
+    );
+
+    const submit = { type: 'form-submit' as const, formId: CONTACT_TYPEFORM_ID };
+    expect(
+      isTypeformOrigin('https://fxuqp40sseh.typeform.com') && isTypeformSubmitMessage(submit)
+        ? resolveTypeformFormLead(readTypeformSubmitFormId(submit), '/contact')
+        : null
+    ).toMatchObject({
+      form_id: 'contact',
+      lead_source: 'website_contact_form',
+      method: 'form',
+    });
   });
 
   it('sends generate_lead through the existing gtag bridge', () => {
