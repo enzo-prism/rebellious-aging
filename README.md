@@ -237,14 +237,14 @@ Post-deploy verification snapshot (Feb 26, 2026):
 Latest content release snapshot (Aug 12, 2026):
 
 ```text
-- Blogs #81–#92 are public and indexable. The newest post is `Become "HER" First`, following `Nobody Applauds the Roots` and `The Signature That Started Talking`.
+- Blogs #81–#93 are public and indexable. The newest post is `Awareness is the Work`, following `Become "HER" First` and `Nobody Applauds the Roots`.
 - Trusted-voices endorsements (Rachael J. Brown, Natasha Lantz, Valerie Sims, and Wanda McDaniel) are included in the shared section used by the homepage, Movement, and Speaking Events pages.
 - The homepage and Welcome Letter no longer use a numerical age range in their welcome copy or route metadata, keeping the invitation inclusive while preserving the site's aging-focused mission.
 - No blog post is currently password-gated. The gate infrastructure (`gated`/`releaseDate` fields, `BlogPasswordGate`) remains in the codebase but is inactive because no post sets `gated: true`.
 - Next.js is upgraded to 16.2.12, including the asynchronous App Router params contract and static robots/sitemap generation.
 - Search filters use native buttons, the search dialog has stable responsive sizing, and the share button keeps readable disabled-state contrast.
 - Quiz input and Edge Function validation now enforce allowed origins, request sizes, field limits, and normalized values. Deploy `supabase/functions/submit-quiz` separately from Vercel when this function changes.
-- Generated sitemap, search, and SEO audit artifacts are refreshed during `npm run build`; the Aug 12 Blog #92 build produced 154 static pages, 149 audited SEO routes, 147 sitemap URLs, and 167 search documents.
+- Generated sitemap, search, and SEO audit artifacts are refreshed during `npm run build`; the Aug 14 Blog #93 search rebuild produced 168 search documents.
 ```
 
 Recommended setup commands:

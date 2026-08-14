@@ -1005,6 +1005,18 @@ export const blogPosts: BlogPostMetadata[] = [
     blogNumber: 92,
     seoDescription:
       'Suz reflects on career transitions, identity, and why asking who you want to become is more powerful than asking what to do next.'
+  },
+  {
+    id: 'awareness-is-the-work',
+    title: 'Awareness is the Work',
+    excerpt:
+      'Suz follows up on becoming her first with ten areas of noticing, so awareness can come before the next decision.',
+    date: '8/14/2026',
+    dateSort: new Date('2026-08-14'),
+    readTime: '5 min read',
+    blogNumber: 93,
+    seoDescription:
+      'Suz invites women in transition to slow down, meet themselves, and use ten areas of awareness before deciding what comes next.'
   }
 ];
 

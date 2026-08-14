@@ -66,6 +66,7 @@
 - The August 10, 2026 release removes the `55–105` age range from homepage and Welcome Letter copy and metadata. Other age-specific editorial references remain intentionally unchanged because they are outside the welcome-page scope.
 - The August 12, 2026 update adds Wanda McDaniel's endorsement (`I think you are phenomenal!`) to the shared trusted-voices data shown on the homepage, Movement, and Speaking Events pages.
 - The August 12, 2026 content pass also publishes Suz's Google Doc Blog #92, `Become "HER" First`, after confirming Blog #91 was already live. Generated artifacts for that post: 154 static pages, 149 audited SEO routes, 147 sitemap URLs, and 167 search documents.
+- The August 14, 2026 content pass publishes Suz's Google Doc Blog #93, `Awareness is the Work` (`/blog/awareness-is-the-work`), as a public follow-up to Blog #92.
 - `app/robots.ts` and `app/sitemap.ts` are explicitly static, while dynamic App Router pages await the Next.js 16 `params` promise.
 
 ## Opportunities & Caveats

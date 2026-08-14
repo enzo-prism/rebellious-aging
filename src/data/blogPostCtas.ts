@@ -545,6 +545,12 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
       'If you are in a transition and still figuring out what comes next, join the group and share who you are becoming while the path catches up.',
     buttonLabel: 'Join the becoming conversation',
   },
+  'awareness-is-the-work': {
+    title: 'Notice who you are becoming',
+    body:
+      'If you are in a transition and still meeting yourself, join the group and share the questions, nudges, and small notices that are already forming a picture.',
+    buttonLabel: 'Join the awareness conversation',
+  },
 };
 
 export const getBlogPostCta = (postId: string) => blogPostCtas[postId];

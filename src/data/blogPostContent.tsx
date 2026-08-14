@@ -5605,4 +5605,99 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       </>
     ),
   },
+  'awareness-is-the-work': {
+    heading: (
+      <>
+        <h1 className="text-4xl font-bold mb-4">Awareness is the Work</h1>
+        <p className="text-xl italic mb-4">(Before You Decide, Meet Yourself)</p>
+      </>
+    ),
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>In my last blog, I suggested that perhaps we are asking the wrong question during times of transition.</p>
+          <p>Instead of asking,</p>
+          <p>“What should I do next?”</p>
+          <p>What if we asked,</p>
+          <p>“Who do I want to become?”</p>
+          <p>Well being an overthinker, I have been thinking about that ever since.</p>
+          <p>I don’t believe most of us have ever taken the time to truly meet the person we are capable of becoming. We have spent years becoming who life needed us to be.</p>
+          <p>Before we start searching for the next job, project, relationship, community, adventure, or version of our life, it might be worth spending some time getting reacquainted with the person who will actually be living it.</p>
+          <p>We are so anxious to do something that we skip noticing.</p>
+          <p>But awareness must precede action.</p>
+          <p>So how about slowing down. Instead of rushing toward an answer, grab a notebook, get curious, and spend some time with these ten areas.</p>
+          <p>There are NO right answers. Only your answers.</p>
+          <p className="font-bold mt-8">Identity</p>
+          <p>Who are you now? Right NOW. Not who you were five or ten years ago?</p>
+          <p>What parts of your old identity still fit?</p>
+          <p>What parts are you willing to leave behind?</p>
+          <p className="font-bold mt-8">Values</p>
+          <p>What matters deeply to you at this point in your life?</p>
+          <p>What are you no longer willing to compromise?</p>
+          <p>When and where have you felt most aligned with the person you want to be?</p>
+          <p className="font-bold mt-8">Lifestyle</p>
+          <p>What would you like an ordinary Tuesday to look like?</p>
+          <p>How much structure, flexibility, travel, solitude, activity, or freedom do you want?</p>
+          <p>What kind of pace feels right for this season of your life?</p>
+          <p className="font-bold mt-8">Energy</p>
+          <p>What gives you energy?</p>
+          <p>What consistently drains your energy?</p>
+          <p>At what time, in what places and around which people do you feel most alive?</p>
+          <p className="font-bold mt-8">Strengths</p>
+          <p>What are you naturally good at?</p>
+          <p>What do people consistently come to you for?</p>
+          <p>Which strengths have you perhaps taken for granted because they come easily to you?</p>
+          <p className="font-bold mt-8">Curiosity</p>
+          <p>What keeps catching your attention?</p>
+          <p>What would you love to learn more about? (Even if you have absolutely no idea where it might lead?)</p>
+          <p>What have you been quietly wondering, For instance: “What if I tried that?”</p>
+          <p>Pay attention.</p>
+          <p>That may be your “NUDGE”.</p>
+          <p className="font-bold mt-8">Relationships</p>
+          <p>Who do you want more of in your life?</p>
+          <p>What kinds of people bring out the best in you?</p>
+          <p>Where might you need new connections, communities, mentors, collaborators, or friends?</p>
+          <p className="font-bold mt-8">Financial Reality</p>
+          <p>What do you actually need financially?</p>
+          <p>What would you like financially?</p>
+          <p>How much should money influence your next decision?</p>
+          <p>Where are you willing to trade income for freedom, meaning, flexibility, or time?</p>
+          <p>Reality matters. But it doesn’t get to make every decision, but it does deserve a seat at the table.</p>
+          <p className="font-bold mt-8">Appearance and Presence</p>
+          <p>How do you want to show up in the world?</p>
+          <p>Does the way you dress, carry yourself, speak, and present yourself reflect the person you are becoming?</p>
+          <p>When you walk into a room, how do you want to feel?</p>
+          <p>This is not vanity. This is alignment.</p>
+          <p className="font-bold mt-8">Courage</p>
+          <p>What would you try if you were not worried about what other people might think?</p>
+          <p>Where/why are you waiting to feel ready?</p>
+          <p>What is one small action you could take before confidence arrives?</p>
+          <p>Remember confidence rarely comes first.</p>
+          <p className="text-center font-bold">ACTION DOES.</p>
+          <p>And here is the fabulous thing about all of these questions:</p>
+          <p>You do not have to answer them today. NOPE!</p>
+          <p>Notice.</p>
+          <p>Notice your notice.</p>
+          <p>Think.</p>
+          <p>Write.</p>
+          <p>Walk.</p>
+          <p>Notice.</p>
+          <p>Wonder.</p>
+          <p>Notice your notice.</p>
+          <p>Change your mind.</p>
+          <p>Pivot.</p>
+          <p>Come back and answer them again.</p>
+          <p>CLARITY rarely arrives as one giant revelation. More often, it shows up in little pieces as we begin noticing and paying attention.</p>
+          <p>Notice how your answers are trending. A preference, a curiosity, a discomfort, an idea, a tiny NUDGE, eventually those pieces begin to form a picture.</p>
+          <p>So perhaps the work isn’t figuring out your entire future. Perhaps the work is simply becoming more aware of yourself.</p>
+          <p><strong>Awareness is the work.</strong></p>
+          <p>And the person you are looking for?</p>
+          <p>She is not out there.</p>
+          <p>She has been here all along.</p>
+          <p><strong>💚The Accidental Blogger</strong></p>
+        </div>
+      </>
+    ),
+  },
 };

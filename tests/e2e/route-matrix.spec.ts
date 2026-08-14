@@ -36,6 +36,7 @@ const dynamicChecks = [
   { path: '/blog/the-signature-that-started-talking', found: true },
   { path: '/blog/nobody-applauds-the-roots', found: true },
   { path: '/blog/become-her-first', found: true },
+  { path: '/blog/awareness-is-the-work', found: true },
   { path: '/recipes/kale-and-red-cabbage-salad-with-apples-and-dried-cherries', found: true },
   { path: '/recipes/big-bean-barley-and-sweet-potato-soup', found: true },
   { path: '/guides/esselstyn-plant-based-jumpstart', found: true },

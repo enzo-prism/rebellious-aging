@@ -1,6 +1,6 @@
 # Migration + Google Operations Checklist (2026)
 
-Last reviewed: 2026-08-12.
+Last reviewed: 2026-08-14.
 
 This document is the one-stop guide for repository migration ownership, deployment readiness, and Google Search visibility checks.
 
@@ -143,3 +143,8 @@ Do not ship placeholder Supabase values when the quiz fallback must work.
 - Added Wanda McDaniel's endorsement (`I think you are phenomenal!`, Student at the T. Colin Campbell Center for Nutrition Studies) to `src/data/endorsements.ts` so it appears in the shared trusted-voices section on the homepage, Movement (`/our-story`), and Speaking Events pages.
 - Trusted-voices endorsements are now documented as a first-class content module (`src/data/endorsements.ts` → `TrustedVoicesSection` on Home/Speaking Events, plus the inline grid on Movement). Current voices: Rachael J. Brown, Natasha Lantz, Valerie Sims, Wanda McDaniel.
 - Release checks for this run: unit tests for blog data, `npm run prerender`, `npm run readiness:report`, production deploy of Blog #92, and live `curl` readbacks for `/blog/become-her-first`, `/blog/nobody-applauds-the-roots`, and sitemap. Wanda endorsement checks remain: merge to `main` (`579cf9d`), GitHub Actions CI green, and live HTML readbacks on `https://www.rebelwithsuz.com/`, `/our-story`, and `/speaking-events`.
+
+2026-08-14:
+
+- Added Suz's Google Doc Blog #93, `Awareness is the Work` (`/blog/awareness-is-the-work`), as a public, indexable follow-up to Blog #92. The post keeps the Drive title and subtitle `(Before You Decide, Meet Yourself)` and walks through ten areas of noticing before the next decision.
+- Added a matching Facebook community CTA and browser route coverage for Blog #93.
