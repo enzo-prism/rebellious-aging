@@ -186,11 +186,24 @@ export function resolveTypeformFormLead(
 }
 
 function getGtag(): GtagFunction | null {
-  if (typeof window === 'undefined' || typeof window.gtag !== 'function') {
+  if (typeof window === 'undefined') {
     return null;
   }
 
-  return window.gtag;
+  window.dataLayer = window.dataLayer || [];
+
+  if (typeof window.gtag === 'function') {
+    return window.gtag;
+  }
+
+  const gtagBridge: GtagFunction = function gtagBridge(..._args: unknown[]) {
+    // gtag.js reads the Arguments object, not a rest array
+    // eslint-disable-next-line prefer-rest-params -- match gtag dataLayer queue shape
+    window.dataLayer?.push(arguments);
+  };
+
+  window.gtag = gtagBridge;
+  return gtagBridge;
 }
 
 export function trackGenerateLead(params: GenerateLeadParams): void {
