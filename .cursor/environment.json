@@ -1,0 +1,12 @@
+{
+  "name": "rebellious-aging",
+  "install": "npm ci",
+  "agentCanUpdateSnapshot": true,
+  "terminals": [
+    {
+      "name": "dev",
+      "command": "npm run dev",
+      "description": "Next.js development server"
+    }
+  ]
+}
