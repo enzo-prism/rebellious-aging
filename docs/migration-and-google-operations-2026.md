@@ -149,3 +149,10 @@ Do not ship placeholder Supabase values when the quiz fallback must work.
 - Added Suz's Google Doc Blog #93, `Awareness is the Work` (`/blog/awareness-is-the-work`), as a public, indexable follow-up to Blog #92. The post keeps the Drive title and subtitle `(Before You Decide, Meet Yourself)` and walks through ten areas of noticing before the next decision.
 - Added a matching Facebook community CTA and browser route coverage for Blog #93. Refreshed sitemap, search index, SEO route audit, and production-readiness report: 150 audited SEO routes, 148 sitemap URLs, and 168 search documents.
 - Release checks for this run: lint (26 existing image-optimization warnings, no errors), 67 unit tests, focused route-matrix coverage for `/blog/awareness-is-the-work`, `npm run prerender`, and `npm run readiness:report`.
+
+2026-08-20:
+
+- Completed a fresh Google Drive-to-production parity audit for Blogs #1–#93. The live site already contained 91 numbered posts; the only gaps were historical Blogs #36 and #40.
+- Published Blog #36, `Balancing Act: Why Practicing Balance Helps You Stay Balanced` (`/blog/balancing-act-why-practicing-balance-helps-you-stay-balanced`), and preserved Blog #40 as its own earlier rest-day article at `/blog/the-secret-strength-of-rest-days-why-pausing-makes-you-powerful`.
+- Updated the existing Blog #59 route, `/blog/the-secret-strength-of-rest-days`, to use the newer Blog #59 Drive revision instead of Blog #40's earlier draft. The archive now has one complete metadata/body/CTA record for every number from 1 through 93.
+- Refreshed sitemap, search index, SEO audit, and production-readiness artifacts: 152 audited SEO routes, 150 sitemap URLs, and 170 search documents. Release checks passed with typecheck, lint (26 existing image-optimization warnings, no errors), production build, 67 unit tests, and 86 browser tests.

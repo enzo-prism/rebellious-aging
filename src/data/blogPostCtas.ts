@@ -215,6 +215,12 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
       'Food, movement, sleep, stress, connection, and safer choices all get easier when you have a community helping you live the pillars.',
     buttonLabel: 'Join the lifestyle circle',
   },
+  'balancing-act-why-practicing-balance-helps-you-stay-balanced': {
+    title: 'Practice steadiness together',
+    body:
+      'If balance feels like freedom, join the group and share the small daily exercises that keep confidence under your feet.',
+    buttonLabel: 'Join the balance circle',
+  },
   'seven-day-balance-challenge': {
     title: 'Take the balance challenge with us',
     body:
@@ -232,6 +238,12 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
     body:
       'If B12 reminded you that small nutrients matter, join the group where plant-based rebels compare notes and keep health details on the radar.',
     buttonLabel: 'Join the plant-health talk',
+  },
+  'the-secret-strength-of-rest-days-why-pausing-makes-you-powerful': {
+    title: 'Make recovery part of strength',
+    body:
+      'If rest days now feel like smart training, join the group and practice sustainable movement with women who value recovery.',
+    buttonLabel: 'Join the recovery circle',
   },
   'the-secret-strength-of-rest-days': {
     title: 'Honor rest without guilt',

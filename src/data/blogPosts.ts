@@ -370,6 +370,16 @@ export const blogPosts: BlogPostMetadata[] = [
     seoDescription: 'Explore the six Lifestyle Medicine pillars from ACLM and how simple daily habits power food-as-medicine, movement, rest, calm, community, and safer choices.'
   },
   {
+    id: 'balancing-act-why-practicing-balance-helps-you-stay-balanced',
+    title: 'Balancing Act: Why Practicing Balance Helps You Stay Balanced',
+    excerpt: 'Balance supports freedom, confidence, and every move you make. A few playful minutes of practice can help you feel steadier at any age.',
+    date: '2/5/2025',
+    dateSort: new Date('2025-02-05'),
+    readTime: '3 min read',
+    blogNumber: 36,
+    seoDescription: 'Learn why balance changes with age and try simple daily exercises that build steadiness, mobility, confidence, and freedom.'
+  },
+  {
     id: 'seven-day-balance-challenge',
     title: '7 Day Balance Challenge',
     excerpt: 'Seven bite-sized daily balance drills to boost confidence, stability, and freedom in one focused week.',
@@ -398,6 +408,16 @@ export const blogPosts: BlogPostMetadata[] = [
     readTime: '8 min read',
     blogNumber: 39,
     seoDescription: 'Dr. Greger’s B12 guidance explained: spot deficiency signs, choose cyanocobalamin, and test smarter so aging boldly never runs on empty.'
+  },
+  {
+    id: 'the-secret-strength-of-rest-days-why-pausing-makes-you-powerful',
+    title: 'The Secret Strength of Rest Days, Why Pausing Makes You Powerful',
+    excerpt: 'Rest does not mean you are slacking. Strategic recovery helps muscles repair, prevents injury, and keeps movement joyful after 55.',
+    date: '2/9/2025',
+    dateSort: new Date('2025-02-09'),
+    readTime: '3 min read',
+    blogNumber: 40,
+    seoDescription: 'Discover why rest days build strength, support recovery, prevent injury, and keep exercise sustainable and motivating after 55.'
   },
   {
     id: 'the-secret-strength-of-rest-days',

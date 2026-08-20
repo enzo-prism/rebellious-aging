@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-14T06:11:57.327Z",
-  "totalRoutes": 150,
-  "validRoutes": 150,
+  "generatedAt": "2026-08-20T16:48:13.797Z",
+  "totalRoutes": 152,
+  "validRoutes": 152,
   "failedRoutes": 0,
   "records": [
     {
@@ -1501,6 +1501,31 @@
       }
     },
     {
+      "path": "/blog/balancing-act-why-practicing-balance-helps-you-stay-balanced",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Balancing Act: Why Practicing Balance Helps You Stay Balanced",
+        "description": "Learn why balance changes with age and try simple daily exercises that build steadiness, mobility, confidence, and freedom.",
+        "canonical": "/blog/balancing-act-why-practicing-balance-helps-you-stay-balanced",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
       "path": "/blog/seven-day-balance-challenge",
       "source": "blog",
       "hasMeta": true,
@@ -1570,6 +1595,31 @@
         "title": "B12: The Little Vitamin With a Big Job",
         "description": "Dr. Greger’s B12 guidance explained: spot deficiency signs, choose cyanocobalamin, and test smarter so aging boldly never runs on empty.",
         "canonical": "/blog/b12-the-little-vitamin-with-a-big-job",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/the-secret-strength-of-rest-days-why-pausing-makes-you-powerful",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "The Secret Strength of Rest Days, Why Pausing Makes You Powerful",
+        "description": "Discover why rest days build strength, support recovery, prevent injury, and keep exercise sustainable and motivating after 55.",
+        "canonical": "/blog/the-secret-strength-of-rest-days-why-pausing-makes-you-powerful",
         "ogType": "article",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"

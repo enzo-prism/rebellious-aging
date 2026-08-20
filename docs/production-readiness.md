@@ -29,7 +29,7 @@ This project uses a codified readiness gate before public launch.
 ## Current baseline checks
 - Report file: `public/production-readiness-report.json`
 - Expected status in release conditions: `status: "pass"` with all checks green.
-- August 14, 2026 Blog #93 baseline: 150 audited SEO routes, 148 sitemap URLs, and 168 search documents after adding `Awareness is the Work`. August 12, 2026 Blog #92 baseline: 154 static pages, 149 audited SEO routes, 147 sitemap URLs, and 167 search documents. The July 30, 2026 release-candidate baseline was 153 static pages, 148 audited SEO routes, 166 search documents, 57 passing unit tests, and 79 passing browser tests. Typecheck, lint, build, readiness report, and `git diff --check` pass; lint reports 26 existing image-optimization warnings and no errors.
+- August 20, 2026 full Drive parity baseline: Blogs #1–#93 are represented, with 152 audited SEO routes, 150 sitemap URLs, 170 search documents, 67 passing unit tests, and 86 passing browser tests. The earlier August 14 Blog #93 baseline was 150 audited SEO routes, 148 sitemap URLs, and 168 search documents. Typecheck, lint, build, readiness report, and `git diff --check` pass; lint reports 26 existing image-optimization warnings and no errors.
 - Current hardening covers responsive hero/gallery images, on-demand search indexing, server-rendered nutrition and pillar content, keyboard/mobile navigation, accessible search filters, event email handoff, consistent recipe fallbacks, sitemap policy alignment, quiz request validation, and baseline Vercel response headers.
 - GitHub Actions runs the same release checks from `.github/workflows/ci.yml`.
 

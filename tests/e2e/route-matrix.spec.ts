@@ -24,6 +24,8 @@ const routeMatrix = [
 
 const dynamicChecks = [
   { path: '/blog/rebellious-guide-what-is-on-your-plate', found: true },
+  { path: '/blog/balancing-act-why-practicing-balance-helps-you-stay-balanced', found: true },
+  { path: '/blog/the-secret-strength-of-rest-days-why-pausing-makes-you-powerful', found: true },
   { path: '/recipes/orange-mango-bean-salad', found: true },
   { path: '/blog/ultra-processed-trap-eat-whole-live-whole', found: true },
   { path: '/blog/is-being-ferociously-independent-a-good-thing', found: true },
