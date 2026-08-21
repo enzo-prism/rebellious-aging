@@ -1,6 +1,6 @@
 # Rebellious Aging Web Application
 
-Rebellious Aging is a Next.js App Router site that helps women 55+ “age boldly, live loudly” through four pillars—Confidence, Style, Health, and Gratitude. The app houses long-form editorial content (blogs, pillar landing pages, nutrition guides), embedded Typeforms, and a Supabase-backed quiz submission flow.
+Rebellious Aging is a Next.js App Router site that helps women 55+ “age boldly, live loudly” through four pillars—Confidence, Style, Health, and Gratitude. The app houses long-form editorial content (blogs, pillar landing pages, nutrition guides), a private contact path, and community touchpoints.
 
 ---
 
@@ -10,7 +10,7 @@ Rebellious Aging is a Next.js App Router site that helps women 55+ “age boldly
 - **UI:** Tailwind CSS, shadcn/ui components, Radix Primitives, Framer Motion
 - **State & data:** TanStack Query, custom hooks, local data files under `src/data`
 - **SEO tooling:** Shared route metadata (`src/data/seoRoutes.ts`), Next Metadata API, structured data helpers, minimal title-tag policy, SEO route audit pipeline
-- **Backend integrations:** Supabase Edge Function (`supabase/functions/submit-quiz`) + database table `quiz_submissions`, embedded Typeforms for contact/newsletter
+- **Backend integrations:** Embedded Typeforms for contact/newsletter; legacy Supabase quiz infrastructure remains in the repo but is not exposed by the public pillar pages
 
 ---
 
@@ -63,7 +63,7 @@ Key conventions:
 
 - **Home (`src/views/Home.tsx`)** – Hero, inline Welcome Banner (no blocking modal), pillar overview, and repeated CTAs that route visitors toward Our Story or pillar pages.
 - **Our Story / Movement (`src/views/Movement.tsx`)** – Narrative, credentials, and the “Why” behind the rebellion, including scroll-triggered timelines.
-- **Pillars (`/pillars/:pillarId`)** – Confidence, Style, and Health share a common data model for hero copy, galleries, quizzes, and downloadable checklists, while Gratitude features a custom long-form experience and Health links to the dedicated WFPB Nutrition Guide.
+- **Pillars (`/pillars/:pillarId`)** – Confidence, Style, and Health share a common data model for hero copy, galleries, and downloadable checklists, while Gratitude features a custom long-form experience and Health links to the dedicated WFPB Nutrition Guide.
 - **Nutrition (`src/views/Nutrition.tsx`)** – Query-param-driven tabs that cover foundations, benefits, Dr. Esselstyn/Dr. Campbell material, “why & how,” and recipes.
 - **Blog (`/blog` + `/blog/:postId`)** – Metadata list plus long-form posts with canonical tags, share actions, and article navigation.
 - **Recipes (`/recipes` + `/recipes/:slug`)** – Plant-based recipe archive (`src/data/recipes.ts`) with individual recipe detail pages (`src/views/RecipeDetail.tsx`), plus the curated **Better Summer Recipes** page (`/recipes-for-a-better-summer`).
@@ -89,7 +89,8 @@ Use this map when adding new sections so the navigation, voice, and CTAs remain 
 | Blog metadata | `src/data/blogPosts.ts` | Drives the blog archive, sitemap generation, SEO fields, and article ordering (by `blogNumber`). |
 | Blog article bodies | `src/data/blogPostContent.tsx` | `Record<postId, { heading, body }>` looked up via `blogPostContent[postId]` in `src/views/BlogPost.tsx` (no per-post switch statement). |
 | Blog CTAs / SEO overrides | `src/data/blogPostCtas.ts`, `src/data/blogSeo.ts` | Per-post Facebook CTA copy and per-post SEO title/description overrides. |
-| Pillar content | `src/data/pillarContent.ts` | Hero text, gallery images, quiz titles, and checklist links for Confidence/Style/Health. |
+| Pillar content | `src/data/pillarContent.ts` | Hero text, gallery images, and checklist links for Confidence/Style/Health. |
+| Facebook monthly highlights | `src/data/facebookGroupHighlights.ts` | Privacy-safe themes shown on `/facebook-group`; update this single object each month. |
 | Recipes | `src/data/recipes.ts` | Recipes powering `/recipes` and `/recipes/:slug`. |
 | Free guides | `src/data/guides.ts` | The three free booklets (`Guide` interface) powering `/guides` and `/guides/:slug`. |
 | Speaking / community events | `src/data/speakingEvents.ts`, `src/data/communityEvents.ts` | Talks/appearances (`/speaking-events`) and live Zoom gatherings (`/events`). |
@@ -175,7 +176,7 @@ NEXT_PUBLIC_ENABLE_GPTENGINEER=true|false
 
 Vercel Web Analytics does not require an environment variable. It is enabled from the Vercel project dashboard and injected by `@vercel/analytics` in [`app/layout.tsx`](app/layout.tsx).
 
-Real `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` values are required in every Vercel environment that must support the quiz fallback. Placeholder values allow a static build to finish but do not provide a working submission path.
+The public pillar quizzes are retired. Real `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` values are only needed if the retained legacy quiz backend is deliberately reactivated; placeholder values allow the static build to finish.
 
 For rollout compatibility, the app also reads legacy keys:
 
@@ -234,7 +235,7 @@ Post-deploy verification snapshot (Feb 26, 2026):
 - `vercel aliases ls --scope enzo-design-prisms-projects` shows rebelwithsuz.com points to ra-nextjs
 ```
 
-Latest content release snapshot (Aug 20, 2026):
+Latest content and experience snapshot (Aug 21, 2026):
 
 ```text
 - Every numbered Google Drive blog from #1 through #93 is represented as a public, indexable site post. The historical #36 and #40 gaps are filled, and Blog #59 now uses its newer Drive revision instead of Blog #40's earlier draft.
@@ -243,7 +244,7 @@ Latest content release snapshot (Aug 20, 2026):
 - No blog post is currently password-gated. The gate infrastructure (`gated`/`releaseDate` fields, `BlogPasswordGate`) remains in the codebase but is inactive because no post sets `gated: true`.
 - Next.js is upgraded to 16.2.12, including the asynchronous App Router params contract and static robots/sitemap generation.
 - Search filters use native buttons, the search dialog has stable responsive sizing, and the share button keeps readable disabled-state contrast.
-- Quiz input and Edge Function validation now enforce allowed origins, request sizes, field limits, and normalized values. Deploy `supabase/functions/submit-quiz` separately from Vercel when this function changes.
+- Public pillar quizzes are retired in favor of checklists, private contact, and Facebook-group highlights. The legacy Supabase schema and Edge Function remain available for audited rollback only.
 - Generated sitemap, search, and SEO audit artifacts are refreshed during `npm run build`; the Aug 20 Drive parity rebuild produced 152 audited SEO routes, 150 sitemap URLs, and 170 search documents.
 ```
 
@@ -323,10 +324,11 @@ npm run build
 
 ---
 
-## Forms, Quizzes & Integrations
+## Forms & Integrations
 
-- **Quiz submission:** `src/components/pillar/QuizSection.tsx` posts to `supabase/functions/submit-quiz/index.ts`.
-- **Typeforms:** Contact, newsletter, and quiz fallback embeds load Typeform’s `embed.js` lazily.
+- **Private contact:** `/contact` keeps the secure Typeform path, and shared `ConnectCTA` sections retain direct email access to Suz.
+- **Typeforms:** Contact and newsletter embeds load Typeform’s `embed.js` lazily.
+- **Legacy quiz backend:** `supabase/functions/submit-quiz/index.ts` and its table remain in the repo but are no longer connected to public pillar pages.
 - **Facebook CTA:** Use helper utilities in `src/lib/facebook.ts` for consistent popup + fallback behavior for group links.
 
 ---
@@ -407,7 +409,6 @@ GitHub Actions mirrors the release gate in [`.github/workflows/ci.yml`](.github/
 - The search index loads on demand when search is opened.
 - Embeds are lazy by default:
   - Contact Typeform loads on user interaction.
-  - Pillar quiz markup is present in the static page; Typeform fallback scripts still load only when needed.
   - Video cards use placeholder thumbnails before mounting YouTube iframes.
 - Add new third-party scripts behind user intent and avoid broad global loading in `layout`.
 
@@ -420,7 +421,7 @@ GitHub Actions mirrors the release gate in [`.github/workflows/ci.yml`](.github/
 3. Optionally trigger/force a production deploy from the CLI with `vercel --prod` (or `vercel redeploy <url> --target production` to rebuild + bust the edge cache). Note: `sitemap.xml`/`robots.txt` can sit behind a sticky edge cache for a few minutes after deploy even when other paths update immediately.
 4. Keep legacy HTTP redirects in `vercel.json`; do not rely on `next.config.js` redirects for static-export production behavior.
 
-Apply pending database migrations separately, then deploy the `submit-quiz` function:
+Legacy quiz backend reactivation only: review the feature and its privacy boundary before applying database migrations or deploying `submit-quiz`. These commands are not part of a standard site release:
 
 ```bash
 supabase db push

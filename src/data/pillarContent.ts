@@ -1,8 +1,6 @@
 export interface PillarContent {
   title: string;
   description: string;
-  quizTitle: string;
-  quizDescription: string;
   checklistTitle: string;
   checklistUrl: string;
   galleryImages: Array<{
@@ -17,8 +15,6 @@ export const pillarContent: Record<string, PillarContent> = {
   confidence: {
     title: "Confidence - A Rebel's Superpower",
     description: "Rebels don't shrink back, they rise up. Confidence in your 50's, 60's, 70's, 80's, and beyond is about knowing your worth, owning your story, and most importantly embracing the power of your wisdom. At Rebellious Aging we are here to help you silence the inner critic, shake off limiting, and outdated beliefs and reignite your self-assurance. This is your time to show up boldly, speak your truth, and radiate the kind of confidence that does NOT ask permission.",
-    quizTitle: "The Confidence Self-Assessment",
-    quizDescription: "Discover your current confidence level and receive personalized recommendations to build unshakeable self-assurance.",
     checklistTitle: "7-Day Confidence Boosting Checklist",
     checklistUrl: "https://drive.google.com/file/d/1DnpdOVC4Nih7w79CftOvbqgPgVJKw_LL/view?usp=sharing",
     galleryImages: [
@@ -45,8 +41,6 @@ export const pillarContent: Record<string, PillarContent> = {
   style: {
     title: "Style - Dazzle",
     description: "Style is not superficial—it is soulful, it is how you tell the world who you are without saying a word. Whether it is bright red lips, a daring scarf, or the perfect pair of vintage shoes and matching purse, style at Rebellious Aging is about expressing your true self—-bold, bright and unapologetically you. The time is now, so sparkle and shine with personality, play, panache and let your style dreams emerge.",
-    quizTitle: "Discover Your Authentic Style Personality",
-    quizDescription: "Take this quiz to uncover your unique style personality and learn how to express yourself authentically through fashion.",
     checklistTitle: "The Rebellious Style Essentials Checklist",
     checklistUrl: "https://drive.google.com/file/d/1oa-nYeacG8s1A0qABH86tO3A7f1gWK37/view?usp=sharing",
     galleryImages: [
@@ -73,8 +67,6 @@ export const pillarContent: Record<string, PillarContent> = {
   health: {
     title: "Health - Nourish to Flourish",
     description: "You were not meant to slow down. You were meant to thrive. At Rebellious Aging, we encourage and embrace a Whole- Food, Plant- Based Lifestyle, as a delicious, empowering way to add healthy years to your life AND at the same time easily settle into your best weight and add life to your years. With every healthy bite you are fueling your body with vitality, managing weight naturally (no calorie counting and eating as much as you like) and taking care of your health in the most delicious way. Health isn't about living longer—-it is about living better, with purpose, authenticity, and sparkle",
-    quizTitle: "The Health Lifestyle Assessment",
-    quizDescription: "Evaluate your current lifestyle habits and receive a personalized roadmap to optimize your health span.",
     checklistTitle: "Daily Health Practices Checklist",
     checklistUrl: "https://drive.google.com/file/d/14pJU6bViyM1JWYx5iqvgl3l9kqd__wTY/view?usp=sharing",
     galleryImages: [

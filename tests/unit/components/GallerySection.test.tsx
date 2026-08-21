@@ -8,8 +8,6 @@ import type { PillarContent } from '@/data/pillarContent';
 const content: PillarContent = {
   title: 'Confidence',
   description: 'Confidence pillar',
-  quizTitle: 'Quiz',
-  quizDescription: 'Quiz description',
   checklistTitle: 'Checklist',
   checklistUrl: '/checklist',
   galleryImages: [

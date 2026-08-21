@@ -9,6 +9,7 @@ import { Sparkles, Users, Heart, Leaf, MessageCircle, Laugh } from 'lucide-react
 import Seo from '@/components/seo/Seo';
 import PageShareButton from '@/components/share/PageShareButton';
 import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
+import { facebookGroupMonthlyHighlights } from '@/data/facebookGroupHighlights';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 
 const highlightCards = [
@@ -114,6 +115,50 @@ const FacebookGroup = () => {
               <p className="font-semibold text-teal-700">
                 We are better together.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Monthly highlights */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-r from-teal/10 via-white to-coral/10">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto space-y-8">
+            <div className="max-w-3xl space-y-4">
+              <div className="inline-flex items-center gap-2 rounded-full border border-teal/20 bg-white px-4 py-1.5 text-sm font-semibold uppercase tracking-wide text-teal shadow-sm">
+                <Sparkles className="h-4 w-4" aria-hidden="true" />
+                Monthly Highlights
+              </div>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-gray-500">
+                {facebookGroupMonthlyHighlights.periodLabel}
+              </p>
+              <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+                What We&apos;re Spotlighting
+              </h2>
+              <p className="text-lg leading-relaxed text-gray-700">
+                {facebookGroupMonthlyHighlights.introduction}
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {facebookGroupMonthlyHighlights.highlights.map((highlight) => (
+                <article
+                  key={highlight.title}
+                  className="rounded-2xl border border-teal/15 bg-white p-6 shadow-sm"
+                >
+                  <h3 className="text-xl font-semibold text-gray-900">{highlight.title}</h3>
+                  <p className="mt-3 leading-relaxed text-gray-700">{highlight.description}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className="flex flex-col items-start gap-4 rounded-2xl border border-[#0866ff]/20 bg-white p-6 sm:flex-row sm:items-center sm:justify-between">
+              <p className="max-w-2xl text-gray-700">
+                Join the private circle to take part in the conversation and share what is helping you live more boldly.
+              </p>
+              <FacebookGroupButton size="md" className="shrink-0">
+                Join the Conversation
+              </FacebookGroupButton>
             </div>
           </div>
         </div>

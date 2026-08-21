@@ -7,7 +7,6 @@ import {
   isTypeformOrigin,
   isTypeformSubmitMessage,
   locationFromPathname,
-  quizFormLeadParams,
   readTypeformSubmitFormId,
   recordFormLead,
   resolveTypeformFormLead,
@@ -105,25 +104,14 @@ describe('ga4 generate_lead helpers', () => {
       lead_source: 'website_newsletter_form',
       location: 'home',
     });
-    expect(resolveTypeformFormLead('01K7MBQQJ3SQJKTM3T3SPQKZC3', '/pillars/health')).toMatchObject({
-      form_id: 'quiz_health',
-      lead_source: 'website_quiz_form',
+    expect(resolveTypeformFormLead(CONTACT_TYPEFORM_ID, '/pillars/health')).toMatchObject({
+      form_id: 'contact',
+      lead_source: 'website_contact_form',
       location: 'pillars_health',
     });
-    expect(resolveTypeformFormLead(undefined, '/pillars/style')).toMatchObject({
-      form_id: 'quiz_style',
-      lead_source: 'website_quiz_form',
-    });
+    expect(resolveTypeformFormLead('01K7MBQQJ3SQJKTM3T3SPQKZC3', '/pillars/health')).toBeNull();
+    expect(resolveTypeformFormLead(undefined, '/pillars/style')).toBeNull();
     expect(resolveTypeformFormLead('unknown-form', '/recipes')).toBeNull();
-  });
-
-  it('builds quiz fallback params from the pillar id only', () => {
-    expect(quizFormLeadParams('confidence', 'pillars_confidence')).toMatchObject({
-      form_id: 'quiz_confidence',
-      form_name: 'quiz_confidence',
-      lead_source: 'website_quiz_form',
-    });
-    expect(quizFormLeadParams('not-a-pillar', 'pillars_gratitude').form_id).toBe('quiz_fallback');
   });
 
   it('session-dedupes the same form lead for about 10 minutes', () => {
@@ -141,7 +129,7 @@ describe('ga4 generate_lead helpers', () => {
 
   it('lets a different form record a lead in the same session', () => {
     expect(shouldRecordFormLead('contact')).toBe(true);
-    expect(shouldRecordFormLead('quiz_health')).toBe(true);
+    expect(shouldRecordFormLead('newsletter')).toBe(true);
     expect(shouldRecordFormLead('contact')).toBe(false);
   });
 

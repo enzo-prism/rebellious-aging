@@ -146,7 +146,7 @@ export const seoRoutes: SeoRouteConfig[] = [
     path: '/pillars/confidence',
     title: 'Confidence',
     description:
-      'Ditch limiting beliefs and rebuild unshakable confidence with quizzes, checklists, and personalized support.',
+      'Ditch limiting beliefs and rebuild unshakable confidence with practical checklists, community inspiration, and personalized support.',
   },
   {
     path: '/pillars/style',

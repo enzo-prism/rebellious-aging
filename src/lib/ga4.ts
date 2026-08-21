@@ -35,14 +35,6 @@ const ALLOWED_GENERATE_LEAD_KEYS = new Set<keyof GenerateLeadParams>([
 
 const SAFE_PARAM_VALUE = /^[A-Za-z0-9._-]{1,80}$/;
 
-const QUIZ_TYPEFORM_IDS: Record<string, string> = {
-  '01K7MB2JPFFBBQYR354JVHSAZP': 'confidence',
-  '01K7MBJYZ6KNAJAYPS2P1364PN': 'style',
-  '01K7MBQQJ3SQJKTM3T3SPQKZC3': 'health',
-};
-
-const QUIZ_PILLARS = new Set(['confidence', 'style', 'health']);
-
 function isSafeLeadParamValue(value: unknown): value is string {
   return typeof value === 'string' && SAFE_PARAM_VALUE.test(value);
 }
@@ -145,26 +137,11 @@ export function newsletterFormLeadParams(location: string): GenerateLeadParams {
   return formLeadParams('newsletter', 'website_newsletter_form', location);
 }
 
-export function quizFormLeadParams(pillarId: string, location: string): GenerateLeadParams {
-  const pillar = QUIZ_PILLARS.has(pillarId) ? pillarId : 'fallback';
-  return formLeadParams(`quiz_${pillar}`, 'website_quiz_form', location);
-}
-
 export function resolveTypeformFormLead(
   formId: string | undefined,
   pathname: string
 ): GenerateLeadParams | null {
   const location = locationFromPathname(pathname);
-  const quizPillarFromId = formId ? QUIZ_TYPEFORM_IDS[formId] : undefined;
-  const pathPillar = pathname.match(/^\/pillars\/(confidence|style|health)(?:\/|$)/)?.[1];
-
-  if (quizPillarFromId) {
-    return quizFormLeadParams(quizPillarFromId, location);
-  }
-
-  if (pathPillar) {
-    return quizFormLeadParams(pathPillar, location);
-  }
 
   if (pathname === '/contact' || pathname.startsWith('/contact/')) {
     return contactFormLeadParams(location);

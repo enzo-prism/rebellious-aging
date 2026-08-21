@@ -16,18 +16,22 @@ test.describe('Resilience readiness', () => {
     await expect(page.getByText(/Unable to load search index/)).toBeVisible({ timeout: 10000 });
   });
 
-  test('quiz block shows fallback form when embed script fails', async ({ page }) => {
-    let embedRequestBlocked = false;
-    await page.route('https://embed.typeform.com/next/embed.js*', (route) => {
-      embedRequestBlocked = true;
-      void route.abort();
-    });
-    await page.goto('/pillars/health');
+  test('pillar quizzes stay retired while private contact remains available', async ({ page }) => {
+    for (const path of ['/pillars/confidence', '/pillars/style', '/pillars/health']) {
+      await page.goto(path);
+      await expect(page.getByRole('button', { name: 'Load Quiz' })).toHaveCount(0);
+      await expect(page.getByRole('link', { name: 'suz@rebelwithsuz.com' })).toHaveAttribute(
+        'href',
+        'mailto:suz@rebelwithsuz.com'
+      );
+    }
+  });
 
-    await page.getByRole('button', { name: 'Load Quiz' }).click();
-    await expect(
-      page.getByText('Please use the fallback form below.')
-    ).toBeVisible({ timeout: 10000 });
-    expect(embedRequestBlocked).toBe(true);
+  test('Facebook group page shows the editable monthly highlights without private details', async ({ page }) => {
+    await page.goto('/facebook-group');
+
+    await expect(page.getByRole('heading', { name: "What We're Spotlighting" })).toBeVisible();
+    await expect(page.getByText('August 2026')).toBeVisible();
+    await expect(page.getByText(/Member names, stories, and conversations stay inside the group/)).toBeVisible();
   });
 });

@@ -125,7 +125,7 @@ const getFuzzyForQuery = (normalized: string, tokenCount: number) => {
 
 const getTypeBoostForQuery = (normalized: string) => {
   const wantsVideo = /\b(video|episode|watch|series)\b/.test(normalized);
-  const wantsPillar = /\b(pillar|quiz|checklist)\b/.test(normalized);
+  const wantsPillar = /\b(pillar|checklist)\b/.test(normalized);
   const wantsBlog = /\b(blog|post)\b/.test(normalized);
   const wantsResource = /\b(guide|nutrition|resource|download)\b/.test(normalized);
   const wantsRecipe = /\b(recipe|recipes|reciepe|receipe|recepie|recipie|cook|cooking|meal|meals|dessert|desserts|salad|salads|soup|soups|muffin|muffins)\b/.test(normalized);

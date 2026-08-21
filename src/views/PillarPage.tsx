@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { pillarContent } from '@/data/pillarContent';
 import PillarHero from '@/components/pillar/PillarHero';
 import GallerySection from '@/components/pillar/GallerySection';
-import QuizSection from '@/components/pillar/QuizSection';
 import ChecklistCTA from '@/components/pillar/ChecklistCTA';
 import ConnectCTA from '@/components/common/ConnectCTA';
 import Seo from '@/components/seo/Seo';
@@ -114,8 +113,6 @@ const PillarPage = ({ pillarId }: PillarPageProps) => {
         </div>
       )}
 
-      <QuizSection content={content} pillarId={pillarId} />
-      
       <ChecklistCTA content={content} />
       
       <ConnectCTA />
