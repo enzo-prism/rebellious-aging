@@ -563,6 +563,48 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
       'If you are in a transition and still meeting yourself, join the group and share the questions, nudges, and small notices that are already forming a picture.',
     buttonLabel: 'Join the awareness conversation',
   },
+  'the-front-is-marketing-the-back-is-information': {
+    title: 'Turn the package around together',
+    body:
+      'If food labels have ever made healthy choices feel confusing, join the group and share what you notice when you look beyond the marketing.',
+    buttonLabel: 'Join the label conversation',
+  },
+  'the-ship-hasnt-sailed': {
+    title: 'Take one step toward the dock',
+    body:
+      'If “too late” has ever sounded like a final answer, join the group and explore the gentle beginnings that may still take you somewhere.',
+    buttonLabel: 'Join the new beginnings',
+  },
+  'keep-the-truth-change-the-route': {
+    title: 'Redraw the map together',
+    body:
+      'If the destination still matters but the route no longer fits, join the group and share the thoughtful pivots helping you move forward.',
+    buttonLabel: 'Join the pivot conversation',
+  },
+  'when-the-door-cracks-open': {
+    title: 'Walk through the next door',
+    body:
+      'If fear is standing at the entrance to something you want, join the group and borrow enough courage for one step, then another.',
+    buttonLabel: 'Join the courage circle',
+  },
+  'the-stories-we-tell-ourselves': {
+    title: 'Listen for the old story',
+    body:
+      'If an old belief has begun to feel more like a cage than protection, join the group and notice the stories shaping what feels possible.',
+    buttonLabel: 'Join the story conversation',
+  },
+  'you-are-still-holding-the-pen': {
+    title: 'Write the next truthful sentence',
+    body:
+      'If you are ready to give an old story a fuller ending, join the group and build one small piece of evidence for what comes next.',
+    buttonLabel: 'Join the next chapter',
+  },
+  'a-marker-beside-the-road': {
+    title: 'Honor how far you have come',
+    body:
+      'If you have reached a marker worth noticing, join the group and celebrate the small steps, quiet returns, and courage that brought you here.',
+    buttonLabel: 'Join the celebration',
+  },
 };
 
 export const getBlogPostCta = (postId: string) => blogPostCtas[postId];

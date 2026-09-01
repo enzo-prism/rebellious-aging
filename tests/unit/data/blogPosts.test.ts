@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { render } from '@testing-library/react';
 
 import {
   blogPosts,
@@ -24,6 +25,59 @@ describe('blog post data', () => {
     const missingContentIds = blogPosts.filter((post) => !blogPostContent[post.id]).map((post) => post.id);
 
     expect(missingContentIds).toEqual([]);
+  });
+
+  it('preserves source-defining passages across blogs 94–100', () => {
+    const sourceAnchors: Record<string, string[]> = {
+      'the-front-is-marketing-the-back-is-information': [
+        'The words NO SUGAR were right there on the front of the package.',
+        'The point is to make the choice with our eyes wide open.',
+        'Yuka is advertised as a completely independent app',
+      ],
+      'the-ship-hasnt-sailed': [
+        'Today is data, it is not destiny.',
+        'There may in fact be another boat at the dock.',
+        'Perhaps it is simply just waiting for you to take the first step toward the dock.',
+      ],
+      'keep-the-truth-change-the-route': [
+        'The truth did not need to be abandoned.',
+        'The pivot is part of the process.',
+        'That may be the real power of the pivot.',
+      ],
+      'when-the-door-cracks-open': [
+        'Everything you’ve ever wanted is on the other side of fear.',
+        'Confidence was not waiting for me before the door',
+        'It was standing at the entrance to your next beginning.',
+      ],
+      'the-stories-we-tell-ourselves': [
+        'A familiar story can feel like home even when it has become a cage.',
+        'What has this story cost me?',
+        'But you might begin by remembering that you have wings.',
+      ],
+      'you-are-still-holding-the-pen': [
+        'The goal is not to rewrite history.',
+        'What small thing could I do that would provide evidence for my new story?',
+        'And you are holding the pen.',
+      ],
+      'a-marker-beside-the-road': [
+        'Blog 100 is not a finish line. It is a marker beside the road.',
+        'Today belongs to number 100.',
+        'The best may still be waiting just around the bend.',
+      ],
+    };
+
+    for (const [postId, anchors] of Object.entries(sourceAnchors)) {
+      const entry = blogPostContent[postId];
+      const { container, unmount } = render(entry.body);
+      const renderedText = container.textContent?.replace(/\s+/g, ' ').trim() ?? '';
+
+      for (const anchor of anchors) {
+        expect(renderedText, `${postId} is missing source text: ${anchor}`).toContain(anchor);
+      }
+
+      expect(container.querySelectorAll('p').length, `${postId} lost too much source structure`).toBeGreaterThanOrEqual(10);
+      unmount();
+    }
   });
 
   it('loads blog posts with required metadata', () => {

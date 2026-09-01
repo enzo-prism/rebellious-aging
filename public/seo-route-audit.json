@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-08-21T17:15:15.394Z",
-  "totalRoutes": 152,
-  "validRoutes": 152,
+  "generatedAt": "2026-09-01T07:43:49.808Z",
+  "totalRoutes": 159,
+  "validRoutes": 159,
   "failedRoutes": 0,
   "records": [
     {
@@ -2945,6 +2945,181 @@
         "title": "Awareness is the Work",
         "description": "Suz invites women in transition to slow down, meet themselves, and use ten areas of awareness before deciding what comes next.",
         "canonical": "/blog/awareness-is-the-work",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/the-front-is-marketing-the-back-is-information",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "The Front is Marketing. The Back is Information.",
+        "description": "Suz explores health halos, hidden sweeteners, ingredient lists, and why informed food choices begin by turning the package around.",
+        "canonical": "/blog/the-front-is-marketing-the-back-is-information",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/the-ship-hasnt-sailed",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "The Ship Hasn’t Sailed",
+        "description": "Suz reflects on strength, modification, beginning again, and why the ship may still be waiting at the dock.",
+        "canonical": "/blog/the-ship-hasnt-sailed",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/keep-the-truth-change-the-route",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Keep the Truth. Change the Route.",
+        "description": "Suz explores how changing our words, pace, format, or direction can protect what matters without abandoning the goal.",
+        "canonical": "/blog/keep-the-truth-change-the-route",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/when-the-door-cracks-open",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "When the Door Cracks Open",
+        "description": "Suz reflects on fear, courage, becoming, and the doors that opened when she stopped waiting to feel fearless.",
+        "canonical": "/blog/when-the-door-cracks-open",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/the-stories-we-tell-ourselves",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "The Stories We Tell Ourselves",
+        "description": "Suz explores limiting stories, protection, confinement, and the awareness that can loosen the bars around our possibilities.",
+        "canonical": "/blog/the-stories-we-tell-ourselves",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/you-are-still-holding-the-pen",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "You Are Still Holding The Pen",
+        "description": "Suz offers questions and small actions for replacing limiting narratives with fuller truths, one new piece of evidence at a time.",
+        "canonical": "/blog/you-are-still-holding-the-pen",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/a-marker-beside-the-road",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "A Marker Beside The Road",
+        "description": "Suz celebrates 100 blogs as a marker beside the road, proof that beginning, curiosity, consistency, and small steps can build a life.",
+        "canonical": "/blog/a-marker-beside-the-road",
         "ogType": "article",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"

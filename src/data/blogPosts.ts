@@ -1037,6 +1037,90 @@ export const blogPosts: BlogPostMetadata[] = [
     blogNumber: 93,
     seoDescription:
       'Suz invites women in transition to slow down, meet themselves, and use ten areas of awareness before deciding what comes next.'
+  },
+  {
+    id: 'the-front-is-marketing-the-back-is-information',
+    title: 'The Front is Marketing. The Back is Information.',
+    excerpt:
+      'Suz turns a no-sugar chocolate label around and explains why the front of a package is marketing while the back holds the information we need.',
+    date: '8/30/2026',
+    dateSort: new Date('2026-08-30T01:00:00'),
+    readTime: '4 min read',
+    blogNumber: 94,
+    seoDescription:
+      'Suz explores health halos, hidden sweeteners, ingredient lists, and why informed food choices begin by turning the package around.'
+  },
+  {
+    id: 'the-ship-hasnt-sailed',
+    title: 'The Ship Hasn’t Sailed',
+    excerpt:
+      'Suz challenges the stories behind “too late” and invites us to see today’s abilities as a starting point rather than a final verdict.',
+    date: '8/30/2026',
+    dateSort: new Date('2026-08-30T02:00:00'),
+    readTime: '3 min read',
+    blogNumber: 95,
+    seoDescription:
+      'Suz reflects on strength, modification, beginning again, and why the ship may still be waiting at the dock.'
+  },
+  {
+    id: 'keep-the-truth-change-the-route',
+    title: 'Keep the Truth. Change the Route.',
+    excerpt:
+      'Suz reframes a thoughtful pivot as awareness in action: keep the message, purpose, or destination that matters and find a better route.',
+    date: '8/30/2026',
+    dateSort: new Date('2026-08-30T03:00:00'),
+    readTime: '4 min read',
+    blogNumber: 96,
+    seoDescription:
+      'Suz explores how changing our words, pace, format, or direction can protect what matters without abandoning the goal.'
+  },
+  {
+    id: 'when-the-door-cracks-open',
+    title: 'When the Door Cracks Open',
+    excerpt:
+      'Suz shares how one quote and Enzo’s encouragement helped her walk through fear into websites, videos, blogs, and new beginnings at 83.',
+    date: '8/30/2026',
+    dateSort: new Date('2026-08-30T04:00:00'),
+    readTime: '5 min read',
+    blogNumber: 97,
+    seoDescription:
+      'Suz reflects on fear, courage, becoming, and the doors that opened when she stopped waiting to feel fearless.'
+  },
+  {
+    id: 'the-stories-we-tell-ourselves',
+    title: 'The Stories We Tell Ourselves',
+    excerpt:
+      'Suz asks us to notice the old stories that sound like facts, understand what they protected, and question what they may now be costing us.',
+    date: '8/31/2026',
+    dateSort: new Date('2026-08-31T01:00:00'),
+    readTime: '5 min read',
+    blogNumber: 98,
+    seoDescription:
+      'Suz explores limiting stories, protection, confinement, and the awareness that can loosen the bars around our possibilities.'
+  },
+  {
+    id: 'you-are-still-holding-the-pen',
+    title: 'You Are Still Holding The Pen',
+    excerpt:
+      'Suz moves from awareness to action, showing how a fuller truth and one small piece of evidence can begin rewriting an old story.',
+    date: '8/31/2026',
+    dateSort: new Date('2026-08-31T02:00:00'),
+    readTime: '4 min read',
+    blogNumber: 99,
+    seoDescription:
+      'Suz offers questions and small actions for replacing limiting narratives with fuller truths, one new piece of evidence at a time.'
+  },
+  {
+    id: 'a-marker-beside-the-road',
+    title: 'A Marker Beside The Road',
+    excerpt:
+      'At Blog 100, Suz pauses to honor the distance traveled, the small steps that accumulated, and the becoming that continues beyond the marker.',
+    date: '8/31/2026',
+    dateSort: new Date('2026-08-31T03:00:00'),
+    readTime: '3 min read',
+    blogNumber: 100,
+    seoDescription:
+      'Suz celebrates 100 blogs as a marker beside the road, proof that beginning, curiosity, consistency, and small steps can build a life.'
   }
 ];
 
