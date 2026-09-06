@@ -104,7 +104,7 @@ const BlogPost = ({ postId }: BlogPostProps) => {
         {' · '}{currentPost.readTime}
       </p>
       <p className="mb-8 border-l-4 border-teal pl-4 text-lg leading-relaxed text-gray-700">{currentPost.excerpt}</p>
-      {postContent.body}
+      <div className="article-reading">{postContent.body}</div>
 
       <BlogPostFacebookCta cta={getBlogPostCta(currentPost.id)} />
 

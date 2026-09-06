@@ -2,284 +2,80 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Mail, Heart, ArrowRight } from "lucide-react";
+import { Mail, ArrowUpRight } from 'lucide-react';
 import { FacebookLogoMark } from '@/components/common/FacebookGroupCta';
 import { FACEBOOK_GROUP_URL, handleFacebookGroupNavigation } from '@/lib/facebook';
+import { SUBSTACK_URL } from '@/lib/constants';
 
-const Footer = () => {
-  return (
-    <footer className="bg-gradient-to-br from-teal/5 to-coral/5 pt-20 pb-8">
-      <div className="container mx-auto px-4">
-        {/* Main Footer Content */}
-        <div className="mb-14 grid grid-cols-1 gap-10 lg:grid-cols-6">
-          {/* Brand */}
-          <div className="lg:col-span-2 space-y-4">
-            <h3 className="text-2xl font-bold text-teal">Rebellious Aging</h3>
-            <p className="text-gray-600 leading-relaxed">
-              Breaking stereotypes and redefining what it means to age gracefully. Join a community of vibrant women living boldly at every
-              stage.
-            </p>
-            <div className="flex items-center gap-2 text-coral font-medium">
-              <Heart size={18} className="fill-current" />
-              <span>Age boldly, live vibrantly</span>
-            </div>
-            <div className="flex gap-3 pt-2">
-              <a
-                href={FACEBOOK_GROUP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleFacebookGroupNavigation}
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm ring-1 ring-[#0866ff]/20 transition-all duration-300 hover:scale-110 hover:ring-[#0866ff]/45"
-              >
-                <FacebookLogoMark size="sm" className="h-8 w-8 p-0 shadow-none ring-0" />
-                <span className="sr-only">Facebook Group</span>
-              </a>
-              <a
-                href="mailto:suz@rebelwithsuz.com"
-                className="w-10 h-10 bg-coral/10 hover:bg-coral hover:text-white text-coral rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
-              >
-                <Mail size={18} />
-                <span className="sr-only">Email</span>
-              </a>
-            </div>
-          </div>
+const linkGroups = [
+  {
+    title: 'Explore',
+    links: [
+      ['/blog', 'Blog'], ['/guides', 'Free Booklets & Guides'], ['/video-series', 'Video Series'],
+      ['/pillars/confidence', 'Confidence'], ['/pillars/style', 'Style'],
+      ['/pillars/health', 'Health'], ['/pillars/gratitude', 'Gratitude'],
+      ['/dr-seuss', 'Dr. Seuss & Aging'],
+    ],
+  },
+  {
+    title: 'Plant-based living',
+    links: [
+      ['/recipes', 'Recipes'], ['/nutrition', 'Nutrition'],
+      ['/nutrition?tab=what-is-wfpb', 'What is WFPB?'],
+      ['/pillars/health/nutrition-guide', 'Nutrition Guide'],
+      ['/pillars/health/resource-guide', 'Resource Guide'],
+      ['/nutrition?tab=benefits', 'Benefits'], ['/nutrition?tab=protocol', "Dr. Esselstyn’s Protocol"],
+      ['/nutrition?tab=dr-campbell', 'Dr. T. Colin Campbell'], ['/nutrition?tab=foods', 'Why & How'],
+      ['/recipes-for-a-better-summer', 'Better Summer Recipes'],
+    ],
+  },
+  {
+    title: 'Connect with Suz',
+    links: [
+      ['/our-story', 'Our Story'], ['/welcome-letter', 'Welcome Letter'],
+      ['/events', 'Community Events'], ['/speaking-events', 'Speaking Events'],
+      ['/contact', 'Get in Touch'],
+    ],
+  },
+];
 
-          {/* Pillar Columns */}
-          <nav
-            aria-label="Footer navigation"
-            className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 md:grid-cols-3 lg:col-span-4 lg:grid-cols-5"
-          >
-          <div className="space-y-4">
-            <h4 className="font-bold text-foreground text-lg flex items-center gap-2">
-              <span className="text-xl">🌟</span> Confidence
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/pillars/confidence" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
-                  <span className="group-hover:translate-x-1 transition-transform">Confidence Pillar</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-            </ul>
-          </div>
+const footerLinkClass = 'inline-flex min-h-11 items-center py-2 text-gray-600 transition-colors hover:text-teal hover:underline';
 
-          <div className="space-y-4">
-            <h4 className="font-bold text-foreground text-lg flex items-center gap-2">
-              <span className="text-xl">👗</span> Style
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/pillars/style" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
-                  <span className="group-hover:translate-x-1 transition-transform">Style Pillar</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="space-y-4">
-            <h4 className="font-bold text-foreground text-lg flex items-center gap-2">
-              <span className="text-xl">🌱</span> Health
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/pillars/health" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
-                  <span className="group-hover:translate-x-1 transition-transform">Health Pillar</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/guides"
-                  className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group"
-                >
-                  <span className="group-hover:translate-x-1 transition-transform font-medium">
-                    Free Booklets &amp; Guides
-                  </span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/nutrition?tab=what-is-wfpb"
-                  className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group"
-                >
-                  <span className="group-hover:translate-x-1 transition-transform">What is WFPB?</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/pillars/health/nutrition-guide"
-                  className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group"
-                >
-                  <span className="group-hover:translate-x-1 transition-transform">Nutrition Guide</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/pillars/health/resource-guide"
-                  className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group"
-                >
-                  <span className="group-hover:translate-x-1 transition-transform">Resource Guide</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/nutrition" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
-                  <span className="group-hover:translate-x-1 transition-transform">Nutrition (WFPB)</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/nutrition?tab=benefits" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
-                  <span className="group-hover:translate-x-1 transition-transform">Benefits</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/nutrition?tab=protocol" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
-                  <span className="group-hover:translate-x-1 transition-transform">Dr. Esselstyn's Protocol</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/nutrition?tab=dr-campbell" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
-                  <span className="group-hover:translate-x-1 transition-transform">Dr. T. Colin Campbell</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/nutrition?tab=foods" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
-                  <span className="group-hover:translate-x-1 transition-transform">Why &amp; How</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/recipes" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
-                  <span className="group-hover:translate-x-1 transition-transform">Recipes</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/recipes-for-a-better-summer"
-                  className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group"
-                >
-                  <span className="group-hover:translate-x-1 transition-transform">Better Summer Recipes</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="space-y-4">
-            <h4 className="font-bold text-foreground text-lg flex items-center gap-2">
-              <span className="text-xl">💖</span> Gratitude
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/pillars/gratitude" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
-                  <span className="group-hover:translate-x-1 transition-transform">Gratitude Pillar</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="space-y-4">
-            <h4 className="font-bold text-foreground text-lg">More Suz</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/contact" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
-                  <span className="group-hover:translate-x-1 transition-transform">Get in Touch</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/our-story" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
-                  <span className="group-hover:translate-x-1 transition-transform">Our Story</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/welcome-letter" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
-                  <span className="group-hover:translate-x-1 transition-transform">Welcome Letter</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/events" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
-                  <span className="group-hover:translate-x-1 transition-transform">Community Events</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/speaking-events" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
-                  <span className="group-hover:translate-x-1 transition-transform">Speaking Events</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/dr-seuss" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
-                  <span className="group-hover:translate-x-1 transition-transform">Dr. Seuss &amp; Aging</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <a
-                  href={FACEBOOK_GROUP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group"
-                  onClick={handleFacebookGroupNavigation}
-                >
-                  <FacebookLogoMark size="xs" className="h-5 w-5 p-0 shadow-none ring-0 transition-transform group-hover:translate-x-1" />
-                  <span className="group-hover:translate-x-1 transition-transform">Facebook Group</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </a>
-              </li>
-              <li>
-                <Link href="/blog" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
-                  <span className="group-hover:translate-x-1 transition-transform">Blog</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/video-series" className="flex items-center gap-2 text-gray-600 hover:text-teal transition-colors group">
-                  <span className="group-hover:translate-x-1 transition-transform">Video Series</span>
-                  <ArrowRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-            </ul>
-          </div>
-          </nav>
+const Footer = () => (
+  <footer className="border-t border-teal/10 bg-[#f6f8f5] pb-8 pt-12 sm:pt-16">
+    <div className="container mx-auto px-4 sm:px-6">
+      <div className="mb-10 flex flex-col gap-6 border-b border-teal/10 pb-8 md:flex-row md:items-center md:justify-between">
+        <div className="max-w-xl">
+          <h2 className="text-2xl font-bold text-teal">Rebellious Aging</h2>
+          <p className="mt-3 leading-relaxed text-gray-600">A little more confidence. A little more connection. A life that feels like you.</p>
         </div>
-
-        {/* Bottom Section */}
-        <div className="border-t border-gray-200 pt-8">
-          <div className="text-center lg:text-left lg:flex lg:justify-between lg:items-center">
-            <div className="mb-6 lg:mb-0">
-              <p className="text-gray-500 text-sm mb-2">
-                <strong>Medical Disclaimer:</strong> The information provided on this website is for educational purposes only and is not intended as medical advice. 
-                Always consult with a qualified healthcare professional before making significant changes to your diet or lifestyle.
-              </p>
-            </div>
-            
-            <div className="text-center lg:text-right">
-              <p className="text-gray-500 text-sm">
-                &copy; {new Date().getFullYear()} Rebellious Aging. All rights reserved.
-              </p>
-              <p className="text-teal text-sm font-medium mt-1">
-                Designed with 💚 for the rebels
-              </p>
-            </div>
-          </div>
+        <div className="flex flex-wrap gap-3">
+          <a href={FACEBOOK_GROUP_URL} target="_blank" rel="noopener noreferrer" onClick={handleFacebookGroupNavigation}
+            className="inline-flex min-h-12 items-center gap-2 rounded-full border border-teal/20 bg-white px-5 font-medium text-teal hover:bg-teal/5">
+            <FacebookLogoMark size="xs" />Facebook Group<ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+          </a>
+          <a href="mailto:suz@rebelwithsuz.com" className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-teal/20 bg-white text-teal hover:bg-teal/5" aria-label="Email Suz">
+            <Mail className="h-5 w-5" />
+          </a>
         </div>
       </div>
-    </footer>
-  );
-};
+      <nav aria-label="Footer navigation" className="grid grid-cols-1 gap-x-10 gap-y-7 sm:grid-cols-3">
+        {linkGroups.map((group) => (
+          <div key={group.title}>
+            <h3 className="mb-2 text-lg font-semibold text-foreground">{group.title}</h3>
+            <ul className="grid grid-cols-2 gap-x-5 sm:grid-cols-1">
+              {group.links.map(([href, label]) => <li key={href}><Link href={href} className={footerLinkClass}>{label}</Link></li>)}
+              {group.title === 'Connect with Suz' && <li><a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer" className={`${footerLinkClass} gap-1`}>Suz’s newsletter<ArrowUpRight className="h-4 w-4" aria-hidden="true" /></a></li>}
+            </ul>
+          </div>
+        ))}
+      </nav>
+      <div className="mt-10 space-y-4 border-t border-teal/10 pt-6">
+        <p className="max-w-4xl text-sm leading-relaxed text-gray-600"><strong>Medical Disclaimer:</strong> The information provided on this website is for educational purposes only and is not intended as medical advice. Always consult with a qualified healthcare professional before making significant changes to your diet or lifestyle.</p>
+        <p className="text-sm text-gray-600">&copy; {new Date().getFullYear()} Rebellious Aging. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+);
 
 export default Footer;

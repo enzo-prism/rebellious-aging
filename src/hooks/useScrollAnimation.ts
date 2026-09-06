@@ -13,8 +13,7 @@ export const useScrollAnimation = <T extends HTMLElement = HTMLElement>(options:
     triggerOnce = true
   } = options;
   
-  const [isInView, setIsInView] = useState(false);
-  const [hasTriggered, setHasTriggered] = useState(false);
+  const [isInView, setIsInView] = useState(true);
   const ref = useRef<T>(null);
 
   useEffect(() => {
@@ -23,7 +22,7 @@ export const useScrollAnimation = <T extends HTMLElement = HTMLElement>(options:
 
     // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
       setIsInView(true);
       return;
     }
@@ -34,8 +33,7 @@ export const useScrollAnimation = <T extends HTMLElement = HTMLElement>(options:
         
         if (inView) {
           setIsInView(true);
-          setHasTriggered(true);
-        } else if (!triggerOnce || !hasTriggered) {
+        } else if (!triggerOnce) {
           setIsInView(false);
         }
       },
@@ -48,9 +46,9 @@ export const useScrollAnimation = <T extends HTMLElement = HTMLElement>(options:
     observer.observe(element);
 
     return () => {
-      observer.unobserve(element);
+      observer.disconnect();
     };
-  }, [threshold, rootMargin, triggerOnce, hasTriggered]);
+  }, [threshold, rootMargin, triggerOnce]);
 
   return { ref, isInView };
 };
@@ -76,7 +74,6 @@ export const useParallaxEffect = <T extends HTMLElement = HTMLElement>(speed: nu
     const handleScroll = () => {
       if (!ref.current) return;
       
-      const rect = ref.current.getBoundingClientRect();
       const scrolled = window.pageYOffset;
       const rate = scrolled * speed;
       

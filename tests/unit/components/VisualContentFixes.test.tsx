@@ -5,6 +5,7 @@ import { describe, expect, it, vi } from 'vitest';
 import NutritionTabs from '@/components/nutrition/NutritionTabs';
 import Events from '@/views/Events';
 import Recipes from '@/views/Recipes';
+import { recipes, slugifyRecipeTitle } from '@/data/recipes';
 
 vi.mock('@/components/common/ConnectCTA', () => ({ default: () => null }));
 vi.mock('@/components/seo/Seo', () => ({ default: () => null }));
@@ -38,10 +39,15 @@ describe('visual content audit fixes', () => {
     expect(screen.getByRole('tablist')).toHaveClass('grid', 'lg:grid-cols-4');
   });
 
-  it('uses a neutral recipe placeholder instead of the site social logo', () => {
+  it('shows compact recipe links without empty photo panels or misleading site logos', () => {
     const { container } = render(<Recipes />);
 
-    expect(container.querySelectorAll('[data-recipe-image-placeholder]').length).toBeGreaterThan(0);
+    expect(container.querySelector('[data-recipe-image-placeholder]')).not.toBeInTheDocument();
+    for (const recipe of recipes) {
+      const title = screen.getByRole('heading', { name: recipe.title });
+      expect(title).toBeVisible();
+      expect(title.closest('a')).toHaveAttribute('href', `/recipes/${slugifyRecipeTitle(recipe.title)}`);
+    }
     expect(
       container.querySelector('img[src="/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"]')
     ).not.toBeInTheDocument();

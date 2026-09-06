@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
@@ -36,6 +36,19 @@ const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
+  const mobileSearchRef = useRef<HTMLButtonElement>(null);
+  const desktopSearchRef = useRef<HTMLButtonElement>(null);
+  const handleSearchOpenChange = useCallback((open: boolean) => {
+    setIsSearchOpen(open);
+    if (open) setIsMobileMenuOpen(false);
+  }, []);
+
+  useEffect(() => {
+    const desktop = window.matchMedia("(min-width: 1280px)");
+    const closeOnDesktop = () => { if (desktop.matches) setIsMobileMenuOpen(false); };
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => desktop.removeEventListener("change", closeOnDesktop);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,44 +81,54 @@ const Header = () => {
   return (
     <header 
       className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 shadow-sm backdrop-blur-sm py-3' : 'bg-transparent py-5'
+        isScrolled ? 'bg-white/95 shadow-sm backdrop-blur-sm py-3' : 'bg-white/95 border-b border-border/60 py-4'
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex min-w-0 items-center gap-2.5" aria-label="Rebellious Aging home">
           <img 
             src="/lovable-uploads/996bea95-9371-4561-b396-1e00f4198ca3.png" 
-            alt="Rebellious Aging Logo" 
-            className="h-12 w-auto transition-transform hover:scale-105 animate-logo-glow rounded-lg"
+            alt=""
+            className="h-10 w-10 shrink-0 rounded-lg object-contain sm:h-12 sm:w-12"
           />
+          <span className="text-base font-bold leading-tight tracking-tight text-teal sm:text-lg">Rebellious<br className="sm:hidden" /> Aging</span>
         </Link>
 
         <DialogPrimitive.Root open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+          <div className="ml-auto flex items-center gap-2 xl:hidden">
+          <Button ref={mobileSearchRef} variant="ghost" className="h-11 w-11 px-3 text-teal sm:w-auto" aria-label="Open search" onClick={() => handleSearchOpenChange(true)}>
+            <Search className="h-5 w-5 sm:mr-2" aria-hidden="true" /><span className="hidden sm:inline">Search</span>
+          </Button>
           <DialogPrimitive.Trigger asChild>
             <AnimatedHamburger isOpen={isMobileMenuOpen} />
           </DialogPrimitive.Trigger>
+          </div>
 
-        <nav className="hidden lg:flex items-center space-x-1">
+        <nav aria-label="Main navigation" className="hidden xl:flex items-center space-x-1">
           <Link 
             href="/" 
+            aria-current={isActivePath(pathname, "/") ? "page" : undefined}
             className={`nav-link ${isActivePath(pathname, '/') ? 'active-nav-link' : ''}`}
           >
             Home
           </Link>
           <Link 
             href="/blog" 
+            aria-current={isActivePath(pathname, "/blog") ? "page" : undefined}
             className={`nav-link ${isActivePath(pathname, '/blog') ? 'active-nav-link' : ''}`}
           >
             Blog
           </Link>
           <Link
             href="/recipes"
+            aria-current={isActivePath(pathname, "/recipes") ? "page" : undefined}
             className={`nav-link ${isActivePath(pathname, '/recipes') ? 'active-nav-link' : ''}`}
           >
             Recipes
           </Link>
           <Link
             href="/guides"
+            aria-current={isActivePath(pathname, "/guides") ? "page" : undefined}
             className={`nav-link ${isActivePath(pathname, '/guides') ? 'active-nav-link' : ''}`}
           >
             Free Guides
@@ -240,19 +263,11 @@ const Header = () => {
           </DropdownMenu>
           
           <Button
-            variant="ghost"
-            size="icon"
-            className="text-teal hover:bg-teal/10 lg:hidden"
-            onClick={() => setIsSearchOpen(true)}
-            aria-label="Open search"
-          >
-            <Search className="h-5 w-5" />
-          </Button>
-          <Button
+            ref={desktopSearchRef}
             variant="outline"
             size="sm"
-            className="border-teal text-teal hover:bg-teal hover:text-white hidden lg:inline-flex"
-            onClick={() => setIsSearchOpen(true)}
+            className="border-teal text-teal hover:bg-teal hover:text-white hidden xl:inline-flex"
+            onClick={() => handleSearchOpenChange(true)}
           >
             <Search className="h-4 w-4 mr-2" />
             Search
@@ -260,7 +275,7 @@ const Header = () => {
           <Button
             asChild
             size="sm"
-            className="bg-coral text-white hover:bg-coral-dark hidden lg:inline-flex"
+            className="bg-coral text-white hover:bg-coral-dark hidden xl:inline-flex"
           >
             <a href={SUBSTACK_URL} target="_blank" rel="noopener noreferrer">
               Substack
@@ -271,11 +286,14 @@ const Header = () => {
         </nav>
 
           <DialogPrimitive.Portal>
-            <DialogPrimitive.Overlay className="lg:hidden fixed inset-0 z-[9997] bg-black/45 backdrop-blur-[1px] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0" />
+            <DialogPrimitive.Overlay className="xl:hidden fixed inset-0 z-[9997] bg-black/45 backdrop-blur-[1px] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0" />
             <DialogPrimitive.Content
-              className="lg:hidden fixed inset-y-0 right-0 z-[9998] flex h-[100dvh] w-[min(92vw,28rem)] flex-col overflow-hidden border-l bg-background shadow-2xl outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-right data-[state=closed]:slide-out-to-right"
+              className="xl:hidden fixed inset-y-0 right-0 z-[9998] flex h-[100dvh] w-[min(92vw,28rem)] flex-col overflow-hidden border-l bg-background shadow-2xl outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-right data-[state=closed]:slide-out-to-right"
               onCloseAutoFocus={(event) => {
-                if (isSearchOpen) {
+                if (window.matchMedia("(min-width: 1280px)").matches) {
+                  event.preventDefault();
+                  desktopSearchRef.current?.focus();
+                } else if (isSearchOpen) {
                   event.preventDefault();
                 }
               }}
@@ -331,7 +349,7 @@ const Header = () => {
                 </MobileNavItem>
                 <MobileNavItem
                   onClick={() => {
-                    setIsSearchOpen(true);
+                    handleSearchOpenChange(true);
                     setIsMobileMenuOpen(false);
                   }}
                   icon="🔍"
@@ -379,7 +397,10 @@ const Header = () => {
           </DialogPrimitive.Portal>
         </DialogPrimitive.Root>
       </div>
-      <SearchDialog open={isSearchOpen} onOpenChange={setIsSearchOpen} />
+      <SearchDialog open={isSearchOpen} onOpenChange={handleSearchOpenChange} onRestoreFocus={() => {
+        const target = window.matchMedia("(min-width: 1280px)").matches ? desktopSearchRef.current : mobileSearchRef.current;
+        target?.focus();
+      }} />
     </header>
   );
 };

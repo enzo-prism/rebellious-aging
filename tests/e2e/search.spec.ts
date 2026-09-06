@@ -20,6 +20,7 @@ test.describe('Search page quality', () => {
   test('toggles category filter chips', async ({ page }) => {
     await page.goto('/search');
     await page.getByPlaceholder('Search blog, pillars, speaking events, nutrition guide…').fill('nutrition');
+    await page.getByRole('button', { name: 'Filter by type' }).click();
     await page.locator('form').getByText('Blog', { exact: true }).click();
 
     const resultCount = page.locator('p.text-sm.text-muted-foreground').filter({ hasText: /^Showing \d+ results?/ });

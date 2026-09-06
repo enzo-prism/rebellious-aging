@@ -14,7 +14,7 @@ export const AnimatedHamburger = React.forwardRef<HTMLButtonElement, AnimatedHam
       type="button"
       onClick={onClick}
       className={cn(
-        "lg:hidden relative w-11 h-11 flex flex-col justify-center items-center",
+        "xl:hidden relative w-11 h-11 flex flex-col justify-center items-center",
         "focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-md",
         "transition-all duration-200 hover:bg-accent/10",
         className

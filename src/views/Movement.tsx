@@ -2,8 +2,6 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { useScrollAnimation, useStaggeredAnimation } from '@/hooks/useScrollAnimation';
-import { useScrollAnimationTrigger } from '@/hooks/useScrollAnimationTrigger';
 import ConnectCTA from '@/components/common/ConnectCTA';
 import Seo from '@/components/seo/Seo';
 import PageShareButton from '@/components/share/PageShareButton';
@@ -55,12 +53,8 @@ const suzTimeline = [
 ];
 
 const Movement = () => {
-  const heroRef = useScrollAnimation<HTMLElement>({ threshold: 0.3 });
-  const { ref: titleRef, isInView: titleInView, getItemStyle } = useStaggeredAnimation<HTMLDivElement>(2, { threshold: 0.5 });
   const seoConfig = getSeoRouteByPath('/our-story');
   
-  // Initialize scroll animation triggers
-  useScrollAnimationTrigger();
 
   return <div className="min-h-screen gpu-accelerated">
       {seoConfig && (
@@ -72,26 +66,22 @@ const Movement = () => {
       )}
       {/* Hero Section */}
       <section 
-        ref={heroRef.ref}
-        className={`bg-gradient-to-br from-teal/10 to-coral/5 py-12 sm:py-16 lg:py-20 parallax-bg transition-all duration-1000 ${heroRef.isInView ? 'animate-scale-fade-in' : 'opacity-0'}`}
+        className="bg-gradient-to-br from-teal/10 to-coral/5 py-12 sm:py-16 lg:py-20"
       >
         <div className="container mx-auto px-4">
           <div 
-            ref={titleRef}
             className="max-w-4xl mx-auto text-center"
           >
             <PageTopUtilityRow className="mb-6">
               <PageShareButton />
             </PageTopUtilityRow>
             <h1 
-              className={`text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight transition-all duration-800 ${titleInView ? 'animate-slide-up-fade' : 'opacity-0 translate-y-12'}`}
-              style={getItemStyle(0)}
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 leading-tight"
             >
               About Rebellious Aging
             </h1>
             <p 
-              className={`text-base sm:text-lg lg:text-xl text-gray-700 mb-6 sm:mb-8 leading-relaxed px-2 transition-all duration-800 ${titleInView ? 'animate-slide-up-fade' : 'opacity-0 translate-y-12'}`}
-              style={getItemStyle(1)}
+              className="text-lg lg:text-xl text-gray-700 mb-6 sm:mb-8 leading-relaxed px-2"
             >
               Rebellious Aging is more than a lifestyle—it's a movement challenging outdated notions of what it means to grow older in today's world.
             </p>
@@ -117,7 +107,7 @@ const Movement = () => {
                   </p>
                 </div>
 
-                <div className="space-y-4 sm:space-y-5 text-gray-700 text-sm sm:text-base leading-relaxed animate-on-scroll">
+                <div className="space-y-4 sm:space-y-5 text-gray-700 text-base sm:text-lg leading-relaxed animate-on-scroll">
                   <p>
                     Hi, I'm Suz — a passionate advocate for Rebellious Aging. My journey began in my 50s when I faced a health challenge — a high cholesterol diagnosis. Like many, I was presented with the typical path: medication. But something inside me said there had to be a better way. I wasn't interested in a lifetime of prescriptions; I wanted to heal my body naturally.
                   </p>
@@ -187,7 +177,7 @@ const Movement = () => {
                   The Rebellious Spirit Lives On
                 </h2>
                 
-                <div className="space-y-4 sm:space-y-5 text-gray-700 text-sm sm:text-base leading-relaxed animate-on-scroll">
+                <div className="space-y-4 sm:space-y-5 text-gray-700 text-base sm:text-lg leading-relaxed animate-on-scroll">
                   <p>
                     I feel like this vintage poster depicts a younger me. In 1960, during Spring Break from college, I went to Bermuda with a bunch of girlfriends. We rented motor bikes and the rest is history.
                   </p>
@@ -229,7 +219,7 @@ const Movement = () => {
               <div className="mx-auto max-w-3xl space-y-3 text-center">
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-teal">Why It Lands</p>
                 <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">What people notice when Suz is in the room</h3>
-                <p className="text-sm sm:text-base leading-relaxed text-gray-600">
+                <p className="text-base sm:text-lg leading-relaxed text-gray-600">
                   These endorsements reinforce what the speaking archive is designed to show: Suz pairs lived warmth with research, curiosity, and a message people genuinely want to hear.
                 </p>
               </div>
@@ -322,7 +312,7 @@ const Movement = () => {
               <span className="text-teal">Living Boldly Outside the Box</span>
             </h2>
             
-            <div className="space-y-5 sm:space-y-6 text-gray-700 text-sm sm:text-base leading-relaxed">
+            <div className="space-y-5 sm:space-y-6 text-gray-700 text-base sm:text-lg leading-relaxed">
               <p className="animate-on-scroll">
                 Maybe up until now, you've lived neatly inside the lines—checking the boxes, doing what is expected, following the rules. But that box? It's getting cramped. And guess what? It was never really yours to begin with.
               </p>

@@ -80,6 +80,10 @@ test.describe('Accessibility smoke', () => {
     await page.waitForLoadState('networkidle');
     await page.getByRole('button', { name: /share page/i }).click();
     await expect(page.getByRole('dialog')).toBeVisible();
+    // Measure final colors, not the translucent opening animation.
+    await page.getByRole('dialog').evaluate(async (dialog) => {
+      await Promise.all(dialog.getAnimations().map((animation) => animation.finished));
+    });
 
     const results = await new AxeBuilder({ page })
       .include('[role="dialog"]')

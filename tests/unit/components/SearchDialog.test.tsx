@@ -14,6 +14,7 @@ const docs: SearchDocument[] = [
     title: 'Banana Oat Muffins',
     path: '/recipes/banana-oat-muffins',
     summary: 'A soft and sweet breakfast favorite.',
+    content: 'These muffins contain wholegrain ingredients.',
     tags: ['recipe', 'dessert'],
   },
   {
@@ -29,7 +30,7 @@ const docs: SearchDocument[] = [
 const mockUseSearch = {
   search: (query: string) => {
     const normalized = query.toLowerCase();
-    return docs.filter((item) => item.title.toLowerCase().includes(normalized));
+    return docs.filter((item) => `${item.title} ${item.content ?? ''}`.toLowerCase().includes(normalized));
   },
   docs,
   loading: false,
@@ -50,6 +51,13 @@ describe('SearchDialog', () => {
     render(<SearchDialog open={false} onOpenChange={vi.fn()} />);
 
     expect(mockUseSearch.ensureIndex).not.toHaveBeenCalled();
+  });
+
+  it('preserves index matches from article content instead of filtering titles again', async () => {
+    const user = userEvent.setup();
+    render(<SearchDialog open onOpenChange={vi.fn()} />);
+    await user.type(screen.getByRole('combobox'), 'wholegrain');
+    expect(screen.getByRole('option', { name: /Banana Oat Muffins/ })).toBeVisible();
   });
 
   it('shows results and supports filtering by recipe', async () => {

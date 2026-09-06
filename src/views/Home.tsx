@@ -1,9 +1,8 @@
 'use client';
 
-import FaqSection from '@/components/seo/FaqSection';
-import { homeFaqs } from '@/data/faqs';
-import React, { useState, useEffect, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { ArrowLeft, ArrowRight, BookOpen, ChefHat, Heart, Leaf, Search, Shirt, Sparkles } from 'lucide-react';
 import PillarCard from '@/components/home/PillarCard';
 import LatestBlogBadge from '@/components/home/LatestBlogBadge';
 import LivingRoomSection from '@/components/home/LivingRoomSection';
@@ -11,24 +10,12 @@ import SubstackAnnouncement from '@/components/common/SubstackAnnouncement';
 import TrustedVoicesSection from '@/components/common/TrustedVoicesSection';
 import { FacebookGroupButton } from '@/components/common/FacebookGroupCta';
 import { getSortedBlogPosts } from '@/data/blogPosts';
-import { recipes, slugifyRecipeTitle } from '@/data/recipes';
-import { useSearch } from '@/hooks/useSearch';
-import type { SearchType } from '@/data/searchRecords';
 import { Button } from '@/components/ui/button';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselApi,
-} from '@/components/ui/carousel';
+import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from '@/components/ui/carousel';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import Seo from '@/components/seo/Seo';
 import PageShareButton from '@/components/share/PageShareButton';
-import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
-import { getSeoRouteByPath } from '@/data/seoRoutes';
-import { Search, Loader2 } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-// import Autoplay from 'embla-carousel-autoplay'; // Removed to prevent auto-scrolling
+import FaqSection from '@/components/seo/FaqSection';
+import { homeFaqs } from '@/data/faqs';
 
 const heroImages = [
   'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1775491548/IMG_4177_jgopw9.png',
@@ -50,572 +37,174 @@ const getCloudinaryHeroUrl = (src: string, width: number) =>
     `/image/upload/c_limit,w_${width},f_auto,q_auto:good/`
   );
 
-const Home = () => {
+const pillars = [
+  { title: 'Confidence', description: 'Make room for your voice, your ideas, and the woman you are becoming.', icon: Sparkles, link: '/pillars/confidence' },
+  { title: 'Style', description: 'Wear what feels like you. Explore personal style without an age limit.', icon: Shirt, link: '/pillars/style' },
+  { title: 'Health', description: 'Explore plant-based living, everyday movement, and caring for yourself.', icon: Leaf, link: '/pillars/health' },
+  { title: 'Gratitude', description: 'Find a little more joy, perspective, and possibility in the everyday.', icon: Heart, link: '/pillars/gratitude' },
+];
+
+const startingPoints = [
+  { title: 'Start with one small step', description: 'A gentle starter kit for your next chapter. No perfect plan required.', href: '/starter-kit', label: 'Open the starter kit', icon: Sparkles },
+  { title: 'Put more plants on your plate', description: 'Find a recipe for tonight or a free guide to help you get started.', href: '/recipes', label: 'Find a plant-based recipe', icon: ChefHat },
+  { title: 'Find a story that speaks to you', description: 'Suz’s reflections on confidence, connection, and becoming yourself.', href: '/blog', label: 'Browse Suz’s stories', icon: BookOpen },
+];
+
+export default function Home() {
   const [requestedImages, setRequestedImages] = useState<Set<number>>(new Set([0]));
   const [api, setApi] = useState<CarouselApi>();
-  const [isHydrated, setIsHydrated] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [activeSearchType, setActiveSearchType] = useState<SearchType | 'all'>('all');
-  const { search, ensureIndex, loading: searchLoading, docs } = useSearch();
-  const homeSeo = getSeoRouteByPath('/');
-  const router = useRouter();
-
-  // Prevent auto-scrolling during initial load
-  // Removed scroll lock to fix intermittent scrolling issues
+  const latestPosts = getSortedBlogPosts().slice(-3).reverse();
 
   useEffect(() => {
-    setIsHydrated(true);
-  }, []);
-
-  // Track carousel current slide
-  useEffect(() => {
-    if (!api) {
-      return;
-    }
-
+    if (!api) return;
     const handleSelect = () => {
-      const selectedIndex = api.selectedScrollSnap();
-      setCurrentSlide(selectedIndex);
-      setRequestedImages((current) => {
-        if (current.has(selectedIndex)) {
-          return current;
-        }
-        return new Set(current).add(selectedIndex);
-      });
+      const selected = api.selectedScrollSnap();
+      setCurrentSlide(selected);
+      setRequestedImages((current) => current.has(selected) ? current : new Set(current).add(selected));
     };
-
     handleSelect();
-    api.on("select", handleSelect);
-
-    return () => {
-      api.off("select", handleSelect);
-    };
+    api.on('select', handleSelect);
+    return () => { api.off('select', handleSelect); };
   }, [api]);
-
-  const pillars = [
-    {
-      title: "Confidence",
-      description: "Develop the mindset and tools to embrace your authentic self, speak your truth, and live boldly in every decade of life.",
-      icon: "🌟",
-      link: "/pillars/confidence"
-    },
-    {
-      title: "Style",
-      description: "Discover how to express yourself through fashion, appearance, and personal presentation that feels true to you.",
-      icon: "👗",
-      link: "/pillars/style"
-    },
-    {
-      title: "Health",
-      description: "Implement science-backed strategies for vibrant physical health, mental sharpness, and emotional wellbeing as you age.",
-      icon: "🌱",
-      link: "/pillars/health"
-    },
-    {
-      title: "Gratitude",
-      description: "Ground yourself in joy, resilience, and perspective with practices that turn everyday moments into fuel for rebellious aging.",
-      icon: "💖",
-      link: "/pillars/gratitude"
-    }
-  ];
-
-  const libraryShelf = [
-    {
-      title: 'Whole-Food, Plant-Based Guide',
-      description: 'What to eat, what to crowd out, and how to keep your Health pillar thriving.',
-      link: '/pillars/health/nutrition-guide',
-      icon: '🥗'
-    },
-    {
-      title: 'The Blog',
-      description: 'Long-form stories, science-backed insights, and reflections that weave every pillar together.',
-      link: '/blog',
-      icon: '📝'
-    },
-    {
-      title: 'Recipes',
-      description: 'Plant-strong plates and oil-free swaps to make vibrant eating feel easy and joyful.',
-      link: '/recipes',
-      icon: '🍲'
-    },
-    {
-      title: 'Video Series',
-      description: 'Watch Suz riff on confidence, style, and health in bite-sized, rebellious episodes.',
-      link: '/video-series',
-      icon: '🎥'
-    },
-    {
-      title: 'Welcome Letter',
-      description: 'New here? Start with Suz’s heartfelt invitation to age boldly and live loudly.',
-      link: '/welcome-letter',
-      icon: '💌'
-    },
-    {
-      title: 'Starter Kit',
-      description: 'A gentle beginning: Nibble, Wiggle, Dazzle, Be Grateful.',
-      link: '/starter-kit',
-      icon: '✨'
-    }
-  ];
-
-  const latestBlogs = getSortedBlogPosts()
-    .slice()
-    .sort((a, b) => b.blogNumber - a.blogNumber)
-    .slice(0, 10);
-
-  const searchResults = useMemo(
-    () =>
-      searchQuery
-        ? search(searchQuery, activeSearchType === 'all' ? undefined : { types: [activeSearchType] }).slice(0, 5)
-        : [],
-    [activeSearchType, searchQuery, search]
-  );
-  const featuredRecipes = useMemo(
-    () =>
-      recipes.slice(0, 2).map((recipe) => {
-        const slug = slugifyRecipeTitle(recipe.title);
-        return {
-          id: `recipe:${slug}`,
-          title: recipe.title,
-          summary: recipe.description,
-          path: `/recipes/${slug}`,
-          type: 'recipe' as const,
-        };
-      }),
-    []
-  );
-  const featuredVideos = useMemo(
-    () => docs.filter((doc) => doc.type === 'video').slice(0, 2),
-    [docs]
-  );
-  const featuredEvents = useMemo(
-    () => docs.filter((doc) => doc.type === 'event').slice(0, 2),
-    [docs]
-  );
-  const featuredPillars = useMemo(
-    () => docs.filter((doc) => doc.type === 'pillar').slice(0, 2),
-    [docs]
-  );
-  const featuredBlogs = useMemo(
-    () =>
-      latestBlogs.slice(0, 2).map((post) => ({
-        id: `blog:${post.id}`,
-        title: post.title,
-        summary: post.excerpt,
-        path: `/blog/${post.id}`,
-        type: 'blog' as const,
-        blogNumber: post.blogNumber,
-      })),
-    [latestBlogs]
-  );
-  const defaultItems = useMemo(
-    () => {
-      if (activeSearchType === 'recipe') return featuredRecipes;
-      if (activeSearchType === 'blog') return featuredBlogs;
-      if (activeSearchType === 'video') return featuredVideos;
-      if (activeSearchType === 'event') return featuredEvents;
-      if (activeSearchType === 'pillar') return featuredPillars;
-      return [...featuredRecipes, ...featuredBlogs];
-    },
-    [activeSearchType, featuredBlogs, featuredEvents, featuredPillars, featuredRecipes, featuredVideos]
-  );
-  const displayItems = searchQuery ? searchResults : defaultItems;
-  const topItemId = displayItems[0]?.id;
 
   return (
     <>
-      {homeSeo && (
-        <Seo
-          title={homeSeo.title}
-          description={homeSeo.description}
-          canonicalPath={homeSeo.path}
-        />
-      )}
-      {/* Hero — Welcome Home */}
-      <section className="hero-spacing">
-        <div className="container mx-auto container-padding h-full">
-          <div className="grid lg:grid-cols-2 grid-gap-responsive h-full items-center">
-            {/* Text Content */}
-            <div className="flex flex-col justify-center">
-              <div className="max-w-2xl text-spacing">
-                <PageTopUtilityRow>
-                  <PageShareButton />
-                </PageTopUtilityRow>
-                <div className="mb-4 flex flex-wrap items-center gap-3">
-                  <span className="inline-flex items-center rounded-full border border-teal/20 bg-teal/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.3em] text-teal">
-                    Rebellious Aging
-                  </span>
-                  <LatestBlogBadge />
-                </div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-gray-900">
-                  Welcome Home
-                </h1>
-                <p className="text-xl md:text-2xl lg:text-3xl text-gray-800 leading-snug font-medium italic">
-                  You do not have to figure this stage of life out alone.
-                </p>
-                <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  Rebellious Aging is a warm, supportive community for women 55+ who want to age with
-                  vitality, curiosity, laughter, confidence, and connection.
-                </p>
-                <div className="flex flex-col sm:flex-row sm:flex-wrap button-spacing">
-                  <FacebookGroupButton size="lg" className="min-h-[48px] text-base">
-                    Join the Facebook Group
-                  </FacebookGroupButton>
-                  <Button
-                    asChild
-                    variant="outline"
-                    size="lg"
-                    className="border-teal text-teal hover:bg-teal hover:text-white shadow-sm min-h-[44px] text-base font-medium"
-                  >
-                    <Link href="/welcome-letter">💌 Read the Welcome Letter</Link>
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-teal text-teal hover:bg-teal hover:text-white shadow-sm min-h-[44px] text-base font-medium"
-                    onClick={() => {
-                      const librarySection = document.getElementById('library-section');
-                      if (librarySection) {
-                        librarySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      }
-                    }}
-                  >
-                    Explore the Library
-                  </Button>
-                </div>
-              </div>
+      <section className="px-4 py-6 sm:px-6 sm:py-10 lg:py-14">
+        <div className="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <div className="space-y-5 lg:space-y-6">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <p className="text-sm font-semibold tracking-wide text-teal">A community for women 55+</p>
+              <PageShareButton />
             </div>
-
-            {/* Image Carousel */}
-            <div>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-2xl mx-auto w-full lg:max-w-none">
-                <Carousel
-                  setApi={setApi}
-                  className="w-full cursor-grab active:cursor-grabbing"
-                  opts={{
-                    align: "start",
-                    loop: true,
-                    dragFree: false,
-                    containScroll: "trimSnaps",
-                    skipSnaps: false,
-                    watchDrag: true,
-                  }}
-                  plugins={[]} // Removed Autoplay to prevent auto-scrolling
-                >
-                  <CarouselContent className="-ml-0">
-                    {heroImages.map((image, index) => (
-                      <CarouselItem key={index} className="pl-0 basis-full">
-                        <div className="relative w-full">
-                          <AspectRatio ratio={1} className="bg-gray-200 overflow-hidden">
-                            {requestedImages.has(index) ? (
-                             <img 
-                                src={getCloudinaryHeroUrl(image, 768)}
-                                srcSet={HERO_IMAGE_WIDTHS.map(
-                                  (width) => `${getCloudinaryHeroUrl(image, width)} ${width}w`
-                                ).join(', ')}
-                                sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, (min-width: 640px) 672px, calc(100vw - 2rem)"
-                                alt={`Vibrant aging lifestyle ${index + 1}`}
-                                className="w-full h-full object-cover transition-opacity duration-1000"
-                                draggable={false}
-                                style={{
-                                  objectPosition: 'center 30%'
-                                }}
-                                loading={index === 0 ? "eager" : "lazy"}
-                                fetchPriority={index === 0 ? "high" : "auto"}
-                                decoding="async"
-                              />
-                            ) : (
-                              <div
-                                className="w-full h-full bg-gray-200 animate-pulse"
-                                aria-hidden="true"
-                              >
-                                <span className="sr-only">Image loads when selected</span>
-                              </div>
-                            )}
-                          </AspectRatio>
-                        </div>
-                      </CarouselItem>
-                    ))}
-                  </CarouselContent>
-                </Carousel>
-                
-                {/* Progress Bar */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                  {heroImages.map((_, index) => (
-                    <button
-                      type="button"
-                      key={index}
-                      aria-label={`Show hero image ${index + 1} of ${heroImages.length}`}
-                      aria-current={index === currentSlide ? 'true' : undefined}
-                      disabled={!isHydrated}
-                      className="group flex h-7 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800"
-                      onClick={() => api?.scrollTo(index)}
-                    >
-                      <span
-                        className={`block h-2 md:h-1.5 rounded-full transition-all duration-300 ${
-                          index === currentSlide
-                            ? 'w-10 md:w-8 bg-white'
-                            : 'w-2 md:w-1.5 bg-white/40 group-hover:bg-white/60'
-                        }`}
-                      />
-                    </button>
+            <h1 className="text-4xl font-bold leading-tight text-gray-900 sm:text-5xl xl:text-6xl">Welcome Home</h1>
+            <p className="max-w-xl text-xl font-medium leading-relaxed text-gray-800 sm:text-2xl">
+              You do not have to figure this stage of life out alone.
+            </p>
+            <p className="max-w-xl text-lg leading-relaxed text-gray-700">
+              Rebellious Aging is a warm, supportive community for women 55+ who want to age with
+              vitality, curiosity, laughter, confidence, and connection.
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <FacebookGroupButton size="lg" className="min-h-12 text-base">Join the Facebook Group</FacebookGroupButton>
+              <Button asChild variant="outline" size="lg" className="min-h-12 border-teal text-base text-teal">
+                <a href="#library-section">Explore the library <ArrowRight className="h-4 w-4" aria-hidden="true" /></a>
+              </Button>
+            </div>
+            <Link href="/welcome-letter" className="inline-flex min-h-11 items-center gap-2 font-medium text-teal underline underline-offset-4">
+              Read Suz’s welcome letter <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+          <div className="mx-auto w-full max-w-2xl lg:max-w-none">
+            <Carousel setApi={setApi} aria-label="Life with Suz" opts={{ align: 'start', loop: true }}>
+              <div className="overflow-hidden rounded-3xl border border-gray-200 shadow-sm">
+                <CarouselContent className="ml-0">
+                  {heroImages.map((src, index) => (
+                    <CarouselItem key={src} className="basis-full pl-0">
+                      <AspectRatio ratio={1} className="overflow-hidden bg-stone-100">
+                        {requestedImages.has(index) && (
+                          <img
+                            src={getCloudinaryHeroUrl(src, 768)}
+                            srcSet={HERO_IMAGE_WIDTHS.map((width) => `${getCloudinaryHeroUrl(src, width)} ${width}w`).join(', ')}
+                            sizes="(min-width: 1280px) 608px, (min-width: 1024px) 50vw, (min-width: 640px) 672px, calc(100vw - 2rem)"
+                            alt={`Vibrant aging lifestyle ${index + 1}`}
+                            className="h-full w-full object-cover"
+                            style={{ objectPosition: 'center 30%' }}
+                            width={768}
+                            height={768}
+                            loading={index === 0 ? 'eager' : 'lazy'}
+                            fetchPriority={index === 0 ? 'high' : 'auto'}
+                            decoding="async"
+                            draggable={false}
+                          />
+                        )}
+                      </AspectRatio>
+                    </CarouselItem>
                   ))}
-                </div>
+                </CarouselContent>
               </div>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      <section className="px-4 pt-6 sm:pt-8">
-        <div className="max-w-4xl mx-auto">
-          <SubstackAnnouncement variant="feature" />
-        </div>
-      </section>
-
-      {/* The Library — pillars + resource shelves */}
-      <section id="library-section" className="section-padding bg-gray-50">
-        <div className="container mx-auto container-padding">
-          <div className="text-center prose-spacing mb-12 lg:mb-16 max-w-3xl mx-auto">
-            <p className="uppercase text-xs tracking-[0.3em] text-teal font-semibold">
-              Think of this website as a library
-            </p>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight">
-              Wander the shelves, take what you need
-            </h2>
-            <p className="text-gray-600 text-base md:text-lg lg:text-xl leading-relaxed">
-              A place filled with ideas, reflections, encouragement, plants, style, mindset shifts, and gentle
-              nudges to help you live fully and unapologetically.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 grid-gap-responsive">
-            {pillars.map((pillar, index) => (
-              <PillarCard
-                key={index}
-                title={pillar.title}
-                description={pillar.description}
-                icon={pillar.icon}
-                link={pillar.link}
-              />
-            ))}
-          </div>
-
-          <div className="mt-12 lg:mt-16">
-            <p className="text-center text-xs uppercase tracking-[0.3em] text-teal font-semibold mb-6">
-              More on the shelves
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-gap-responsive">
-              {libraryShelf.map((item) => (
-                <div
-                  key={item.title}
-                  className="group card-lift border border-gray-200 rounded-3xl p-6 shadow-sm bg-white flex flex-col"
-                >
-                  <div className="icon-pop text-4xl mb-4 w-fit">{item.icon}</div>
-                  <h3 className="text-xl font-semibold mb-2 transition-colors group-hover:text-teal">{item.title}</h3>
-                  <p className="text-gray-600 flex-1 text-sm leading-relaxed">{item.description}</p>
-                  <Button asChild variant="link" className="justify-start px-0 mt-4 text-teal">
-                    <Link href={item.link}>Explore <span className="arrow-nudge">→</span></Link>
+              <div className="mt-3 flex items-center justify-between gap-4">
+                <p className="text-sm text-gray-600">A glimpse of life with Suz</p>
+                <div className="flex items-center gap-2">
+                  <Button variant="outline" size="icon" aria-label="Previous photo" disabled={!api} onClick={() => api?.scrollPrev()}>
+                    <ArrowLeft className="h-5 w-5" aria-hidden="true" />
+                  </Button>
+                  <span role="status" aria-label="Current photo" className="min-w-12 text-center text-sm tabular-nums text-gray-700">{currentSlide + 1} / {heroImages.length}</span>
+                  <Button variant="outline" size="icon" aria-label="Next photo" disabled={!api} onClick={() => api?.scrollNext()}>
+                    <ArrowRight className="h-5 w-5" aria-hidden="true" />
                   </Button>
                 </div>
-              ))}
-            </div>
+              </div>
+            </Carousel>
           </div>
         </div>
       </section>
 
-      <section className="section-padding bg-gray-50">
-        <div className="container mx-auto container-padding space-y-8">
-          <div className="text-center prose-spacing max-w-3xl mx-auto">
-            <p className="uppercase text-xs tracking-[0.3em] text-teal font-semibold">Latest From the Blog</p>
-            <h2 className="text-3xl md:text-4xl font-bold">Fresh posts, delivered rebelliously</h2>
-            <p className="text-gray-600">
-              Swipe through the newest stories on confidence, style, gratitude, and plant-strong living.
-            </p>
-            <div className="mt-4">
-              <Button asChild variant="outline" className="border-teal text-teal hover:bg-teal hover:text-white">
-                <Link href="/blog" className="group">View all posts <span className="arrow-nudge">→</span></Link>
-              </Button>
-            </div>
+      <section id="library-section" className="border-y border-teal/10 bg-[#f5f9f8] px-4 py-12 sm:px-6 lg:py-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-8 max-w-2xl">
+            <p className="mb-3 text-sm font-semibold tracking-wide text-teal">Make yourself at home</p>
+            <h2 className="text-3xl font-bold sm:text-4xl">What would feel good today?</h2>
+            <p className="mt-4 text-lg leading-relaxed text-gray-600">Start where you are. Take what you need. There is no right order.</p>
           </div>
-
-          <Carousel
-            className="w-full"
-            opts={{
-              align: 'start',
-              loop: true,
-              dragFree: true,
-            }}
-          >
-            <CarouselContent className="-ml-4 md:-ml-6">
-              {latestBlogs.map((post) => (
-                <CarouselItem
-                  key={post.id}
-                  className="pl-4 md:pl-6 basis-[85%] sm:basis-1/2 lg:basis-1/3"
-                >
-                  <Link
-                    href={`/blog/${post.id}`}
-                    className="group card-lift block h-full rounded-3xl border border-gray-200 bg-white p-5 shadow-sm"
-                  >
-                    <div className="flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.15em] text-teal font-semibold mb-2">
-                      <span>Blog #{post.blogNumber}</span>
-                      <span className="text-gray-300">•</span>
-                      <span>{post.readTime}</span>
-                    </div>
-                    <h3 className="text-xl font-semibold mb-3 line-clamp-2 transition-colors group-hover:text-teal">{post.title}</h3>
-                    <p className="text-gray-600 text-sm line-clamp-3 mb-4">{post.excerpt}</p>
-                    <div className="text-teal font-semibold text-sm">Read post <span className="arrow-nudge">→</span></div>
-                  </Link>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-        </div>
-      </section>
-
-      <section id="search-section" className="section-padding">
-        <div className="container mx-auto container-padding space-y-6">
-          <div className="text-center prose-spacing max-w-3xl mx-auto">
-            <p className="uppercase text-xs tracking-[0.3em] text-teal font-semibold">Search the library</p>
-            <h2 className="text-3xl md:text-4xl font-bold">Find anything on Rebellious Aging</h2>
-            <p className="text-gray-600">
-              Looking for a specific recipe, blog, pillar, speaking event, or video? Search the shelves right here.
-            </p>
-          </div>
-
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              const trimmed = searchQuery.trim();
-              if (trimmed) {
-                router.push(`/search?q=${encodeURIComponent(trimmed)}`);
-              }
-            }}
-            className="max-w-3xl mx-auto"
-          >
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground h-5 w-5" />
-              <input
-                type="search"
-                value={searchQuery}
-                onFocus={() => {
-                  void ensureIndex();
-                }}
-                onChange={(e) => {
-                  setSearchQuery(e.target.value);
-                  void ensureIndex();
-                }}
-                placeholder="Search recipes, blogs, pillars, speaking events, video series…"
-                className="w-full rounded-full border border-gray-200 bg-white px-11 py-3.5 text-base shadow-sm focus:border-teal focus:ring-2 focus:ring-teal/20 transition"
-              />
-              {searchLoading && (
-                <Loader2 className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 animate-spin text-muted-foreground" />
-              )}
-            </div>
-          </form>
-
-          <div className="flex flex-wrap justify-center gap-2 text-sm">
-              {([
-                { label: 'All', value: 'all' },
-                { label: 'Recipes', value: 'recipe' },
-                { label: 'Blog', value: 'blog' },
-                { label: 'Videos', value: 'video' },
-                { label: 'Events', value: 'event' },
-                { label: 'Pillars', value: 'pillar' },
-              ] as const).map((filter) => (
-              <Button
-                key={filter.value}
-                variant={activeSearchType === filter.value ? 'default' : 'outline'}
-                className="rounded-full px-4 py-2 text-xs"
-                type="button"
-                onClick={() => {
-                  setActiveSearchType(filter.value);
-                  void ensureIndex();
-                }}
-              >
-                {filter.label}
-              </Button>
+          <div className="grid gap-4 md:grid-cols-3">
+            {startingPoints.map(({ title, description, href, label, icon: Icon }) => (
+              <Link key={href} href={href} className="group flex flex-col rounded-2xl border border-teal/15 bg-white p-6 transition-colors hover:border-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal">
+                <Icon className="mb-5 h-7 w-7 text-teal" aria-hidden="true" />
+                <h3 className="text-xl font-semibold leading-snug text-gray-900">{title}</h3>
+                <p className="mb-5 mt-3 flex-1 text-base leading-relaxed text-gray-600">{description}</p>
+                <span className="flex items-center gap-2 font-semibold text-teal">{label}<ArrowRight className="h-4 w-4" aria-hidden="true" /></span>
+              </Link>
             ))}
           </div>
-
-          {displayItems.length === 0 ? (
-            <div className="max-w-3xl mx-auto border border-dashed border-gray-200 rounded-2xl p-6 text-center text-sm text-gray-600">
-              No matches yet. Try searching for “sweet potato,” “oil-free,” or “confidence.”
+          <form action="/search" method="get" role="search" className="mt-8 rounded-2xl border border-teal/15 bg-white p-5 sm:p-6">
+            <label htmlFor="home-library-search" className="mb-3 block text-base font-semibold text-gray-900">Looking for something specific?</label>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <div className="relative flex-1">
+                <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-teal" aria-hidden="true" />
+                <input id="home-library-search" name="q" type="search" placeholder="Try “balance,” “gratitude,” or “soup”" className="h-12 w-full rounded-xl border border-gray-300 pl-12 pr-4 text-base outline-none focus:border-teal focus:ring-2 focus:ring-teal/20" />
+              </div>
+              <Button type="submit" className="min-h-12 px-6">Search the library</Button>
             </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-                {displayItems.map((item) => {
-                  const isTop = item.id === topItemId;
-                  const topLabel = searchQuery ? 'Top result' : 'Top pick';
-                  const typeLabelMap: Partial<Record<SearchType, string>> = {
-                    blog: 'Blog',
-                    event: 'Event',
-                    page: 'Page',
-                    pillar: 'Pillar',
-                    recipe: 'Recipe',
-                    resource: 'Resource',
-                    section: 'Section',
-                    video: 'Video',
-                  };
-                  const typeLabel = item.type ? typeLabelMap[item.type] ?? item.type : 'Blog';
-                  const blogNumber =
-                    typeof item === 'object' &&
-                    item !== null &&
-                    'blogNumber' in item &&
-                    typeof (item as { blogNumber?: unknown }).blogNumber === 'number'
-                      ? (item as { blogNumber: number }).blogNumber
-                      : null;
-  
-                  return (
-                    <Link
-                      key={item.id}
-                      href={item.path ?? `/blog/${item.id}`}
-                    className={`group card-lift block rounded-2xl border bg-white p-5 shadow-sm ${
-                      isTop ? 'border-teal/50 ring-2 ring-teal/15' : 'border-gray-200'
-                    }`}
-                  >
-                      <div className="flex items-center gap-2 mb-2 text-xs uppercase tracking-[0.12em] text-teal font-semibold">
-                        <span>{typeLabel}</span>
-                        {blogNumber !== null ? <span className="text-gray-300">•</span> : null}
-                        {blogNumber !== null ? <span>Blog #{blogNumber}</span> : null}
-                        {isTop ? <span className="ml-2 rounded-full bg-teal/10 px-2 py-0.5 text-[0.6rem]">{topLabel}</span> : null}
-                      </div>
-                      <h3 className="text-lg font-semibold mb-2 line-clamp-2 transition-colors group-hover:text-teal">{item.title}</h3>
-                      <p className="text-gray-600 text-sm line-clamp-2">{item.summary}</p>
-                    </Link>
-                );
-              })}
-            </div>
-          )}
-
-          <div className="text-center">
-            <div className="flex flex-wrap justify-center gap-3">
-              <Button asChild className="bg-teal text-white hover:bg-teal-dark">
-                <Link href="/recipes">Browse recipes</Link>
-              </Button>
-              <Button asChild variant="outline" className="border-teal text-teal hover:bg-teal hover:text-white">
-                <Link href={searchQuery ? `/search?q=${encodeURIComponent(searchQuery.trim())}` : '/search'} className="group">
-                  Open full search <span className="arrow-nudge">→</span>
-                </Link>
-              </Button>
-            </div>
-          </div>
+            <p className="mt-3 text-sm text-gray-600">Or explore the <Link href="/guides" className="font-medium text-teal underline">free guides</Link>, <Link href="/nutrition" className="font-medium text-teal underline">nutrition library</Link>, or <Link href="/video-series" className="font-medium text-teal underline">videos with Suz</Link>.</p>
+          </form>
         </div>
       </section>
 
-      <TrustedVoicesSection
-        title="What trusted voices say about Suz"
-        description="Suz brings curiosity, evidence, warmth, and a contagious kind of energy to conversations about health, aging, and what is still possible."
-        ctaHref="/our-story"
-        ctaLabel="Read Suz's story"
-      />
+      <section className="px-4 py-12 sm:px-6 lg:py-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-8 max-w-2xl">
+            <p className="mb-3 text-sm font-semibold tracking-wide text-teal">The four pillars</p>
+            <h2 className="text-3xl font-bold sm:text-4xl">More ways to feel like yourself</h2>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">{pillars.map((pillar) => <PillarCard key={pillar.link} {...pillar} />)}</div>
+        </div>
+      </section>
 
+      <section className="border-y border-gray-200 bg-stone-50 px-4 py-12 sm:px-6 lg:py-16">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
+            <div><p className="mb-3 text-sm font-semibold tracking-wide text-teal">From Suz’s notebook</p><h2 className="text-3xl font-bold sm:text-4xl">A little perspective for your day</h2></div>
+            <LatestBlogBadge />
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {latestPosts.map((post) => (
+              <Link key={post.id} href={`/blog/${post.id}`} className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-6 transition-colors hover:border-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal">
+                <p className="mb-3 text-sm text-gray-600">Blog #{post.blogNumber} · {post.readTime}</p>
+                <h3 className="text-2xl font-semibold leading-snug text-gray-900 group-hover:text-teal">{post.title}</h3>
+                <p className="mb-6 mt-4 flex-1 text-base leading-relaxed text-gray-600">{post.excerpt}</p>
+                <span className="flex items-center gap-2 font-semibold text-teal">Read the story <ArrowRight className="h-4 w-4" aria-hidden="true" /></span>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-6"><Button asChild variant="outline"><Link href="/blog">Browse all stories <ArrowRight className="h-4 w-4" aria-hidden="true" /></Link></Button></div>
+          <div className="mt-10"><SubstackAnnouncement /></div>
+        </div>
+      </section>
+
+      <TrustedVoicesSection title="What trusted voices say about Suz" description="Curiosity, evidence, warmth, and a contagious kind of energy." ctaHref="/our-story" ctaLabel="Meet Suz and read her story" />
       <FaqSection title="New to Rebellious Aging? Start here" questions={homeFaqs} />
       <LivingRoomSection />
     </>
   );
-};
-
-export default Home;
+}

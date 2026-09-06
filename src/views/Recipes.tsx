@@ -11,7 +11,6 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import Seo from '@/components/seo/Seo';
 import PageShareButton from '@/components/share/PageShareButton';
-import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 import { recipes, slugifyRecipeTitle, type Recipe } from '@/data/recipes';
 
@@ -112,7 +111,7 @@ const Recipes = () => {
   const [sortBy, setSortBy] = useState<'newest' | 'alpha' | 'quick'>('newest');
 
   const normalizedQuery = normalizeQuery(searchQuery);
-  const tokens = normalizedQuery.split(' ').filter(Boolean);
+  const tokens = useMemo(() => normalizedQuery.split(' ').filter(Boolean), [normalizedQuery]);
 
   const filteredRecipes = useMemo(() => {
     const matchesQuery = (recipe: Recipe) => {
@@ -157,57 +156,23 @@ const Recipes = () => {
         <Seo title={seoConfig.title} description={seoConfig.description} canonicalPath={seoConfig.path} />
       )}
 
-      <section className="px-4 py-16 sm:py-20 bg-gradient-to-br from-teal/5 via-white to-coral/10">
-        <div className="max-w-5xl mx-auto text-center space-y-5">
-          <PageTopUtilityRow className="mb-2">
+      <section className="px-4 pt-4 pb-5 sm:pt-12 sm:pb-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center justify-between gap-3">
+            <p className="text-sm uppercase tracking-widest text-teal font-semibold">Plant-powered cooking</p>
             <PageShareButton />
-          </PageTopUtilityRow>
-          <p className="text-xs uppercase tracking-[0.35em] text-teal font-semibold">Recipes</p>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-            Plant-Powered Recipes for Rebellious Appetites
-          </h1>
-          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-            Joyful, nourishing, no-nonsense recipes that keep you fueled, satisfied, and vibrantly rebellious. Search by ingredient,
-            mood, or meal and jump straight to something delicious.
-          </p>
-          <div className="max-w-2xl mx-auto">
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground h-5 w-5" />
-              <Input
-                value={searchQuery}
-                onChange={(event) => setSearchQuery(event.target.value)}
-                placeholder="Search sweet potato, soup, oil-free, quick..."
-                className="h-12 pl-12 pr-4 rounded-full text-base"
-                type="search"
-                aria-label="Search recipes"
-              />
-            </div>
           </div>
-          <div className="flex flex-wrap justify-center gap-3 text-sm text-muted-foreground">
-            <span>{recipes.length} total recipes</span>
-            <span className="hidden sm:inline">•</span>
-            <span>{filteredRecipes.length} matching your filters</span>
-          </div>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Button asChild variant="outline" className="border-teal text-teal hover:bg-teal hover:text-white">
-              <a href="#recipe-filters">Browse filters</a>
-            </Button>
-            <Button asChild className="bg-teal text-white hover:bg-teal-dark">
-              <Link href="/nutrition">Back to Nutrition</Link>
-            </Button>
-            <Button asChild variant="outline" className="border-coral text-coral hover:bg-coral hover:text-white">
-              <Link href="/recipes-for-a-better-summer">Better Summer Picks</Link>
-            </Button>
-          </div>
+          <h1 className="mt-3 text-3xl sm:text-5xl font-bold leading-tight">Plant-powered recipes. More good days.</h1>
+          <p className="mt-3 text-gray-700 text-base sm:text-lg max-w-2xl">Simple, satisfying plant-based recipes. Find a favorite by ingredient, meal, or the time you have.</p>
         </div>
       </section>
 
-      <section id="recipe-filters" className="px-4 py-12">
-        <div className="max-w-6xl mx-auto space-y-8">
+      <section id="recipe-filters" className="px-4 pb-6">
+        <div className="max-w-6xl mx-auto space-y-3 sm:space-y-5">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
-              <div>
-                <h2 className="text-2xl font-bold">Find the perfect recipe</h2>
-                <p className="text-muted-foreground">Filter by category or tag, then sort by what matters most today.</p>
+              <div className="relative flex-1 max-w-2xl">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-teal h-5 w-5" aria-hidden="true" />
+                <Input value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} placeholder="Search sweet potato, soup, oil-free, quick..." className="h-12 pl-12 rounded-xl text-base" type="search" aria-label="Search recipes" />
               </div>
               <div className="flex flex-wrap items-center gap-3">
                 <span id="recipe-sort-label" className="text-sm text-muted-foreground">
@@ -239,13 +204,20 @@ const Recipes = () => {
             </div>
 
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Browse by Category</h3>
-            <div className="flex flex-wrap gap-2">
+            <h2 className="sr-only">Browse recipes by category</h2>
+            <div className="sm:hidden">
+              <label htmlFor="recipe-category" className="sr-only">Recipe category</label>
+              <select id="recipe-category" value={activeCategory} onChange={(event) => setActiveCategory(event.target.value)} className="h-12 w-full rounded-xl border border-input bg-background px-4 text-base text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                {categories.map((category) => <option key={category.id} value={category.id}>{category.name} ({category.id === 'all' ? recipes.length : recipes.filter((recipe) => recipe.category === category.id).length})</option>)}
+              </select>
+            </div>
+            <div className="hidden sm:flex sm:flex-wrap gap-2">
               {categories.map((category) => (
                 <Button
                   key={category.id}
                   variant={activeCategory === category.id ? 'default' : 'outline'}
                   className="flex items-center gap-2"
+                  aria-pressed={activeCategory === category.id}
                   onClick={() => setActiveCategory(category.id)}
                 >
                   <span>{category.icon}</span>
@@ -260,26 +232,10 @@ const Recipes = () => {
             </div>
           </div>
 
-          <div className="space-y-4">
-            <div className="flex items-center justify-between flex-wrap gap-2">
-              <h3 className="text-lg font-semibold">Filter by Tag</h3>
-              {activeTags.length > 0 && (
-                <div className="flex flex-wrap gap-2">
-                  {activeTags.map((tag) => (
-                    <button
-                      key={tag}
-                      type="button"
-                      aria-label={`Remove ${tag} filter`}
-                      className="inline-flex items-center rounded-full border border-transparent bg-secondary px-2.5 py-0.5 text-xs font-semibold text-secondary-foreground transition-colors hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                      onClick={() => setActiveTags(activeTags.filter((item) => item !== tag))}
-                    >
-                      {tag}
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-            <div className="flex flex-wrap gap-2">
+          <details className="rounded-xl border border-border px-4">
+            <summary className="cursor-pointer py-3 font-semibold text-teal">More filters{activeTags.length ? ` (${activeTags.length} selected)` : ''}</summary>
+            <p className="mb-3 text-sm text-muted-foreground">Select tags to include recipes matching any of your choices.</p>
+            <div className="flex flex-wrap gap-2 pb-4">
               {recipeTags.map((tag) => {
                 const isActive = activeTags.includes(tag);
                 return (
@@ -287,7 +243,7 @@ const Recipes = () => {
                     key={tag}
                     type="button"
                     aria-pressed={isActive}
-                    className={`inline-flex items-center rounded-full border border-transparent px-3 py-1.5 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${isActive ? 'bg-teal text-white hover:bg-teal-dark' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
+                    className={`inline-flex items-center rounded-full border border-transparent min-h-11 px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${isActive ? 'bg-teal text-white hover:bg-teal-dark' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
                     onClick={() =>
                       setActiveTags((current) =>
                         current.includes(tag) ? current.filter((item) => item !== tag) : [...current, tag]
@@ -299,12 +255,13 @@ const Recipes = () => {
                 );
               })}
             </div>
-          </div>
+          </details>
         </div>
       </section>
 
       <section className="px-4 pb-16">
         <div className="max-w-6xl mx-auto">
+          <p role="status" className="mb-5 text-sm text-muted-foreground">{filteredRecipes.length} matching your filters <span aria-hidden="true">·</span> {recipes.length} total recipes</p>
           {filteredRecipes.length === 0 ? (
             <div className="border rounded-3xl p-10 text-center bg-muted/20">
               <h3 className="text-xl font-semibold mb-2">No recipes match those filters.</h3>
@@ -317,48 +274,23 @@ const Recipes = () => {
                 const slug = slugifyRecipeTitle(recipe.title);
 
                 return (
-                    <Link key={recipe.id} href={`/recipes/${slug}`} className="group">
+                    <Link key={recipe.id} href={`/recipes/${slug}`} className="group rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-4">
                     <Card className="h-full overflow-hidden border-gray-200 hover:border-teal transition">
-                      <div className="relative">
-                        {recipe.image ? (
-                          <img
-                            src={recipe.image}
-                            alt={recipe.imageAlt ?? recipe.title}
-                            className="h-48 w-full object-cover"
-                            loading="lazy"
-                          />
-                        ) : (
-                          <div
-                            role="img"
-                            aria-label={`No recipe photo available for ${recipe.title}`}
-                            data-recipe-image-placeholder
-                            className="flex h-48 w-full items-center justify-center bg-gradient-to-br from-teal/10 via-white to-coral/10 px-6 text-center"
-                          >
-                            <div className="space-y-2 text-teal">
-                              <ChefHat className="mx-auto h-9 w-9" aria-hidden="true" />
-                              <p className="text-xs font-semibold uppercase tracking-[0.24em]">
-                                Plant-powered recipe
-                              </p>
-                            </div>
-                          </div>
-                        )}
-                        <div className="absolute top-3 left-3">
-                          <Badge variant="secondary" className="capitalize">
-                            {recipe.category}
-                          </Badge>
-                        </div>
-                      </div>
+                      {recipe.image && (
+                        <img src={recipe.image} alt={recipe.imageAlt ?? recipe.title} className="h-48 w-full object-cover" loading="lazy" />
+                      )}
                       <CardHeader>
+                        <p className="mb-2 text-sm font-semibold text-teal">{categories.find((category) => category.id === recipe.category)?.name ?? recipe.category}</p>
                         <CardTitle className="text-xl group-hover:text-teal transition-colors">
                           {recipe.title}
                         </CardTitle>
                         {recipe.author && (
-                          <p className="text-xs text-muted-foreground">by {recipe.author}</p>
+                          <p className="text-sm text-muted-foreground">by {recipe.author}</p>
                         )}
                         <CardDescription>{recipe.description}</CardDescription>
                       </CardHeader>
                       <CardContent className="space-y-4">
-                        <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
+                        <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
                           <div className="flex items-center gap-1">
                             <Users className="w-4 h-4" />
                             <span>Serves {recipe.servings}</span>
@@ -366,7 +298,7 @@ const Recipes = () => {
                           {recipe.prepTime && (
                             <div className="flex items-center gap-1">
                               <Clock className="w-4 h-4" />
-                              <span>{recipe.prepTime}</span>
+                              <span>Prep: {recipe.prepTime}</span>
                             </div>
                           )}
                           {recipe.freezeTime && (
@@ -403,6 +335,10 @@ const Recipes = () => {
           )}
         </div>
       </section>
+      <div className="mx-auto max-w-6xl px-4 pb-12 flex flex-wrap gap-6 text-teal font-semibold">
+        <Link href="/nutrition" className="underline underline-offset-4">Explore nutrition</Link>
+        <Link href="/recipes-for-a-better-summer" className="underline underline-offset-4">Better Summer Picks</Link>
+      </div>
     </div>
   );
 };

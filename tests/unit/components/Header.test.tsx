@@ -74,7 +74,16 @@ describe('Header', () => {
     const menu = await screen.findByRole('dialog', { name: 'Mobile menu' });
     await user.click(within(menu).getByRole('button', { name: /Search/ }));
 
-    expect(await screen.findByRole('dialog', { name: 'Search' })).toBeInTheDocument();
+    expect(await screen.findByRole('dialog', { name: 'Search Rebellious Aging' })).toBeInTheDocument();
+  });
+
+  it('returns focus to the visible search control after closing mobile search', async () => {
+    const user = userEvent.setup();
+    render(<Header />);
+    const trigger = screen.getByRole('button', { name: 'Open search' });
+    await user.click(trigger);
+    await user.keyboard('{Escape}');
+    await waitFor(() => expect(trigger).toHaveFocus());
   });
 
   it('highlights active nav path', () => {

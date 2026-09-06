@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 
 export const useScrollAnimationTrigger = () => {
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
@@ -37,7 +39,7 @@ export const useScrollAnimationTrigger = () => {
     animatedElements.forEach(el => observer.observe(el));
 
     return () => {
-      animatedElements.forEach(el => observer.unobserve(el));
+      observer.disconnect();
     };
   }, []);
 };

@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act, renderHook, waitFor } from '@testing-library/react';
 
@@ -61,6 +62,18 @@ describe('useSearch hook', () => {
 
     const results = result.current.search('');
     expect(results.length).toBe(2);
+  });
+
+  it('refreshes memoized query results when a cold index finishes loading', async () => {
+    const useSearch = (await import('@/hooks/useSearch')).useSearch;
+    const { result } = renderHook(() => {
+      const index = useSearch();
+      const matches = useMemo(() => index.search('apple'), [index.search]);
+      return { ...index, matches };
+    });
+    expect(result.current.matches).toHaveLength(0);
+    await act(async () => { await result.current.ensureIndex(); });
+    expect(result.current.matches.map((item) => item.title)).toEqual(['Apple Salad']);
   });
 
   it('filters by query terms and type filters', async () => {

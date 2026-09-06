@@ -47,8 +47,8 @@ test.describe('Production behavior regressions', () => {
 
     const firstImage = page.getByRole('img', { name: 'Vibrant aging lifestyle 1' });
     const secondImage = page.getByRole('img', { name: 'Vibrant aging lifestyle 2' });
-    const firstControl = page.getByRole('button', { name: /^Show hero image 1 of \d+$/ });
-    const secondControl = page.getByRole('button', { name: /^Show hero image 2 of \d+$/ });
+    const photoStatus = page.getByRole('status', { name: 'Current photo' });
+    const nextControl = page.getByRole('button', { name: 'Next photo', exact: true });
 
     await expect(firstImage).toHaveAttribute('fetchpriority', 'high');
     await expect(firstImage).toHaveAttribute(
@@ -60,13 +60,14 @@ test.describe('Production behavior regressions', () => {
       /c_limit,w_480,f_auto,q_auto:good\/.* 480w, .*c_limit,w_768,f_auto,q_auto:good\/.* 768w, .*c_limit,w_1080,f_auto,q_auto:good\/.* 1080w/
     );
     await expect(secondImage).toHaveCount(0);
-    await expect(firstControl).toHaveAttribute('aria-current', 'true');
+    await expect(photoStatus).toHaveText('1 / 9');
 
-    await secondControl.click();
+    await nextControl.click();
 
     await expect(secondImage).toHaveAttribute('loading', 'lazy');
     await expect(secondImage).toHaveAttribute('fetchpriority', 'auto');
-    await expect(secondControl).toHaveAttribute('aria-current', 'true');
-    await expect(firstControl).not.toHaveAttribute('aria-current', 'true');
+    await expect(photoStatus).toHaveText('2 / 9');
+    await page.getByRole('button', { name: 'Previous photo', exact: true }).click();
+    await expect(photoStatus).toHaveText('1 / 9');
   });
 });

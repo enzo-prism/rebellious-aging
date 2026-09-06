@@ -7,6 +7,7 @@ import Seo from '@/components/seo/Seo';
 import PageShareButton from '@/components/share/PageShareButton';
 import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
+import { FACEBOOK_GROUP_URL } from '@/lib/constants';
 
 const Contact = () => {
   const seoConfig = getSeoRouteByPath('/contact');
@@ -54,7 +55,7 @@ const Contact = () => {
                     width="100%"
                     height="600"
                     frameBorder="0"
-                    allow="camera; microphone; autoplay; encrypted-media;"
+                    allow="encrypted-media;"
                     title="Contact Form"
                     className="rounded-lg"
                     loading="lazy"
@@ -63,7 +64,7 @@ const Contact = () => {
                 ) : (
                   <div className="flex flex-col items-center text-center gap-4 py-12">
                     <p className="text-muted-foreground max-w-md">
-                      Load the secure Typeform when you&apos;re ready to reach out. It appears instantly and keeps your data private.
+                      Send Suz a message using the contact form, or email her directly below.
                     </p>
                     <button
                       onClick={() => setShowForm(true)}
@@ -73,6 +74,12 @@ const Contact = () => {
                     </button>
                   </div>
                 )}
+                <p className="mt-4 text-center text-base text-gray-600">
+                  Prefer a separate window?{' '}
+                  <a href="https://fxuqp40sseh.typeform.com/to/DbY1YJrs" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-teal underline underline-offset-4">
+                    Open the contact form in a new tab
+                  </a>
+                </p>
               </CardContent>
             </Card>
 
@@ -93,7 +100,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg">Email</h3>
-                    <p className="text-gray-600">suz@rebelwithsuz.com</p>
+                    <a href="mailto:suz@rebelwithsuz.com" className="inline-flex min-h-11 items-center text-lg text-teal underline underline-offset-4 break-all">suz@rebelwithsuz.com</a>
                     <p className="text-sm text-gray-500 mt-1">
                       I typically respond within 24 hours
                     </p>
@@ -105,11 +112,11 @@ const Contact = () => {
                     <MessageCircle className="h-6 w-6 text-coral" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lg">Social Media</h3>
-                    <p className="text-gray-600">Follow for daily inspiration</p>
-                    <p className="text-sm text-gray-500 mt-1">
-                      Connect with the community on our social platforms (coming soon!)
-                    </p>
+                    <h3 className="font-semibold text-lg">Find your community</h3>
+                    <p className="text-gray-600">Connect with fellow rebellious agers.</p>
+                    <a href={FACEBOOK_GROUP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-teal underline underline-offset-4">
+                      Join the Facebook group<span className="sr-only"> (opens in a new tab)</span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -118,10 +125,10 @@ const Contact = () => {
                 <CardContent className="p-6">
                   <h3 className="font-semibold text-lg mb-3">Professional Contact Form</h3>
                   <p className="text-gray-700 mb-4">
-                    Use the form on the left for the best experience when reaching out. Your message will be delivered directly and securely.
+                    Use the contact form to share your question or tell Suz what you have in mind.
                   </p>
                   <p className="text-gray-600">
-                    For urgent matters, you can also reach out via email at suz@rebelwithsuz.com
+                    You can also email Suz directly using the email link above.
                   </p>
                 </CardContent>
               </Card>

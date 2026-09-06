@@ -39,7 +39,7 @@ export const MobileMenuSection: React.FC<MobileMenuSectionProps> = ({
           "w-full flex items-center justify-between py-3 px-4",
           "text-left font-medium text-foreground",
           "hover:bg-accent/5 transition-colors duration-200",
-          "focus:outline-none focus:bg-accent/10"
+          "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-teal focus-visible:bg-teal/5"
         )}
         aria-expanded={isOpen}
         aria-controls={contentId}
@@ -65,11 +65,12 @@ export const MobileMenuSection: React.FC<MobileMenuSectionProps> = ({
           <Link
             key={item.to}
             href={item.to}
+            aria-current={pathname === item.to ? "page" : undefined}
             className={cn(
               "flex items-center gap-3 py-3 px-6 pl-8",
               "transition-all duration-200",
               "hover:bg-accent/10 hover:translate-x-1",
-              "focus:outline-none focus:bg-accent/10",
+              "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-teal focus-visible:bg-teal/5",
               "border-l-2 border-transparent hover:border-primary/30",
               pathname === item.to || pathname.startsWith(`${item.to}/`)
                 ? "text-primary font-medium bg-primary/5 border-l-primary"
@@ -80,7 +81,7 @@ export const MobileMenuSection: React.FC<MobileMenuSectionProps> = ({
             {item.icon && (
               <span className="text-base flex-shrink-0">{item.icon}</span>
             )}
-            <span className="text-sm">{item.label}</span>
+            <span className="text-base">{item.label}</span>
           </Link>
         ))}
       </div>

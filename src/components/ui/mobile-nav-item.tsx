@@ -25,7 +25,7 @@ export const MobileNavItem: React.FC<MobileNavItemProps> = ({
     "flex items-center gap-3 py-4 px-4 min-h-[48px]",
     "transition-all duration-200",
     "hover:bg-accent/10 hover:translate-x-1",
-    "focus:outline-none focus:bg-accent/10",
+    "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-teal focus-visible:bg-teal/5",
     "border-l-2 border-transparent hover:border-primary/30",
     "touch-manipulation",
     "w-full text-left"
@@ -68,6 +68,7 @@ export const MobileNavItem: React.FC<MobileNavItemProps> = ({
   return (
     <Link
       href={to}
+      aria-current={isActive ? "page" : undefined}
       className={cn(
         baseClasses,
         isActive ? 'text-primary font-medium bg-primary/5 border-l-primary' : 'text-foreground hover:text-primary'

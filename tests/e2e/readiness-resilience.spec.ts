@@ -13,7 +13,8 @@ test.describe('Resilience readiness', () => {
     await page.goto('/search');
 
     await expect(page.getByPlaceholder('Search blog, pillars, speaking events, nutrition guide…')).toBeVisible();
-    await expect(page.getByText(/Unable to load search index/)).toBeVisible({ timeout: 10000 });
+    await expect(page.getByRole("alert").filter({ hasText: "Search is unavailable" })).toBeVisible();
+    await expect(page.getByRole("button", { name: "Try again" })).toBeVisible();
   });
 
   test('pillar quizzes stay retired while private contact remains available', async ({ page }) => {

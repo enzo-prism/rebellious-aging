@@ -6,13 +6,14 @@ test.describe('Core site interactions', () => {
     // during the initial server-rendered handoff can otherwise be discarded.
     await page.goto('/recipes', { waitUntil: 'networkidle' });
 
+    await page.getByText('More filters', { exact: true }).click();
     const noBakeFilter = page.getByRole('button', { name: 'No-Bake', exact: true });
     await expect(noBakeFilter).toHaveAttribute('aria-pressed', 'false');
 
     await noBakeFilter.click();
 
     await expect(noBakeFilter).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.getByText('2 matching your filters')).toBeVisible();
+    await expect(page.getByRole('status').filter({ hasText: '2 matching your filters' })).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Raw Blueberry Cheesecake' })).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Mint Chocolate Mousse Torte' })).toBeVisible();
   });

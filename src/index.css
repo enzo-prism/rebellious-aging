@@ -75,7 +75,7 @@
   body {
     @apply bg-background text-foreground font-sans;
     font-feature-settings: "rlig" 1, "calt" 1;
-    touch-action: pan-y;
+    touch-action: pan-y pinch-zoom;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -209,8 +209,8 @@
   }
 
   .animate-on-scroll {
-    opacity: 0;
-    transform: translate3d(0, 60px, 0);
+    opacity: 1;
+    transform: none;
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -220,8 +220,8 @@
   }
 
   .animate-slide-left {
-    opacity: 0;
-    transform: translate3d(-60px, 0, 0);
+    opacity: 1;
+    transform: none;
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -231,8 +231,8 @@
   }
 
   .animate-slide-right {
-    opacity: 0;
-    transform: translate3d(60px, 0, 0);
+    opacity: 1;
+    transform: none;
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -242,8 +242,8 @@
   }
 
   .animate-scale-fade {
-    opacity: 0;
-    transform: scale3d(0.9, 0.9, 1);
+    opacity: 1;
+    transform: none;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -283,4 +283,60 @@
 
 html {
   /* scroll-behavior: smooth; removed to prevent auto-scrolling */
+}
+
+/* Leave room for the fixed navigation when following deep links. */
+html {
+  scroll-padding-top: 7rem;
+}
+
+@layer components {
+  .article-reading {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #334155;
+    overflow-wrap: break-word;
+  }
+
+  .article-reading .prose {
+    font-size: inherit;
+    line-height: inherit;
+    --tw-prose-body: #334155;
+    --tw-prose-headings: #0f172a;
+    --tw-prose-links: #006c70;
+  }
+
+  .article-reading a {
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  header:has(+ #main-content), #main-content + footer, nav[aria-label="Breadcrumb"], [role="dialog"] {
+    display: none !important;
+  }
+
+  #main-content {
+    padding-top: 0;
+    overflow: visible;
+  }
+
+  .recipe-page {
+    background: white !important;
+  }
+
+  .recipe-page article {
+    box-shadow: none !important;
+    border: 0 !important;
+  }
 }

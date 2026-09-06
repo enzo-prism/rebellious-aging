@@ -3,7 +3,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { Search as SearchIcon, Loader2, ArrowLeft, X } from 'lucide-react';
+import { Search as SearchIcon, Loader2, SlidersHorizontal, X } from 'lucide-react';
 
 import { Badge, badgeVariants } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -36,6 +36,7 @@ const Search = () => {
   const initialQuery = searchParams.get('q') ?? '';
   const [query, setQuery] = useState(initialQuery);
   const [selectedTypes, setSelectedTypes] = useState<SearchType[]>([]);
+  const [filtersOpen, setFiltersOpen] = useState(false);
   const { search, loading, error, ensureIndex } = useSearch();
   const inputRef = useRef<HTMLInputElement | null>(null);
   const applyQueryParam = (value: string) => {
@@ -124,42 +125,32 @@ const Search = () => {
             <PageShareButton />
           </PageTopUtilityRow>
           <p className="text-sm uppercase tracking-[0.28em] text-teal font-semibold">Search</p>
-          <h1 className="text-4xl font-bold leading-tight">Find pillars, nutrition, blog posts, and speaking events</h1>
+          <h1 className="text-4xl font-bold leading-tight">Find your next good idea</h1>
           <p className="text-muted-foreground max-w-3xl">
-            Start typing to search everything on Rebellious Aging, including speaking events. Use filters to narrow down by content
-            type.
+            Search recipes, articles, free guides, and more. Start with a topic that matters to you.
           </p>
         </div>
 
-        <div className="sticky top-20 z-10 bg-background/95 backdrop-blur supports-[backdrop-filter]:backdrop-blur-md border rounded-2xl p-3 sm:p-4 shadow-sm">
+        <div className="z-10 bg-background/95 backdrop-blur supports-[backdrop-filter]:backdrop-blur-md border rounded-2xl p-3 sm:p-4 shadow-sm">
           <form onSubmit={handleSubmit} className="space-y-3">
             <div className="flex items-center gap-3">
-              <Button
-                type="button"
-                variant="ghost"
-                size="icon"
-                className="lg:hidden"
-                onClick={() => router.back()}
-                aria-label="Back"
-              >
-                <ArrowLeft className="h-5 w-5" />
-              </Button>
               <div className="relative flex-1">
                 <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground h-5 w-5" />
                 <Input
                   ref={inputRef}
                   type="search"
+                  aria-label="Search site content"
                   value={query}
                   onChange={(event) => setQuery(event.target.value)}
                   placeholder="Search blog, pillars, speaking events, nutrition guide…"
-                  className="pl-10 h-12 text-base"
+                  className="pl-10 pr-12 h-12 text-base"
                 />
                 {query && (
                   <button
                     type="button"
                     aria-label="Clear search"
                     onClick={() => setQuery('')}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                    className="absolute right-1 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground hover:text-foreground"
                   >
                     <X className="h-4 w-4" />
                   </button>
@@ -167,6 +158,14 @@ const Search = () => {
               </div>
             </div>
 
+            <div className="flex flex-wrap items-center gap-2">
+              <Button variant="outline" type="button" aria-expanded={filtersOpen} aria-controls="search-type-filters" onClick={() => setFiltersOpen(!filtersOpen)}>
+                <SlidersHorizontal className="mr-2 h-4 w-4" />
+                Filter by type{selectedTypes.length ? ` (${selectedTypes.length})` : ''}
+              </Button>
+              {selectedTypes.length > 0 && <Button variant="ghost" type="button" onClick={() => setSelectedTypes([])}>Clear filters</Button>}
+            </div>
+            <div id="search-type-filters" hidden={!filtersOpen}>
             <div className="flex flex-wrap gap-2">
               {typeFilters.map((filter) => (
                 <button
@@ -175,21 +174,14 @@ const Search = () => {
                   aria-pressed={selectedTypes.includes(filter.type)}
                   className={badgeVariants({
                     variant: selectedTypes.includes(filter.type) ? 'default' : 'outline',
-                    className: 'cursor-pointer px-3 py-2 text-sm rounded-full',
+                    className: 'cursor-pointer min-h-11 px-4 py-2 text-sm rounded-full',
                   })}
                   onClick={() => toggleType(filter.type)}
                 >
                   {filter.label}
                 </button>
               ))}
-              <Button
-                variant="ghost"
-                type="button"
-                onClick={() => setSelectedTypes([])}
-                className="text-sm"
-              >
-                Clear filters
-              </Button>
+            </div>
             </div>
 
             {recent.length > 0 && (
@@ -223,7 +215,10 @@ const Search = () => {
           </div>
         )}
 
-        {error && <div className="text-destructive text-sm">{error}</div>}
+        {error && <div role="alert" className="space-y-3 rounded-2xl border p-5">
+          <p>Search is unavailable. Check your connection and try again.</p>
+          <Button variant="outline" onClick={() => void ensureIndex()}>Try again</Button>
+        </div>}
 
         {!loading && !error && (
           <div className="space-y-4">
@@ -244,7 +239,7 @@ const Search = () => {
               </div>
             ) : (
               <div className="space-y-3">
-                <p className="text-sm text-muted-foreground">
+                <p role="status" className="text-sm text-muted-foreground">
                   Showing {results.length} result{results.length === 1 ? '' : 's'}
                 </p>
                 {results.map((item) => (
@@ -258,7 +253,7 @@ const Search = () => {
                         {item.type}
                       </Badge>
                       <span className="text-sm text-muted-foreground">
-                        {item.updatedAt ? new Date(item.updatedAt).toLocaleDateString() : 'Updated'}
+                        {item.updatedAt ? new Date(item.updatedAt).toLocaleDateString() : ''}
                       </span>
                     </div>
                     <h2 className="text-xl font-semibold">{item.title}</h2>

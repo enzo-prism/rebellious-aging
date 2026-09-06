@@ -13,7 +13,7 @@ import { recipes, slugifyRecipeTitle } from '@/data/recipes';
 import { getAllRecipeIngredients, getAllRecipeInstructions, getRecipeSections } from '@/lib/recipeSections';
 import { buildMetaDescription, getCanonicalUrl } from '@/lib/seo';
 import { buildRecipeJsonLd } from '@/lib/structuredData';
-import { siteMetadata } from '@/lib/siteMetadata';
+import { IngredientChecklist, RecipePrintButton } from '@/components/recipes/RecipeCookingTools';
 
 interface RecipeDetailProps {
   slug?: string;
@@ -47,7 +47,6 @@ const RecipeDetail = ({ slug }: RecipeDetailProps) => {
 
   const canonicalUrl = getCanonicalUrl(canonicalPath);
   const metaDescription = buildMetaDescription(recipe.description);
-  const image = recipe.image ?? siteMetadata.defaultSocialImage;
 
   const instructionsForSchema = getAllRecipeInstructions(recipe);
   const ingredientsForSchema = getAllRecipeIngredients(recipe);
@@ -72,7 +71,7 @@ const RecipeDetail = ({ slug }: RecipeDetailProps) => {
   const recipeSections = getRecipeSections(recipe);
 
   return (
-    <div className="min-h-screen bg-background px-4 py-12">
+    <div className="recipe-page min-h-screen bg-background px-4 py-8 sm:py-12">
       <Seo
         title={recipe.title}
         description={metaDescription}
@@ -81,25 +80,15 @@ const RecipeDetail = ({ slug }: RecipeDetailProps) => {
         jsonLd={recipeJsonLd}
       />
 
-      <div className="max-w-5xl mx-auto space-y-10">
+      <div className="max-w-5xl mx-auto space-y-6">
       <PageBreadcrumbs items={[{ name: "Recipes", path: "/recipes" }, { name: recipe.title, path: canonicalPath }]} />
-        <Link href="/recipes" className="text-sm hover:underline inline-block">← Back to Recipes</Link>
 
-        <PageTopUtilityRow className="-mt-4">
+
+        <PageTopUtilityRow className="print:hidden">
           <PageShareButton />
         </PageTopUtilityRow>
 
-        <div className="grid lg:grid-cols-[1.1fr_1fr] gap-10 items-start">
-          <div className="rounded-3xl overflow-hidden border border-gray-200 shadow-sm">
-            <img
-              src={image}
-              alt={recipe.image ? (recipe.imageAlt ?? recipe.title) : 'Rebellious Aging'}
-              className="w-full h-full object-cover"
-              loading="eager"
-              fetchPriority="high"
-            />
-          </div>
-
+        <div className={recipe.image ? 'grid lg:grid-cols-[1.1fr_1fr] gap-8 items-start' : 'max-w-3xl'}>
           <div className="space-y-5">
             <div>
               <p className="text-xs uppercase tracking-[0.3em] text-teal font-semibold">Recipe</p>
@@ -115,19 +104,19 @@ const RecipeDetail = ({ slug }: RecipeDetailProps) => {
               {recipe.prepTime && (
                 <div className="flex items-center gap-2">
                   <Clock className="h-4 w-4" />
-                  <span>{recipe.prepTime}</span>
+                  <span>Prep: {recipe.prepTime}</span>
                 </div>
               )}
               {recipe.totalTime && (
                 <div className="flex items-center gap-2">
                   <Clock className="h-4 w-4" />
-                  <span>{recipe.totalTime}</span>
+                  <span>Total: {recipe.totalTime}</span>
                 </div>
               )}
               {recipe.freezeTime && (
                 <div className="flex items-center gap-2">
                   <Snowflake className="h-4 w-4" />
-                  <span>{recipe.freezeTime}</span>
+                  <span>Freeze: {recipe.freezeTime}</span>
                 </div>
               )}
               {recipe.difficulty && (
@@ -138,7 +127,11 @@ const RecipeDetail = ({ slug }: RecipeDetailProps) => {
               )}
             </div>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-3 print:hidden">
+              <Button asChild><a href="#recipe-instructions">Jump to recipe</a></Button>
+              <RecipePrintButton />
+            </div>
+            <div className="flex flex-wrap gap-2 print:hidden">
               {recipe.tags.map((tag) => (
                 <Badge key={tag} variant="secondary">
                   {tag}
@@ -148,6 +141,7 @@ const RecipeDetail = ({ slug }: RecipeDetailProps) => {
 
             <div className="space-y-2 text-sm text-muted-foreground">
               <p>Category: <span className="capitalize">{recipe.category}</span></p>
+              {recipe.author && <p>By {recipe.author}</p>}
               {recipe.source && <p>Source: {recipe.source}</p>}
               {recipe.storageInstructions && <p>Storage: {recipe.storageInstructions}</p>}
             </div>
@@ -159,9 +153,10 @@ const RecipeDetail = ({ slug }: RecipeDetailProps) => {
               </div>
             )}
           </div>
+          {recipe.image && <img src={recipe.image} alt={recipe.imageAlt ?? recipe.title} className="w-full rounded-2xl object-cover print:hidden" loading="eager" />}
         </div>
 
-        <div className="space-y-6">
+        <div id="recipe-instructions" className="space-y-6">
           <h2 className="text-2xl font-bold">Let&apos;s cook</h2>
 
           <div className="space-y-8">
@@ -183,11 +178,7 @@ const RecipeDetail = ({ slug }: RecipeDetailProps) => {
                           <CardTitle>Ingredients</CardTitle>
                         </CardHeader>
                         <CardContent>
-                          <ul className="list-disc list-inside space-y-1 text-sm">
-                            {section.ingredients.map((ingredient, index) => (
-                              <li key={index}>{ingredient}</li>
-                            ))}
-                          </ul>
+                          <IngredientChecklist ingredients={section.ingredients} />
                         </CardContent>
                       </Card>
                     )}
@@ -198,10 +189,10 @@ const RecipeDetail = ({ slug }: RecipeDetailProps) => {
                           <CardTitle>Instructions</CardTitle>
                         </CardHeader>
                         <CardContent>
-                          <ol className="space-y-3 text-sm">
+                          <ol className="space-y-5 text-base sm:text-lg">
                             {section.instructions.map((step, index) => (
                               <li key={index} className="flex gap-3">
-                                <span className="flex-shrink-0 w-7 h-7 bg-teal text-white rounded-full flex items-center justify-center text-xs font-medium">
+                                <span className="flex-shrink-0 w-7 h-7 bg-teal text-white print:bg-transparent print:text-black print:border print:border-black rounded-full flex items-center justify-center text-xs font-medium">
                                   {index + 1}
                                 </span>
                                 <span className="leading-relaxed">{step}</span>
@@ -218,7 +209,7 @@ const RecipeDetail = ({ slug }: RecipeDetailProps) => {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-3 print:hidden">
             <Button asChild variant="outline" className="border-teal text-teal hover:bg-teal hover:text-white">
             <Link href="/recipes">Explore more recipes</Link>
           </Button>

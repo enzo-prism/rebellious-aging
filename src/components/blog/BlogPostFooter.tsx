@@ -11,7 +11,8 @@ export const BlogPostFooter: React.FC<BlogPostFooterProps> = ({
   nextPost
 }) => {
   return (
-    <div className="mt-12 border-t border-border pt-8">
+    <div className="mt-12 border-t border-border pt-8 space-y-6">
+      <Link href="/blog" className="inline-flex min-h-11 items-center font-semibold text-teal underline underline-offset-4">← All articles</Link>
       {nextPost && (
         <div>
           <p className="text-sm text-muted-foreground mb-2">Next Article</p>

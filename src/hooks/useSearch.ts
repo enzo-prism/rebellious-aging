@@ -317,8 +317,8 @@ export const useSearch = () => {
   }, []);
 
   const search = useCallback(
-    (query: string, filters?: SearchFilters) => searchIndex(query, filters),
-    []
+    (query: string, filters?: SearchFilters) => state.miniSearch ? searchIndex(query, filters) : [],
+    [state.miniSearch]
   );
 
   return {

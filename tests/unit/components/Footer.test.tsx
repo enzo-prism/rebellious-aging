@@ -21,12 +21,12 @@ describe('Footer', () => {
     expect(screen.getByText(/Medical Disclaimer/i)).toBeInTheDocument();
   });
 
-  it('keeps all desktop link groups in one footer navigation grid', () => {
+  it('groups useful destinations into three clear navigation sections', () => {
     render(<Footer />);
 
     const navigation = screen.getByRole('navigation', { name: 'Footer navigation' });
-    expect(navigation).toHaveClass('lg:col-span-4', 'lg:grid-cols-5');
-    expect(navigation).toContainElement(screen.getByRole('heading', { name: /Confidence/ }));
-    expect(navigation).toContainElement(screen.getByRole('heading', { name: 'More Suz' }));
+    expect(navigation.querySelectorAll('h3')).toHaveLength(3);
+    expect(navigation).toContainElement(screen.getByRole('heading', { name: 'Explore' }));
+    expect(navigation).toContainElement(screen.getByRole('heading', { name: 'Connect with Suz' }));
   });
 });
