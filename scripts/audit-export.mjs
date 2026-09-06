@@ -27,12 +27,16 @@ for (const url of urls) {
   check(doc.querySelector('meta[name="description"]')?.content.length >= 40, `${path}: empty description`);
   check(doc.querySelectorAll('link[rel="canonical"]').length === 1, `${path}: missing/duplicate canonical`);
   check(doc.querySelector('link[rel="canonical"]')?.href === url, `${path}: canonical mismatch`);
-  check(new URL(doc.querySelector('meta[property="og:url"]')?.content ?? '/', base).href === url, `${path}: Open Graph URL mismatch`);
+  const ogUrl = doc.querySelector('meta[property="og:url"]')?.content;
+  check(Boolean(ogUrl) && new URL(ogUrl, base).href === url, `${path}: Open Graph URL mismatch`);
   check(doc.querySelector('meta[property="og:image"]')?.content.startsWith('https://'), `${path}: missing social image`);
   check(!doc.querySelector('meta[name="robots"]')?.content.includes('noindex'), `${path}: indexable route marked noindex`);
   check(doc.querySelector('meta[name="googlebot"]')?.content.includes('max-image-preview:large'), `${path}: large image previews not enabled`);
   check(doc.querySelectorAll('main h1').length === 1, `${path}: expected one main H1`);
-  const mainText = doc.querySelector('main')?.textContent.replace(/\s+/g, ' ').trim() ?? '';
+  const visibleMain = doc.querySelector('main')?.cloneNode(true);
+  // JSON-LD text must not satisfy the check that its answers are also visible.
+  visibleMain?.querySelectorAll('script, style, template, noscript, [hidden]').forEach((node) => node.remove());
+  const mainText = visibleMain?.textContent.replace(/\s+/g, ' ').trim() ?? '';
   check(mainText.length > 120, `${path}: body missing in raw HTML`);
   const schemas = [...doc.querySelectorAll('script[type="application/ld+json"]')].map((node) => JSON.parse(node.textContent));
   check(schemas.some((schema) => schema['@type'] === 'Person' && schema['@id'] === `${base}/our-story#suz`), `${path}: missing author entity`);
