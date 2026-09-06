@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/seo/PageBreadcrumbs';
 import type { Metadata } from 'next';
 
 import StarterKit from '@/views/StarterKit';
@@ -18,5 +19,8 @@ export const generateMetadata = (): Metadata => {
 };
 
 export default function StarterKitPage() {
-  return <StarterKit />;
+  return <>
+    <div className="container mx-auto px-4 pt-6"><PageBreadcrumbs items={[{ name: "Starter Kit", path: "/starter-kit" }]} /></div>
+    <StarterKit />
+  </>;
 }

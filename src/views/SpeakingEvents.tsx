@@ -10,7 +10,6 @@ import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { Button } from '@/components/ui/button';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 import { getSpeakingEventPath, speakingEvents, speakingEventsInfo } from '@/data/speakingEvents';
-import { buildOrganizationJsonLd } from '@/lib/structuredData';
 
 const SpeakingEvents = () => {
   const seoConfig = getSeoRouteByPath('/speaking-events');
@@ -22,7 +21,6 @@ const SpeakingEvents = () => {
           title={seoConfig.title}
           description={seoConfig.description}
           canonicalPath={seoConfig.path}
-          jsonLd={buildOrganizationJsonLd()}
         />
       )}
 

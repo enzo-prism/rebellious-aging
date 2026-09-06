@@ -9,7 +9,7 @@ import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { Button } from '@/components/ui/button';
 import { getSpeakingEventPath, type SpeakingEventContent } from '@/data/speakingEvents';
 import { buildMetaDescription, buildSeoTitle, getCanonicalUrl } from '@/lib/seo';
-import { buildArticleJsonLd, buildOrganizationJsonLd } from '@/lib/structuredData';
+import { buildArticleJsonLd } from '@/lib/structuredData';
 
 interface SpeakingEventDetailProps {
   event: SpeakingEventContent;
@@ -37,7 +37,7 @@ const SpeakingEventDetail = ({ event }: SpeakingEventDetailProps) => {
         canonicalPath={canonicalPath}
         canonicalUrl={canonicalUrl}
         ogType="article"
-        jsonLd={[buildOrganizationJsonLd(), ...(articleJsonLd ? [articleJsonLd] : [])]}
+        jsonLd={articleJsonLd || undefined}
       />
 
       <section className="relative overflow-hidden border-b border-teal/10 bg-[#f8f3ea]">

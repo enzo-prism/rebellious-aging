@@ -15,7 +15,7 @@ describe('route metadata', () => {
     const metadata = getRouteMetaByPath('/our-story');
     expect(metadata?.path).toBe('/our-story');
     expect(metadata?.canonical).toBe('/our-story');
-    expect(metadata?.title).toContain('Our Story');
+    expect(metadata?.title).toBe('Meet Suz & the Rebellious Aging Story');
   });
 
   it('normalizes missing ids and returns undefined when unknown', () => {

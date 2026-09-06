@@ -1,9 +1,12 @@
+import { SUBSTACK_URL } from './constants';
 import { siteMetadata } from './siteMetadata';
 import { resolveAbsoluteUrl } from './seo';
 
 export const buildOrganizationJsonLd = () => ({
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': `${siteMetadata.baseUrl}/#organization`,
+  founder: { '@id': siteMetadata.author.id },
   name: siteMetadata.name,
   url: siteMetadata.baseUrl,
   logo: resolveAbsoluteUrl(siteMetadata.defaultSocialImage),
@@ -13,6 +16,9 @@ export const buildOrganizationJsonLd = () => ({
 export const buildWebSiteJsonLd = () => ({
   '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': `${siteMetadata.baseUrl}/#website`,
+  inLanguage: 'en-US',
+  publisher: { '@id': `${siteMetadata.baseUrl}/#organization` },
   name: siteMetadata.name,
   url: siteMetadata.baseUrl,
   potentialAction: {
@@ -39,13 +45,21 @@ export const buildArticleJsonLd = ({
 }: ArticleParams) => ({
   '@context': 'https://schema.org',
   '@type': 'Article',
+  '@id': canonicalUrl ? `${canonicalUrl}#article` : undefined,
+  url: canonicalUrl,
+  inLanguage: 'en-US',
+  isAccessibleForFree: true,
+  isPartOf: { '@id': `${siteMetadata.baseUrl}/#website` },
   headline: title,
   description,
   author: {
     '@type': 'Person',
-    name: 'Suzanne (Suz)',
+    '@id': siteMetadata.author.id,
+    name: siteMetadata.author.name,
+    url: resolveAbsoluteUrl(siteMetadata.author.path),
   },
   publisher: {
+    '@id': `${siteMetadata.baseUrl}/#organization`,
     '@type': 'Organization',
     name: siteMetadata.name,
     logo: {
@@ -64,6 +78,7 @@ interface RecipeParams {
   canonicalUrl?: string;
   image?: string;
   author?: string;
+  source?: string;
   ingredients: string[];
   instructions: string[];
   prepTime?: string;
@@ -109,6 +124,7 @@ export const buildRecipeJsonLd = ({
   canonicalUrl,
   image,
   author,
+  source,
   ingredients,
   instructions,
   prepTime,
@@ -125,13 +141,19 @@ export const buildRecipeJsonLd = ({
   return {
     '@context': 'https://schema.org',
     '@type': 'Recipe',
+    '@id': canonicalUrl ? `${canonicalUrl}#recipe` : undefined,
+    url: canonicalUrl,
+    inLanguage: 'en-US',
+    citation: source,
     name,
     description,
-    image: image ? resolveAbsoluteUrl(image) : resolveAbsoluteUrl(siteMetadata.defaultSocialImage),
-    author: {
-      '@type': 'Person',
-      name: author ?? 'Suzanne (Suz)',
-    },
+    image: image ? resolveAbsoluteUrl(image) : undefined,
+    ...(author && !['Recipe source unclear', 'Prevent and Reverse Heart Disease Cookbook', 'Plant Based Woman Warrior'].includes(author) ? {
+      author: {
+        '@type': ['Forks Over Knives', 'plantyou.com', 'veganhuggs.com', 'Rebellious Aging'].includes(author) ? 'Organization' : 'Person',
+        name: author,
+      },
+    } : {}),
     mainEntityOfPage: canonicalUrl,
     recipeIngredient: ingredients,
     recipeInstructions: instructions.map((text) => ({
@@ -163,4 +185,47 @@ export const buildFaqJsonLd = (questions: Question[]) => ({
       text: faq.answer,
     },
   })),
+});
+
+export const buildPersonJsonLd = () => ({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': siteMetadata.author.id,
+  name: siteMetadata.author.name,
+  sameAs: [SUBSTACK_URL],
+  url: resolveAbsoluteUrl(siteMetadata.author.path),
+  description: 'Founder of Rebellious Aging, writer, and life and success coach sharing her experience of confidence, personal style, gratitude, and plant-based living with women 55+.',
+  worksFor: { '@id': `${siteMetadata.baseUrl}/#organization` },
+  knowsAbout: ['Rebellious aging', 'Whole-food, plant-based living', 'Confidence', 'Personal style', 'Gratitude'],
+});
+
+export const buildBreadcrumbJsonLd = (items: { name: string; path: string }[]) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.name,
+    item: resolveAbsoluteUrl(item.path),
+  })),
+});
+
+export const buildCollectionJsonLd = (name: string, path: string, items: { name: string; path: string }[]) => ({
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': `${resolveAbsoluteUrl(path)}#collection`,
+  name,
+  url: resolveAbsoluteUrl(path),
+  inLanguage: 'en-US',
+  isPartOf: { '@id': `${siteMetadata.baseUrl}/#website` },
+  mainEntity: {
+    '@type': 'ItemList',
+    numberOfItems: items.length,
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      url: resolveAbsoluteUrl(item.path),
+    })),
+  },
 });

@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/seo/PageBreadcrumbs';
 import React from 'react';
 import Link from 'next/link';
 import { ArrowRight, Check, Download, ExternalLink, Leaf, Sprout } from 'lucide-react';
@@ -64,6 +65,7 @@ const GuideDetail = ({ slug }: GuideDetailProps) => {
           ← Back to Free Guides
         </Link>
 
+      <PageBreadcrumbs items={[{ name: "Free Guides", path: "/guides" }, { name: guide.title, path: canonicalPath }]} />
         <PageTopUtilityRow className="-mt-4">
           <PageShareButton />
         </PageTopUtilityRow>

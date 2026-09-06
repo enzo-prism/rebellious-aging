@@ -15,7 +15,6 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 import { communityEventsInfo, nextEvent, timePreferenceGroups } from '@/data/communityEvents';
-import { buildOrganizationJsonLd } from '@/lib/structuredData';
 
 const joinSteps = [
   {
@@ -190,7 +189,6 @@ const Events = () => {
           title={seoConfig.title}
           description={seoConfig.description}
           canonicalPath={seoConfig.path}
-          jsonLd={buildOrganizationJsonLd()}
         />
       )}
 

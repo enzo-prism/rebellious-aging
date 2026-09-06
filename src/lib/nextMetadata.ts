@@ -63,6 +63,7 @@ export const buildMetadata = (meta: RouteMetadataInput, overrides: MetadataOverr
     title,
     description,
     metadataBase: new URL(siteMetadata.baseUrl),
+    ...(ogType === 'article' ? { authors: [{ name: siteMetadata.author.name, url: resolveAbsoluteUrl(siteMetadata.author.path) }] } : {}),
     alternates: canonicalWithLanguage,
     robots: noindex
       ? {
@@ -79,6 +80,9 @@ export const buildMetadata = (meta: RouteMetadataInput, overrides: MetadataOverr
           googleBot: {
             index: true,
             follow: true,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+            'max-video-preview': -1,
           },
         },
     openGraph: {

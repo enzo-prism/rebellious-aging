@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-01T07:43:49.808Z",
+  "generatedAt": "2026-09-06T16:16:14.208Z",
   "totalRoutes": 159,
   "validRoutes": 159,
   "failedRoutes": 0,
@@ -42,7 +42,7 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Our Story",
+        "title": "Meet Suz & the Rebellious Aging Story",
         "description": "Meet Suz and discover how Rebellious Aging challenges outdated rules with science-backed lifestyle shifts rooted in compassion.",
         "canonical": "/our-story",
         "ogType": "website",
@@ -67,7 +67,7 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Welcome Letter",
+        "title": "A Welcome from Suz",
         "description": "A heartfelt welcome from Suz inviting women to join a bold movement centered on community, plant-strong nourishment, and confidence.",
         "canonical": "/welcome-letter",
         "ogType": "website",
@@ -92,7 +92,7 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Speaking Events",
+        "title": "Speaking Events with Suz",
         "description": "Explore Suz's talks, community presentations, and future speaking appearances as Rebellious Aging keeps growing.",
         "canonical": "/speaking-events",
         "ogType": "website",
@@ -167,7 +167,7 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Starter Kit",
+        "title": "Rebellious Aging Starter Kit for Women 55+",
         "description": "A gentle starter kit for women 55-105 to begin with Nibble, Wiggle, Dazzle, and Gratefulness in the Rebellious Aging journey.",
         "canonical": "/starter-kit",
         "ogType": "website",
@@ -192,7 +192,7 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Nutrition",
+        "title": "Whole-Food, Plant-Based Nutrition",
         "description": "Explore the what, why, and how of Whole-Food, Plant-Based (WFPB) living with protocols, benefits, recipes, and expert-backed guidance.",
         "canonical": "/nutrition",
         "ogType": "website",
@@ -217,7 +217,7 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Nutrition Guide",
+        "title": "Whole-Food, Plant-Based Nutrition Guide",
         "description": "Dive into what to eat, what to crowd out, and how to read labels like a rebel with a printable WFPB roadmap for rebellious agers.",
         "canonical": "/pillars/health/nutrition-guide",
         "ogType": "website",
@@ -242,7 +242,7 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Resource Guide",
+        "title": "Plant-Based Books, Films & Resources",
         "description": "A curated library of documentaries, books, cookbooks, websites, and talks to explore WFPB living at your own pace.",
         "canonical": "/pillars/health/resource-guide",
         "ogType": "website",
@@ -267,7 +267,7 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Team",
+        "title": "Meet the Rebellious Aging Team",
         "description": "Meet the collaborators and creatives bringing the Rebellious Aging vision to life through photography, storytelling, and design.",
         "canonical": "/team",
         "ogType": "website",
@@ -292,7 +292,7 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Contact",
+        "title": "Contact Suz",
         "description": "Reach out to Suz for plant-based guidance, speaking inquiries, or personalized support on your rebellious aging journey.",
         "canonical": "/contact",
         "ogType": "website",
@@ -317,7 +317,7 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Facebook Group",
+        "title": "Rebellious Aging Facebook Community",
         "description": "Join the private Rebellious Aging Facebook group for daily inspiration, accountability, and plant-strong conversation.",
         "canonical": "/facebook-group",
         "ogType": "website",
@@ -342,7 +342,7 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Video Series",
+        "title": "Aging Boldly: Videos with Suz",
         "description": "Stream short, rebellious conversations with Suz covering confidence, style, whole-food living, and community.",
         "canonical": "/video-series",
         "ogType": "website",
@@ -367,7 +367,7 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Blog",
+        "title": "Aging Boldly: Confidence, Style & Life with Suz",
         "description": "Catch up on Suz’s long-form reflections on gratitude, nourishment, style, mindset, and rebellious aging.",
         "canonical": "/blog",
         "ogType": "website",
@@ -392,7 +392,7 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Recipes",
+        "title": "Whole-Food, Plant-Based Recipes",
         "description": "Browse plant-powered recipes from quick weeknight meals to celebratory favorites, built for vibrant, rebellious aging.",
         "canonical": "/recipes",
         "ogType": "website",
@@ -468,7 +468,7 @@
       "issues": [],
       "metadata": {
         "title": "Free Plant-Based Booklets & Guides",
-        "description": "The free plant-based booklets Suz recommends most — the Esselstyn Family Foundation jumpstart booklet and the T. Colin Campbell Center for Nutrition Studies guide — plus her own one-page starter, all in one place.",
+        "description": "Explore free plant-based guides from the Esselstyn Family Foundation and Center for Nutrition Studies, plus Suz’s one-page starter.",
         "canonical": "/guides",
         "ogType": "website",
         "noindex": false,
@@ -542,7 +542,7 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Confidence",
+        "title": "Confidence & Reinvention After 55",
         "description": "Ditch limiting beliefs and rebuild unshakable confidence with practical checklists, community inspiration, and personalized support.",
         "canonical": "/pillars/confidence",
         "ogType": "website",
@@ -567,7 +567,7 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Style",
+        "title": "Personal Style for Women 55+",
         "description": "Express signature style with playful guidance, curated resources, and the Rebellious Aging style checklist.",
         "canonical": "/pillars/style",
         "ogType": "website",
@@ -592,7 +592,7 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Health",
+        "title": "Healthy Aging & Plant-Based Living After 55",
         "description": "Fuel longevity with Whole-Food, Plant-Based foundations, nutrition tools, and a daily health checklist.",
         "canonical": "/pillars/health",
         "ogType": "website",
@@ -617,7 +617,7 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Gratitude",
+        "title": "Gratitude & Purpose After 55",
         "description": "Discover how gratitude becomes a rebellious daily practice that fuels joy, resilience, and purpose in every season of life.",
         "canonical": "/pillars/gratitude",
         "ogType": "website",

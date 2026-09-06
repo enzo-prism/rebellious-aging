@@ -26,7 +26,7 @@ import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { Button } from '@/components/ui/button';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 import { siteMetadata } from '@/lib/siteMetadata';
-import { buildArticleJsonLd, buildOrganizationJsonLd } from '@/lib/structuredData';
+import { buildArticleJsonLd } from '@/lib/structuredData';
 
 const pagePath = '/the-talk';
 const youtubeId = 'vGDZRW8FTWw';
@@ -309,7 +309,7 @@ const TheTalk = () => {
           canonicalPath={seoConfig.path}
           canonicalUrl={canonicalUrl}
           ogType="article"
-          jsonLd={[buildOrganizationJsonLd(), articleJsonLd, videoJsonLd]}
+          jsonLd={[articleJsonLd, videoJsonLd]}
         />
       )}
 

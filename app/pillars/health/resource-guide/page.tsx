@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/seo/PageBreadcrumbs';
 import type { Metadata } from 'next';
 
 import WfpbResourceGuide from '@/views/WfpbResourceGuide';
@@ -18,5 +19,8 @@ export const generateMetadata = (): Metadata => {
 };
 
 export default function ResourceGuidePage() {
-  return <WfpbResourceGuide />;
+  return <>
+    <div className="container mx-auto px-4 pt-6"><PageBreadcrumbs items={[{ name: "Health", path: "/pillars/health" }, { name: "Resource Guide", path: "/pillars/health/resource-guide" }]} /></div>
+    <WfpbResourceGuide />
+  </>;
 }

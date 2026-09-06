@@ -2,6 +2,10 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { getPublicBlogPosts, getBlogPostSeoTitle, getBlogPostSeoDescription } from '../src/data/blogPosts';
+import { seoRoutes } from '../src/data/seoRoutes';
+import { recipes, slugifyRecipeTitle } from '../src/data/recipes';
+import { homeFaqs } from '../src/data/faqs';
 import { guides, getGuidePath } from '../src/data/guides';
 import { getSpeakingEventPath, speakingEvents } from '../src/data/speakingEvents';
 import { siteMetadata } from '../src/lib/siteMetadata';
@@ -24,6 +28,13 @@ const toAbsoluteUrl = (path: string) => {
 const keyPaths = [
   '/',
   '/our-story',
+  '/starter-kit',
+  '/pillars/confidence',
+  '/pillars/style',
+  '/pillars/health',
+  '/pillars/gratitude',
+  '/pillars/health/nutrition-guide',
+  '/pillars/health/resource-guide',
   '/welcome-letter',
   '/events',
   '/speaking-events',
@@ -52,7 +63,10 @@ const lines = [
   `- ${toAbsoluteUrl('/sitemap.xml')}`,
   '',
   '## Key sections',
-  ...keyPaths.map((path) => `- ${toAbsoluteUrl(path)}`),
+  ...keyPaths.map((path) => {
+    const meta = seoRoutes.find((route) => route.path === path);
+    return `- [${meta?.title ?? path}](${toAbsoluteUrl(path)}): ${meta?.description ?? ''}`;
+  }),
   '',
   '## Free plant-based booklets and guides',
   `- ${toAbsoluteUrl('/guides')}`,
@@ -61,6 +75,14 @@ const lines = [
   '## Speaking events',
   `- ${toAbsoluteUrl('/speaking-events')}`,
   ...speakingEvents.map((event) => `- ${toAbsoluteUrl(getSpeakingEventPath(event.slug))}`),
+  '',
+  '## About the community',
+  ...homeFaqs.flatMap(({ question, answer }) => [`### ${question}`, answer, '']),
+  '## Public articles by Suz',
+  ...getPublicBlogPosts().map((post) => `- [${getBlogPostSeoTitle(post)}](${toAbsoluteUrl(`/blog/${post.id}`)}): ${getBlogPostSeoDescription(post)}`),
+  '',
+  '## Recipe collection',
+  ...recipes.map((recipe) => `- [${recipe.title}](${toAbsoluteUrl(`/recipes/${slugifyRecipeTitle(recipe.title)}`)}): ${recipe.description}`),
   '',
   '## Content notes',
   '- Health and nutrition content is educational and is not medical advice.',

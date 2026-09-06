@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/seo/PageBreadcrumbs';
 import React from 'react';
 import Link from 'next/link';
 import { ChefHat, Clock, Snowflake, Users } from 'lucide-react';
@@ -55,7 +56,8 @@ const RecipeDetail = ({ slug }: RecipeDetailProps) => {
     name: recipe.title,
     description: metaDescription,
     canonicalUrl,
-    image,
+    image: recipe.image,
+    source: recipe.source,
     author: recipe.author,
     ingredients: ingredientsForSchema,
     instructions: instructionsForSchema,
@@ -80,6 +82,7 @@ const RecipeDetail = ({ slug }: RecipeDetailProps) => {
       />
 
       <div className="max-w-5xl mx-auto space-y-10">
+      <PageBreadcrumbs items={[{ name: "Recipes", path: "/recipes" }, { name: recipe.title, path: canonicalPath }]} />
         <Link href="/recipes" className="text-sm hover:underline inline-block">← Back to Recipes</Link>
 
         <PageTopUtilityRow className="-mt-4">
@@ -90,9 +93,10 @@ const RecipeDetail = ({ slug }: RecipeDetailProps) => {
           <div className="rounded-3xl overflow-hidden border border-gray-200 shadow-sm">
             <img
               src={image}
-              alt={recipe.imageAlt ?? recipe.title}
+              alt={recipe.image ? (recipe.imageAlt ?? recipe.title) : 'Rebellious Aging'}
               className="w-full h-full object-cover"
-              loading="lazy"
+              loading="eager"
+              fetchPriority="high"
             />
           </div>
 

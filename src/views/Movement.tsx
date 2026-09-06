@@ -10,7 +10,6 @@ import PageShareButton from '@/components/share/PageShareButton';
 import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { trustedVoiceEndorsements } from '@/data/endorsements';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
-import { buildOrganizationJsonLd } from '@/lib/structuredData';
 
 const suzTimeline = [
   {
@@ -69,7 +68,6 @@ const Movement = () => {
           title={seoConfig.title}
           description={seoConfig.description}
           canonicalPath={seoConfig.path}
-          jsonLd={buildOrganizationJsonLd()}
         />
       )}
       {/* Hero Section */}
@@ -102,7 +100,7 @@ const Movement = () => {
       </section>
 
       {/* Origin Story */}
-      <section className="py-12 sm:py-16 lg:py-20">
+      <section id="suz" className="py-12 sm:py-16 lg:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">

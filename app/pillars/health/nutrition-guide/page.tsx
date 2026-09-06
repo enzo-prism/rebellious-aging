@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/seo/PageBreadcrumbs';
 import type { Metadata } from 'next';
 
 import NutritionGuide from '@/views/NutritionGuide';
@@ -18,5 +19,8 @@ export const generateMetadata = (): Metadata => {
 };
 
 export default function NutritionGuidePage() {
-  return <NutritionGuide />;
+  return <>
+    <div className="container mx-auto px-4 pt-6"><PageBreadcrumbs items={[{ name: "Health", path: "/pillars/health" }, { name: "Nutrition Guide", path: "/pillars/health/nutrition-guide" }]} /></div>
+    <NutritionGuide />
+  </>;
 }

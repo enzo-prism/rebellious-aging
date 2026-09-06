@@ -1,3 +1,7 @@
+import Seo from '@/components/seo/Seo';
+import { buildCollectionJsonLd } from '@/lib/structuredData';
+import { guides, getGuidePath } from '@/data/guides';
+import PageBreadcrumbs from '@/components/seo/PageBreadcrumbs';
 import type { Metadata } from 'next';
 
 import Guides from '@/views/Guides';
@@ -18,5 +22,9 @@ export const generateMetadata = (): Metadata => {
 };
 
 export default function GuidesPage() {
-  return <Guides />;
+  return <>
+    <Seo jsonLd={buildCollectionJsonLd(routeMeta?.title ?? 'Guides', '/guides', guides.map((guide) => ({ name: guide.title, path: getGuidePath(guide.slug) })))} />
+    <div className="container mx-auto px-4 pt-6"><PageBreadcrumbs items={[{ name: "Free Guides", path: "/guides" }]} /></div>
+    <Guides />
+  </>;
 }

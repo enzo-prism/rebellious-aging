@@ -13,8 +13,8 @@ const NutritionHero = () => {
           </PageTopUtilityRow>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Whole-Food, Plant-Based Nutrition</h1>
           <p className="text-lg text-gray-700">
-            Discover the science-backed nutrition approach that can help prevent and reverse chronic diseases, 
-            increase your energy, and support vibrant longevity.
+            Explore whole-food, plant-based eating with Suz: what it means, how it differs from vegan eating,
+            and where to find recipes, free guides, and resources for your next chapter.
           </p>
         </div>
       </div>

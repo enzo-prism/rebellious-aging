@@ -4,7 +4,6 @@ import Seo from '@/components/seo/Seo';
 import PageShareButton from '@/components/share/PageShareButton';
 import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
-import { buildOrganizationJsonLd } from '@/lib/structuredData';
 
 const starterPrinciples = [
   {
@@ -54,7 +53,6 @@ const StarterKit = () => {
           title={seoConfig.title}
           description={seoConfig.description}
           canonicalPath={seoConfig.path}
-          jsonLd={buildOrganizationJsonLd()}
         />
       )}
       <div className="container mx-auto px-4">

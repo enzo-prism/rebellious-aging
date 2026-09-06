@@ -1,5 +1,5 @@
+import PageBreadcrumbs from '@/components/seo/PageBreadcrumbs';
 import type { Metadata } from 'next';
-import { Suspense } from 'react';
 
 import { buildMetadata } from '@/lib/nextMetadata';
 import { getRouteMetaByPath } from '@/lib/routeMetadata';
@@ -19,15 +19,8 @@ export const generateMetadata = (): Metadata => {
 };
 
 export default function NutritionPage() {
-  return (
-    <Suspense
-      fallback={
-        <div className="min-h-screen flex items-center justify-center px-4">
-          <p className="text-muted-foreground">Loading nutrition page…</p>
-        </div>
-      }
-    >
-      <Nutrition />
-    </Suspense>
-  );
+  return <>
+    <div className="container mx-auto px-4 pt-6"><PageBreadcrumbs items={[{ name: "Nutrition", path: "/nutrition" }]} /></div>
+    <Nutrition />
+  </>;
 }

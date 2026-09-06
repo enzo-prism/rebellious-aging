@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/button';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 import { getSpeakingEventPath } from '@/data/speakingEvents';
 import { buildMetaDescription, buildSeoTitle, getCanonicalUrl } from '@/lib/seo';
-import { buildArticleJsonLd, buildOrganizationJsonLd } from '@/lib/structuredData';
+import { buildArticleJsonLd } from '@/lib/structuredData';
 
 const themes = [
   {
@@ -123,7 +123,7 @@ const DrSeussPage = () => {
           canonicalPath={seoConfig.path}
           canonicalUrl={canonicalUrl}
           ogType="article"
-          jsonLd={[buildOrganizationJsonLd(), ...(articleJsonLd ? [articleJsonLd] : [])]}
+          jsonLd={articleJsonLd || undefined}
         />
       )}
 

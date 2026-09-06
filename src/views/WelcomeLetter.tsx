@@ -10,7 +10,6 @@ import Seo from '@/components/seo/Seo';
 import PageShareButton from '@/components/share/PageShareButton';
 import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
-import { buildOrganizationJsonLd } from '@/lib/structuredData';
 
 const WelcomeLetter = () => {
   const seoConfig = getSeoRouteByPath('/welcome-letter');
@@ -22,7 +21,6 @@ const WelcomeLetter = () => {
           title={seoConfig.title}
           description={seoConfig.description}
           canonicalPath={seoConfig.path}
-          jsonLd={buildOrganizationJsonLd()}
         />
       )}
       <div className="container mx-auto px-4 max-w-4xl">

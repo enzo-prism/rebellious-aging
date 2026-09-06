@@ -1,5 +1,7 @@
 'use client';
 
+import FaqSection from '@/components/seo/FaqSection';
+import { homeFaqs } from '@/data/faqs';
 import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import PillarCard from '@/components/home/PillarCard';
@@ -24,7 +26,6 @@ import Seo from '@/components/seo/Seo';
 import PageShareButton from '@/components/share/PageShareButton';
 import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
-import { buildOrganizationJsonLd, buildWebSiteJsonLd } from '@/lib/structuredData';
 import { Search, Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 // import Autoplay from 'embla-carousel-autoplay'; // Removed to prevent auto-scrolling
@@ -229,7 +230,6 @@ const Home = () => {
           title={homeSeo.title}
           description={homeSeo.description}
           canonicalPath={homeSeo.path}
-          jsonLd={[buildOrganizationJsonLd(), buildWebSiteJsonLd()]}
         />
       )}
       {/* Hero — Welcome Home */}
@@ -255,7 +255,7 @@ const Home = () => {
                   You do not have to figure this stage of life out alone.
                 </p>
                 <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-                  Rebellious Aging is a warm, supportive community for women who want to age with
+                  Rebellious Aging is a warm, supportive community for women 55+ who want to age with
                   vitality, curiosity, laughter, confidence, and connection.
                 </p>
                 <div className="flex flex-col sm:flex-row sm:flex-wrap button-spacing">
@@ -612,6 +612,7 @@ const Home = () => {
         ctaLabel="Read Suz's story"
       />
 
+      <FaqSection title="New to Rebellious Aging? Start here" questions={homeFaqs} />
       <LivingRoomSection />
     </>
   );

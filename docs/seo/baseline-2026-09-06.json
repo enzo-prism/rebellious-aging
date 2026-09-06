@@ -1,0 +1,182 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "title": "Rebellious Aging | Age Boldly, Live Loudly",
+    "canonical": "https://www.rebelwithsuz.com/",
+    "h1": [
+      "Welcome Home"
+    ],
+    "mainLength": 7887,
+    "schemas": [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Rebellious Aging",
+        "url": "https://www.rebelwithsuz.com",
+        "logo": "https://www.rebelwithsuz.com/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png",
+        "sameAs": [
+          "https://www.facebook.com/groups/rebelliousaging",
+          "https://www.instagram.com/rebelliousaging"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Rebellious Aging",
+        "url": "https://www.rebelwithsuz.com",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.rebelwithsuz.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ],
+    "robots": "index, follow"
+  },
+  {
+    "path": "/nutrition",
+    "status": 200,
+    "title": "Nutrition",
+    "canonical": "https://www.rebelwithsuz.com/nutrition",
+    "h1": [],
+    "mainLength": 23,
+    "schemas": [],
+    "robots": "index, follow"
+  },
+  {
+    "path": "/our-story",
+    "status": 200,
+    "title": "Our Story",
+    "canonical": "https://www.rebelwithsuz.com/our-story",
+    "h1": [
+      "About Rebellious Aging"
+    ],
+    "mainLength": 11388,
+    "schemas": [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Rebellious Aging",
+        "url": "https://www.rebelwithsuz.com",
+        "logo": "https://www.rebelwithsuz.com/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png",
+        "sameAs": [
+          "https://www.facebook.com/groups/rebelliousaging",
+          "https://www.instagram.com/rebelliousaging"
+        ]
+      }
+    ],
+    "robots": "index, follow"
+  },
+  {
+    "path": "/blog/a-marker-beside-the-road",
+    "status": 200,
+    "title": "A Marker Beside The Road",
+    "canonical": "https://www.rebelwithsuz.com/blog/a-marker-beside-the-road",
+    "h1": [
+      "A Marker Beside The Road"
+    ],
+    "mainLength": 3838,
+    "schemas": [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "A Marker Beside The Road",
+        "description": "Suz celebrates 100 blogs as a marker beside the road, proof that beginning, curiosity, consistency, and small steps can build a life.",
+        "author": {
+          "@type": "Person",
+          "name": "Suzanne (Suz)"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Rebellious Aging",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.rebelwithsuz.com/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+          }
+        },
+        "mainEntityOfPage": "https://www.rebelwithsuz.com/blog/a-marker-beside-the-road",
+        "image": "https://www.rebelwithsuz.com/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png",
+        "datePublished": "2026-08-31T03:00:00.000Z"
+      }
+    ],
+    "robots": "index, follow"
+  },
+  {
+    "path": "/recipes/orange-mango-bean-salad",
+    "status": 200,
+    "title": "Orange Mango Bean Salad",
+    "canonical": "https://www.rebelwithsuz.com/recipes/orange-mango-bean-salad",
+    "h1": [
+      "Orange Mango Bean Salad"
+    ],
+    "mainLength": 2374,
+    "schemas": [
+      {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": "Orange Mango Bean Salad",
+        "description": "A refreshing and nutritious salad combining cannellini beans with tropical fruits and fresh mint.",
+        "image": "https://www.rebelwithsuz.com/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png",
+        "author": {
+          "@type": "Person",
+          "name": "Suzanne (Suz)"
+        },
+        "mainEntityOfPage": "https://www.rebelwithsuz.com/recipes/orange-mango-bean-salad",
+        "recipeIngredient": [
+          "15 ounces canned cannellini beans (about 1½ cups), canned navy beans, or cooked large lima beans drained and rinsed",
+          "1-2 mangoes (about 1½ cups), peeled and diced",
+          "2 navel oranges (about 1½ cups), peeled, sectioned, and cubed",
+          "1-2 teaspoons minced jalapeño pepper",
+          "2 teaspoons lime zest (from 1½ to 2 limes)",
+          "¼ cup lime juice or more to taste",
+          "2 tablespoons fresh mint, chopped",
+          "5-6 cups of arugula or greens of choice"
+        ],
+        "recipeInstructions": [
+          {
+            "@type": "HowToStep",
+            "text": "In a large bowl, combine the beans, mangoes, oranges, jalapeño, lime zest and juice, and mint."
+          },
+          {
+            "@type": "HowToStep",
+            "text": "Taste to see if you need more lime juice."
+          },
+          {
+            "@type": "HowToStep",
+            "text": "Arrange the arugula or greens of choice in the bottom of a wide bowl, add the bean mixture, and feast on a combination of such good taste."
+          }
+        ],
+        "prepTime": "PT15M",
+        "recipeYield": "4",
+        "recipeCategory": "salads",
+        "keywords": "Lunch, Oil-Free, Quick"
+      }
+    ],
+    "robots": "index, follow"
+  },
+  {
+    "path": "/guides",
+    "status": 200,
+    "title": "Free Plant-Based Booklets & Guides",
+    "canonical": "https://www.rebelwithsuz.com/guides",
+    "h1": [
+      "Free Plant-Based Booklets & Guides"
+    ],
+    "mainLength": 1453,
+    "schemas": [],
+    "robots": "index, follow"
+  },
+  {
+    "path": "/made-up-seo-test",
+    "status": 404,
+    "title": "Page Not Found",
+    "canonical": "https://www.rebelwithsuz.com/404",
+    "h1": [
+      "404"
+    ],
+    "mainLength": 168,
+    "schemas": [],
+    "robots": "noindex"
+  }
+]

@@ -18,10 +18,6 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: ['AhrefsBot', 'MJ12bot', 'DotBot'],
         disallow: '/',
       },
-      {
-        userAgent: ['Googlebot', 'Bingbot', 'Slurp', 'Twitterbot', 'facebookexternalhit', 'LinkedInBot'],
-        allow: '/',
-      },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
   };

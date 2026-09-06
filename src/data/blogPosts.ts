@@ -1124,6 +1124,14 @@ export const blogPosts: BlogPostMetadata[] = [
   }
 ];
 
+export const getBlogPublishedDate = (post: BlogPostMetadata) => {
+  const parts = post.date.split('/');
+  // Month-only archives have no verified publication day. Do not invent one.
+  if (parts.length !== 3) return undefined;
+  const [month, day, year] = parts;
+  return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+};
+
 export const getBlogPostById = (id: string) => blogPosts.find((post) => post.id === id);
 
 export const isGatedBlogPost = (post: BlogPostMetadata) => post.gated === true;

@@ -23,7 +23,15 @@ const WhatIsWFPB = () => {
         </p>
         
         <p>
-          This nutritional approach is supported by extensive scientific research showing its effectiveness in preventing and even reversing chronic diseases, particularly heart disease, type 2 diabetes, and certain cancers.
+          Explore the original educational resources in the{' '}
+          <a href="https://nutritionstudies.org/whole-food-plant-based-diet-guide/" className="text-teal underline">
+            T. Colin Campbell Center for Nutrition Studies’ whole-food, plant-based guide
+          </a>{' '}
+          and the{' '}
+          <a href="https://esselstynfamilyfoundation.org/ef-content/uploads/2022/06/PB-jumpstart-guide.pdf" className="text-teal underline">
+            Esselstyn Family Foundation’s free jumpstart booklet
+          </a>.
+          These resources explain their approaches in more detail and are part of Suz’s learning library.
         </p>
       </div>
     </div>

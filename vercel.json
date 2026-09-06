@@ -16,6 +16,15 @@
           "value": "SAMEORIGIN"
         }
       ]
+    },
+    {
+      "source": "/:file(search-index.json|seo-route-audit.json|production-readiness-report.json)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
     }
   ],
   "redirects": [

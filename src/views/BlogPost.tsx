@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/seo/PageBreadcrumbs';
 import React from 'react';
 import Link from 'next/link';
 import { BlogPasswordGate } from '@/components/blog/BlogPasswordGate';
@@ -10,6 +11,7 @@ import { blogPostContent } from '@/data/blogPostContent';
 import { getBlogPostCta } from '@/data/blogPostCtas';
 import {
   getBlogPostById,
+  getBlogPublishedDate,
   getBlogPostSeoDescription,
   getBlogPostSeoTitle,
   getBlogReleaseLabel,
@@ -55,7 +57,7 @@ const BlogPost = ({ postId }: BlogPostProps) => {
   const canonicalUrl = getCanonicalUrl(canonicalPath);
   const pageTitle = getBlogPostSeoTitle(currentPost);
   const metaDescription = buildMetaDescription(getBlogPostSeoDescription(currentPost), currentPost.excerpt);
-  const publishedTime = currentPost.dateSort.toISOString();
+  const publishedTime = getBlogPublishedDate(currentPost);
   const socialImage = resolveSocialImage(siteMetadata.defaultSocialImage);
 
   const isGated = currentPost.gated === true;
@@ -96,6 +98,12 @@ const BlogPost = ({ postId }: BlogPostProps) => {
       </div>
 
       {postContent.heading}
+      <p className="mb-4 text-sm text-muted-foreground">
+        By <Link href="/our-story#suz" rel="author" className="text-teal underline">Suz</Link>
+        {' · '}<time dateTime={publishedTime}>{publishedTime ? new Intl.DateTimeFormat('en-US', { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(publishedTime)) : currentPost.date}</time>
+        {' · '}{currentPost.readTime}
+      </p>
+      <p className="mb-8 border-l-4 border-teal pl-4 text-lg leading-relaxed text-gray-700">{currentPost.excerpt}</p>
       {postContent.body}
 
       <BlogPostFacebookCta cta={getBlogPostCta(currentPost.id)} />
@@ -106,6 +114,7 @@ const BlogPost = ({ postId }: BlogPostProps) => {
 
   return withSeo(
     <div className="min-h-screen bg-background px-4 py-12 max-w-3xl mx-auto">
+      <PageBreadcrumbs items={[{ name: "Blog", path: "/blog" }, { name: pageTitle, path: canonicalPath }]} />
       <Link href="/blog" className="text-sm hover:underline mb-8 inline-block">← Back to Blog</Link>
 
       <PageTopUtilityRow>
@@ -115,7 +124,7 @@ const BlogPost = ({ postId }: BlogPostProps) => {
       {isGated ? (
         <BlogPasswordGate releaseLabel={getBlogReleaseLabel(currentPost)}>{postBody}</BlogPasswordGate>
       ) : (
-        postBody
+        <article>{postBody}</article>
       )}
     </div>
   );

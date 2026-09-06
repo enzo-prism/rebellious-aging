@@ -6,6 +6,7 @@ import { buildMetaDescription } from '@/lib/seo';
 import { siteMetadata } from '@/lib/siteMetadata';
 import {
   blogPosts,
+  getBlogPublishedDate,
   getBlogPostSeoDescription,
   getBlogPostSeoTitle,
   getBlogPostById,
@@ -35,7 +36,7 @@ const resolvePostMeta = (postId: string) => {
     description: buildMetaDescription(getBlogPostSeoDescription(post), post.excerpt),
     image: siteMetadata.defaultSocialImage,
     ogType: 'article' as const,
-    publishedTime: post.date,
+    publishedTime: getBlogPublishedDate(post),
     // Password-gated previews stay out of the search-engine index even though
     // the route is still generated and linked from the public blog index.
     noindex: post.gated === true,

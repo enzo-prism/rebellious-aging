@@ -8,7 +8,6 @@ import { Badge } from '@/components/ui/badge';
 import Seo from '@/components/seo/Seo';
 import PageShareButton from '@/components/share/PageShareButton';
 import PageTopUtilityRow from '@/components/share/PageTopUtilityRow';
-import { buildWebSiteJsonLd } from '@/lib/structuredData';
 import { getSeoRouteByPath } from '@/data/seoRoutes';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import SubstackAnnouncement from '@/components/common/SubstackAnnouncement';
@@ -41,7 +40,6 @@ const Blog = () => {
           title={seoConfig.title}
           description={seoConfig.description}
           canonicalPath={seoConfig.path}
-          jsonLd={buildWebSiteJsonLd()}
         />
       )}
 

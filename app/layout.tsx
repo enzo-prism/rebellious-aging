@@ -8,6 +8,8 @@ import '@/index.css';
 import AppProviders from '@/App';
 import Ga4LeadTracker from '@/components/analytics/Ga4LeadTracker';
 import Layout from '@/components/layout/Layout';
+import Seo from '@/components/seo/Seo';
+import { buildOrganizationJsonLd, buildPersonJsonLd, buildWebSiteJsonLd } from '@/lib/structuredData';
 import { siteMetadata } from '@/lib/siteMetadata';
 
 const inter = Inter({
@@ -115,6 +117,14 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Seo jsonLd={[buildOrganizationJsonLd(), buildWebSiteJsonLd(), buildPersonJsonLd()]} />
+        <noscript><style>{`
+          .opacity-0, .animate-on-scroll, .animate-slide-left, .animate-slide-right, .animate-scale-fade {
+            opacity: 1 !important;
+            transform: none !important;
+            animation: none !important;
+          }
+        `}</style></noscript>
         <AnalyticsScripts />
         <AppProviders>
           <Layout>{children}</Layout>

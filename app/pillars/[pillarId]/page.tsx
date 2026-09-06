@@ -1,3 +1,4 @@
+import PageBreadcrumbs from '@/components/seo/PageBreadcrumbs';
 import type { Metadata } from 'next';
 
 import PillarPage from '@/views/PillarPage';
@@ -73,5 +74,9 @@ export const generateMetadata = async ({
 
 export default async function PillarPageRoute({ params }: { params: Promise<{ pillarId: string }> }) {
   const { pillarId } = await params;
-  return <PillarPage pillarId={pillarId} />;
+  const meta = resolvePillarMeta(pillarId);
+  return <>
+    <div className="container mx-auto px-4 pt-6"><PageBreadcrumbs items={[{ name: meta.title, path: meta.path }]} /></div>
+    <PillarPage pillarId={pillarId} />
+  </>;
 }

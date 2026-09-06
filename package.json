@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "npm run llms && npm run sitemap && npm run build:search && next build && npm run prerender",
+    "build": "npm run llms && npm run sitemap && npm run build:search && next build && npm run prerender && npm run audit:seo",
     "build:dev": "next build",
     "lint": "eslint src app scripts",
     "typecheck": "tsc --noEmit --pretty false",
@@ -28,7 +28,8 @@
     "readiness:report": "tsx scripts/production-readiness.ts",
     "prepare-e2e": "npm run readiness:assets",
     "lh": "lhci autorun",
-    "test:axe": "playwright test tests/e2e/accessibility.spec.ts"
+    "test:axe": "playwright test tests/e2e/accessibility.spec.ts",
+    "audit:seo": "node scripts/audit-export.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
