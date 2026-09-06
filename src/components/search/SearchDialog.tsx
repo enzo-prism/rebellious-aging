@@ -147,7 +147,7 @@ export const SearchDialog: React.FC<SearchDialogProps> = ({ open, onOpenChange, 
         )}
         </CommandList>
         <div className="flex shrink-0 items-center justify-between border-t px-4 py-3">
-          <Link href={query.trim() ? `/search?q=${encodeURIComponent(query.trim())}` : '/search'} className="inline-flex min-h-11 items-center gap-2 font-medium text-teal hover:underline" onClick={() => setOpen(false)}>
+          <Link href={`/search${query.trim() || activeType !== 'all' ? `?${new URLSearchParams({ ...(query.trim() ? { q: query.trim() } : {}), ...(activeType !== 'all' ? { type: activeType } : {}) }).toString()}` : ''}`} className="inline-flex min-h-11 items-center gap-2 font-medium text-teal hover:underline" onClick={() => setOpen(false)}>
             View all search results <ArrowRight className="h-4 w-4" />
           </Link>
           <span className="hidden text-xs text-muted-foreground sm:block">Esc to close</span>

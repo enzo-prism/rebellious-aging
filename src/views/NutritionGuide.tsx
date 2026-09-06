@@ -99,13 +99,6 @@ const NutritionGuide = () => {
     connectingSection,
   ] = nutritionGuideSections;
 
-  const jumpToPlate = React.useCallback(() => {
-    const section = document.getElementById('rebel-plate');
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, []);
-
   const seoConfig = getSeoRouteByPath('/pillars/health/nutrition-guide');
 
   return (
@@ -118,7 +111,7 @@ const NutritionGuide = () => {
         />
       )}
 
-      <section className="bg-gradient-to-b from-teal/20 to-white py-20">
+      <section className="bg-gradient-to-b from-teal/20 to-white py-8 sm:py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center space-y-5">
             <PageTopUtilityRow className="mb-2">
@@ -143,8 +136,8 @@ const NutritionGuide = () => {
               .
             </p>
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center">
-              <Button className="min-w-[200px]" onClick={jumpToPlate}>
-                🍽️ Jump to What to Eat
+              <Button asChild className="min-w-[200px]">
+                <a href="#rebel-plate">🍽️ Jump to What to Eat</a>
               </Button>
               <Button asChild variant="secondary" className="min-w-[220px]">
                 <a href={NUTRITION_STUDIES_URL} target="_blank" rel="noopener noreferrer" className="text-center">
@@ -167,7 +160,13 @@ const NutritionGuide = () => {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-16 space-y-16">
+      <div className="container mx-auto px-4 py-8 sm:py-12 space-y-12">
+        <nav aria-label="In this nutrition guide" className="max-w-4xl mx-auto rounded-2xl border border-teal/20 bg-teal/5 p-5">
+          <h2 className="text-lg font-semibold mb-3">In this guide</h2>
+          <ul className="grid gap-2 sm:grid-cols-2">
+            {nutritionGuideSections.map((section) => <li key={section.id}><a href={`#${section.id}`} className="flex min-h-11 items-center text-teal underline underline-offset-4">{section.title}</a></li>)}
+          </ul>
+        </nav>
         <section id={whatIsWfpb.id} className="max-w-4xl mx-auto space-y-4">
           <h2 className="text-3xl font-bold">{whatIsWfpb.title}</h2>
           <p className="text-lg text-gray-700">

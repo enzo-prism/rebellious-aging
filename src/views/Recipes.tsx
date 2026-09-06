@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import Link from 'next/link';
+import { useUrlFilters, UrlFiltersSync, writeParam, readAllowedValues } from '@/hooks/useUrlFilters';
 import { Clock, ChefHat, Search, Snowflake, Users } from 'lucide-react';
 
 import { Badge } from '@/components/ui/badge';
@@ -103,12 +104,23 @@ const extractMinutes = (value?: string) => {
 
 const recipeSearchIndex = new Map<number, string>(recipes.map((recipe) => [recipe.id, buildSearchText(recipe)]));
 
+type RecipeSort = 'newest' | 'alpha' | 'quick';
+const parseRecipeFilters = (params: URLSearchParams) => ({
+  searchQuery: params.get('q') ?? '',
+  activeCategory: categories.some((category) => category.id === params.get('category')) ? params.get('category')! : 'all',
+  activeTags: readAllowedValues(params, 'tag', recipeTags),
+  sortBy: (['alpha', 'quick'].includes(params.get('sort') ?? '') ? params.get('sort') : 'newest') as RecipeSort,
+});
+const writeRecipeFilters = (filters: ReturnType<typeof parseRecipeFilters>, params: URLSearchParams) => {
+  writeParam(params, 'q', filters.searchQuery);
+  writeParam(params, 'category', filters.activeCategory, 'all');
+  writeParam(params, 'tag', filters.activeTags);
+  writeParam(params, 'sort', filters.sortBy, 'newest');
+};
+
 const Recipes = () => {
   const seoConfig = getSeoRouteByPath('/recipes');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [activeCategory, setActiveCategory] = useState('all');
-  const [activeTags, setActiveTags] = useState<string[]>([]);
-  const [sortBy, setSortBy] = useState<'newest' | 'alpha' | 'quick'>('newest');
+  const [{ searchQuery, activeCategory, activeTags, sortBy }, setFilters] = useUrlFilters(parseRecipeFilters, writeRecipeFilters);
 
   const normalizedQuery = normalizeQuery(searchQuery);
   const tokens = useMemo(() => normalizedQuery.split(' ').filter(Boolean), [normalizedQuery]);
@@ -144,14 +156,12 @@ const Recipes = () => {
   }, [activeCategory, activeTags, sortBy, tokens]);
 
   const clearFilters = () => {
-    setSearchQuery('');
-    setActiveCategory('all');
-    setActiveTags([]);
-    setSortBy('newest');
+    setFilters({ searchQuery: '', activeCategory: 'all', activeTags: [], sortBy: 'newest' });
   };
 
   return (
     <div className="min-h-screen bg-background">
+      <UrlFiltersSync />
       {seoConfig && (
         <Seo title={seoConfig.title} description={seoConfig.description} canonicalPath={seoConfig.path} />
       )}
@@ -172,13 +182,13 @@ const Recipes = () => {
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
               <div className="relative flex-1 max-w-2xl">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-teal h-5 w-5" aria-hidden="true" />
-                <Input value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} placeholder="Search sweet potato, soup, oil-free, quick..." className="h-12 pl-12 rounded-xl text-base" type="search" aria-label="Search recipes" />
+                <Input value={searchQuery} onChange={(event) => setFilters({ searchQuery: event.target.value })} placeholder="Search sweet potato, soup, oil-free, quick..." className="h-12 pl-12 rounded-xl text-base" type="search" aria-label="Search recipes" />
               </div>
               <div className="flex flex-wrap items-center gap-3">
                 <span id="recipe-sort-label" className="text-sm text-muted-foreground">
                   Sort by
                 </span>
-                <Select value={sortBy} onValueChange={(value) => setSortBy(value as 'newest' | 'alpha' | 'quick')}>
+                <Select value={sortBy} onValueChange={(value) => setFilters({ sortBy: value as RecipeSort })}>
                   <SelectTrigger
                     aria-labelledby="recipe-sort-label"
                     className="h-11 w-[180px] rounded-full px-4 text-sm font-medium"
@@ -207,7 +217,7 @@ const Recipes = () => {
             <h2 className="sr-only">Browse recipes by category</h2>
             <div className="sm:hidden">
               <label htmlFor="recipe-category" className="sr-only">Recipe category</label>
-              <select id="recipe-category" value={activeCategory} onChange={(event) => setActiveCategory(event.target.value)} className="h-12 w-full rounded-xl border border-input bg-background px-4 text-base text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              <select id="recipe-category" value={activeCategory} onChange={(event) => setFilters({ activeCategory: event.target.value })} className="h-12 w-full rounded-xl border border-input bg-background px-4 text-base text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
                 {categories.map((category) => <option key={category.id} value={category.id}>{category.name} ({category.id === 'all' ? recipes.length : recipes.filter((recipe) => recipe.category === category.id).length})</option>)}
               </select>
             </div>
@@ -218,7 +228,7 @@ const Recipes = () => {
                   variant={activeCategory === category.id ? 'default' : 'outline'}
                   className="flex items-center gap-2"
                   aria-pressed={activeCategory === category.id}
-                  onClick={() => setActiveCategory(category.id)}
+                  onClick={() => setFilters({ activeCategory: category.id })}
                 >
                   <span>{category.icon}</span>
                   <span>{category.name}</span>
@@ -245,9 +255,7 @@ const Recipes = () => {
                     aria-pressed={isActive}
                     className={`inline-flex items-center rounded-full border border-transparent min-h-11 px-4 py-2 text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${isActive ? 'bg-teal text-white hover:bg-teal-dark' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
                     onClick={() =>
-                      setActiveTags((current) =>
-                        current.includes(tag) ? current.filter((item) => item !== tag) : [...current, tag]
-                      )
+                      setFilters((current) => ({ activeTags: current.activeTags.includes(tag) ? current.activeTags.filter((item) => item !== tag) : [...current.activeTags, tag] }))
                     }
                   >
                     {tag}

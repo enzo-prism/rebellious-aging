@@ -22,6 +22,7 @@ const PageShareButton: React.FC<PageShareButtonProps> = ({
 }) => {
   const [open, setOpen] = React.useState(false);
   const [isReady, setIsReady] = React.useState(false);
+  const [canShare, setCanShare] = React.useState(false);
   const [shareUrl, setShareUrl] = React.useState(url ?? '');
   const [pageTitle, setPageTitle] = React.useState('');
   const [copyState, setCopyState] = React.useState<'idle' | 'copied' | 'manual'>('idle');
@@ -50,6 +51,7 @@ const PageShareButton: React.FC<PageShareButtonProps> = ({
   React.useEffect(() => {
     syncFromWindow();
     setIsReady(true);
+    setCanShare(typeof navigator.share === 'function');
   }, [syncFromWindow]);
 
   const highlightUrl = React.useCallback(() => {
@@ -93,6 +95,18 @@ const PageShareButton: React.FC<PageShareButtonProps> = ({
     }
   }, [highlightUrl, shareUrl]);
 
+  const handleNativeShare = async () => {
+    const { currentShareUrl, currentPageTitle } = syncFromWindow();
+    try {
+      await navigator.share({ title: currentPageTitle, url: currentShareUrl });
+    } catch (error) {
+      // Closing the device's share sheet is an ordinary cancellation.
+      if (typeof error === 'object' && error !== null && 'name' in error && error.name === 'AbortError') return;
+      toast.error('Device sharing is unavailable. Copy the page link instead.');
+      highlightUrl();
+    }
+  };
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
@@ -123,6 +137,7 @@ const PageShareButton: React.FC<PageShareButtonProps> = ({
         inputRef={inputRef}
         onCopy={handleCopy}
         onHighlightUrl={highlightUrl}
+        onNativeShare={canShare ? handleNativeShare : undefined}
       />
     </Dialog>
   );

@@ -1,7 +1,8 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import Link from 'next/link';
+import { useUrlFilters, UrlFiltersSync, writeParam } from '@/hooks/useUrlFilters';
 import { ArrowRight, Lock, Search } from 'lucide-react';
 import { getBlogPostsByDateDesc, getBlogReleaseLabel, isGatedBlogPost } from '@/data/blogPosts';
 import { Input } from '@/components/ui/input';
@@ -14,19 +15,28 @@ import { getSeoRouteByPath } from '@/data/seoRoutes';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import SubstackAnnouncement from '@/components/common/SubstackAnnouncement';
 
+const orderedBlogPosts = getBlogPostsByDateDesc();
+const yearOptions = [...new Set(orderedBlogPosts.map((post) => String(post.dateSort.getUTCFullYear())))];
+const parseBlogFilters = (params: URLSearchParams) => ({
+  query: params.get('q') ?? '',
+  selectedYear: yearOptions.includes(params.get('year') ?? '') ? params.get('year')! : 'all',
+});
+const writeBlogFilters = (filters: ReturnType<typeof parseBlogFilters>, params: URLSearchParams) => {
+  writeParam(params, 'q', filters.query);
+  writeParam(params, 'year', filters.selectedYear, 'all');
+};
+
 const Blog = () => {
-  const [selectedYear, setSelectedYear] = useState('all');
-  const [query, setQuery] = useState('');
-  const orderedBlogPosts = useMemo(() => getBlogPostsByDateDesc(), []);
-  const yearOptions = [...new Set(orderedBlogPosts.map((post) => String(post.dateSort.getUTCFullYear())))];
+  const [{ query, selectedYear }, setFilters] = useUrlFilters(parseBlogFilters, writeBlogFilters);
   const visiblePosts = useMemo(() => orderedBlogPosts.filter((post) =>
     (selectedYear === 'all' || String(post.dateSort.getUTCFullYear()) === selectedYear) &&
     `${post.title} ${post.excerpt}`.toLowerCase().includes(query.trim().toLowerCase())
-  ), [orderedBlogPosts, selectedYear, query]);
+  ), [selectedYear, query]);
   const seoConfig = getSeoRouteByPath('/blog');
 
   return (
     <div className="min-h-screen bg-background px-4 py-8 sm:py-12 max-w-4xl mx-auto">
+      <UrlFiltersSync />
       {seoConfig && (
         <Seo
           title={seoConfig.title}
@@ -45,14 +55,14 @@ const Blog = () => {
       </header>
       <div className="relative mb-5">
         <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-teal" aria-hidden="true" />
-        <Input type="search" aria-label="Search articles" placeholder="Search articles by title or topic" value={query} onChange={(event) => setQuery(event.target.value)} className="h-12 rounded-xl pl-12" />
+        <Input type="search" aria-label="Search articles" placeholder="Search articles by title or topic" value={query} onChange={(event) => setFilters({ query: event.target.value })} className="h-12 rounded-xl pl-12" />
       </div>
       <div className="flex flex-wrap items-center gap-3 mb-8">
         <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">Filter by year</span>
         <ToggleGroup
           type="single"
           value={selectedYear}
-          onValueChange={(value) => setSelectedYear(value || 'all')}
+          onValueChange={(value) => setFilters({ selectedYear: value || 'all' })}
           variant="outline"
           size="sm"
           className="flex flex-wrap justify-start gap-2"
@@ -73,7 +83,7 @@ const Blog = () => {
       {visiblePosts.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-muted-foreground/40 bg-muted/30 p-8 text-center text-muted-foreground">
           <p className="mb-4">No articles match your search. Try another topic or clear your filters.</p>
-          <Button variant="outline" onClick={() => { setQuery(''); setSelectedYear('all'); }}>Clear filters</Button>
+          <Button variant="outline" onClick={() => { setFilters({ query: '', selectedYear: 'all' }); }}>Clear filters</Button>
         </div>
       ) : (
         <div className="divide-y divide-border border-t border-border">

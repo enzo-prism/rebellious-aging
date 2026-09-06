@@ -33,7 +33,7 @@ test.describe('Core site interactions', () => {
 
     await expect(page.getByRole('button', { name: 'Email my availability' })).toBeEnabled();
     await expect(
-      page.getByText('This opens your email app. Send the prepared email to complete your registration.')
+      page.getByText('Use “Email my availability” to open your email app, or prepare a draft for webmail. Send the email to complete your registration.')
     ).toBeVisible();
     await expect(page.getByText("You're on the list!")).toHaveCount(0);
   });

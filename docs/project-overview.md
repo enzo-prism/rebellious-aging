@@ -6,7 +6,7 @@
 - **Styling/UI:** Tailwind CSS, shadcn/ui primitives (Radix), Framer Motion.
 - **State/Async:** TanStack Query and shared shadcn/Toast patterns for feedback, with page-level lazy loading for embeds.
 - **SEO/Indexing:** `src/lib/seo.ts`, `src/lib/routeMetadata.ts`, `src/lib/nextMetadata.ts`, route metadata in `src/data/seoRoutes.ts`, native sitemap/robots via `app/sitemap.ts` and `app/robots.ts`, search index generation via `scripts/build-search-index.ts`, and `public/llms.txt` via `scripts/generate-llms.ts`.
-- **Build/Release:** `npm run build` runs `npm run llms`, `npm run sitemap`, `npm run build:search`, `next build`, and `npm run prerender` (metadata audit validation). GitHub Actions runs typecheck, lint, unit coverage, build, functional browser coverage, and production-export performance tests on pushes to `main` and pull requests.
+- **Build/Release:** `npm run build` runs `npm run llms`, `npm run sitemap`, `npm run build:search`, `next build`, and `npm run prerender` (metadata audit validation), followed by `audit:seo` against the exported HTML. GitHub Actions runs typecheck, lint, unit coverage, build, functional browser coverage, production-export performance tests, and a separate Chromium/Firefox/WebKit device matrix on pushes to `main` and pull requests.
 - **Analytics/Embeds:** Vercel Web Analytics is injected from `app/layout.tsx`; GA, Hotjar, and GPT Engineer remain env-gated and are inserted there via `next/script`.
 - **SEO Ops Guide:** `docs/seo-best-practices-nextjs-vercel-2026.md` documents the current Search Console + deployment operating model.
 - **Migration + Ownership:** `docs/migration-and-google-operations-2026.md` tracks repo migration state and command-level verification.
@@ -42,13 +42,20 @@
 - `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` feeds Google verification content into page metadata (Search Console metadata method).
 - Vercel Web Analytics is installed via `@vercel/analytics` and mounted in `app/layout.tsx`; it does not require a public env var.
 - GA ID is controlled by `NEXT_PUBLIC_GA_ID`; GA loading is environment-gated in `app/layout.tsx`.
-- Search indexing is initialized on demand rather than during every page load.
+- Search indexing is initialized on demand rather than during every page load. Keep the command list mounted during loading and error states so typing and arrow keys cannot crash cmdk.
+- Blog, recipe, and search filters use `src/hooks/useUrlFilters.tsx`. The URL holds query/filter state so Back, reload, and copied links restore the same collection. Filter edits replace the current history entry without moving the page. Keep `UrlFiltersSync` isolated in Suspense and the server snapshot empty so the exported HTML retains all default collection links.
+- Nutrition topic URLs validate supported IDs and keep topic changes in browser history. Invalid IDs show the default topic rather than an empty panel.
+- Nutrition guides use native section anchors; preserve IDs because search results and shared links target them.
+- Video embeds load on demand and receive focus after the play control is replaced. Keep overlays off the active player and retain the direct YouTube fallback.
+- Event availability is an email handoff, not a server submission. The form offers an editable-input-to-readonly-draft workflow for webmail, with clipboard/manual-copy recovery. Do not report registration as sent or completed on draft creation.
+- Page sharing supports the device share sheet where available and always retains copy/manual-copy options. Native share cancellation is normal, not an error.
 - `vercel.json` provides the production redirect plus baseline `nosniff`, referrer-policy, and same-origin frame headers.
 - `npm run readiness:verify` and `npm run test:e2e:readiness` include a smoke check for SEO-sensitive assets (`sitemap.xml`, `seo-route-audit.json`, `search-index.json`).
 - Readiness command sets now include:
   - `npm run readiness:verify` (full gate)
   - `npm run test:e2e:readiness` (focused browser pass)
   - `npm run test:e2e:perf` (web-vital smoke by route)
+  - `npm run test:e2e:devices` (focused production-export journeys in eight browser/device contexts)
 - These checks are part of the current launch criteria before publishing static output.
 
 ## Operational Notes

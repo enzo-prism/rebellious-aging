@@ -12,6 +12,8 @@ export const VideoCard = ({ video }: VideoCardProps) => {
   const embedUrl = `https://www.youtube.com/embed/${video.youtubeId}`;
   const watchUrl = `https://www.youtube.com/watch?v=${video.youtubeId}`;
   const [isPlayerVisible, setIsPlayerVisible] = React.useState(false);
+  const playerRef = React.useRef<HTMLIFrameElement>(null);
+  React.useEffect(() => { if (isPlayerVisible) playerRef.current?.focus(); }, [isPlayerVisible]);
   const thumbUrl = `https://i.ytimg.com/vi/${video.youtubeId}/hqdefault.jpg`;
 
   return (
@@ -19,6 +21,8 @@ export const VideoCard = ({ video }: VideoCardProps) => {
       <div className="relative aspect-video bg-muted rounded-xl overflow-hidden mb-6">
         {isPlayerVisible ? (
           <iframe
+            ref={playerRef}
+            tabIndex={0}
             src={`${embedUrl}?autoplay=1`}
             title={video.title}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -47,19 +51,19 @@ export const VideoCard = ({ video }: VideoCardProps) => {
             </div>
           </button>
         )}
-        <div className="absolute top-4 left-4">
+        {!isPlayerVisible && <div className="absolute top-4 left-4 pointer-events-none">
           <span className="bg-background/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-medium text-muted-foreground">
             {video.episodeNumber.toString().padStart(2, '0')}
           </span>
-        </div>
+        </div>}
       </div>
       
       <div className="space-y-3">
-        <h3 className="text-xl font-light leading-tight text-foreground group-hover:text-primary transition-colors duration-300">
+        <h3 className="text-xl font-semibold leading-tight text-foreground group-hover:text-primary transition-colors duration-300">
           {video.title}
         </h3>
         
-        <p className="text-muted-foreground font-light leading-relaxed text-sm">
+        <p className="text-muted-foreground font-light leading-relaxed text-base">
           {video.description}
         </p>
         
@@ -72,7 +76,7 @@ export const VideoCard = ({ video }: VideoCardProps) => {
             href={watchUrl} 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-300 flex items-center gap-1"
+            className="min-h-11 text-sm font-semibold text-teal underline underline-offset-4 hover:text-foreground transition-colors duration-300 flex items-center gap-1"
           >
             Watch on YouTube
             <ExternalLink className="w-3 h-3" />

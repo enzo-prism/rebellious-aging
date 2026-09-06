@@ -36,6 +36,24 @@ const joinSteps = [
 
 const SignupForm = () => {
   const [facebookMember, setFacebookMember] = React.useState(false);
+  const [emailDraft, setEmailDraft] = React.useState('');
+  const draftRef = React.useRef<HTMLTextAreaElement>(null);
+  const [copyStatus, setCopyStatus] = React.useState('');
+
+  React.useEffect(() => {
+    if (emailDraft) draftRef.current?.focus();
+  }, [emailDraft]);
+
+  const copyDraft = async () => {
+    try {
+      await navigator.clipboard.writeText(emailDraft);
+      setCopyStatus('Email draft copied. Paste it into your email service and send it to Suz.');
+    } catch {
+      draftRef.current?.focus();
+      draftRef.current?.select();
+      setCopyStatus('Copy the highlighted draft using your device’s Copy option, or Cmd/Ctrl+C on a keyboard.');
+    }
+  };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -60,6 +78,11 @@ const SignupForm = () => {
       note || 'None',
     ].join('\n');
 
+    const draft = `To: suz@rebelwithsuz.com\nSubject: ${subject}\n\n${body}`;
+    setEmailDraft(draft);
+    setCopyStatus('');
+    const action = (event.nativeEvent as SubmitEvent).submitter;
+    if (action instanceof HTMLButtonElement && action.value === 'copy') return;
     window.location.href = `mailto:suz@rebelwithsuz.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
@@ -102,7 +125,7 @@ const SignupForm = () => {
                   <Label
                     key={option.id}
                     htmlFor={inputId}
-                    className="flex cursor-pointer items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:border-teal/40 hover:bg-teal/5"
+                    className="flex cursor-pointer items-center gap-2 rounded-full border border-gray-200 bg-white min-h-11 px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:border-teal/40 hover:bg-teal/5"
                   >
                     <Checkbox id={inputId} name={`preference-${group.id}`} value={option.id} />
                     {option.label}
@@ -159,21 +182,26 @@ const SignupForm = () => {
         >
           Email my availability
         </Button>
+        <Button type="submit" name="action" value="copy" variant="outline" className="mt-3 w-full" disabled={!facebookMember}>
+          Prepare email for webmail
+        </Button>
         {!facebookMember && (
           <p className="mt-2 text-center text-xs font-medium text-[#0548b8]">
             Confirm your Facebook group membership to continue.
           </p>
         )}
         <p className="mt-2 text-center text-xs text-muted-foreground">
-          This opens your email app. Send the prepared email to complete your registration.
+          Use “Email my availability” to open your email app, or prepare a draft for webmail. Send the email to complete your registration.
         </p>
-        <p className="mt-2 text-center text-xs text-muted-foreground">
-          Email not opening? Write to{' '}
-          <a className="font-semibold text-teal underline" href="mailto:suz@rebelwithsuz.com">
-            suz@rebelwithsuz.com
-          </a>
-          .
-        </p>
+        {emailDraft && (
+          <div className="mt-5 rounded-xl border border-teal/20 bg-teal/5 p-4">
+            <Label htmlFor="event-email-draft">Your email draft</Label>
+            <p className="my-2 text-sm text-gray-700">Nothing has been sent yet. Copy this draft into your email service and send it to suz@rebelwithsuz.com.</p>
+            <Textarea id="event-email-draft" ref={draftRef} value={emailDraft} readOnly rows={8} onFocus={(event) => event.currentTarget.select()} />
+            <Button type="button" variant="outline" onClick={copyDraft} className="mt-3">Copy email draft</Button>
+            <p role="status" className="mt-2 text-sm text-teal-dark">{copyStatus}</p>
+          </div>
+        )}
       </div>
     </form>
   );
@@ -283,7 +311,7 @@ const Events = () => {
               )}
 
               <p className="mt-5 text-sm text-gray-600">
-                Sign up on the right and the Zoom link will be shared with members in the Facebook group once the date
+                Share your availability using the form and the Zoom link will be shared with members in the Facebook group once the date
                 is set.
               </p>
             </article>

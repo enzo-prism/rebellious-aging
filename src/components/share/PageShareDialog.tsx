@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Check, Copy, Link2 } from 'lucide-react';
+import { Check, Copy, Link2, Share2 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -22,6 +22,7 @@ interface PageShareDialogProps {
   inputRef: React.RefObject<HTMLInputElement>;
   onCopy: () => Promise<void> | void;
   onHighlightUrl: () => void;
+  onNativeShare?: () => Promise<void>;
 }
 
 const PageShareDialog: React.FC<PageShareDialogProps> = ({
@@ -31,9 +32,10 @@ const PageShareDialog: React.FC<PageShareDialogProps> = ({
   inputRef,
   onCopy,
   onHighlightUrl,
+  onNativeShare,
 }) => {
   const manualCopyHelp =
-    'Clipboard access is unavailable. The link is highlighted below, so you can press Cmd/Ctrl+C to copy it.';
+    'Clipboard access is unavailable. Copy the highlighted link using your device’s Copy option, or press Cmd/Ctrl+C on a keyboard.';
   const inputId = React.useId();
   const helperId = `${inputId}-helper`;
 
@@ -65,7 +67,7 @@ const PageShareDialog: React.FC<PageShareDialogProps> = ({
           readOnly
           onFocus={onHighlightUrl}
           onClick={onHighlightUrl}
-          className="h-12 rounded-xl border-teal/20 bg-white font-mono text-sm"
+          className="h-12 rounded-xl border-teal/20 bg-white font-mono text-base sm:text-sm"
           aria-describedby={helperId}
         />
         <p
@@ -77,6 +79,12 @@ const PageShareDialog: React.FC<PageShareDialogProps> = ({
             : 'Anyone with this link can open the page directly.'}
         </p>
       </div>
+
+      {onNativeShare && (
+        <Button type="button" variant="outline" onClick={onNativeShare} className="w-full">
+          <Share2 className="h-4 w-4" aria-hidden="true" /> Share using your device
+        </Button>
+      )}
 
       <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
         <DialogClose asChild>

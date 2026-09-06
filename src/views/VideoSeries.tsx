@@ -20,12 +20,12 @@ const VideoSeries = () => {
         />
       )}
       {/* Hero Section */}
-      <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
+      <section className="px-4 sm:px-6 lg:px-8 py-6 sm:py-12">
         <div className="max-w-4xl mx-auto text-center">
-          <PageTopUtilityRow className="mb-8">
+          <PageTopUtilityRow className="mb-4">
             <PageShareButton />
           </PageTopUtilityRow>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight mb-6 text-foreground">
+          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight mb-6 text-foreground">
             {videoSeriesInfo.title}
           </h1>
           <p className="text-lg sm:text-xl text-muted-foreground font-light leading-relaxed max-w-3xl mx-auto">
@@ -35,7 +35,7 @@ const VideoSeries = () => {
       </section>
       
       {/* Video Series Grid */}
-      <section className="px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <section className="px-4 sm:px-6 lg:px-8 pt-4 pb-12 sm:pb-16">
         <div className="max-w-7xl mx-auto">
           <div className="grid gap-8 sm:gap-10 lg:gap-12 sm:grid-cols-2 lg:grid-cols-3">
             {videoSeriesData.map((video) => (

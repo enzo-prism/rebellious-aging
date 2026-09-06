@@ -25,6 +25,10 @@ const Nutrition = () => {
         />
       )}
       <NutritionHero />
+      <Suspense fallback={<section className="container mx-auto px-4 py-12"><WhatIsWFPB /></section>}>
+        <NutritionTabs />
+      </Suspense>
+
       <section className="container mx-auto px-4 py-12">
         <div className="bg-coral/10 border border-coral/20 rounded-3xl p-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
@@ -54,9 +58,6 @@ const Nutrition = () => {
           </p>
         </div>
       </section>
-      <Suspense fallback={<section className="container mx-auto px-4 py-12"><WhatIsWFPB /></section>}>
-        <NutritionTabs />
-      </Suspense>
       <FaqSection title="Getting started with plant-based eating" questions={nutritionFaqs} />
       <ConnectCTA />
     </div>

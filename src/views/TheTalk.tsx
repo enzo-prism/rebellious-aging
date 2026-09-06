@@ -232,12 +232,16 @@ const crossLinks = [
 
 const VideoEmbed = () => {
   const [isPlaying, setIsPlaying] = React.useState(false);
+  const playerRef = React.useRef<HTMLIFrameElement>(null);
+  React.useEffect(() => { if (isPlaying) playerRef.current?.focus(); }, [isPlaying]);
 
   return (
     <div className="overflow-hidden rounded-[2rem] border border-white/80 bg-black shadow-[0_30px_80px_-30px_rgba(15,23,42,0.45)]">
       <div className="relative aspect-video w-full">
         {isPlaying ? (
           <iframe
+            ref={playerRef}
+            tabIndex={0}
             src={`https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&rel=0`}
             title={videoTitle}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -348,7 +352,7 @@ const TheTalk = () => {
                   href={watchUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 font-semibold text-teal hover:underline"
+                  className="inline-flex min-h-11 items-center gap-1.5 font-semibold text-teal underline underline-offset-4"
                 >
                   Watch on YouTube
                   <ExternalLink className="h-3.5 w-3.5" />

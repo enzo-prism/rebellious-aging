@@ -6,7 +6,6 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { recipes, slugifyRecipeTitle } from '@/data/recipes';
-import { siteMetadata } from '@/lib/siteMetadata';
 
 const Recipes = () => {
   const featuredRecipes = [...recipes].sort((a, b) => b.id - a.id).slice(0, 3);
@@ -29,19 +28,18 @@ const Recipes = () => {
       <div className="grid gap-6 md:grid-cols-3">
         {featuredRecipes.map((recipe) => {
           const slug = slugifyRecipeTitle(recipe.title);
-          const image = recipe.image ?? siteMetadata.defaultSocialImage;
 
           return (
               <Link key={recipe.id} href={`/recipes/${slug}`} className="group">
               <Card className="h-full overflow-hidden border-gray-200 hover:border-teal transition">
-                <div className="relative">
+                {recipe.image && <div className="relative">
                   <img
-                    src={image}
+                    src={recipe.image}
                     alt={recipe.imageAlt ?? recipe.title}
                     className="h-40 w-full object-cover"
                     loading="lazy"
                   />
-                </div>
+                </div>}
                 <CardHeader>
                   <CardTitle className="text-lg group-hover:text-teal transition-colors">
                     {recipe.title}
@@ -49,7 +47,7 @@ const Recipes = () => {
                   <CardDescription>{recipe.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-3">
-                  <div className="flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
+                  <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
                     <div className="flex items-center gap-1">
                       <Users className="w-4 h-4" />
                       <span>Serves {recipe.servings}</span>

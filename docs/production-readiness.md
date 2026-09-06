@@ -18,19 +18,20 @@ This project uses a codified readiness gate before public launch.
 - `npm run lint` – ESLint validation.
 - `npm run build` – full Next static export flow including sitemap generation, search index generation, static export, and metadata audit.
 - `npm run test:unit:coverage` – unit + component checks with enforced coverage thresholds.
-- `npm run test:e2e` – full browser suite.
+- `npm run test:e2e` – broad Chromium browser suite.
+- `npm run test:e2e:devices` – focused matrix against a fresh production export. Install engines with `npx playwright install chromium firefox webkit` (CI adds `--with-deps`).
 - `npm run test:e2e:readiness` – focused browser readiness checks.
 - CI splits the browser gate: functional and route-status coverage uses the Next.js development server, while `npm run test:e2e:perf` measures the built production export.
 - `npm run readiness:verify` – full readiness pipeline (all above).
 
 ### Full launch gate
-`npm run readiness:verify` must pass locally, then the matching GitHub Actions gate must be green on `main`.
+`npm run readiness:verify`, `npm run test:unit:coverage`, and `npm run test:e2e:devices` must pass locally. Run `PW_PRODUCTION_SERVER=true npm run test:e2e:perf` after the development server stops. Both matching GitHub Actions jobs must then be green on `main`. Verify that the production deployment and domain aliases point to the tested commit.
 
 ## Current baseline checks
 - Report file: `public/production-readiness-report.json`
 - Expected status in release conditions: `status: "pass"` with all checks green.
-- August 20, 2026 full Drive parity baseline: Blogs #1–#93 are represented, with 152 audited SEO routes, 150 sitemap URLs, 170 search documents, 67 passing unit tests, and 86 passing browser tests. The earlier August 14 Blog #93 baseline was 150 audited SEO routes, 148 sitemap URLs, and 168 search documents. Typecheck, lint, build, readiness report, and `git diff --check` pass; lint reports 26 existing image-optimization warnings and no errors.
-- Current hardening covers responsive hero/gallery images, on-demand search indexing, server-rendered nutrition and pillar content, keyboard/mobile navigation, accessible search filters, event email handoff, consistent recipe fallbacks, sitemap policy alignment, and baseline Vercel response headers.
+- September 6 baseline: 100 articles, 159 audited SEO routes, 157 indexable sitemap routes, and 166 validated local destinations. Current test counts are recorded in the latest `docs/design/` audit, since they grow with new regressions.
+- Current hardening covers responsive images, on-demand search, server-rendered content, browser-history filter restoration, nutrition deep links, video focus, keyboard/mobile navigation, accessible forms, clipboard/manual-copy recovery, canonical sitemap policy, and Vercel response headers.
 - GitHub Actions runs the same release checks from `.github/workflows/ci.yml`.
 
 ## Share-specific verification
@@ -47,3 +48,11 @@ This project uses a codified readiness gate before public launch.
   - `npm run sitemap`
   - `npm run build:search`
   - `npm run build`
+
+## Device coverage and practical limits
+
+`playwright.devices.config.ts` runs representative journeys in Chromium Android phone/tablet and 320px phone layouts, Firefox desktop, and WebKit desktop/iPhone/iPad/landscape layouts. It uses the built static export on port 4173, independently of the broad development suite on port 3000. `PW_DEVICE_BASE_URL=https://www.rebelwithsuz.com npm run test:e2e:devices` runs the same checks against a deployment without starting a local server.
+
+The matrix covers real browser engines with emulated viewports, touch input, manual-copy fallback, cooking controls, navigation focus, reduced motion, JavaScript-free reading, and reflow. It does not simulate every physical phone, browser extension, on-screen keyboard, OS share sheet, assistive technology, or third-party service outage. Manual checks on actual iOS and Android hardware remain useful before a major redesign. Avoid claiming universal device perfection from automated checks.
+
+Do not grant Chromium-only clipboard permissions globally to Firefox/WebKit. Failed device tests upload screenshots and traces as `device-test-evidence` in CI. Inspect those artifacts, fix the actual issue or selector, and rerun the affected journey before broadening the run.

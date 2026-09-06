@@ -16,7 +16,8 @@ const NutritionTabs = () => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
-  const tabFromUrl = searchParams.get('tab') || 'what-is-wfpb';
+  const requestedTab = searchParams.get('tab');
+  const tabFromUrl = nutritionTabs.some((tab) => tab.id === requestedTab) ? requestedTab! : nutritionTabs[0].id;
   const [activeTab, setActiveTab] = useState(tabFromUrl);
 
   useEffect(() => {
@@ -27,7 +28,7 @@ const NutritionTabs = () => {
     (value: string) => {
       const params = new URLSearchParams(searchParams.toString());
       params.set('tab', value);
-      router.push(`${pathname}?${params.toString()}`);
+      router.push(`${pathname}?${params.toString()}`, { scroll: false });
     },
     [pathname, router, searchParams]
   );
@@ -60,7 +61,7 @@ const NutritionTabs = () => {
     }`;
 
   return (
-    <section className="py-12">
+    <section className="py-6 sm:py-10">
       <div className="container mx-auto px-4">
         <Tabs value={activeTab} className="max-w-4xl mx-auto" onValueChange={handleTabChange}>
           <div className="mb-6 md:hidden">
@@ -94,10 +95,7 @@ const NutritionTabs = () => {
                   ▼
                 </span>
               </div>
-              <div className="mt-4 rounded-2xl bg-teal/8 px-4 py-4">
-                <p className="text-base font-semibold text-slate-900">{activeTabMeta.title}</p>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{activeTabMeta.summary}</p>
-              </div>
+              <p className="mt-3 text-sm leading-6 text-slate-600">{activeTabMeta.summary}</p>
             </div>
           </div>
 

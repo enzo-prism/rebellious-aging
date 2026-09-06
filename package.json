@@ -29,7 +29,8 @@
     "prepare-e2e": "npm run readiness:assets",
     "lh": "lhci autorun",
     "test:axe": "playwright test tests/e2e/accessibility.spec.ts",
-    "audit:seo": "node scripts/audit-export.mjs"
+    "audit:seo": "node scripts/audit-export.mjs",
+    "test:e2e:devices": "playwright test --config playwright.devices.config.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

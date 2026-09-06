@@ -29,3 +29,23 @@ jobs:
       - run: npm run test:e2e:perf
         env:
           PW_PRODUCTION_SERVER: "true"
+
+  devices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - run: npm run build
+      - run: npm run test:e2e:devices
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: device-test-evidence
+          path: test-results/devices
+          retention-days: 7

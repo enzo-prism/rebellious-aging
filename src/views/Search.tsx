@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import { useUrlFilters, UrlFiltersSync, writeParam, readAllowedValues } from '@/hooks/useUrlFilters';
 import { Search as SearchIcon, Loader2, SlidersHorizontal, X } from 'lucide-react';
 
 import { Badge, badgeVariants } from '@/components/ui/badge';
@@ -29,40 +29,29 @@ const typeFilters: Array<{ type: SearchType; label: string }> = [
 const RECENT_KEY = 'ra-recent-searches';
 const MAX_RECENT = 6;
 
+const parseSearchFilters = (params: URLSearchParams) => ({
+  query: params.get('q') ?? '',
+  selectedTypes: readAllowedValues(params, 'type', typeFilters.map((filter) => filter.type)) as SearchType[],
+});
+const writeSearchFilters = (filters: ReturnType<typeof parseSearchFilters>, params: URLSearchParams) => {
+  writeParam(params, 'q', filters.query);
+  writeParam(params, 'type', filters.selectedTypes);
+};
+
 const Search = () => {
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const router = useRouter();
-  const initialQuery = searchParams.get('q') ?? '';
-  const [query, setQuery] = useState(initialQuery);
-  const [selectedTypes, setSelectedTypes] = useState<SearchType[]>([]);
+  const [{ query, selectedTypes }, setFilters] = useUrlFilters(parseSearchFilters, writeSearchFilters);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const { search, loading, error, ensureIndex } = useSearch();
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const applyQueryParam = (value: string) => {
-    const params = new URLSearchParams(searchParams.toString());
-    if (value) {
-      params.set('q', value);
-    } else {
-      params.delete('q');
-    }
-
-    const nextSearch = params.toString();
-    router.push(nextSearch ? `${pathname}?${nextSearch}` : pathname);
-  };
-  const [recent, setRecent] = useState<string[]>(() => {
-    if (typeof window === 'undefined') return [];
-    try {
-      const stored = window.localStorage.getItem(RECENT_KEY);
-      return stored ? JSON.parse(stored) : [];
-    } catch {
-      return [];
-    }
-  });
-
+  const [recent, setRecent] = useState<string[]>([]);
   useEffect(() => {
-    setQuery(initialQuery);
-  }, [initialQuery]);
+    try {
+      const parsed: unknown = JSON.parse(window.localStorage.getItem(RECENT_KEY) ?? '[]');
+      if (Array.isArray(parsed)) setRecent(parsed.filter((value): value is string => typeof value === 'string').slice(0, MAX_RECENT));
+    } catch {
+      // Search remains available when browser storage is unavailable.
+    }
+  }, []);
 
   useEffect(() => {
     void ensureIndex();
@@ -102,20 +91,19 @@ const Search = () => {
     const trimmed = query.trim();
     if (trimmed) {
       persistRecent(trimmed);
-      applyQueryParam(trimmed);
+      setFilters({ query: trimmed });
     } else {
-      applyQueryParam('');
+      setFilters({ query: '' });
     }
   };
 
   const toggleType = (type: SearchType) => {
-    setSelectedTypes((current) =>
-      current.includes(type) ? current.filter((item) => item !== type) : [...current, type]
-    );
+    setFilters((current) => ({ selectedTypes: current.selectedTypes.includes(type) ? current.selectedTypes.filter((item) => item !== type) : [...current.selectedTypes, type] }));
   };
 
   return (
     <div className="min-h-screen bg-background px-4 py-4 sm:py-12">
+      <UrlFiltersSync />
       {seoConfig && (
         <Seo title={seoConfig.title} description={seoConfig.description} canonicalPath={seoConfig.path} />
       )}
@@ -141,7 +129,7 @@ const Search = () => {
                   type="search"
                   aria-label="Search site content"
                   value={query}
-                  onChange={(event) => setQuery(event.target.value)}
+                  onChange={(event) => setFilters({ query: event.target.value })}
                   placeholder="Search blog, pillars, speaking events, nutrition guide…"
                   className="pl-10 pr-12 h-12 text-base"
                 />
@@ -149,7 +137,7 @@ const Search = () => {
                   <button
                     type="button"
                     aria-label="Clear search"
-                    onClick={() => setQuery('')}
+                    onClick={() => setFilters({ query: '' })}
                     className="absolute right-1 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-md text-muted-foreground hover:text-foreground"
                   >
                     <X className="h-4 w-4" />
@@ -163,7 +151,7 @@ const Search = () => {
                 <SlidersHorizontal className="mr-2 h-4 w-4" />
                 Filter by type{selectedTypes.length ? ` (${selectedTypes.length})` : ''}
               </Button>
-              {selectedTypes.length > 0 && <Button variant="ghost" type="button" onClick={() => setSelectedTypes([])}>Clear filters</Button>}
+              {selectedTypes.length > 0 && <Button variant="ghost" type="button" onClick={() => setFilters({ selectedTypes: [] })}>Clear filters</Button>}
             </div>
             <div id="search-type-filters" hidden={!filtersOpen}>
             <div className="flex flex-wrap gap-2">
@@ -195,8 +183,7 @@ const Search = () => {
                       className: 'cursor-pointer px-3 py-2 rounded-full',
                     })}
                     onClick={() => {
-                      setQuery(item);
-                      applyQueryParam(item);
+                      setFilters({ query: item });
                     }}
                   >
                     {item}
