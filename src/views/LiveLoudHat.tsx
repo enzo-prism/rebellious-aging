@@ -28,7 +28,8 @@ const LiveLoudHat = () => {
   const seoConfig = getSeoRouteByPath('/live-loud-hat');
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-teal/5 to-white pt-24">
+    <div className="min-h-screen bg-gradient-to-b from-white via-teal/5 to-white">
+      {/* Layout already clears the sticky header — extra page pt-* creates a large empty band. */}
       {seoConfig && (
         <Seo
           title={seoConfig.title}
@@ -37,7 +38,7 @@ const LiveLoudHat = () => {
         />
       )}
 
-      <section className="py-12 sm:py-16 lg:py-20">
+      <section className="pt-6 pb-12 sm:pt-10 sm:pb-16 lg:pt-14 lg:pb-20">
         <div className="container mx-auto px-4">
           <div className="mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.05fr,0.95fr] lg:gap-14">
             <div className="space-y-6">
