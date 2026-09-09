@@ -82,6 +82,12 @@ export const seoRoutes: SeoRouteConfig[] = [
       'Reach out to Suz for plant-based guidance, speaking inquiries, or personalized support on your rebellious aging journey.',
   },
   {
+    path: '/live-loud-hat',
+    title: 'Live Loud Hat Waitlist',
+    description:
+      'Apply for the next small batch of Rebellious Aging Live Loud hats. Invite-only waitlist — Suz reviews every request.',
+  },
+  {
     path: '/facebook-group',
     title: 'Rebellious Aging Facebook Community',
     description:

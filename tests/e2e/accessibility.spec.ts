@@ -7,6 +7,7 @@ const criticalRoutes = [
   '/recipes',
   '/blog',
   '/contact',
+  '/live-loud-hat',
   '/pillars/health',
   '/video-series',
   '/404',

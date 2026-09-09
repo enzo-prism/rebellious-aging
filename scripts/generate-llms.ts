@@ -48,6 +48,7 @@ const keyPaths = [
   '/video-series',
   '/facebook-group',
   '/contact',
+  '/live-loud-hat',
 ];
 
 const lines = [

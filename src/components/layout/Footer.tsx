@@ -33,6 +33,7 @@ const linkGroups = [
     title: 'Connect with Suz',
     links: [
       ['/our-story', 'Our Story'], ['/welcome-letter', 'Welcome Letter'],
+      ['/live-loud-hat', 'Live Loud Hat'],
       ['/events', 'Community Events'], ['/speaking-events', 'Speaking Events'],
       ['/contact', 'Get in Touch'],
     ],

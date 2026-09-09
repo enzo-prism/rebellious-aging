@@ -38,6 +38,7 @@ const STATIC_PATHS = new Set([
   '/recipes-for-a-better-summer',
   '/blog',
   '/contact',
+  '/live-loud-hat',
   '/facebook-group',
   '/team',
   '/search',

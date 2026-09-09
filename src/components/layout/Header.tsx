@@ -156,6 +156,11 @@ const Header = () => {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild className="focus:bg-accent focus:text-accent-foreground">
+                <Link href="/live-loud-hat" className="w-full flex items-center gap-2 px-3 py-2">
+                  🧢 Live Loud Hat
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild className="focus:bg-accent focus:text-accent-foreground">
                 <Link href="/events" className="w-full flex items-center gap-2 px-3 py-2">
                   📅 Community Events
                 </Link>
@@ -371,6 +376,7 @@ const Header = () => {
                   items={[
                     { to: '/our-story', label: 'Our Story', icon: '📖' },
                     { to: '/welcome-letter', label: 'Welcome Letter', icon: '💌' },
+                    { to: '/live-loud-hat', label: 'Live Loud Hat', icon: '🧢' },
                     { to: '/events', label: 'Community Events', icon: '📅' },
                     { to: '/speaking-events', label: 'Speaking Events', icon: '🎤' },
                     { to: '/dr-seuss', label: 'Dr. Seuss & Aging', icon: '📚' },

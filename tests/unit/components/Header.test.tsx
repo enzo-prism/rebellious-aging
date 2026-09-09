@@ -102,6 +102,7 @@ describe('Header', () => {
 
     expect(moreButton).toHaveAttribute('aria-expanded', 'true');
     expect(screen.getByRole('menuitem', { name: /Our Story/i })).toBeInTheDocument();
+    expect(screen.getByRole('menuitem', { name: /Live Loud Hat/i })).toBeInTheDocument();
     expect(screen.getByRole('menuitem', { name: /Contact/i })).toBeInTheDocument();
   });
 });

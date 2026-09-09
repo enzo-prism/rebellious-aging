@@ -3,6 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import {
   CONTACT_TYPEFORM_ID,
   contactFormLeadParams,
+  hatWaitlistFormLeadParams,
   isContactTypeformHref,
   isTypeformOrigin,
   isTypeformSubmitMessage,
@@ -72,6 +73,18 @@ describe('ga4 generate_lead helpers', () => {
     expect(locationFromPathname('/contact')).toBe('contact');
     expect(locationFromPathname('/pillars/health')).toBe('pillars_health');
     expect(locationFromPathname('/welcome-letter/')).toBe('welcome_letter');
+    expect(locationFromPathname('/live-loud-hat')).toBe('live_loud_hat');
+  });
+
+  it('builds hat waitlist lead params without PII', () => {
+    expect(hatWaitlistFormLeadParams('live_loud_hat')).toEqual({
+      form_id: 'live_loud_hat',
+      form_name: 'live_loud_hat',
+      lead_source: 'website_hat_waitlist_form',
+      location: 'live_loud_hat',
+      method: 'form',
+      contact_method: 'form',
+    });
   });
 
   it('recognizes the existing contact Typeform URL without reading query PII', () => {
