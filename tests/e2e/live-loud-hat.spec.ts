@@ -21,9 +21,9 @@ test.describe('Live Loud hat waitlist', () => {
     await expect(page.getByRole('button', { name: /share page/i })).toBeVisible();
     await expect(page.getByText(/Invite-only waitlist/i).first()).toBeVisible();
 
-    await page.getByLabel('Name').fill('Playwright Neighbor');
-    await page.getByLabel('Email').fill('playwright@example.com');
-    await page.getByLabel(/City/).fill('Santa Cruz');
+    await page.getByRole('textbox', { name: 'Name' }).fill('Playwright Neighbor');
+    await page.getByRole('textbox', { name: 'Email', exact: true }).fill('playwright@example.com');
+    await page.getByRole('textbox', { name: /City/ }).fill('Santa Cruz');
     await page
       .getByLabel('Why you, or how you found Rebellious Aging')
       .fill('Saw the green hat on a walk and asked about the next batch.');

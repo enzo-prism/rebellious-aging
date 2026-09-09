@@ -132,8 +132,8 @@ test('hat waitlist submit fires a generate_lead without PII', async ({ page }) =
   });
 
   await page.goto('/live-loud-hat', { waitUntil: 'networkidle' });
-  await page.getByLabel('Name').fill('Jordan');
-  await page.getByLabel('Email').fill('jordan@example.com');
+  await page.getByRole('textbox', { name: 'Name' }).fill('Jordan');
+  await page.getByRole('textbox', { name: 'Email', exact: true }).fill('jordan@example.com');
   await page
     .getByLabel('Why you, or how you found Rebellious Aging')
     .fill('A neighbor asked about the green hat.');
