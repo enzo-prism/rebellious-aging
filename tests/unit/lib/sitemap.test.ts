@@ -23,6 +23,7 @@ describe('sitemap generators', () => {
       }
     }
 
+    expect(entries.some((entry) => entry.url === `${baseUrl}/live-loud-hat`)).toBe(true);
     expect(entries.some((entry) => entry.url === `${baseUrl}/guides/suz-plant-based-starter`)).toBe(true);
     expect(entries.some((entry) => entry.url === `${baseUrl}/speaking-events/eat-for-the-earth-santa-cruz`)).toBe(
       true

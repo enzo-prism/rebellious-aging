@@ -121,6 +121,39 @@ test('welcome-letter Typeform overlay submit fires a newsletter generate_lead', 
   });
 });
 
+test('hat waitlist submit fires a generate_lead without PII', async ({ page }) => {
+  await installGa4TestHooks(page);
+  await page.route('https://formspree.io/f/**', async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({ ok: true }),
+    });
+  });
+
+  await page.goto('/live-loud-hat', { waitUntil: 'networkidle' });
+  await page.getByLabel('Name').fill('Jordan');
+  await page.getByLabel('Email').fill('jordan@example.com');
+  await page
+    .getByLabel('Why you, or how you found Rebellious Aging')
+    .fill('A neighbor asked about the green hat.');
+  await page.getByRole('button', { name: 'Request the next batch' }).click();
+
+  await expect(page.getByRole('status')).toContainText('Suz has your request');
+  await expect.poll(async () => (await getLeadEvents(page)).length).toBe(1);
+
+  const [lead] = await getLeadEvents(page);
+  expectSafeLeadParams(lead);
+  expect(lead).toMatchObject({
+    form_id: 'live_loud_hat',
+    form_name: 'live_loud_hat',
+    lead_source: 'website_hat_waitlist_form',
+    location: 'live_loud_hat',
+    method: 'form',
+    contact_method: 'form',
+  });
+});
+
 test('the site has no tel click-to-call links to instrument', async ({ page }) => {
   await page.goto('/contact');
   await expect(page.locator('a[href^="tel:"]')).toHaveCount(0);

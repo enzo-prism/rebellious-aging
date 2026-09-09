@@ -37,7 +37,8 @@ const PillarPage = ({ pillarId }: PillarPageProps) => {
       description: 'Watch Suz riff on style and read how rebels remix their closets.',
       links: [
         { to: '/video-series', label: 'Watch the Video Series' },
-        { to: '/blog/the-new-classic-timeless-style', label: 'Read “The New Classic”' }
+        { to: '/blog/the-new-classic-timeless-style', label: 'Read “The New Classic”' },
+        { to: '/live-loud-hat', label: 'Request the Live Loud hat' }
       ]
     }
   };

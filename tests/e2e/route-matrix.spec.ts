@@ -11,6 +11,7 @@ const routeMatrix = [
   '/guides',
   '/blog',
   '/contact',
+  '/live-loud-hat',
   '/facebook-group',
   '/team',
   '/pillars/health',

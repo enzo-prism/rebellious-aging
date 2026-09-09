@@ -137,6 +137,10 @@ export function newsletterFormLeadParams(location: string): GenerateLeadParams {
   return formLeadParams('newsletter', 'website_newsletter_form', location);
 }
 
+export function hatWaitlistFormLeadParams(location: string): GenerateLeadParams {
+  return formLeadParams('live_loud_hat', 'website_hat_waitlist_form', location);
+}
+
 export function resolveTypeformFormLead(
   formId: string | undefined,
   pathname: string

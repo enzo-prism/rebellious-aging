@@ -168,6 +168,22 @@ export default function Home() {
             </div>
             <p className="mt-3 text-sm text-gray-600">Or explore the <Link href="/guides" className="font-medium text-teal underline">free guides</Link>, <Link href="/nutrition" className="font-medium text-teal underline">nutrition library</Link>, or <Link href="/video-series" className="font-medium text-teal underline">videos with Suz</Link>.</p>
           </form>
+          <Link
+            href="/live-loud-hat"
+            className="mt-6 flex flex-col gap-3 rounded-2xl border border-teal/20 bg-white p-5 transition-colors hover:border-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal sm:flex-row sm:items-center sm:justify-between sm:p-6"
+          >
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-teal">Invite-only</p>
+              <h3 className="mt-2 text-xl font-semibold text-gray-900">The Live Loud hat</h3>
+              <p className="mt-1 text-base leading-relaxed text-gray-600">
+                A small-batch waitlist Suz reads herself. Not a shop — apply for the next round.
+              </p>
+            </div>
+            <span className="inline-flex items-center gap-2 font-semibold text-teal">
+              Apply for a hat
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </span>
+          </Link>
         </div>
       </section>
 
