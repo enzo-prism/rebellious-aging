@@ -31,7 +31,7 @@ const LiveLoudHatForm = () => {
       gotcha: String(data.get('_gotcha') ?? ''),
     });
 
-    if (!result.ok) {
+    if (result.ok === false) {
       setStatus('error');
       setErrorMessage(result.message);
       return;
