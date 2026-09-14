@@ -7,12 +7,12 @@ export interface FaqItem {
 export const homeFaqs: FaqItem[] = [
   {
     question: 'What is Rebellious Aging?',
-    answer: 'Rebellious Aging is Suz’s community and resource library for women 55+ who want to age with confidence, curiosity, personal style, health, and gratitude. It brings together personal stories, plant-based recipes, free guides, and a private Facebook community.',
+    answer: 'Rebellious Aging is Suz’s community and resource library for women who want to age with confidence, curiosity, personal style, health, and gratitude. It brings together personal stories, plant-based recipes, free guides, and a private Facebook community.',
     link: { href: '/our-story', label: 'Meet Suz and read our story' },
   },
   {
     question: 'Who is Rebellious Aging for?',
-    answer: 'Suz welcomes women 55–105 who are exploring a new chapter, looking for connection, or ready to challenge limiting beliefs about getting older. You can start with whichever of the four pillars speaks to you: confidence, style, health, or gratitude.',
+    answer: 'Suz welcomes women who are exploring a new chapter, looking for connection, or ready to challenge limiting beliefs about getting older. You can start with whichever of the four pillars speaks to you: confidence, style, health, or gratitude.',
     link: { href: '/starter-kit', label: 'Explore the starter kit' },
   },
   {

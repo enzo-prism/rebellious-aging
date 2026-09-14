@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-06T16:16:14.208Z",
-  "totalRoutes": 159,
-  "validRoutes": 159,
+  "generatedAt": "2026-09-14T20:55:56.497Z",
+  "totalRoutes": 160,
+  "validRoutes": 160,
   "failedRoutes": 0,
   "records": [
     {
@@ -167,8 +167,8 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Rebellious Aging Starter Kit for Women 55+",
-        "description": "A gentle starter kit for women 55-105 to begin with Nibble, Wiggle, Dazzle, and Gratefulness in the Rebellious Aging journey.",
+        "title": "Rebellious Aging Starter Kit",
+        "description": "A gentle starter kit to begin with Nibble, Wiggle, Dazzle, and Gratefulness in the Rebellious Aging journey.",
         "canonical": "/starter-kit",
         "ogType": "website",
         "noindex": false,
@@ -295,6 +295,31 @@
         "title": "Contact Suz",
         "description": "Reach out to Suz for plant-based guidance, speaking inquiries, or personalized support on your rebellious aging journey.",
         "canonical": "/contact",
+        "ogType": "website",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/live-loud-hat",
+      "source": "seo-routes",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "title",
+        "description",
+        "canonical",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Live Loud Hat Waitlist",
+        "description": "Apply for the next small batch of Rebellious Aging Live Loud hats. Invite-only waitlist — Suz reviews every request.",
+        "canonical": "/live-loud-hat",
         "ogType": "website",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
@@ -567,7 +592,7 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Personal Style for Women 55+",
+        "title": "Personal Style After 55",
         "description": "Express signature style with playful guidance, curated resources, and the Rebellious Aging style checklist.",
         "canonical": "/pillars/style",
         "ogType": "website",
@@ -1243,7 +1268,7 @@
       "issues": [],
       "metadata": {
         "title": "Join the Rebellious Aging Facebook Group",
-        "description": "Step into a private Facebook community where women 55-105 gather to share stories, support, and the courage to live vibrantly while eating powerfully,…",
+        "description": "Step into a private Facebook community where women gather to share stories, support, and the courage to live vibrantly while eating powerfully, living…",
         "canonical": "/blog/join-rebellious-aging-facebook-group",
         "ogType": "article",
         "noindex": false,
@@ -1643,7 +1668,7 @@
       "issues": [],
       "metadata": {
         "title": "The Strength of Rest Days",
-        "description": "The truth that can feel counterintuitive: rest is not quitting. Learn how intentional pauses help women 55+ stay stronger, healthier, and more motivated.",
+        "description": "The truth that can feel counterintuitive: rest is not quitting. Learn how intentional pauses help women stay stronger, healthier, and more motivated.",
         "canonical": "/blog/the-secret-strength-of-rest-days",
         "ogType": "article",
         "noindex": false,
@@ -1818,7 +1843,7 @@
       "issues": [],
       "metadata": {
         "title": "Time Is Calling. Are You Listening?",
-        "description": "Suz invites rebels 55+ to honor time as a teacher—choose joy, use your voice, invest in health, and align daily actions with what matters most.",
+        "description": "Suz invites rebels to honor time as a teacher—choose joy, use your voice, invest in health, and align daily actions with what matters most.",
         "canonical": "/blog/time-is-calling-are-you-listening",
         "ogType": "article",
         "noindex": false,

@@ -65,7 +65,6 @@ const StarterKit = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mt-3">
               Rebellious Aging Starter Kit
             </h1>
-            <p className="text-lg text-gray-700 mt-3">For Women 55-105</p>
             <p className="text-xl font-semibold text-coral mt-4">Nibble. Wiggle. Dazzle. Be Grateful.</p>
           </div>
 

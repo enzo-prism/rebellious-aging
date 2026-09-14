@@ -1,6 +1,6 @@
 # Rebellious Aging (www.rebelwithsuz.com)
 
-Rebellious Aging is a website and community for women 55+ to age boldly and live loudly through confidence, style, health, gratitude, storytelling, and plant-powered living.
+Rebellious Aging is a website and community for women to age boldly and live loudly through confidence, style, health, gratitude, storytelling, and plant-powered living.
 
 ## Canonical site
 - https://www.rebelwithsuz.com/
@@ -10,11 +10,11 @@ Rebellious Aging is a website and community for women 55+ to age boldly and live
 - https://www.rebelwithsuz.com/sitemap.xml
 
 ## Key sections
-- [Rebellious Aging | Age Boldly, Live Loudly](https://www.rebelwithsuz.com/): A supportive community for women 55+: explore confidence, personal style, gratitude, plant-based recipes, and stories from Suz. Age boldly, live loudly.
+- [Rebellious Aging | Age Boldly, Live Loudly](https://www.rebelwithsuz.com/): A supportive community for women: explore confidence, personal style, gratitude, plant-based recipes, and stories from Suz. Age boldly, live loudly.
 - [Meet Suz & the Rebellious Aging Story](https://www.rebelwithsuz.com/our-story): Meet Suz and discover how Rebellious Aging challenges outdated rules with science-backed lifestyle shifts rooted in compassion.
-- [Rebellious Aging Starter Kit for Women 55+](https://www.rebelwithsuz.com/starter-kit): A gentle starter kit for women 55-105 to begin with Nibble, Wiggle, Dazzle, and Gratefulness in the Rebellious Aging journey.
+- [Rebellious Aging Starter Kit](https://www.rebelwithsuz.com/starter-kit): A gentle starter kit to begin with Nibble, Wiggle, Dazzle, and Gratefulness in the Rebellious Aging journey.
 - [Confidence & Reinvention After 55](https://www.rebelwithsuz.com/pillars/confidence): Ditch limiting beliefs and rebuild unshakable confidence with practical checklists, community inspiration, and personalized support.
-- [Personal Style for Women 55+](https://www.rebelwithsuz.com/pillars/style): Express signature style with playful guidance, curated resources, and the Rebellious Aging style checklist.
+- [Personal Style After 55](https://www.rebelwithsuz.com/pillars/style): Express signature style with playful guidance, curated resources, and the Rebellious Aging style checklist.
 - [Healthy Aging & Plant-Based Living After 55](https://www.rebelwithsuz.com/pillars/health): Fuel longevity with Whole-Food, Plant-Based foundations, nutrition tools, and a daily health checklist.
 - [Gratitude & Purpose After 55](https://www.rebelwithsuz.com/pillars/gratitude): Discover how gratitude becomes a rebellious daily practice that fuels joy, resilience, and purpose in every season of life.
 - [Whole-Food, Plant-Based Nutrition Guide](https://www.rebelwithsuz.com/pillars/health/nutrition-guide): Dive into what to eat, what to crowd out, and how to read labels like a rebel with a printable WFPB roadmap for rebellious agers.
@@ -46,10 +46,10 @@ Rebellious Aging is a website and community for women 55+ to age boldly and live
 
 ## About the community
 ### What is Rebellious Aging?
-Rebellious Aging is Suz’s community and resource library for women 55+ who want to age with confidence, curiosity, personal style, health, and gratitude. It brings together personal stories, plant-based recipes, free guides, and a private Facebook community.
+Rebellious Aging is Suz’s community and resource library for women who want to age with confidence, curiosity, personal style, health, and gratitude. It brings together personal stories, plant-based recipes, free guides, and a private Facebook community.
 
 ### Who is Rebellious Aging for?
-Suz welcomes women 55–105 who are exploring a new chapter, looking for connection, or ready to challenge limiting beliefs about getting older. You can start with whichever of the four pillars speaks to you: confidence, style, health, or gratitude.
+Suz welcomes women who are exploring a new chapter, looking for connection, or ready to challenge limiting beliefs about getting older. You can start with whichever of the four pillars speaks to you: confidence, style, health, or gratitude.
 
 ### How can I join the community?
 Request to join the private Rebellious Aging Facebook group. The group is a place for conversation, encouragement, and community updates. Suz shares links to the community’s Zoom gatherings inside the group.
@@ -82,7 +82,7 @@ Start with the whole-food, plant-based nutrition guide, then explore the recipe 
 - [If Not Now, When? Start Again](https://www.rebelwithsuz.com/blog/if-not-now-when-new-beginnings): A reminder that new beginnings do not arrive by accident; they begin when you stop waiting, trust yourself, and decide to move now.
 - [Optimal Aging With Colleen Murphy](https://www.rebelwithsuz.com/blog/optimal-aging-colleen-murphy): Explore Colleen Murphy's practical aging insights on movement, sleep, nourishment, and habits that help you age more optimally and consciously.
 - [Calorie Density for Healthy Weight Loss](https://www.rebelwithsuz.com/blog/calorie-density-secret-seals-deal): Learn how calorie density makes weight management gentler by helping you eat satisfying portions of foods that naturally support your health goals.
-- [Join the Rebellious Aging Facebook Group](https://www.rebelwithsuz.com/blog/join-rebellious-aging-facebook-group): Join a private community for women 55+ who want support, conversation, confidence, and plant-powered inspiration for aging boldly together.
+- [Join the Rebellious Aging Facebook Group](https://www.rebelwithsuz.com/blog/join-rebellious-aging-facebook-group): Join a private community for women who want support, conversation, confidence, and plant-powered inspiration for aging boldly together.
 - [Strength and Balance for Healthy Aging](https://www.rebelwithsuz.com/blog/strength-and-balance-for-the-win): Strength and balance are essential for confidence, mobility, and health span; this post explains why movement matters even more as we age.
 - [Style Still Counts at Every Age](https://www.rebelwithsuz.com/blog/style-still-counts-make-it-yours-at-every-age): Style has no expiration date - declutter with purpose, invest in flattering pieces, and embrace elegance that reflects your rebellious spirit.
 - [Follow the Science and Common Sense](https://www.rebelwithsuz.com/blog/following-the-science-and-your-common-sense): Cut through nutrition confusion with curiosity, credible mentors like Dr. Campbell and Dr. Esselstyn, and your own common sense.
@@ -98,14 +98,14 @@ Start with the whole-food, plant-based nutrition guide, then explore the recipe 
 - [The Pleasure Trap Explained](https://www.rebelwithsuz.com/blog/the-pleasure-trap-why-it-is-not-your-fault): Learn how The Pleasure Trap explains cravings, why willpower isn’t broken, and how whole foods plus gentle routines reset biology at any age.
 - [B12: The Little Vitamin With a Big Job](https://www.rebelwithsuz.com/blog/b12-the-little-vitamin-with-a-big-job): Dr. Greger’s B12 guidance explained: spot deficiency signs, choose cyanocobalamin, and test smarter so aging boldly never runs on empty.
 - [The Secret Strength of Rest Days, Why Pausing Makes You Powerful](https://www.rebelwithsuz.com/blog/the-secret-strength-of-rest-days-why-pausing-makes-you-powerful): Discover why rest days build strength, support recovery, prevent injury, and keep exercise sustainable and motivating after 55.
-- [The Strength of Rest Days](https://www.rebelwithsuz.com/blog/the-secret-strength-of-rest-days): The truth that can feel counterintuitive: rest is not quitting. Learn how intentional pauses help women 55+ stay stronger, healthier, and more motivated.
+- [The Strength of Rest Days](https://www.rebelwithsuz.com/blog/the-secret-strength-of-rest-days): The truth that can feel counterintuitive: rest is not quitting. Learn how intentional pauses help women stay stronger, healthier, and more motivated.
 - [The 15-Second Shock About Food](https://www.rebelwithsuz.com/blog/the-15-second-shock-why-food-matters): Every 15 seconds a new cancer diagnosis lands - here is why food, movement, and choosing whole plants give you influence over your health span.
 - [The Quiet Magic of Consistency](https://www.rebelwithsuz.com/blog/the-quiet-magic-of-consistency): Discover how small, repeated choices around plants, movement, style, and self-compassion create rebellious results after 55.
 - [Why Resting Is the New Rebellion](https://www.rebelwithsuz.com/blog/the-weekend-epiphany-why-resting-is-the-new-rebellion): Reclaim weekends as rebellion—listen to your body, set boundaries with rest, and let joy-filled pauses fuel a vibrant life.
 - [Plant-Strong Thanksgiving Recipes](https://www.rebelwithsuz.com/blog/thanksgiving-recipes-plantstrong-favorites): Plant-strong Thanksgiving favorites including mashed potatoes, mushroom gravy, sweet potato casserole, stuffing, salad, and pumpkin pie tart.
 - [When Joy and Sorrow Share a Table](https://www.rebelwithsuz.com/blog/when-joy-and-sorrow-share-a-seat-at-the-table): Suz reflects on holidays after loss, how tears are love in motion, and why joy and sorrow can share space without canceling each other out.
 - [Passing the Baton at Thanksgiving](https://www.rebelwithsuz.com/blog/passing-the-baton-thanksgiving-reflection): Suz reflects on passing the Thanksgiving hosting legacy to her daughter, embracing change while keeping gratitude and warmth at the heart of the holiday.
-- [Time Is Calling. Are You Listening?](https://www.rebelwithsuz.com/blog/time-is-calling-are-you-listening): Suz invites rebels 55+ to honor time as a teacher—choose joy, use your voice, invest in health, and align daily actions with what matters most.
+- [Time Is Calling. Are You Listening?](https://www.rebelwithsuz.com/blog/time-is-calling-are-you-listening): Suz invites rebels to honor time as a teacher—choose joy, use your voice, invest in health, and align daily actions with what matters most.
 - [Diane Keaton: The Original Rebellious Ager](https://www.rebelwithsuz.com/blog/the-original-rebellious-ager-diane-keaton): Learn Diane Keaton’s rebel style playbook—signature looks, bold accessories, sharp tailoring, and humor—so you can own your lane at any age.
 - [Dress Like You Mean It](https://www.rebelwithsuz.com/blog/a-rebellious-aging-guide-to-dressing-like-you-mean-it): A rebellious aging style manifesto: wear what makes your soul hum, refuse invisibility, and blend comfort with bold expression without apology.
 - [When the Voice Gets Loud](https://www.rebelwithsuz.com/blog/when-the-voice-gets-loud-limiting-beliefs): Limiting beliefs get loud at any age; learn how to move before fear freezes you, borrow courage, and choose thoughts that serve you.

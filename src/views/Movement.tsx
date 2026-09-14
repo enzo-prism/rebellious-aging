@@ -132,7 +132,7 @@ const Movement = () => {
 
                   <p>Together, their work forms the scientific and clinical backbone of my Whole Food, Plant-Based knowledge and conviction and philosophy—one rooted in evidence, compassion, and the belief that aging can be vibrant, purposeful, and full of possibility.</p>
 
-                  <p>I am here to inspire and encourage women 55-105 to rebel against any societal aging limitations, reclaim their vitality and become the healthy, bold, beautiful, brilliant, confident, vibrant, version of themselves that they have always envisioned.</p>
+                  <p>I am here to inspire and encourage women to rebel against any societal aging limitations, reclaim their vitality and become the healthy, bold, beautiful, brilliant, confident, vibrant, version of themselves that they have always envisioned.</p>
                 </div>
               </div>
               

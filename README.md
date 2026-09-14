@@ -1,6 +1,6 @@
 # Rebellious Aging Web Application
 
-Rebellious Aging is a Next.js App Router site that helps women 55+ “age boldly, live loudly” through four pillars—Confidence, Style, Health, and Gratitude. The app houses long-form editorial content (blogs, pillar landing pages, nutrition guides), a private contact path, and community touchpoints.
+Rebellious Aging is a Next.js App Router site that helps women “age boldly, live loudly” through four pillars—Confidence, Style, Health, and Gratitude. The app houses long-form editorial content (blogs, pillar landing pages, nutrition guides), a private contact path, and community touchpoints.
 
 ---
 

@@ -127,7 +127,7 @@ export const blogSeoById: Record<string, BlogSeoMeta> = {
   'join-rebellious-aging-facebook-group': {
     seoTitle: 'Join the Rebellious Aging Facebook Group',
     seoDescription:
-      'Join a private community for women 55+ who want support, conversation, confidence, and plant-powered inspiration for aging boldly together.',
+      'Join a private community for women who want support, conversation, confidence, and plant-powered inspiration for aging boldly together.',
   },
   'strength-and-balance-for-the-win': {
     seoTitle: 'Strength and Balance for Healthy Aging',

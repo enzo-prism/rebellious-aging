@@ -194,7 +194,7 @@ export const buildPersonJsonLd = () => ({
   name: siteMetadata.author.name,
   sameAs: [SUBSTACK_URL],
   url: resolveAbsoluteUrl(siteMetadata.author.path),
-  description: 'Founder of Rebellious Aging, writer, and life and success coach sharing her experience of confidence, personal style, gratitude, and plant-based living with women 55+.',
+  description: 'Founder of Rebellious Aging, writer, and life and success coach sharing her experience of confidence, personal style, gratitude, and plant-based living with women.',
   worksFor: { '@id': `${siteMetadata.baseUrl}/#organization` },
   knowsAbout: ['Rebellious aging', 'Whole-food, plant-based living', 'Confidence', 'Personal style', 'Gratitude'],
 });

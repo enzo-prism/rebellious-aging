@@ -12,7 +12,7 @@ export const seoRoutes: SeoRouteConfig[] = [
     path: '/',
     title: 'Rebellious Aging | Age Boldly, Live Loudly',
     description:
-      'A supportive community for women 55+: explore confidence, personal style, gratitude, plant-based recipes, and stories from Suz. Age boldly, live loudly.',
+      'A supportive community for women: explore confidence, personal style, gratitude, plant-based recipes, and stories from Suz. Age boldly, live loudly.',
   },
   {
     path: '/our-story',
@@ -47,9 +47,9 @@ export const seoRoutes: SeoRouteConfig[] = [
   },
   {
     path: '/starter-kit',
-    title: 'Rebellious Aging Starter Kit for Women 55+',
+    title: 'Rebellious Aging Starter Kit',
     description:
-      'A gentle starter kit for women 55-105 to begin with Nibble, Wiggle, Dazzle, and Gratefulness in the Rebellious Aging journey.',
+      'A gentle starter kit to begin with Nibble, Wiggle, Dazzle, and Gratefulness in the Rebellious Aging journey.',
   },
   {
     path: '/nutrition',
@@ -156,7 +156,7 @@ export const seoRoutes: SeoRouteConfig[] = [
   },
   {
     path: '/pillars/style',
-    title: 'Personal Style for Women 55+',
+    title: 'Personal Style After 55',
     description:
       'Express signature style with playful guidance, curated resources, and the Rebellious Aging style checklist.',
   },
