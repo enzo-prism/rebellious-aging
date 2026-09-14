@@ -1643,7 +1643,7 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
           </p>
           
           <p>
-            That is exactly what is happening in my new private Facebook group, "Rebellious Aging". This is a gathering space for women 55-105 who are ready to Eat Powerfully, Live Loudly, and Age Boldly.
+            That is exactly what is happening in my new private Facebook group, "Rebellious Aging". This is a gathering space for women who are ready to Eat Powerfully, Live Loudly, and Age Boldly.
           </p>
           
           <p>
@@ -2830,7 +2830,7 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       <>
         <div className="prose max-w-none space-y-4 mb-16">
           <p>
-            If there is one myth women 55+ are breaking, it is the idea that we must push harder every day to stay stronger. “No
+            If there is one myth women are breaking, it is the idea that we must push harder every day to stay stronger. “No
             pain, no gain”? Yikes. No thank you. Rest does not mean you are slacking; it means you are being smart.
           </p>
 
@@ -2874,7 +2874,7 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
 
         <div className="prose max-w-none space-y-4 mb-16">
           <p>
-            If there is one myth women 55+ are finally breaking, it is the idea that we must push harder every day to stay strong.
+            If there is one myth women are finally breaking, it is the idea that we must push harder every day to stay strong.
             No thank you. Rest does not mean you are slacking. Nope. It means you are smart.
           </p>
 
@@ -2980,7 +2980,7 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
           <p>Random chance is real.</p>
 
           <p>
-            But lifestyle, especially food, is one of the pieces we can choose. For women 55-105, choosing plants, movement, vibrancy,
+            But lifestyle, especially food, is one of the pieces we can choose. For women, choosing plants, movement, vibrancy,
             confidence, and gratefulness is not just prevention; it is a declaration:
           </p>
 
@@ -3643,7 +3643,7 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
             <li>Do one small thing daily that your future self will appreciate.</li>
           </ul>
 
-          <p>We REBELS 55+ know a truth the young do not know, YET.</p>
+          <p>We rebels know a truth the young do not know, YET.</p>
 
           <p>
             Time becomes more meaningful as it becomes more limited. And this is not something to fear, it is actually something to honor.

@@ -264,7 +264,7 @@ export const blogPosts: BlogPostMetadata[] = [
   {
     id: 'join-rebellious-aging-facebook-group',
     title: 'Let\'s Continue the Conversation: Join The PRIVATE, Rebellious Aging Facebook Group',
-    excerpt: 'Step into a private Facebook community where women 55-105 gather to share stories, support, and the courage to live vibrantly while eating powerfully, living loudly, and aging boldly.',
+    excerpt: 'Step into a private Facebook community where women gather to share stories, support, and the courage to live vibrantly while eating powerfully, living loudly, and aging boldly.',
     date: '1/25/2025',
     dateSort: new Date('2025-01-25'),
     readTime: '5 min read',
@@ -429,7 +429,7 @@ export const blogPosts: BlogPostMetadata[] = [
     readTime: '5 min read',
     blogNumber: 59,
     seoDescription:
-      'The truth that can feel counterintuitive: rest is not quitting. Learn how intentional pauses help women 55+ stay stronger, healthier, and more motivated.'
+      'The truth that can feel counterintuitive: rest is not quitting. Learn how intentional pauses help women stay stronger, healthier, and more motivated.'
   },
   {
     id: 'the-15-second-shock-why-food-matters',
@@ -499,7 +499,7 @@ export const blogPosts: BlogPostMetadata[] = [
     dateSort: new Date('2025-02-16'),
     readTime: '6 min read',
     blogNumber: 47,
-    seoDescription: 'Suz invites rebels 55+ to honor time as a teacher—choose joy, use your voice, invest in health, and align daily actions with what matters most.'
+    seoDescription: 'Suz invites rebels to honor time as a teacher—choose joy, use your voice, invest in health, and align daily actions with what matters most.'
   },
   {
     id: 'the-original-rebellious-ager-diane-keaton',

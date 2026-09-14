@@ -13,7 +13,7 @@ export const generateMetadata = (): Metadata => {
       path: '/starter-kit',
       title: 'Starter Kit',
       description:
-        'A gentle starter kit for women 55-105 to begin with Nibble, Wiggle, Dazzle, and Gratefulness in the Rebellious Aging journey.',
+        'A gentle starter kit to begin with Nibble, Wiggle, Dazzle, and Gratefulness in the Rebellious Aging journey.',
     }
   );
 };

@@ -64,7 +64,7 @@ const FacebookGroup = () => {
               Join the Rebellious Aging Circle
             </h1>
             <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
-              Aging boldly is an art, and it is better with friends. Step into a private space for women 55-105 to explore vibrant health, unshakable confidence, and unapologetic style together.
+              Aging boldly is an art, and it is better with friends. Step into a private space for women to explore vibrant health, unshakable confidence, and unapologetic style together.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
               <FacebookGroupButton size="lg" className="min-w-[240px]">

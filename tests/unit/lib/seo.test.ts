@@ -29,7 +29,7 @@ describe('seo utilities', () => {
 
   it('falls back to the site description when no description is supplied', () => {
     expect(buildMetaDescription(undefined, 'Fallback description')).toBe('Fallback description');
-    expect(buildMetaDescription(undefined, '')).toBe('Age boldly through confidence, style, strength, and plant-powered living tailored for women 55+.');
+    expect(buildMetaDescription(undefined, '')).toBe('Age boldly through confidence, style, strength, and plant-powered living.');
   });
 
   it('builds canonical URLs and social image overrides', () => {

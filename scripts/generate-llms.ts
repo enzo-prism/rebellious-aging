@@ -54,7 +54,7 @@ const keyPaths = [
 const lines = [
   `# Rebellious Aging (${host})`,
   '',
-  'Rebellious Aging is a website and community for women 55+ to age boldly and live loudly through confidence, style, health, gratitude, storytelling, and plant-powered living.',
+  'Rebellious Aging is a website and community for women to age boldly and live loudly through confidence, style, health, gratitude, storytelling, and plant-powered living.',
   '',
   '## Canonical site',
   `- ${toAbsoluteUrl('/')}`,

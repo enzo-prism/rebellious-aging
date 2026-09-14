@@ -74,7 +74,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl items-center gap-8 lg:grid-cols-2 lg:gap-14">
           <div className="space-y-5 lg:space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <p className="text-sm font-semibold tracking-wide text-teal">A community for women 55+</p>
+              <p className="text-sm font-semibold tracking-wide text-teal">A community for women</p>
               <PageShareButton />
             </div>
             <h1 className="text-4xl font-bold leading-tight text-gray-900 sm:text-5xl xl:text-6xl">Welcome Home</h1>
@@ -82,7 +82,7 @@ export default function Home() {
               You do not have to figure this stage of life out alone.
             </p>
             <p className="max-w-xl text-lg leading-relaxed text-gray-700">
-              Rebellious Aging is a warm, supportive community for women 55+ who want to age with
+              Rebellious Aging is a warm, supportive community for women who want to age with
               vitality, curiosity, laughter, confidence, and connection.
             </p>
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
