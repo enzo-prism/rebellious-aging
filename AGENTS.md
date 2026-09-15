@@ -64,3 +64,12 @@ Environment secrets load from `.env`; never commit production credentials. Front
 
 ## Docs and References
 The deeper architectural walkthrough is in `docs/project-overview.md`, the content map is in `README.md`, and the current metadata implementation is documented in `docs/seo-metadata-implementation.md`. Use those when adding new pages, CTAs, or SEO metadata so the site voice stays consistent.
+
+## Cursor Cloud specific instructions
+This is a single frontend service (Next.js 16 static-export site); there is no separate backend to run. Standard commands are documented above and in `README.md`.
+
+- No secrets are required for local dev or tests. Supabase env vars are optional: `src/integrations/supabase/client.ts` falls back to placeholder values, so the app, unit suite, and e2e suite all run without a `.env`. The console warning `Missing NEXT_PUBLIC_SUPABASE_URL...` is expected in that case; only the live quiz submission path needs real Supabase credentials.
+- Run the dev server with `npm run dev` (serves on `http://localhost:3000`).
+- `npm run test:e2e` (Playwright) auto-starts the dev server via its `webServer` config (`reuseExistingServer: true`), so no manual server start is needed; if a dev server is already running on port 3000 it is reused. Playwright's Chromium browser must be present (the update script installs it).
+- The e2e specs read generated assets in `public/` (e.g. `public/search-index.json`). These are committed, but if content data changes, regenerate them with `npm run prepare-e2e` (alias for `readiness:assets`) before running e2e.
+- `npm run lint` is warnings-only for the many `<img>`/`no-img-element` hints; it exits 0. Do not treat those warnings as failures.
