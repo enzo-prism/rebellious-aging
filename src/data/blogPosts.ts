@@ -1121,6 +1121,18 @@ export const blogPosts: BlogPostMetadata[] = [
     blogNumber: 100,
     seoDescription:
       'Suz celebrates 100 blogs as a marker beside the road, proof that beginning, curiosity, consistency, and small steps can build a life.'
+  },
+  {
+    id: 'stuck-is-a-place-not-an-identity',
+    title: 'Stuck is a Place Not an Identity',
+    excerpt:
+      'Suz explores what feeling stuck may really be telling us, and why one small, honest step is enough to press the restart button.',
+    date: '9/18/2026',
+    dateSort: new Date('2026-09-18T04:00:00'),
+    readTime: '5 min read',
+    blogNumber: 101,
+    seoDescription:
+      'Suz reframes stuckness as a place, not an identity, with honest questions and one small step to begin again.'
   }
 ];
 

@@ -6037,4 +6037,31 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       </>
     ),
   },
+  'stuck-is-a-place-not-an-identity': {
+    heading: <h1 className="text-4xl font-bold mb-4">Stuck is a Place Not an Identity</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>Lately I have talked with several people who feel stuck. Not a little delayed or undecided. Stuck enough that they are beginning to wonder whether they will ever move forward. I recognize that feeling and it is nearly debilitating and it can require professional help. (No shame here at all.) We arrive there after a loss, a huge disappointment, a change we did not choose, or a plan that didn’t work. Sometimes it can be as simple or as complex as just being tired.</p>
+          <p>Perhaps we meant to pause for a moment and when we look up, we discover we have been sitting in the same place for quite awhile. Here is the heavy “thing” : the longer we wait, the bigger the first step seems.</p>
+          <p>Perhaps we don’t know which direction to go or we are afraid of making the wrong move. Sometimes we imagine that restarting requires a surge of confidence and a complete plan. Since we have neither, we wait.</p>
+          <p>You must know being stuck is not always a failure of effort. Sometimes it is a sign that something in your life needs your attention. Maybe you are grieving something you have not had time to name. Maybe the path you were following never or no longer fits. Here is a big one, maybe you have been trying to meet everyone else’s expectations and have lost touch with your own. Before you rush to fix the feeling, it may help to listen to it.</p>
+          <h3 className="text-xl font-semibold mt-8">Stuck is a Place, Not an Identity</h3>
+          <p>The longer you sit in a place, the more familiar it becomes. (Familiar is not the same as permanent).</p>
+          <p>Being stuck describes where you are right now. It does not describe who you are, and it does not describe where you will be next. A restart does not require you to become a different person OR solve everything all at once. It begins with noticing what is true and choosing one manageable next step.</p>
+          <p className="text-center font-bold">Soooooooooooooooooo</p>
+          <h3 className="text-xl font-semibold mt-8">Start with Honest Questions</h3>
+          <p>Ask yourself: What feels stuck? What is this feeling trying to tell me? Am I waiting to feel motivated to take any action? What is one small step to take today? Who could I talk to instead of trying to figure this out alone? You do not have to answer every question. Notice which makes you pause. That may be your nudge.</p>
+          <p>Then try something small. Open a notebook, make a call, take a walk. Spend 5 minutes on the project you are avoiding. You are not signing a contract to finish everything. You are giving yourself a chance to begin.</p>
+          <p>A small step does not have to solve the entire problem, its purpose may simply be to remind you that you still have choices. Progress may not look dramatic. It may look like getting out of bed in the morning, answering one message, making an appointment, setting one boundary, or admitting that you need help. Do not minimize this. These things count, even when no one else can see it.</p>
+          <p>Now let that step teach you. Notice what happened. Did the step help? Did it show you you need a different direction, perhaps more rest or another’s support? Well that is useful info. Now you can adjust and take another step.</p>
+          <p>How about this? Sometimes the first step is not forward but often inward. Yes, telling the truth about what hurts, releasing the expectation that you should be farther along, OR giving YOURSELF permission to want something different. That kind of movement matters.</p>
+          <p>If what you are carrying feels too heavy to lift by yourself, reaching out for help should be your first step. Know that you are allowed to move slowly. You are allowed to pause, reconsider, begin again, and take the next step when you are ready.</p>
+          <p>Press the Restart Button, which rarely announces itself. It may be so small you almost overlook it. But here is the thing, YOU CAN press it today. Not because you have suddenly become a different person. NOPE. And not because you were a stuck person to begin with. Because you were a person in a difficult place, perhaps carrying more than you realized, and now you are allowed to move.</p>
+          <p><strong>💚 The Accident</strong></p>
+        </div>
+      </>
+    ),
+  },
 };

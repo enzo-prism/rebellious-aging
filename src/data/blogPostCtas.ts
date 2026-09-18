@@ -605,6 +605,12 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
       'If you have reached a marker worth noticing, join the group and celebrate the small steps, quiet returns, and courage that brought you here.',
     buttonLabel: 'Join the celebration',
   },
+  'stuck-is-a-place-not-an-identity': {
+    title: 'Press your restart button with us',
+    body:
+      'If you are feeling stuck, bring it to the group. One honest question and one small step are easier to take with women walking beside you.',
+    buttonLabel: 'Join the restart',
+  },
 };
 
 export const getBlogPostCta = (postId: string) => blogPostCtas[postId];

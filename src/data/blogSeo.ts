@@ -328,4 +328,9 @@ export const blogSeoById: Record<string, BlogSeoMeta> = {
     seoDescription:
       'Suz closes the superpower series by reframing the search as becoming, self-recognition, and collecting evidence of who she has become.',
   },
+  'stuck-is-a-place-not-an-identity': {
+    seoTitle: 'Stuck is a Place, Not an Identity',
+    seoDescription:
+      'Suz reframes feeling stuck as a place, not an identity, and offers honest questions plus one small step to press the restart button.',
+  },
 };
