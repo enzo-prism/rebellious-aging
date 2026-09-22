@@ -80,6 +80,41 @@ describe('blog post data', () => {
     }
   });
 
+  it('preserves Suz’s wording in blogs 102 and 103', () => {
+    const sourceAnchors: Record<string, string[]> = {
+      'hard-is-not-the-same-as-impossible': [
+        'But I have noticed something.',
+        'There are hard things that we can choose..',
+        'struggling with something does not not mean we are incapable of doing it.',
+        'It was an invitation to meet the person you are still becoming.',
+      ],
+      'i-forgot-how-to-weekend': [
+        'I no longer WEEKENDED.',
+        'Life does enjoy a pivot.',
+        'Cyndi Lauper - Girls Just Want To Have Fun (Official Video)',
+        'You are simply being.',
+      ],
+    };
+
+    for (const [postId, anchors] of Object.entries(sourceAnchors)) {
+      const entry = blogPostContent[postId];
+      const { container, unmount } = render(entry.body);
+      const renderedText = container.textContent?.replace(/\s+/g, ' ').trim() ?? '';
+
+      for (const anchor of anchors) {
+        expect(renderedText, `${postId} is missing source text: ${anchor}`).toContain(anchor);
+      }
+
+      if (postId === 'i-forgot-how-to-weekend') {
+        expect(container.querySelector('a')?.getAttribute('href')).toBe(
+          'https://www.youtube.com/watch?v=PIb6AZdTr-A',
+        );
+      }
+
+      unmount();
+    }
+  });
+
   it('loads blog posts with required metadata', () => {
     expect(blogPosts.length).toBeGreaterThan(0);
     const first = blogPosts[0];
