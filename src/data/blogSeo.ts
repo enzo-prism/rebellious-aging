@@ -333,4 +333,14 @@ export const blogSeoById: Record<string, BlogSeoMeta> = {
     seoDescription:
       'Suz reframes feeling stuck as a place, not an identity, and offers honest questions plus one small step to press the restart button.',
   },
+  'hard-is-not-the-same-as-impossible': {
+    seoTitle: 'Hard is NOT the Same as Impossible',
+    seoDescription:
+      'Suz explores choosing hard things on purpose, and why courage, confidence, and resilience are built by facing what feels difficult.',
+  },
+  'i-forgot-how-to-weekend': {
+    seoTitle: 'I Forgot How to Weekend',
+    seoDescription:
+      'Suz reflects on powering through caregiving and reinvention, then learning to protect a little time for simply being.',
+  },
 };

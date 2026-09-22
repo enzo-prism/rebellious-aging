@@ -6064,4 +6064,73 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       </>
     ),
   },
+  'hard-is-not-the-same-as-impossible': {
+    heading: <h1 className="text-4xl font-bold mb-4">Hard is NOT the Same as Impossible</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>Most of us do not go looking for hard things. We prefer comfortable, familiar and of course predictable. We like knowing what we are doing. We like feeling capable and we especially like situations that do not make our stomach flutter or expose the uncomfortable truth that we may not be very good at something, at least yet.</p>
+          <p>I believe all of the above.</p>
+          <p className="font-bold">But I have noticed something.</p>
+          <p>If we avoid everything that feels difficult, we may also avoid discovering what we are capable of. The funny or not so funny thing is that hard things will find us eventually. I guess this is part of being human. Life will deliver challenges we did not request, schedule or feel prepared to handle. It is not all out of our control.</p>
+          <p>There are hard things that we can choose.. We can do hard things intentionally, not because the struggle is noble, or that we need to prove our worth, or that suffering earns us a medal.</p>
+          <p>We choose hard things because <strong><em>courage</em></strong> needs exercise, <strong><em>confidence</em></strong> needs evidence and <strong><em>resilience</em></strong> is built through use. The hard things we choose can help prepare us for the hard things we do.</p>
+          <p>Too often we look at something difficult and decide we are not strong enough to do it.</p>
+          <p>Do we have the order backward?</p>
+          <p>We do not always become strong before we face the hard thing. Sometimes (most of the time), we become strong because we face it. And we learn that discomfort is survivable. We discover that frustration is not failure. WE begin to understand that struggling with something does not not mean we are incapable of doing it. After all it may simply mean we are learning.</p>
+          <p>Remember hard is not the same as impossible. It is not necessarily a warning to stop. Perhaps hard means we are growing.</p>
+          <p>Choose your hard, An intentional hard thing does not have to be enormous or dramatic. It could be as simple as lifting a heavier weight, learning unfamiliar technology, entering a room where you do not know anyone, trying something you do not do well, or beginning again after stopping. The goal is not to overwhelm ourselves. <strong>It is to keep stretching the edges of what feels possible.</strong></p>
+          <p>Do not underestimate yourself before you begin. I often see people decide they cannot do something before they have given themselves the opportunity to try. <strong>They predict failure and call it realism.</strong> Or confuse being inexperienced with being capable. Or how about this, they see someone else’s mastery and use it as evidence that they should never or could never become a beginner.</p>
+          <p>Please remember this, everyone who does something well was once awkward, uncertain, and/or struggling.</p>
+          <p className="font-bold">So I beg you not to underestimate yourself before you begin.</p>
+          <p>You do not need proof that you can complete the journey. You only need enough <strong>courage</strong> to take the next step. The doing may become the proof.</p>
+          <p>So what hard thing will YOU choose? Ask yourself: What have I been avoiding simply because it feels difficult? Is it truly beyond me, or am I uncomfortable being a beginner? What is a step I could take before I feel ready? Who might I become if I try? Again, know this, you do not have to conquer the whole hard thing today. You do not have to be fearless. You do not have to feel or look graceful while learning. <strong>Nope! You only have to STOP using “hard” as another word for “never”.</strong></p>
+          <p className="font-bold">Do hard things intentionally and you may discover that the hard thing was never an obstacle. It was an invitation to meet the person you are still becoming.</p>
+          <p><strong>💚 <em>The Accidental Blogger</em></strong></p>
+        </div>
+      </>
+    ),
+  },
+  'i-forgot-how-to-weekend': {
+    heading: <h1 className="text-4xl font-bold mb-4">I Forgot How to Weekend</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p className="font-bold"><em>I was so dedicated to my plan to “become” that I did not notice that I no longer </em>WEEKENDED.</p>
+          <p>That is not a typo.</p>
+          <p>Apparently, weekend is now a verb and I have forgotten how to do it.</p>
+          <p>For the last 18 years, my life has been filled with expected and unexpected time hogs. Weekends were still noted on the calendar, but they were not really weekends, They were simply late Friday afternoon, Saturday and Sunday.</p>
+          <p>Nothing stopped. I just kept powering through. I might add I loved every minute of it. I was on an important mission to reinvent and re-enter. R &amp; R, Ha, Ha, rest and recreation were not on my radar.</p>
+          <p>I was coming off of nine years as a full time 24/7 caregiver and I regret none of that time. (18 months of therapy after, helped me with the next 7 years of working my way back as a functioning member of society.)</p>
+          <p>I did a lot of stuff to help me come back. Classes, books, tests, certifications, seminars, internships and hours of pro-bono coaching to become certified. I also switched from 20 years as a vegetarian to vegan and finally to a whole plant food (WPF) diet, I raised and trained a puppy and also nestled in here was that worldwide interruption called COVID. Somewhere in the middle of all of that rebuilding, learning, healing, caregiving, and becoming, weekends sort of fell off my radar. They quietly disappeared. <strong>I did not notice</strong>, until recently.</p>
+          <p className="font-bold">That may be the funniest and the most revealing part of this whole story.</p>
+          <p>I talk constantly about noticing. I created an entire furry little character named “Nudge” to remind myself and others to pay attention. Yet I was so focused on creating my next life that I failed to notice that I had eliminated the weekend from it. It was always biz as usual for me.</p>
+          <p className="font-bold">Nope, not one recognizable weekend in sight.</p>
+          <p>My load is becoming lighter or is at least seeming more manageable and organizable and I am becoming more aware of the lost art of the weekend. I feel like I am settling into a life and routine that I have worked so hard to create, even though, by the way, it is not at all the life I originally set out to build. (Story for another day.)</p>
+          <p className="text-center font-bold">Life does enjoy a pivot.</p>
+          <p>Soooooooo, here I am, I decided to bring back the weekend. There is only one problem. <strong>It has become very clear to me that I do not know how to weekend.</strong></p>
+          <p>I work late on Friday. I reach for my phone before I even get out of bed on Saturday so I can check on all “the things”. I read all I can about health and nutrition, answer messages and think about projects and creating. Hmmmm, here we are on a Sunday afternoon and I am writing a blog. Yikes! I don’t mean here that I do not love ALL the things I am doing. I love every second and it is hard for me to stop the pattern that I have developed over the last 6-7 years. But I am aware that giving mind, body and soul a break is a very good thing and ya know how the song goes: <strong>Enjoy!</strong></p>
+          <p>
+            <a href="https://www.youtube.com/watch?v=PIb6AZdTr-A" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Cyndi Lauper - Girls Just Want To Have Fun (Official Video)</a>{' '}
+            <strong><em>Now try to get that out of your head, you’re welcome.</em></strong>
+          </p>
+          <p>But here is the “thing”. When I do try to stop, my brain will not easily turn off and if by some chance it does and I catch myself having fun, the black cloud of guilt envelopes my being. I have absolutely no boundaries around <em>weekending</em> fun and relaxation. NONE. Maybe as long as you are happy, who cares. Another excuse in my giant repertoire of excuses. Our bodies and brains need a break.</p>
+          <p>After years of powering through, I apparently cannot just announce, “it’s Saturday. I shall now relax.” My brain does not seem to get the memo.</p>
+          <p>But I am beginning to understand something important: the habits that helped us survive one season of life may not be the habits we need for the next one. I mean after all powering through helped me rebuild. It gave me structure, purpose, confidence and momentum. It helped me become who I am today.</p>
+          <p>Perhaps becoming is not always about adding something new. Perhaps it is about reclaiming something we lost along the way.</p>
+          <p>The weekend is not simply two empty days at the end of the week. It is a pause, a breath, a little open space in which nothing <strong>HAS</strong> to be achieved, proven, fixed, or finished. It is time to recover from the week behind us and make room for the week ahead. <strong><em>Rest is not wasted time, slowness is not laziness, and enjoying a few hours without producing anything does not mean we have lost our purpose.</em></strong> In fact, it may mean we are protecting it.</p>
+          <p className="font-bold">So I am beginning weekend rehab. Slowly.</p>
+          <p>Trust me I will not turn it into another project, buy 3 books about it, earn a certification in Advanced Weekending, and offer pro bono weekend coaching. Kind of tempting but hard <strong>NO.</strong> I will begin with a few small boundaries.</p>
+          <p>I can deliberately close the week early in the afternoon on Friday, give myself the first few hours of Saturday to myself, and just bail on anything less than fun on Sunday. I can do something just because it delights me, not because it teaches me, improves me or might become blog inspiration. And when guilt arrives, I can acknowledge it without handing it the weekend itinerary.</p>
+          <p>Your weekend may not fall on Saturday or Sunday. Your responsibilities may not allow two completely open days. But somewhere in your week, you need a little space that does not belong to your work, your obligations, or everyone who needs something from you.</p>
+          <p>Please do not surrender all of it without noticing. Protect a morning. Claim an afternoon. Create one small pocket of time in which you are not becoming, achieving, or catching up. You are simply being.</p>
+          <p>As for me it is Sunday afternoon, and I am writing a blog about learning not to work on Sunday afternoons.</p>
+          <p className="font-bold">Clearly weekend rehabilitation has begun. But I am not quite ready yet for discharge.😳😂</p>
+          <p><strong>💚 <em>The Accidental Blogger</em></strong></p>
+        </div>
+      </>
+    ),
+  },
 };

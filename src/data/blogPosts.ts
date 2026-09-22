@@ -1133,6 +1133,30 @@ export const blogPosts: BlogPostMetadata[] = [
     blogNumber: 101,
     seoDescription:
       'Suz reframes stuckness as a place, not an identity, with honest questions and one small step to begin again.'
+  },
+  {
+    id: 'hard-is-not-the-same-as-impossible',
+    title: 'Hard is NOT the Same as Impossible',
+    excerpt:
+      'Suz writes that hard is not the same as impossible, and that the challenges we choose can build courage, confidence, and resilience.',
+    date: '9/18/2026',
+    dateSort: new Date('2026-09-18T05:00:00'),
+    readTime: '4 min read',
+    blogNumber: 102,
+    seoDescription:
+      'Suz explores choosing hard things on purpose, and why courage, confidence, and resilience are built by facing what feels difficult.'
+  },
+  {
+    id: 'i-forgot-how-to-weekend',
+    title: 'I Forgot How to Weekend',
+    excerpt:
+      'Suz notices she forgot how to weekend, and begins reclaiming a little time for rest after years of caregiving, rebuilding, and becoming.',
+    date: '9/19/2026',
+    dateSort: new Date('2026-09-19T04:00:00'),
+    readTime: '5 min read',
+    blogNumber: 103,
+    seoDescription:
+      'Suz reflects on powering through caregiving and reinvention, then learning to protect a little time for simply being.'
   }
 ];
 

@@ -611,6 +611,18 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
       'If you are feeling stuck, bring it to the group. One honest question and one small step are easier to take with women walking beside you.',
     buttonLabel: 'Join the restart',
   },
+  'hard-is-not-the-same-as-impossible': {
+    title: 'Choose one hard thing',
+    body:
+      'If “hard” has been standing in for “never,” join the group and name one manageable challenge you are ready to try.',
+    buttonLabel: 'Join the courage conversation',
+  },
+  'i-forgot-how-to-weekend': {
+    title: 'Protect a little time for being',
+    body:
+      'If the weekend has disappeared into the rest of the week, join the group and share one small boundary that gives you room to rest.',
+    buttonLabel: 'Join the rest conversation',
+  },
 };
 
 export const getBlogPostCta = (postId: string) => blogPostCtas[postId];
