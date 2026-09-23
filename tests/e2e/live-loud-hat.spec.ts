@@ -17,9 +17,23 @@ test.describe('Live Loud hat waitlist', () => {
 
     const response = await page.goto('/live-loud-hat', { waitUntil: 'domcontentloaded' });
     expect(response?.status()).toBe(200);
-    await expect(page.getByRole('heading', { name: 'The Live Loud hat' })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1, name: 'The Rebellious Aging hats' })).toBeVisible();
     await expect(page.getByRole('button', { name: /share page/i })).toBeVisible();
     await expect(page.getByText(/Invite-only waitlist/i).first()).toBeVisible();
+
+    // Both real hats are shown, and every hat photo actually loads.
+    const hatImages = page.locator('img[src^="/hats/"]');
+    await expect(hatImages.first()).toBeVisible();
+    for (const img of await hatImages.all()) {
+      await img.scrollIntoViewIfNeeded();
+      await expect
+        .poll(() => img.evaluate((el: HTMLImageElement) => el.complete && el.naturalWidth > 0))
+        .toBe(true);
+    }
+
+    // Choosing a style from its card scrolls to the form with that hat preselected.
+    await page.getByRole('link', { name: 'Request the R hat' }).click();
+    await expect(page.getByRole('radio', { name: /The R/ })).toBeChecked();
 
     await page.getByRole('textbox', { name: 'Name' }).fill('Playwright Neighbor');
     await page.getByRole('textbox', { name: 'Email', exact: true }).fill('playwright@example.com');
@@ -31,13 +45,14 @@ test.describe('Live Loud hat waitlist', () => {
     await page.getByRole('button', { name: 'Request the next batch' }).click();
 
     await expect(page.getByRole('status')).toContainText('Suz has your request');
+    await expect(page.getByRole('status')).toContainText('You asked for: The R');
     expect(postedBody).toMatchObject({
       name: 'Playwright Neighbor',
       email: 'playwright@example.com',
       city: 'Santa Cruz',
-      why: 'Saw the green hat on a walk and asked about the next batch.',
+      why: 'Hat choice: The R\n\nSaw the green hat on a walk and asked about the next batch.',
       sizeNote: 'I like a looser fit',
-      _subject: 'Live Loud hat waitlist request',
+      _subject: 'Hat request: The R (Rebellious Aging hat waitlist)',
     });
     expect(LIVE_LOUD_HAT_FORMSPREE_ENDPOINT).toMatch(/^https:\/\/formspree\.io\/f\/[a-z0-9]+$/);
   });
@@ -64,4 +79,9 @@ test.describe('Live Loud hat waitlist', () => {
       expect(gap).toBeLessThan(96);
     });
   }
+});
+
+test('a ?hat= link preselects that hat in the request form', async ({ page }) => {
+  await page.goto('/live-loud-hat?hat=live-loud', { waitUntil: 'domcontentloaded' });
+  await expect(page.getByRole('radio', { name: /Live Loud!/ })).toBeChecked();
 });

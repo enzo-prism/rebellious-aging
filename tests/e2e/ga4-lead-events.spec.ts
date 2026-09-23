@@ -132,6 +132,7 @@ test('hat waitlist submit fires a generate_lead without PII', async ({ page }) =
   });
 
   await page.goto('/live-loud-hat', { waitUntil: 'networkidle' });
+  await page.getByRole('radio', { name: /Either one/ }).check();
   await page.getByRole('textbox', { name: 'Name' }).fill('Jordan');
   await page.getByRole('textbox', { name: 'Email', exact: true }).fill('jordan@example.com');
   await page

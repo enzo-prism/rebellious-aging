@@ -1,3 +1,4 @@
+import { hatChoiceLabels, type HatChoice } from '@/data/hats';
 import { LIVE_LOUD_HAT_FORMSPREE_ENDPOINT } from '@/lib/constants';
 
 export type LiveLoudHatRequest = {
@@ -7,6 +8,7 @@ export type LiveLoudHatRequest = {
   city?: string;
   why: string;
   sizeNote?: string;
+  hatChoice?: HatChoice;
   gotcha?: string;
 };
 
@@ -34,6 +36,17 @@ const readFormspreeError = async (response: Response): Promise<string> => {
   return 'Something went sideways. Please try again in a moment.';
 };
 
+// The Formspree form only defines name/email/phone/city/why/sizeNote, so the
+// hat choice rides in the subject line and at the top of the note instead of a
+// new field Formspree might reject.
+export const buildSubject = (hatChoice?: HatChoice) =>
+  hatChoice
+    ? `Hat request: ${hatChoiceLabels[hatChoice]} (Rebellious Aging hat waitlist)`
+    : 'Live Loud hat waitlist request';
+
+const formatWhy = ({ why, hatChoice }: LiveLoudHatRequest) =>
+  hatChoice ? `Hat choice: ${hatChoiceLabels[hatChoice]}\n\n${why}` : why;
+
 export async function submitLiveLoudHatRequest(
   payload: LiveLoudHatRequest
 ): Promise<LiveLoudHatSubmitResult> {
@@ -48,9 +61,9 @@ export async function submitLiveLoudHatRequest(
       email: payload.email,
       phone: payload.phone ?? '',
       city: payload.city ?? '',
-      why: payload.why,
+      why: formatWhy(payload),
       sizeNote: payload.sizeNote ?? '',
-      _subject: 'Live Loud hat waitlist request',
+      _subject: buildSubject(payload.hatChoice),
       _gotcha: payload.gotcha ?? '',
     }),
   });

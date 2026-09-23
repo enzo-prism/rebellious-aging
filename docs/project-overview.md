@@ -27,6 +27,7 @@
 - **Supabase:** The legacy `submit-quiz` Edge Function and table/policies remain under `supabase/`, but public pillar pages no longer expose quiz submissions.
 - **Typeform:** Contact/newsletter embeds load on interaction; the separate `/contact` route remains the private message path.
 - **Facebook CTA:** Central helper in `src/lib/facebook.ts` keeps popup + fallback behavior consistent.
+- **Hats:** `src/data/hats.ts` holds the two hat styles (Live Loud! and the R) and their real photos in `public/hats/`; `/live-loud-hat` (`src/views/LiveLoudHat.tsx`) is an invite-only request page posting to Formspree via `src/lib/liveLoudHatForm.ts`, with the chosen style carried in the email subject and note.
 - **Share behavior:** The share flow copies `window.location.href` so query-param state is preserved, uses `document.title` only for dialog context, and falls back to manual selection if clipboard access fails.
 
 ## SEO & Operations

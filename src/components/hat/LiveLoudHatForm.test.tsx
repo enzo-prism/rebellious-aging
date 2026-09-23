@@ -32,6 +32,7 @@ describe('LiveLoudHatForm', () => {
 
     render(<LiveLoudHatForm />);
 
+    await user.click(screen.getByRole('radio', { name: /The R/ }));
     await user.type(screen.getByLabelText('Name'), 'Jordan');
     await user.type(screen.getByLabelText('Email'), 'jordan@example.com');
     await user.type(screen.getByLabelText(/Phone/), '555-0100');
@@ -51,11 +52,13 @@ describe('LiveLoudHatForm', () => {
         city: 'Santa Cruz',
         why: 'A neighbor asked about the green hat.',
         sizeNote: 'Usually a medium',
+        hatChoice: 'r-butterfly',
         gotcha: '',
       });
     });
 
     expect(await screen.findByRole('status')).toHaveTextContent(/Suz has your request/i);
+    expect(screen.getByRole('status')).toHaveTextContent(/You asked for: The R/);
     expect(recordFormLead).toHaveBeenCalledWith(
       expect.objectContaining({
         form_id: 'live_loud_hat',
@@ -73,6 +76,7 @@ describe('LiveLoudHatForm', () => {
 
     render(<LiveLoudHatForm />);
 
+    await user.click(screen.getByRole('radio', { name: /Either one/ }));
     await user.type(screen.getByLabelText('Name'), 'Jordan');
     await user.type(screen.getByLabelText('Email'), 'jordan@example.com');
     await user.type(
@@ -84,5 +88,13 @@ describe('LiveLoudHatForm', () => {
     expect(await screen.findByRole('alert')).toHaveTextContent('Form not found');
     expect(screen.getByRole('button', { name: 'Request the next batch' })).toBeEnabled();
     expect(recordFormLead).not.toHaveBeenCalled();
+  });
+
+  it('reflects a hat preselected by the page', () => {
+    const onHatChoiceChange = vi.fn();
+    render(<LiveLoudHatForm hatChoice="live-loud" onHatChoiceChange={onHatChoiceChange} />);
+
+    expect(screen.getByRole('radio', { name: /Live Loud!/ })).toBeChecked();
+    expect(screen.getByRole('radio', { name: /The R/ })).not.toBeChecked();
   });
 });

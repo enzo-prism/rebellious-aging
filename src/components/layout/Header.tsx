@@ -157,7 +157,7 @@ const Header = () => {
               </DropdownMenuItem>
               <DropdownMenuItem asChild className="focus:bg-accent focus:text-accent-foreground">
                 <Link href="/live-loud-hat" className="w-full flex items-center gap-2 px-3 py-2">
-                  🧢 Live Loud Hat
+                  🧢 Our Hats
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild className="focus:bg-accent focus:text-accent-foreground">
@@ -376,7 +376,7 @@ const Header = () => {
                   items={[
                     { to: '/our-story', label: 'Our Story', icon: '📖' },
                     { to: '/welcome-letter', label: 'Welcome Letter', icon: '💌' },
-                    { to: '/live-loud-hat', label: 'Live Loud Hat', icon: '🧢' },
+                    { to: '/live-loud-hat', label: 'Our Hats', icon: '🧢' },
                     { to: '/events', label: 'Community Events', icon: '📅' },
                     { to: '/speaking-events', label: 'Speaking Events', icon: '🎤' },
                     { to: '/dr-seuss', label: 'Dr. Seuss & Aging', icon: '📚' },

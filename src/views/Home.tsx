@@ -16,6 +16,7 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 import PageShareButton from '@/components/share/PageShareButton';
 import FaqSection from '@/components/seo/FaqSection';
 import { homeFaqs } from '@/data/faqs';
+import { hatImageSrcSet, hatPairImage } from '@/data/hats';
 
 const heroImages = [
   'https://res.cloudinary.com/dhqpqfw6w/image/upload/v1775491548/IMG_4177_jgopw9.png',
@@ -170,18 +171,34 @@ export default function Home() {
           </form>
           <Link
             href="/live-loud-hat"
-            className="mt-6 flex flex-col gap-3 rounded-2xl border border-teal/20 bg-white p-5 transition-colors hover:border-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal sm:flex-row sm:items-center sm:justify-between sm:p-6"
+            className="group mt-6 grid overflow-hidden rounded-2xl border border-teal/20 bg-white transition-colors hover:border-teal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal sm:grid-cols-[minmax(0,15rem),1fr] lg:grid-cols-[minmax(0,19rem),1fr]"
           >
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-teal">Invite-only</p>
-              <h3 className="mt-2 text-xl font-semibold text-gray-900">The Live Loud hat</h3>
-              <p className="mt-1 text-base leading-relaxed text-gray-600">
-                A small-batch waitlist Suz reads herself. Not a shop — apply for the next round.
-              </p>
-            </div>
-            <span className="inline-flex items-center gap-2 font-semibold text-teal">
-              Apply for a hat
-              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            <span className="flex items-center justify-center bg-[radial-gradient(ellipse_at_50%_40%,#ffffff_0%,#f3ede1_70%)] px-6 py-5">
+              <img
+                src={hatPairImage.small}
+                srcSet={hatImageSrcSet(hatPairImage)}
+                sizes="(min-width: 1024px) 304px, (min-width: 640px) 240px, 90vw"
+                width={hatPairImage.width}
+                height={hatPairImage.height}
+                alt={hatPairImage.alt}
+                loading="lazy"
+                decoding="async"
+                className="h-auto w-full max-w-[17rem] drop-shadow-lg transition-transform duration-300 group-hover:scale-[1.03]"
+              />
+            </span>
+            <span className="flex flex-col justify-center gap-2 p-5 sm:p-6 lg:flex-row lg:items-center lg:justify-between lg:gap-6">
+              <span>
+                <span className="block text-sm font-semibold uppercase tracking-[0.25em] text-teal">Invite-only</span>
+                <span className="mt-2 block text-xl font-semibold text-gray-900">The Rebellious Aging hats</span>
+                <span className="mt-1 block text-base leading-relaxed text-gray-600">
+                  Two black caps: Live Loud! in green script, and the R with its butterfly. Not sold
+                  in a shop. Ask Suz for one from the next small batch.
+                </span>
+              </span>
+              <span className="inline-flex shrink-0 items-center gap-2 font-semibold text-teal">
+                See the hats
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </span>
             </span>
           </Link>
         </div>

@@ -75,6 +75,7 @@ Key conventions:
 - **Search (`/search`)** – Client-side search over `public/search-index.json` (marked `noindex`).
 - **Video Series (`src/views/VideoSeries.tsx`)** – Card grid fed by `src/data/videoSeries.ts`.
 - **Community touchpoints** – Welcome Letter, Contact (Typeform embed), Facebook Group, Team, etc.
+- **Rebellious Aging hats (`/live-loud-hat`)** – Invite-only request page for the two hats: **Live Loud!** (black cap, lime-green script) and **the R** (black cap, white R + butterfly logo). Style data and real photos live in `src/data/hats.ts` (images in `public/hats/`, subject-lifted from Enzo's photos; never swap in stock/AI hat imagery). `src/views/LiveLoudHat.tsx` shows the pair photo under the headline, one card per style, how-it-works steps, the request form, and FAQs. `?hat=live-loud|r-butterfly|either` preselects a style. Nav label is "Our Hats"; the homepage "What would feel good today?" section links here with the pair photo.
 - **Global navigation (`src/components/layout/Header.tsx` / `Footer.tsx`)** – Primary nav is Home, Blog, Recipes, **Free Guides** (`/guides`), Facebook Group, and a **More** dropdown grouped into Discover, Pillars, and Nutrition (WFPB). The footer's Health column also links Free Booklets & Guides, Nutrition Guide, and Resource Guide.
 - **Page sharing (`src/components/share/*`)** – Public pages now use a shared top-of-page share action that opens a copy-link dialog, preserves query params, and falls back to manual copy when clipboard APIs are unavailable.
 
@@ -93,6 +94,7 @@ Use this map when adding new sections so the navigation, voice, and CTAs remain 
 | Facebook monthly highlights | `src/data/facebookGroupHighlights.ts` | Privacy-safe themes shown on `/facebook-group`; update this single object each month. |
 | Recipes | `src/data/recipes.ts` | Recipes powering `/recipes` and `/recipes/:slug`. |
 | Free guides | `src/data/guides.ts` | The three free booklets (`Guide` interface) powering `/guides` and `/guides/:slug`. |
+| Hats | `src/data/hats.ts` | The two hat styles (copy, details, image paths/alt) plus the pair photo and social image for `/live-loud-hat`, the request form picker, and the homepage card. |
 | Speaking / community events | `src/data/speakingEvents.ts`, `src/data/communityEvents.ts` | Talks/appearances (`/speaking-events`) and live Zoom gatherings (`/events`). |
 | Trusted-voices endorsements | `src/data/endorsements.ts` | Quote cards for Suz on Home, `/our-story`, and `/speaking-events` via `TrustedVoicesSection` (Movement inlines the same array). |
 | Video episodes | `src/data/videoSeries.ts` | Update YouTube metadata here to refresh the video grid. |
@@ -330,6 +332,7 @@ npm run build
 - **Typeforms:** Contact and newsletter embeds load Typeform’s `embed.js` lazily.
 - **Legacy quiz backend:** `supabase/functions/submit-quiz/index.ts` and its table remain in the repo but are no longer connected to public pillar pages.
 - **Facebook CTA:** Use helper utilities in `src/lib/facebook.ts` for consistent popup + fallback behavior for group links.
+- **Hat requests:** `src/components/hat/LiveLoudHatForm.tsx` posts to Formspree form `mwkynqvd` (`src/lib/liveLoudHatForm.ts`); notifications go to enzo@design-prism.com only. The Formspree form only defines `name/email/phone/city/why/sizeNote`, so the chosen hat is sent in `_subject` (`Hat request: The R (Rebellious Aging hat waitlist)`) and prepended to `why` (`Hat choice: …`) instead of a new field. Success fires GA4 `generate_lead` with `form_id: live_loud_hat` (unchanged for analytics continuity).
 
 ---
 

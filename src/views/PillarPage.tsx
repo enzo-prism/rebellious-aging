@@ -38,7 +38,7 @@ const PillarPage = ({ pillarId }: PillarPageProps) => {
       links: [
         { to: '/video-series', label: 'Watch the Video Series' },
         { to: '/blog/the-new-classic-timeless-style', label: 'Read “The New Classic”' },
-        { to: '/live-loud-hat', label: 'Request the Live Loud hat' }
+        { to: '/live-loud-hat', label: 'Request a Rebellious Aging hat' }
       ]
     }
   };

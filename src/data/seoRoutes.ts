@@ -83,9 +83,10 @@ export const seoRoutes: SeoRouteConfig[] = [
   },
   {
     path: '/live-loud-hat',
-    title: 'Live Loud Hat Waitlist',
+    title: 'Rebellious Aging Hats: Live Loud! & the R',
     description:
-      'Apply for the next small batch of Rebellious Aging Live Loud hats. Invite-only waitlist — Suz reviews every request.',
+      'See both Rebellious Aging hats, Live Loud! in green script and the R with its butterfly, then ask Suz for one from the next small batch.',
+    image: '/hats/rebellious-aging-hats-og.jpg',
   },
   {
     path: '/facebook-group',

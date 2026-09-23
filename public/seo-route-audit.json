@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-14T20:55:56.497Z",
-  "totalRoutes": 160,
-  "validRoutes": 160,
+  "generatedAt": "2026-09-23T18:43:10.294Z",
+  "totalRoutes": 163,
+  "validRoutes": 163,
   "failedRoutes": 0,
   "records": [
     {
@@ -317,12 +317,12 @@
       ],
       "issues": [],
       "metadata": {
-        "title": "Live Loud Hat Waitlist",
-        "description": "Apply for the next small batch of Rebellious Aging Live Loud hats. Invite-only waitlist — Suz reviews every request.",
+        "title": "Rebellious Aging Hats: Live Loud! & the R",
+        "description": "See both Rebellious Aging hats, Live Loud! in green script and the R with its butterfly, then ask Suz for one from the next small batch.",
         "canonical": "/live-loud-hat",
         "ogType": "website",
         "noindex": false,
-        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+        "image": "/hats/rebellious-aging-hats-og.jpg"
       }
     },
     {
@@ -3145,6 +3145,81 @@
         "title": "A Marker Beside The Road",
         "description": "Suz celebrates 100 blogs as a marker beside the road, proof that beginning, curiosity, consistency, and small steps can build a life.",
         "canonical": "/blog/a-marker-beside-the-road",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/stuck-is-a-place-not-an-identity",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Stuck is a Place, Not an Identity",
+        "description": "Suz reframes stuckness as a place, not an identity, with honest questions and one small step to begin again.",
+        "canonical": "/blog/stuck-is-a-place-not-an-identity",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/hard-is-not-the-same-as-impossible",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Hard is NOT the Same as Impossible",
+        "description": "Suz explores choosing hard things on purpose, and why courage, confidence, and resilience are built by facing what feels difficult.",
+        "canonical": "/blog/hard-is-not-the-same-as-impossible",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/i-forgot-how-to-weekend",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "I Forgot How to Weekend",
+        "description": "Suz reflects on powering through caregiving and reinvention, then learning to protect a little time for simply being.",
+        "canonical": "/blog/i-forgot-how-to-weekend",
         "ogType": "article",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"

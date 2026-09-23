@@ -54,6 +54,24 @@ describe('submitLiveLoudHatRequest', () => {
     });
   });
 
+  it('puts the hat choice in the subject line and at the top of the note', async () => {
+    fetchMock.mockResolvedValue({ ok: true, json: async () => ({ ok: true }) });
+
+    await submitLiveLoudHatRequest({
+      name: 'Jordan',
+      email: 'jordan@example.com',
+      why: 'Saw it on a walk.',
+      hatChoice: 'live-loud',
+    });
+
+    const body = JSON.parse(String(fetchMock.mock.calls[0]?.[1]?.body));
+    expect(body._subject).toBe('Hat request: Live Loud! (Rebellious Aging hat waitlist)');
+    expect(body.why).toBe('Hat choice: Live Loud!\n\nSaw it on a walk.');
+    expect(Object.keys(body).sort()).toEqual(
+      ['_gotcha', '_subject', 'city', 'email', 'name', 'phone', 'sizeNote', 'why'].sort()
+    );
+  });
+
   it('returns Formspree error copy when the request fails', async () => {
     fetchMock.mockResolvedValue({
       ok: false,
