@@ -101,6 +101,12 @@ export const seoRoutes: SeoRouteConfig[] = [
       'Stream short, rebellious conversations with Suz covering confidence, style, whole-food living, and community.',
   },
   {
+    path: '/wall-of-love',
+    title: 'Wall of Love | Kind Words from the Rebellious Aging Community',
+    description:
+      'A wall of love for Suz: real comments from the Rebellious Aging community on TikTok and YouTube, celebrating confidence, courage, and aging boldly.',
+  },
+  {
     path: '/blog',
     title: 'Aging Boldly: Confidence, Style & Life with Suz',
     description:
