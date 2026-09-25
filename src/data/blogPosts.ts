@@ -1157,6 +1157,42 @@ export const blogPosts: BlogPostMetadata[] = [
     blogNumber: 103,
     seoDescription:
       'Suz reflects on powering through caregiving and reinvention, then learning to protect a little time for simply being.'
+  },
+  {
+    id: 'the-power-of-doing-nothing',
+    title: 'The Power of Doing Nothing',
+    excerpt:
+      'After reclaiming her weekend, Suz tries something radical: actually doing nothing, and wonders whether rest is where life catches up with us.',
+    date: '9/23/2026',
+    dateSort: new Date('2026-09-23T04:00:00'),
+    readTime: '4 min read',
+    blogNumber: 104,
+    seoDescription:
+      'Suz explores the guilt and discomfort of doing nothing, and why rest, white space, and unproductive moments may be part of being fully alive.'
+  },
+  {
+    id: 'you-are-not-lost-you-are-between-identities',
+    title: 'You Are Not Lost, You Are Between Identities',
+    excerpt:
+      'When familiar roles loosen or disappear, Suz suggests we may not be lost at all, just between who we have been and who we are becoming.',
+    date: '9/23/2026',
+    dateSort: new Date('2026-09-23T05:00:00'),
+    readTime: '4 min read',
+    blogNumber: 105,
+    seoDescription:
+      'Suz reframes life transitions as the space between identities, a workshop for curiosity and experimentation rather than a waiting room.'
+  },
+  {
+    id: 'dont-trip-over-what-is-behind-you',
+    title: 'Don’t Trip Over What Is Behind You',
+    excerpt:
+      'Suz writes that the past deserves to be acknowledged, but not unlimited authority over what happens next. Take the lesson. Leave the luggage.',
+    date: '9/24/2026',
+    dateSort: new Date('2026-09-24T04:00:00'),
+    readTime: '2 min read',
+    blogNumber: 106,
+    seoDescription:
+      'Suz explores the difference between remembering the past and dragging it behind us, and how to keep the lesson while leaving the weight.'
   }
 ];
 

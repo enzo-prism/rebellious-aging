@@ -6133,4 +6133,96 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       </>
     ),
   },
+  'the-power-of-doing-nothing': {
+    heading: <h1 className="text-4xl font-bold mb-4">The Power of Doing Nothing</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>I am experimenting with something rather radical for me.</p>
+          <p className="font-bold"><em>DOING NOTHING!</em></p>
+          <p>I do not mean doing nothing while secretly making a grocery list in my head. I do not mean sitting down with a cup of tea while answering emails. I do not mean taking a walk while planning three blogs, two presentations, a zoom meeting, and what I will accomplish when I get home. NOPE! <em>I mean actually doing nothing.</em> I have concluded I have no idea how to accomplish this. BUT, I envy humans who do.</p>
+          <p>
+            In{' '}
+            <Link href="/blog/i-forgot-how-to-weekend" className="text-primary underline underline-offset-4">
+              Blog 103
+            </Link>
+            , I confessed that somewhere during the past 18 years I lost the weekend. I did not lose it all at once. I gave it away in small responsible looking pieces. A little work on a Friday night. Completing a few unfinished tasks on Saturday. Preparation for Monday on Sunday. Before I realized it every day became a workday wearing different clothes. Once I realized this, I made the bold decision to reclaim my weekend.
+          </p>
+          <p className="font-bold">Excellent.</p>
+          <p>But then I discovered a problem. What was I supposed to do with it? Or more alarming, what if I did not do anything with it? I spent years believing that a good day is a productive day. Ya know, if I completed the list, answered the messages, worked on the website, wrote something meaningful, helped someone, learned something, or created something, the day counted.</p>
+          <p>But sitting? Staring? Wandering with no destination? Surely there must be a form to fill out before I am allowed to do that. Doing nothing seems easy until you try it.</p>
+          <p><strong><em>The body may be sitting still, but the mind immediately calls an emergency meeting.</em></strong> Shouldn’t we be doing something? Did we forget something? Couldn’t we use this time more wisely? And there it is. <strong><em>The belief that time is only valuable when we can produce evidence of how we used it.</em></strong></p>
+          <p>Perhaps doing nothing is not a waste of time. Maybe it is where our nervous system settles and our bodies finally exhale. It could be where our thoughts start marching in formation and begin wandering wherever they want to go. Or how about this, perhaps it is where creativity resurfaces. Not because we demanded it, scheduled it, or squeezed it onto a list, but because we finally gave it room.</p>
+          <p>When we stop filling every available space, we may begin to hear the things that the ‘<em>busyness</em>’ has been drowning out. A feeling that we have ignored. A question that we have avoided. A dream we placed on hold. A quiet little nudge that has been patiently waiting for us to stop talking.</p>
+          <p>Doing nothing may look empty from the outside. But something important may be happening inside.</p>
+          <p>I am beginning to understand that doing nothing is not the opposite of living. It may actually be one of the ways we experience being fully alive. We notice the light moving across the room. We hear the birds we were too busy to hear. We sit with our pup without checking the time. <strong><em>We allow a moment to be enough without turning it into a lesson, a project, or dare I say it, a blog.</em></strong> Well perhaps eventually it becomes a blog. I am still a beginner. 😂</p>
+          <p>This does not mean I plan to stop doing the things that matter to me. But a life filled only with meaningful activity is a life filled to the brim.</p>
+          <p>Even the things we love need space around them. Music needs pauses. Words need margins. <strong><em>Humans need moments in which nothing is required of them.</em></strong></p>
+          <p>So maybe rest is not something we do after life. Maybe rest is a part of life. And so I am practicing. I am stopping before everything is finished. I am leaving a little “white” space each day, I am trying to not leap up everytime work calls.</p>
+          <p>But here is “the thing”, the discomfort is real. So is the guilt. But I am beginning to suspect that the guilt is simply an old habit objecting to the new arrangement. The coming weekend I may accomplish absolutely nothing. I plan to be very successful at it. Perhaps doing nothing is not the absence of living. Perhaps it is actually where life catches up with us.</p>
+          <p className="font-bold">I think it is time for life to catch me.</p>
+          <p><strong>💚 <em>The Accidental Blogger</em></strong></p>
+        </div>
+      </>
+    ),
+  },
+  'you-are-not-lost-you-are-between-identities': {
+    heading: <h1 className="text-4xl font-bold mb-4">You Are Not Lost, You Are Between Identities</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>There are seasons in life when the familiar answers do not fit familiar questions.. Who are you? What do you do? What comes next? All questions that once had easy answers suddenly leave us staring into space. The job has ended. The kids no longer need us in the same way. A relationship has changed. A long chapter as a caregiver is over. Our health, priorities, or circumstances have shifted.</p>
+          <p><strong>Or perhaps nothing dramatic at all has happened.</strong> We have simply become aware that the person we have been, no longer feels exactly like the person we are becoming. Clearly this can be unsettling.</p>
+          <p>Without the familiar title, schedule, responsibility, or role, we may begin to think: I should know what comes next. I should have a plan. I should be moving forward. What is wrong with me? Likely, nothing is wrong with you. <strong><em>Maybe you are not lost. Maybe you are between identities.</em></strong></p>
+          <p>We humans are fixated on wanting to know who we are. We gather labels and arrange them around ourselves: <em>parent, teacher, partner, caregiver, professional, volunteer, leader, helper.</em> <strong>The labels give us structure.</strong> They help us explain ourselves to other people and sometimes to ourselves. But then life changes, and one of those labels loosens or disappears all together. Suddenly we feel untethered. We call it lost because we cannot yet name what is happening. But not knowing who comes next is <strong>NOT</strong> the same as having no direction.</p>
+          <p className="font-bold">It may simply mean the old identity has completed its work, while the new one is quietly taking shape.</p>
+          <p className="font-bold">The space between identities can be uncomfortable.</p>
+          <p>We may try to escape it by grabbing the first available plan, filling every hour or demanding immediate clarity. <strong>We want to hurry up and become someone again.</strong> Anyone will do, apparently, as long as she has a title and a schedule.</p>
+          <p>
+            <strong>I believe ‘becoming’ should NOT be rushed.</strong> A new identity is not something we order for overnight delivery. It needs room to emerge, It needs curiosity. It needs experimentation.{' '}
+            <strong>
+              It may even need some of the nothingness I wrote about in{' '}
+              <Link href="/blog/the-power-of-doing-nothing" className="text-primary underline underline-offset-4">
+                Blog 104
+              </Link>
+              .
+            </strong>{' '}
+            Because when we stop frantically trying to define ourselves, we begin to notice ourselves.
+          </p>
+          <p>What interests me now? What gives me energy? What feels complete? What am I ready to release? What keeps tapping me on my shoulder? What might I explore if I did not need to explain where it was leading? These questions do not need immediate answers. They are simply invitations.</p>
+          <p>We can carry them for a while. We can try something and decide it is not ours. We can follow a ‘nudge’ without turning it into a five year plan. We can change our minds. We can rest. Best of all <strong><em>we can let the next version of ourselves arrive gradually.</em></strong></p>
+          <p className="font-bold">There is courage in taking action. But there is also courage in not forcing an answer before it is ready.</p>
+          <p>The space between identities is not empty. It is where we sort through what we want to carry forward and what we are finally willing to leave behind. It is where we discover which parts of our old identity were truly ours, and which parts we performed because they were expected of us. It is where curiosity begins replacing certainty. It is where possibility quietly moves in.</p>
+          <p><strong><em>Perhaps the in-between is not a waiting room. Can it be a workshop?</em></strong> After all, something is being dismantled. Something is being examined. Something new is being shaped. The work may be invisible, <em>but invisible does not mean unimportant. A seed beneath the soil does not look productive either.</em> <strong>That seed is still becoming.</strong></p>
+          <p><strong>So here is the thing, if you do not know exactly who you are right now, take your time. You do not</strong> need to fill the silence with a new title or announce your next chapter before you have lived the first sentence. You do not need to prove that you are moving forward.</p>
+          <p className="text-center font-bold">BUT…</p>
+          <p>You should listen, notice and experiment. <strong><em>Let clarity come from living rather than demanding that it arrive before you begin.</em></strong></p>
+          <p>You are not standing ‘no where’. <strong>NOPE. You are standing between who you have been and who you are becoming.</strong> <strong>DO NOT rush past this place.</strong> There is important work happening here, even if you cannot see it yet.</p>
+          <p className="font-bold">You are not lost.</p>
+          <p className="font-bold">You are under revision.</p>
+          <p className="font-bold">Take your time.</p>
+          <p className="font-bold">You are becoming.</p>
+          <p><strong>💚 <em>The Accidental Blogger</em></strong></p>
+        </div>
+      </>
+    ),
+  },
+  'dont-trip-over-what-is-behind-you': {
+    heading: <h1 className="text-4xl font-bold mb-4">Don’t Trip Over What Is Behind You</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>The past deserves to be acknowledged. It deserves to be understood. It may even deserve to be grieved. <strong>But it DOES NOT DESERVE</strong> unlimited authority over what happens next.</p>
+          <p>Most of us have something lying behind us that we continue to trip over. A mistake we keep reworking in our minds. A decision we would make differently today. Something another person said that knocked us off balance. A relationship that ended. An opportunity missed. A former identity that no longer fits. Or how about shame over what we did before we knew what we know now. <strong>We can not change what happened. But we can change what we continue to carry.</strong></p>
+          <p>There is a difference between remembering the past and dragging it behind us. One offers wisdom. The other becomes weight. Look back only long enough to understand what happened. Then take responsibility for what belongs to you. Then forgive yourself for what you did not know. <strong>BUT, keep the lesson. Then leave behind what no longer deserves to travel with you.</strong></p>
+          <p>You do not need to erase the past in order to move forward. You simply need to stop letting it block the path. <strong>A mistake is something you made. It is NOT something you are. The past may explain you, but it does not get to keep deciding you.</strong></p>
+          <p className="font-bold"><em>So take the lesson. Leave the luggage. Then turn around, face forward, and pick up your foot. What happened is behind you. Try not to trip over it.</em></p>
+          <p><strong>💚 <em>The Accidental Blogger</em></strong></p>
+        </div>
+      </>
+    ),
+  },
 };

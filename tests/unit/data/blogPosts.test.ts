@@ -115,6 +115,52 @@ describe('blog post data', () => {
     }
   });
 
+  it('preserves Suz’s wording in blogs 104 through 106', () => {
+    const sourceAnchors: Record<string, string[]> = {
+      'the-power-of-doing-nothing': [
+        'DOING NOTHING!',
+        'every day became a workday wearing different clothes.',
+        'Humans need moments in which nothing is required of them.',
+        'I think it is time for life to catch me.',
+      ],
+      'you-are-not-lost-you-are-between-identities': [
+        'Maybe you are not lost. Maybe you are between identities.',
+        'It may even need some of the nothingness I wrote about in Blog 104.',
+        'That seed is still becoming.',
+        'You are under revision.',
+      ],
+      'dont-trip-over-what-is-behind-you': [
+        'But it DOES NOT DESERVE unlimited authority over what happens next.',
+        'A mistake is something you made. It is NOT something you are.',
+        'Try not to trip over it.',
+      ],
+    };
+    const crossLinks: Record<string, string> = {
+      'the-power-of-doing-nothing': '/blog/i-forgot-how-to-weekend',
+      'you-are-not-lost-you-are-between-identities': '/blog/the-power-of-doing-nothing',
+    };
+
+    for (const [postId, anchors] of Object.entries(sourceAnchors)) {
+      const entry = blogPostContent[postId];
+      const { container, unmount } = render(entry.body);
+      const renderedText = container.textContent?.replace(/\s+/g, ' ').trim() ?? '';
+
+      for (const anchor of anchors) {
+        expect(renderedText, `${postId} is missing source text: ${anchor}`).toContain(anchor);
+      }
+      expect(renderedText).toContain('💚 The Accidental Blogger');
+
+      if (crossLinks[postId]) {
+        expect(container.querySelector('a')?.getAttribute('href')).toBe(crossLinks[postId]);
+      }
+
+      unmount();
+    }
+
+    expect(getNextBlogPost(103)?.id).toBe('the-power-of-doing-nothing');
+    expect(getNextBlogPost(105)?.id).toBe('dont-trip-over-what-is-behind-you');
+  });
+
   it('loads blog posts with required metadata', () => {
     expect(blogPosts.length).toBeGreaterThan(0);
     const first = blogPosts[0];
