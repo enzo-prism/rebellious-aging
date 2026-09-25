@@ -7,6 +7,7 @@ export interface WallOfLoveComment {
   platform: WallOfLovePlatform;
   date: string;
   context: string;
+  /** Source post, kept for provenance only. The page intentionally does not link to it. */
   url: string;
 }
 
