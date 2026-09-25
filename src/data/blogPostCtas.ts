@@ -623,6 +623,24 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
       'If the weekend has disappeared into the rest of the week, join the group and share one small boundary that gives you room to rest.',
     buttonLabel: 'Join the rest conversation',
   },
+  'the-power-of-doing-nothing': {
+    title: 'Leave a little white space',
+    body:
+      'If doing nothing feels harder than doing everything, join the group and share one small moment you let be enough, guilt and all.',
+    buttonLabel: 'Join the white space conversation',
+  },
+  'you-are-not-lost-you-are-between-identities': {
+    title: 'Keep company in the in-between',
+    body:
+      'If an old role has ended and the next one has not arrived yet, join the group and share the questions and nudges you are carrying for now.',
+    buttonLabel: 'Join the becoming conversation',
+  },
+  'dont-trip-over-what-is-behind-you': {
+    title: 'Take the lesson, leave the luggage',
+    body:
+      'If something behind you keeps tripping you up, join the group and name one thing you are ready to stop carrying forward.',
+    buttonLabel: 'Join the forward conversation',
+  },
 };
 
 export const getBlogPostCta = (postId: string) => blogPostCtas[postId];

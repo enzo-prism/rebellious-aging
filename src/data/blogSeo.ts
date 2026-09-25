@@ -343,4 +343,19 @@ export const blogSeoById: Record<string, BlogSeoMeta> = {
     seoDescription:
       'Suz reflects on powering through caregiving and reinvention, then learning to protect a little time for simply being.',
   },
+  'the-power-of-doing-nothing': {
+    seoTitle: 'The Power of Doing Nothing',
+    seoDescription:
+      'Suz explores the guilt and discomfort of doing nothing, and why rest, white space, and unproductive moments may be part of being fully alive.',
+  },
+  'you-are-not-lost-you-are-between-identities': {
+    seoTitle: 'You Are Not Lost, You Are Between Identities',
+    seoDescription:
+      'Suz reframes life transitions as the space between identities, a workshop for curiosity and experimentation rather than a waiting room.',
+  },
+  'dont-trip-over-what-is-behind-you': {
+    seoTitle: 'Don’t Trip Over What Is Behind You',
+    seoDescription:
+      'Suz explores the difference between remembering the past and dragging it behind us, and how to keep the lesson while leaving the weight.',
+  },
 };

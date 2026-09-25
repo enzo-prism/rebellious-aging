@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-23T18:43:10.294Z",
-  "totalRoutes": 163,
-  "validRoutes": 163,
+  "generatedAt": "2026-09-25T13:43:29.958Z",
+  "totalRoutes": 166,
+  "validRoutes": 166,
   "failedRoutes": 0,
   "records": [
     {
@@ -3220,6 +3220,81 @@
         "title": "I Forgot How to Weekend",
         "description": "Suz reflects on powering through caregiving and reinvention, then learning to protect a little time for simply being.",
         "canonical": "/blog/i-forgot-how-to-weekend",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/the-power-of-doing-nothing",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "The Power of Doing Nothing",
+        "description": "Suz explores the guilt and discomfort of doing nothing, and why rest, white space, and unproductive moments may be part of being fully alive.",
+        "canonical": "/blog/the-power-of-doing-nothing",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/you-are-not-lost-you-are-between-identities",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "You Are Not Lost, You Are Between Identities",
+        "description": "Suz reframes life transitions as the space between identities, a workshop for curiosity and experimentation rather than a waiting room.",
+        "canonical": "/blog/you-are-not-lost-you-are-between-identities",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/dont-trip-over-what-is-behind-you",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Don’t Trip Over What Is Behind You",
+        "description": "Suz explores the difference between remembering the past and dragging it behind us, and how to keep the lesson while leaving the weight.",
+        "canonical": "/blog/dont-trip-over-what-is-behind-you",
         "ogType": "article",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
