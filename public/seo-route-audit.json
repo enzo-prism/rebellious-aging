@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-25T13:43:29.958Z",
-  "totalRoutes": 166,
-  "validRoutes": 166,
+  "generatedAt": "2026-09-30T00:25:51.395Z",
+  "totalRoutes": 170,
+  "validRoutes": 170,
   "failedRoutes": 0,
   "records": [
     {
@@ -370,6 +370,31 @@
         "title": "Aging Boldly: Videos with Suz",
         "description": "Stream short, rebellious conversations with Suz covering confidence, style, whole-food living, and community.",
         "canonical": "/video-series",
+        "ogType": "website",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/wall-of-love",
+      "source": "seo-routes",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "title",
+        "description",
+        "canonical",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Wall of Love | Kind Words from the Rebellious Aging Community",
+        "description": "A wall of love for Suz: real comments from the Rebellious Aging community on TikTok and YouTube, celebrating confidence, courage, and aging boldly.",
+        "canonical": "/wall-of-love",
         "ogType": "website",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
@@ -3295,6 +3320,81 @@
         "title": "Don’t Trip Over What Is Behind You",
         "description": "Suz explores the difference between remembering the past and dragging it behind us, and how to keep the lesson while leaving the weight.",
         "canonical": "/blog/dont-trip-over-what-is-behind-you",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/birthing-your-authentic-self",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Birthing Your Authentic Self",
+        "description": "Suz explores authenticity, honest choices, and aligning your life with your values rather than the expectations of others.",
+        "canonical": "/blog/birthing-your-authentic-self",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/failure-is-an-experience-not-an-identity",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Failure Is An Experience, Not an Identity",
+        "description": "Suz reflects on failure, setbacks, self-worth, and how honest questions can help us decide whether to persist, pivot, pause, or let go.",
+        "canonical": "/blog/failure-is-an-experience-not-an-identity",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/the-fence-has-a-gate",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "The Fence Has A Gate!",
+        "description": "Suz explores personal boundaries, protecting commitments to yourself, and opening the gate with love, generosity, and intention.",
+        "canonical": "/blog/the-fence-has-a-gate",
         "ogType": "article",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"

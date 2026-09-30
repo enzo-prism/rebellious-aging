@@ -641,6 +641,21 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
       'If something behind you keeps tripping you up, join the group and name one thing you are ready to stop carrying forward.',
     buttonLabel: 'Join the forward conversation',
   },
+  'birthing-your-authentic-self': {
+    title: "Give your authentic self room",
+    body: "Bring one honest choice to the group and explore who you are becoming with women who are making room for themselves, too.",
+    buttonLabel: "Join the authenticity conversation",
+  },
+  'failure-is-an-experience-not-an-identity': {
+    title: "Make room for what comes next",
+    body: "Share a setback with the group and find support for repairing what you can, releasing what you cannot, and choosing your next step.",
+    buttonLabel: "Join the next step conversation",
+  },
+  'the-fence-has-a-gate': {
+    title: "Keep your gate in your hands",
+    body: "Join the group and share one commitment to yourself that you are ready to protect with love and intention.",
+    buttonLabel: "Join the boundaries conversation",
+  },
 };
 
 export const getBlogPostCta = (postId: string) => blogPostCtas[postId];

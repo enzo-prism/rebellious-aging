@@ -1193,6 +1193,36 @@ export const blogPosts: BlogPostMetadata[] = [
     blogNumber: 106,
     seoDescription:
       'Suz explores the difference between remembering the past and dragging it behind us, and how to keep the lesson while leaving the weight.'
+  },
+  {
+    id: 'birthing-your-authentic-self',
+    title: "Birthing Your Authentic Self",
+    excerpt: "Suz invites us to let our outward choices align with our inner values, giving our authentic selves room, courage, and time to emerge.",
+    date: '9/29/2026',
+    dateSort: new Date('2026-09-29T04:00:00'),
+    readTime: '2 min read',
+    blogNumber: 107,
+    seoDescription: "Suz explores authenticity, honest choices, and aligning your life with your values rather than the expectations of others."
+  },
+  {
+    id: 'failure-is-an-experience-not-an-identity',
+    title: "Failure Is An Experience, Not an Identity",
+    excerpt: "Suz separates a failed attempt from a person’s worth, asking what we can repair, learn, release, or try next.",
+    date: '9/29/2026',
+    dateSort: new Date('2026-09-29T05:00:00'),
+    readTime: '3 min read',
+    blogNumber: 108,
+    seoDescription: "Suz reflects on failure, setbacks, self-worth, and how honest questions can help us decide whether to persist, pivot, pause, or let go."
+  },
+  {
+    id: 'the-fence-has-a-gate',
+    title: "The Fence Has A Gate!",
+    excerpt: "Suz pictures boundaries as a fence with a gate she controls, reminding us that caring for others does not require erasing ourselves.",
+    date: '9/29/2026',
+    dateSort: new Date('2026-09-29T06:00:00'),
+    readTime: '3 min read',
+    blogNumber: 109,
+    seoDescription: "Suz explores personal boundaries, protecting commitments to yourself, and opening the gate with love, generosity, and intention."
   }
 ];
 

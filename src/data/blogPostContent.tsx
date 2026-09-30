@@ -6225,4 +6225,95 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       </>
     ),
   },
+  'birthing-your-authentic-self': {
+    heading: <h1 className="text-4xl font-bold mb-4">Birthing Your Authentic Self</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>Who is your authentic self? <strong>And NOPE, </strong>she is not necessarily the person you have always been. And on top of that, she is not a new identity, selected to replace the old one.<strong><em> Your authentic self is who you</em></strong> <strong><em>are when your outward choices begin to align with your inner values, and definitely not align with the expectations, roles, or approval of other people. </em></strong></p>
+          <p>Authentic does not mean unfiltered. It does not mean saying every thought aloud, refusing to compromise, or telling everyone everything. It means being aligned. <strong><em>It means you are no longer abandoning yourself to make everyone feel comfortable. </em></strong></p>
+          <p><strong><em>Birthing your authentic self begins with noticing. </em></strong>For example, notice what matters deeply to you now, notice if you are still performing instead of living, or notice which roles still fit and which you have outgrown. Especially take note of when you feel most completely like yourself, and what you would do if you did not have to explain your choice.</p>
+          <p>You do not have to answer every question right now. You do not, should not, feel the need to create a new identity over night. And, of course you do not need to announce ‘her’ arrival before you have had time to meet ‘her’ yourself.</p>
+          <p>Simply begin with one honest choice. For example, say yes when you mean yes. Say no when you mean no. Wear what delights you. Speak when you know your voice matters. Rest when your body asks. Follow what gives you energy.</p>
+          <p><strong><em>Your authentic self is not a final destination. She will continue to grow as you do. You do not have to invent an entirely new person. You may simply need to stop hiding the one who is already trying to emerge.</em></strong></p>
+          <p>Give her room.</p>
+          <p>Give her courage.</p>
+          <p>Give her time.</p>
+          <p>Then let her be born.</p>
+          <p><strong><em>💚 The Accidental Blogger</em></strong></p>
+        </div>
+      </>
+    ),
+  },
+  'failure-is-an-experience-not-an-identity': {
+    heading: <h1 className="text-4xl font-bold mb-4">Failure Is An Experience, Not an Identity</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p><strong>FAILURE!!!!!!</strong></p>
+          <p><strong>Even the word makes us squirm. Right?</strong></p>
+          <p>We hide it.</p>
+          <p>We fear it.</p>
+          <p>We avoid talking about it.</p>
+          <p>We celebrate success as if it appeared fully formed, while quietly editing out the missteps, disappointments, and failed attempts that came before it.</p>
+          <p><strong><em>Failure is a part of being human.</em></strong></p>
+          <p>Sometimes, if we are honest with ourselves we can see it coming. The plan is simply not working. <strong><em>We are repeating the same actions and expecting a different result. </em></strong>We have stopped listening to feedback. The goal no longer fits, but <strong><em>pride </em></strong>keeps us attached to it. <em>These may be warning signs but they are not always proof of failure.</em></p>
+          <p>A difficult beginning, slow progress, a detour, something unfinished are not necessarily something failed.</p>
+          <p><strong>So when do we know we failed? </strong>Is it when we miss the goal? When the deadline passes? When we stop trying? When the outcome can no longer be changed? Perhaps failure simply means that a particular attempt did not produce the result we wanted. Ya know, <strong><em>the attempt failed.  </em></strong><strong>That does not mean the person failed.</strong></p>
+          <p>Failure is rarely as black and white as the word makes it sound. There are small mistakes, temporary setbacks, experiments that do not work, goals we outgrow, painful losses beyond our control, and decisions with lasting consequences. Yet, we put them all into one frightening container marked <strong>FAILURE.</strong> They are <strong>NOT </strong>the same.</p>
+          <p><strong>Can failure be fixed? </strong>Sometimes, I suppose. We may be able to apologize, make amends, change our approach, ask for help, or try again. But, sometimes we cannot fix what happened.</p>
+          <p>But even when we cannot change the outcome, we can change what happens next. We can also repair our relationship with the experience. <strong><em>Is every failure a learning experience? </em></strong> Nope. At least not automatically.</p>
+          <p>Failure does not arrive carrying a neatly wrapped lesson. Sometimes it simply hurts. At that point we may be too disappointed, embarrassed, or angry to understand it immediately. The learning begins when we are willing to look honestly at what happened.</p>
+          <p>What was within my control?</p>
+          <p>What was never within my control?</p>
+          <p>Did the goal fail or did the plan need to change?</p>
+          <p>What would I do differently?</p>
+          <p>What would I do exactly the same?</p>
+          <p>Is this asking me to persist, pivot, pause, or let go?</p>
+          <p>And perhaps the most important question: <strong>What am I making this experience mean about me?</strong></p>
+          <p>Something I tried may have failed.</p>
+          <p>I may have made a mistake.</p>
+          <p>I may have fallen short, misjudged, or chosen poorly.</p>
+          <p><strong>But failure is something I have experienced. It is not who I am.</strong></p>
+          <p>We do not have to pretend failure is wonderful. We do not have to rush past the disappointment, or force it into an inspiring lesson before we are ready. Nope. We can acknowledge it. Feel it. Examine it. Repair what can be repaired. Release what cannot. And decide what comes next.</p>
+          <p>Failure may change the plan. It may change the direction. It may even change us. <strong><em>But it does not change our worth.</em></strong></p>
+          <p><strong>Failure does not get to define us.  But, how we respond to it may help us define ourselves.</strong></p>
+          <p><strong>💚</strong><strong><em> The Accidental Blogger</em></strong></p>
+        </div>
+      </>
+    ),
+  },
+  'the-fence-has-a-gate': {
+    heading: <h1 className="text-4xl font-bold mb-4">The Fence Has A Gate!</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>I have been thinking about boundaries. Ya know, setting them, keeping them, AND what happens when someone expects us to move them.</p>
+          <p>So when I picture my boundaries, I see myself standing in a beautiful open field, with a low fence around me. NOPE, it is NOT an enormous wall. I am not at all hiding from the world. I can and want to see everything on the other side. I can even talk to people. I can love them, help them and remain connected to them. (<em>I think this is really important.) But, know this, my fence is solid).</em></p>
+          <p>It has no holes. No broken boards. No convenient little openings for someone to climb through simply because my boundary does not fit them. <strong><em>It does however have a gate. I am the gatekeeper.</em></strong></p>
+          <p>That may be the most important thing that I have learned about boundaries. Boundaries do not have to be rigid, but they need to belong to us and we need to control them.</p>
+          <p>With thoughtfulness we may open the gate when we think circumstances warrant it. We may reconsider an old boundary when it no longer serves us. I believe we may even rebuild part of the fence as we grow and change.</p>
+          <p>Know this, there is a difference between consciously opening the gate and allowing someone else to knock down the fence.The boundary does not have to always be black and white. But ownership of it does.</p>
+          <p>I was reminded of this recently while making a medical appointment for my husband. My granddaughter was helping me, and each date the receptionist offered conflicted with work stuff on my calendar. Then she offered a date when I had two personal commitments, LIne Dancing(also known as my self improvement and meeting my demons class) and a hair appointment. My sweet well intentioned ‘Grand’ suggested I could miss one dance class and reschedule the hair. I surprised both of us by saying “Absolutely not”.</p>
+          <p>The suggestion was not at all unreasonable. It was practical and probably a choice many would make.<strong><em> That may be exactly why it stopped me. </em></strong>Beneath that perfectly innocent suggestion was <strong>an assumption many women have lived with for generations. Right?</strong></p>
+          <p><strong>Our personal commitments are the most movable because they belong only to us. I say whaaaaaaaaaat???</strong></p>
+          <p>The medical appointment was not urgent, but we in fact had exceeded, by a month or two, the time frame requested by the doctor. I held firm until found a free date and locked in the appointment. I felt like I did not refuse to care for my man. I did not abandon my responsibility to him. I simply refused to erase myself from the calendar when another reasonable choice was available.</p>
+          <p>Line dancing is not just line dancing.</p>
+          <p>A hair appointment is not automatically frivolous.</p>
+          <p>They are commitments I made to myself. Commitments to my movement, crushing my demons, my growth, and my confidence and style and joy.</p>
+          <p><strong>Perhaps I taught my granddaughter something in that brief moment.</strong></p>
+          <p><strong>I know I taught myself something.</strong></p>
+          <p>Many of us, for sure me, are learning at 84 what we deserved to learn at 18. Yup. Our time matters, our commitments count, and caring for others does not require us to disappear.</p>
+          <p>A boundary is not an act of selfishness. It is a recognition that I also live inside the life that I am working so hard to manage.</p>
+          <p><strong>My fence has a gate.</strong></p>
+          <p><strong>I can open it with love, generosity, and intention.</strong></p>
+          <p><strong>T</strong><strong><em>he fence is mine. </em></strong><strong>BUT,  SO IS THE GATE.</strong></p>
+          <p><strong>💚 </strong><strong><em>The Accidental Blogger</em></strong></p>
+        </div>
+      </>
+    ),
+  },
 };

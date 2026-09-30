@@ -358,4 +358,16 @@ export const blogSeoById: Record<string, BlogSeoMeta> = {
     seoDescription:
       'Suz explores the difference between remembering the past and dragging it behind us, and how to keep the lesson while leaving the weight.',
   },
+  'birthing-your-authentic-self': {
+    seoTitle: "Birthing Your Authentic Self",
+    seoDescription: "Suz explores authenticity, honest choices, and aligning your life with your values rather than the expectations of others.",
+  },
+  'failure-is-an-experience-not-an-identity': {
+    seoTitle: "Failure Is An Experience, Not an Identity",
+    seoDescription: "Suz reflects on failure, setbacks, self-worth, and how honest questions can help us decide whether to persist, pivot, pause, or let go.",
+  },
+  'the-fence-has-a-gate': {
+    seoTitle: "The Fence Has A Gate!",
+    seoDescription: "Suz explores personal boundaries, protecting commitments to yourself, and opening the gate with love, generosity, and intention.",
+  },
 };

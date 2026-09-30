@@ -76,6 +76,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.rebelwithsuz.com/wall-of-love</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.rebelwithsuz.com/blog</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -883,6 +888,24 @@
   <url>
     <loc>https://www.rebelwithsuz.com/blog/dont-trip-over-what-is-behind-you</loc>
     <lastmod>2026-09-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rebelwithsuz.com/blog/birthing-your-authentic-self</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rebelwithsuz.com/blog/failure-is-an-experience-not-an-identity</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.rebelwithsuz.com/blog/the-fence-has-a-gate</loc>
+    <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

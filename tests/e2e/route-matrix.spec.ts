@@ -24,6 +24,9 @@ const routeMatrix = [
 ];
 
 const dynamicChecks = [
+  { path: '/blog/birthing-your-authentic-self', found: true },
+  { path: '/blog/failure-is-an-experience-not-an-identity', found: true },
+  { path: '/blog/the-fence-has-a-gate', found: true },
   { path: '/blog/rebellious-guide-what-is-on-your-plate', found: true },
   { path: '/blog/balancing-act-why-practicing-balance-helps-you-stay-balanced', found: true },
   { path: '/blog/the-secret-strength-of-rest-days-why-pausing-makes-you-powerful', found: true },
