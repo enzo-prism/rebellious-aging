@@ -99,8 +99,12 @@ export const getBlogPublishInstant = (date: string) => {
 };
 
 /**
- * Preview and local/dev/test can see scheduled posts. Production (and any
- * other production-like build, including `npm run build` on CI) cannot.
+ * Only an explicit Vercel production environment hides scheduled posts.
+ * Preview, local `next dev`, and unit tests show them.
+ *
+ * The decision uses `NEXT_PUBLIC_VERCEL_ENV` first so the server render and
+ * the client bundle always agree. Using `NODE_ENV` alone hydrates incorrectly
+ * in `next dev` (server is "development", some client graphs are "production").
  *
  * This site is `output: 'export'`, so the gate is evaluated at build time.
  * HTML, sitemap, search-index.json, and llms.txt cannot change until the
@@ -110,19 +114,7 @@ export const shouldIncludeUnpublishedBlogPosts = (
   env: NodeJS.ProcessEnv = process.env
 ) => {
   const vercelEnv = env.NEXT_PUBLIC_VERCEL_ENV ?? env.VERCEL_ENV;
-  if (vercelEnv === 'preview' || vercelEnv === 'development') {
-    return true;
-  }
-  if (vercelEnv === 'production') {
-    return false;
-  }
-  if (env.NODE_ENV === 'development') {
-    return true;
-  }
-  if (env.NODE_ENV === 'test' || env.VITEST) {
-    return true;
-  }
-  return false;
+  return vercelEnv !== 'production';
 };
 
 export const isBlogPostPublished = (date: string, now: Date = new Date()) => {

@@ -43,6 +43,7 @@ describe('blog publish schedule', () => {
     expect(isBlogPostVisible('11/10/2026', { env: previewEnv, now: before })).toBe(true);
     expect(shouldIncludeUnpublishedBlogPosts(previewEnv)).toBe(true);
     expect(shouldIncludeUnpublishedBlogPosts(productionEnv)).toBe(false);
+    expect(shouldIncludeUnpublishedBlogPosts({ NODE_ENV: 'production' } as NodeJS.ProcessEnv)).toBe(true);
   });
 
   it('keeps already-published and month-only archive dates visible on production', () => {
