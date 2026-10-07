@@ -10,6 +10,7 @@ import {
   getNextBlogPost,
   getPublicBlogPosts,
   getSortedBlogPosts,
+  getVisibleBlogPosts,
 } from '@/data/blogPosts';
 import { blogPostCtas } from '@/data/blogPostCtas';
 import { blogPostContent } from '@/data/blogPostContent';
@@ -161,6 +162,59 @@ describe('blog post data', () => {
     expect(getNextBlogPost(105)?.id).toBe('dont-trip-over-what-is-behind-you');
   });
 
+  it('preserves Suz’s wording in blogs 110 through 112', () => {
+    const sourceAnchors: Record<string, string[]> = {
+      'a-boundary-is-not-an-argument': [
+        'A Boundary is NOT An Argument',
+        'She chose not to attend.',
+        'Wowzer. Their surprise was obvious.',
+        'It was the discomfort of being misunderstood.',
+        'That is what a boundary is.',
+        'I do not have to turn my boundary into a courtroom argument',
+        'Then stop.',
+        'A boundary is a decision, NOT an opening statement in a debate.',
+      ],
+      'are-your-boundaries-protecting-your-peace-or-protecting-your-fear': [
+        'too.There is something wonderfully freeing',
+        'Could I sometimes be using that gate to keep myself from something I really want?',
+        '“I don’t want to” and “I am afraid to” can sound remarkably alike',
+        'I get to close it.',
+        'I also get to open it.',
+        'I want my boundaries to make room for me, including the parts that still want to grow.',
+      ],
+      'enough-according-to-whom': [
+        'say , "I wish you enough.”',
+        'Am I enough?',
+        'The unfinished “things” are running the meeting.',
+        'distracted,or interrupted',
+        'There can be more to do, and I can have done enough for today.',
+        'I wish you enough.',
+      ],
+    };
+
+    for (const [postId, anchors] of Object.entries(sourceAnchors)) {
+      const entry = blogPostContent[postId];
+      const heading = render(entry.heading);
+      const body = render(entry.body);
+      const renderedText = `${heading.container.textContent ?? ''} ${body.container.textContent ?? ''}`
+        .replace(/\s+/g, ' ')
+        .trim();
+
+      for (const anchor of anchors) {
+        expect(renderedText, `${postId} is missing source text: ${anchor}`).toContain(anchor);
+      }
+      expect(renderedText).toContain('💚 The Accidental Blogger');
+      expect(renderedText).not.toMatch(/Blog 11[012]/);
+      expect(renderedText).not.toMatch(/\bI\s*$/);
+      heading.unmount();
+      body.unmount();
+    }
+
+    expect(getNextBlogPost(109)?.id).toBe('a-boundary-is-not-an-argument');
+    expect(getNextBlogPost(110)?.id).toBe('are-your-boundaries-protecting-your-peace-or-protecting-your-fear');
+    expect(getNextBlogPost(111)?.id).toBe('enough-according-to-whom');
+  });
+
   it('loads blog posts with required metadata', () => {
     expect(blogPosts.length).toBeGreaterThan(0);
     const first = blogPosts[0];
@@ -243,5 +297,79 @@ describe('gated (password-protected) blog posts', () => {
   it('does not attach a release label to public posts', () => {
     const publicPost = getPublicBlogPosts()[0];
     expect(getBlogReleaseLabel(publicPost)).toBeUndefined();
+  });
+});
+
+describe('scheduled blog publish gate', () => {
+  const scheduledIds = [
+    'a-boundary-is-not-an-argument',
+    'are-your-boundaries-protecting-your-peace-or-protecting-your-fear',
+    'enough-according-to-whom',
+  ] as const;
+  const productionEnv = {
+    NODE_ENV: 'production',
+    VERCEL_ENV: 'production',
+    NEXT_PUBLIC_VERCEL_ENV: 'production',
+  } as NodeJS.ProcessEnv;
+  const previewEnv = {
+    NODE_ENV: 'production',
+    VERCEL_ENV: 'preview',
+    NEXT_PUBLIC_VERCEL_ENV: 'preview',
+  } as NodeJS.ProcessEnv;
+  const today = new Date('2026-10-07T17:00:00.000Z');
+  const after110 = new Date('2026-11-10T08:00:00.000Z');
+  const after111 = new Date('2026-11-12T08:00:00.000Z');
+  const after112 = new Date('2026-11-17T08:00:00.000Z');
+
+  it('hides future posts on production and shows them on preview', () => {
+    const productionIds = getVisibleBlogPosts({ env: productionEnv, now: today }).map((post) => post.id);
+    const previewIds = getVisibleBlogPosts({ env: previewEnv, now: today }).map((post) => post.id);
+    const publicProductionIds = getPublicBlogPosts({ env: productionEnv, now: today }).map((post) => post.id);
+    const indexProductionIds = getBlogPostsByDateDesc({ env: productionEnv, now: today }).map((post) => post.id);
+
+    for (const id of scheduledIds) {
+      expect(productionIds).not.toContain(id);
+      expect(publicProductionIds).not.toContain(id);
+      expect(indexProductionIds).not.toContain(id);
+      expect(previewIds).toContain(id);
+    }
+
+    expect(productionIds).toContain('the-fence-has-a-gate');
+    expect(productionIds).toContain('birthing-your-authentic-self');
+    expect(getNextBlogPost(109, { env: productionEnv, now: today })).toBeUndefined();
+    expect(getNextBlogPost(109, { env: previewEnv, now: today })?.id).toBe('a-boundary-is-not-an-argument');
+    expect(getSortedBlogPosts({ env: productionEnv, now: today }).at(-1)?.id).toBe('the-fence-has-a-gate');
+  });
+
+  it('publishes each scheduled post once the mocked clock passes its date', () => {
+    expect(
+      getVisibleBlogPosts({ env: productionEnv, now: after110 }).map((post) => post.id)
+    ).toContain('a-boundary-is-not-an-argument');
+    expect(
+      getVisibleBlogPosts({ env: productionEnv, now: after110 }).map((post) => post.id)
+    ).not.toContain('are-your-boundaries-protecting-your-peace-or-protecting-your-fear');
+
+    expect(
+      getVisibleBlogPosts({ env: productionEnv, now: after111 }).map((post) => post.id)
+    ).toEqual(
+      expect.arrayContaining([
+        'a-boundary-is-not-an-argument',
+        'are-your-boundaries-protecting-your-peace-or-protecting-your-fear',
+      ])
+    );
+    expect(
+      getVisibleBlogPosts({ env: productionEnv, now: after111 }).map((post) => post.id)
+    ).not.toContain('enough-according-to-whom');
+
+    const afterAll = getVisibleBlogPosts({ env: productionEnv, now: after112 }).map((post) => post.id);
+    for (const id of scheduledIds) {
+      expect(afterAll).toContain(id);
+    }
+    expect(getNextBlogPost(109, { env: productionEnv, now: after110 })?.id).toBe(
+      'a-boundary-is-not-an-argument'
+    );
+    expect(getNextBlogPost(111, { env: productionEnv, now: after112 })?.id).toBe(
+      'enough-according-to-whom'
+    );
   });
 });

@@ -1,22 +1,24 @@
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 import BlogPost from '@/views/BlogPost';
 import { buildMetadata } from '@/lib/nextMetadata';
 import { buildMetaDescription } from '@/lib/seo';
 import { siteMetadata } from '@/lib/siteMetadata';
 import {
-  blogPosts,
   getBlogPublishedDate,
   getBlogPostSeoDescription,
   getBlogPostSeoTitle,
   getBlogPostById,
+  getVisibleBlogPosts,
+  isVisibleBlogPost,
 } from '@/data/blogPosts';
 
 const resolvePostMeta = (postId: string) => {
   const post = getBlogPostById(postId);
   const path = `/blog/${postId}`;
 
-  if (!post) {
+  if (!post || !isVisibleBlogPost(post)) {
     return {
       path,
       title: 'Blog Post Not Found',
@@ -44,7 +46,7 @@ const resolvePostMeta = (postId: string) => {
 };
 
 export const generateStaticParams = () => {
-  return blogPosts.map((post) => ({
+  return getVisibleBlogPosts().map((post) => ({
     postId: post.id,
   }));
 };
@@ -55,10 +57,18 @@ export const generateMetadata = async ({
   params: Promise<{ postId: string }>;
 }): Promise<Metadata> => {
   const { postId } = await params;
+  const post = getBlogPostById(postId);
+  if (!post || !isVisibleBlogPost(post)) {
+    notFound();
+  }
   return buildMetadata(resolvePostMeta(postId));
 };
 
 export default async function BlogPostRoute({ params }: { params: Promise<{ postId: string }> }) {
   const { postId } = await params;
+  const post = getBlogPostById(postId);
+  if (!post || !isVisibleBlogPost(post)) {
+    notFound();
+  }
   return <BlogPost postId={postId} />;
 }

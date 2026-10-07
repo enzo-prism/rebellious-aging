@@ -656,6 +656,21 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
     body: "Join the group and share one commitment to yourself that you are ready to protect with love and intention.",
     buttonLabel: "Join the boundaries conversation",
   },
+  'a-boundary-is-not-an-argument': {
+    title: 'Hold the boundary without arguing',
+    body: 'Join the group and share one boundary you are ready to keep without turning it into a courtroom argument.',
+    buttonLabel: 'Join the boundary conversation',
+  },
+  'are-your-boundaries-protecting-your-peace-or-protecting-your-fear': {
+    title: 'Ask what your gate is protecting',
+    body: 'Join the group and notice whether a recent no protected your peace or your fear.',
+    buttonLabel: 'Join the peace conversation',
+  },
+  'enough-according-to-whom': {
+    title: 'Wish yourself enough',
+    body: 'Join the group and name one way you will let today count as enough.',
+    buttonLabel: 'Join the enough conversation',
+  },
 };
 
 export const getBlogPostCta = (postId: string) => blogPostCtas[postId];
