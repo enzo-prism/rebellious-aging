@@ -313,6 +313,7 @@ Blog content is managed in two places:
 Deployment note:
 - Production URL: https://rebelwithsuz.com
 - Source-of-truth reference for content parity: https://github.com/enzo-prism/rebellious-aging
+- Future-dated posts go live on the first production rebuild after their date. The nightly scheduled rebuild (see [Scheduled production rebuilds](#scheduled-production-rebuilds)) covers days with no `main` commit. This repo is public, so post text is visible on GitHub before that date.
 
 After editing blog content, run:
 
@@ -423,6 +424,29 @@ GitHub Actions mirrors the release gate in [`.github/workflows/ci.yml`](.github/
 2. Commit and push to `main` before production deploys so GitHub stays the source of truth for the live site. Pushing `main` auto-deploys production via Vercel's git integration.
 3. Optionally trigger/force a production deploy from the CLI with `vercel --prod` (or `vercel redeploy <url> --target production` to rebuild + bust the edge cache). Note: `sitemap.xml`/`robots.txt` can sit behind a sticky edge cache for a few minutes after deploy even when other paths update immediately.
 4. Keep legacy HTTP redirects in `vercel.json`; do not rely on `next.config.js` redirects for static-export production behavior.
+
+### Scheduled production rebuilds
+
+The site is a Next static export (`output: "export"`), so publish-time logic is evaluated at build time. A nightly GitHub Action ([`.github/workflows/scheduled-rebuild.yml`](.github/workflows/scheduled-rebuild.yml)) POSTs to a Vercel Deploy Hook on `main` so production rebuilds even when no new commit landed. That is what lets a future-dated blog post appear on [rebelwithsuz.com](https://rebelwithsuz.com) after its date (midnight America/Los_Angeles) without a manual deploy.
+
+**Cron:** `15 8 * * *` (08:15 UTC). That is 12:15 AM PST and 1:15 AM PDT, so the job always runs after midnight Pacific Time in both standard and daylight-saving time.
+
+**Create the hook (do not commit the URL):**
+
+1. In the Vercel project `ra-nextjs`, open **Settings → Git → Deploy Hooks**.
+2. Create a hook aimed at branch `main` (name it something like `scheduled-rebuild`).
+3. Copy the generated URL and store it only as the GitHub Actions repository secret `VERCEL_DEPLOY_HOOK_URL` (**Settings → Secrets and variables → Actions**). Never paste the URL into the repo, issues, or workflow logs.
+
+If the secret is missing, the workflow does **not** fail silently. It emits a GitHub annotation and then:
+
+- `::warning::VERCEL_DEPLOY_HOOK_URL not set: scheduled blog posts will NOT go live` and exits 0 (run stays green) while today's date in `America/Los_Angeles` (`TZ=America/Los_Angeles date +%F`) is still before `HOOK_REQUIRED_FROM`.
+- `::error::` with the same message and exits 1 (run goes red; GitHub emails the owner) on or after that cutoff.
+
+`HOOK_REQUIRED_FROM` is a top-level workflow env var, currently `2026-11-09` (the day before the first scheduled post on Nov 10). Move that date forward or remove the cutoff once `VERCEL_DEPLOY_HOOK_URL` is set.
+
+**Run it by hand:** GitHub → **Actions → Scheduled production rebuild → Run workflow**, or `gh workflow run scheduled-rebuild.yml`. Manual runs are also how you re-enable the schedule after GitHub auto-disables unused cron workflows (scheduled jobs on public repos can be disabled after 60 days of repository inactivity).
+
+This repository is public. Future-dated post text in `src/data/` is visible on GitHub as soon as it is merged; the nightly rebuild only controls when the production site includes it.
 
 Legacy quiz backend reactivation only: review the feature and its privacy boundary before applying database migrations or deploying `submit-quiz`. These commands are not part of a standard site release:
 

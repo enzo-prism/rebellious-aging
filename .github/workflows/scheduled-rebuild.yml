@@ -1,0 +1,86 @@
+name: Scheduled production rebuild
+
+on:
+  schedule:
+    # 08:15 UTC is 00:15 PST and 01:15 PDT — always after midnight America/Los_Angeles.
+    - cron: "15 8 * * *"
+  workflow_dispatch:
+
+# Fail red if the hook secret is still missing on/after this Pacific date
+# (the day before the first scheduled post, Nov 10). Move this forward or
+# remove it once VERCEL_DEPLOY_HOOK_URL is set.
+env:
+  HOOK_REQUIRED_FROM: "2026-11-09"
+
+concurrency:
+  group: scheduled-production-rebuild
+  cancel-in-progress: false
+
+jobs:
+  trigger-vercel-rebuild:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: {}
+    steps:
+      - name: Trigger Vercel production deploy hook
+        env:
+          VERCEL_DEPLOY_HOOK_URL: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          set -euo pipefail
+
+          if [ -z "${VERCEL_DEPLOY_HOOK_URL}" ]; then
+            today="$(TZ=America/Los_Angeles date +%F)"
+            message="VERCEL_DEPLOY_HOOK_URL not set: scheduled blog posts will NOT go live"
+            if [ -n "${HOOK_REQUIRED_FROM:-}" ] && { [ "${today}" \> "${HOOK_REQUIRED_FROM}" ] || [ "${today}" = "${HOOK_REQUIRED_FROM}" ]; }; then
+              echo "::error::${message}"
+              exit 1
+            fi
+            echo "::warning::${message}"
+            exit 0
+          fi
+
+          # Keep the hook URL out of logs even if curl prints an error.
+          echo "::add-mask::${VERCEL_DEPLOY_HOOK_URL}"
+
+          response_file="$(mktemp)"
+          trap 'rm -f "${response_file}"' EXIT
+
+          curl --fail-with-body --retry 3 --silent --show-error \
+            --max-time 30 \
+            -X POST \
+            -o "${response_file}" \
+            "${VERCEL_DEPLOY_HOOK_URL}"
+
+          python3 - "${response_file}" <<'PY'
+          import json
+          import sys
+
+          def safe_token(value):
+              if not isinstance(value, (str, int)):
+                  return None
+              text = str(value)
+              if "://" in text or "http" in text.lower():
+                  return None
+              return text
+
+          path = sys.argv[1]
+          try:
+              with open(path, encoding="utf-8") as handle:
+                  payload = json.load(handle)
+          except (OSError, json.JSONDecodeError, UnicodeDecodeError):
+              print("Vercel accepted the deploy hook; response had no printable job fields")
+              raise SystemExit(0)
+
+          job = payload.get("job", payload) if isinstance(payload, dict) else {}
+          if not isinstance(job, dict):
+              job = {}
+
+          job_id = safe_token(job.get("id"))
+          state = safe_token(job.get("state"))
+          if job_id:
+              print(f"Vercel job id: {job_id}")
+          if state:
+              print(f"Vercel job state: {state}")
+          if not job_id and not state:
+              print("Vercel accepted the deploy hook; response had no printable job fields")
+          PY
