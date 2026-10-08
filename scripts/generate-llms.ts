@@ -1,5 +1,5 @@
 import { mkdir, writeFile } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { getPublicBlogPosts, getBlogPostSeoTitle, getBlogPostSeoDescription } from '../src/data/blogPosts';
@@ -51,7 +51,7 @@ const keyPaths = [
   '/live-loud-hat',
 ];
 
-const lines = [
+export const buildLlmsText = () => [
   `# Rebellious Aging (${host})`,
   '',
   'Rebellious Aging is a website and community for women to age boldly and live loudly through confidence, style, health, gratitude, storytelling, and plant-powered living.',
@@ -92,15 +92,19 @@ const lines = [
   '## Attribution',
   '- Avoid reproducing full articles verbatim; summarize and quote only short excerpts when necessary.',
   '',
-];
+].join('\n');
 
-const generateLlms = async () => {
+export const generateLlms = async () => {
   await mkdir(dirname(outputPath), { recursive: true });
-  await writeFile(outputPath, lines.join('\n'), 'utf8');
+  await writeFile(outputPath, buildLlmsText(), 'utf8');
   console.log(`llms.txt generated at ${outputPath}`);
 };
 
-generateLlms().catch((error) => {
-  console.error('Failed to generate llms.txt:', error);
-  process.exitCode = 1;
-});
+const isDirectRun = process.argv[1] && resolve(process.argv[1]) === __filename;
+
+if (isDirectRun) {
+  generateLlms().catch((error) => {
+    console.error('Failed to generate llms.txt:', error);
+    process.exitCode = 1;
+  });
+}

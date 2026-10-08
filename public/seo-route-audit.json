@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-07T23:31:23.121Z",
-  "totalRoutes": 173,
-  "validRoutes": 173,
+  "generatedAt": "2026-10-07T17:00:00.000Z",
+  "totalRoutes": 170,
+  "validRoutes": 170,
   "failedRoutes": 0,
   "records": [
     {
@@ -3395,81 +3395,6 @@
         "title": "The Fence Has A Gate!",
         "description": "Suz explores personal boundaries, protecting commitments to yourself, and opening the gate with love, generosity, and intention.",
         "canonical": "/blog/the-fence-has-a-gate",
-        "ogType": "article",
-        "noindex": false,
-        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
-      }
-    },
-    {
-      "path": "/blog/a-boundary-is-not-an-argument",
-      "source": "blog",
-      "hasMeta": true,
-      "hasTitle": true,
-      "hasDescription": true,
-      "computedKeys": [
-        "path",
-        "canonical",
-        "title",
-        "description",
-        "image",
-        "ogType",
-        "noindex"
-      ],
-      "issues": [],
-      "metadata": {
-        "title": "A Boundary is NOT An Argument",
-        "description": "Suz explores why a boundary is a decision, not a debate, and why other people’s surprise does not create an obligation to defend it.",
-        "canonical": "/blog/a-boundary-is-not-an-argument",
-        "ogType": "article",
-        "noindex": false,
-        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
-      }
-    },
-    {
-      "path": "/blog/are-your-boundaries-protecting-your-peace-or-protecting-your-fear",
-      "source": "blog",
-      "hasMeta": true,
-      "hasTitle": true,
-      "hasDescription": true,
-      "computedKeys": [
-        "path",
-        "canonical",
-        "title",
-        "description",
-        "image",
-        "ogType",
-        "noindex"
-      ],
-      "issues": [],
-      "metadata": {
-        "title": "Are Your Boundaries Protecting Your Peace or Protecting Your Fear?",
-        "description": "Suz asks whether a boundary is protecting your peace or your fear, and how to keep a gate that can close or open as you grow.",
-        "canonical": "/blog/are-your-boundaries-protecting-your-peace-or-protecting-your-fear",
-        "ogType": "article",
-        "noindex": false,
-        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
-      }
-    },
-    {
-      "path": "/blog/enough-according-to-whom",
-      "source": "blog",
-      "hasMeta": true,
-      "hasTitle": true,
-      "hasDescription": true,
-      "computedKeys": [
-        "path",
-        "canonical",
-        "title",
-        "description",
-        "image",
-        "ogType",
-        "noindex"
-      ],
-      "issues": [],
-      "metadata": {
-        "title": "Enough. According to Whom?",
-        "description": "Suz reflects on the meaning of enough, who decides it, and how to let what you did today count without putting yourself on trial.",
-        "canonical": "/blog/enough-according-to-whom",
         "ogType": "article",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"

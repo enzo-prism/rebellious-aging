@@ -175,7 +175,7 @@ describe('blog post data', () => {
         'A boundary is a decision, NOT an opening statement in a debate.',
       ],
       'are-your-boundaries-protecting-your-peace-or-protecting-your-fear': [
-        'too.There is something wonderfully freeing',
+        'too. There is something wonderfully freeing',
         'Could I sometimes be using that gate to keep myself from something I really want?',
         '“I don’t want to” and “I am afraid to” can sound remarkably alike',
         'I get to close it.',
@@ -183,10 +183,10 @@ describe('blog post data', () => {
         'I want my boundaries to make room for me, including the parts that still want to grow.',
       ],
       'enough-according-to-whom': [
-        'say , "I wish you enough.”',
+        'say, "I wish you enough."',
         'Am I enough?',
         'The unfinished “things” are running the meeting.',
-        'distracted,or interrupted',
+        'distracted, or interrupted',
         'There can be more to do, and I can have done enough for today.',
         'I wish you enough.',
       ],
@@ -210,9 +210,10 @@ describe('blog post data', () => {
       body.unmount();
     }
 
-    expect(getNextBlogPost(109)?.id).toBe('a-boundary-is-not-an-argument');
-    expect(getNextBlogPost(110)?.id).toBe('are-your-boundaries-protecting-your-peace-or-protecting-your-fear');
-    expect(getNextBlogPost(111)?.id).toBe('enough-according-to-whom');
+    const showScheduled = { env: { SHOW_SCHEDULED_POSTS: '1' } };
+    expect(getNextBlogPost(109, showScheduled)?.id).toBe('a-boundary-is-not-an-argument');
+    expect(getNextBlogPost(110, showScheduled)?.id).toBe('are-your-boundaries-protecting-your-peace-or-protecting-your-fear');
+    expect(getNextBlogPost(111, showScheduled)?.id).toBe('enough-according-to-whom');
   });
 
   it('loads blog posts with required metadata', () => {
@@ -259,7 +260,8 @@ describe('gated (password-protected) blog posts', () => {
     for (const post of gatedPosts) {
       expect(publicIds).not.toContain(post.id);
     }
-    expect(getPublicBlogPosts().length).toBe(blogPosts.length - gatedPosts.length);
+    const showScheduled = { env: { SHOW_SCHEDULED_POSTS: '1' } };
+    expect(getPublicBlogPosts(showScheduled).length).toBe(blogPosts.length - gatedPosts.length);
   });
 
   it('lists gated posts in the blog index but not on homepage surfaces', () => {
@@ -269,7 +271,7 @@ describe('gated (password-protected) blog posts', () => {
       expect(dateOrderedIds).toContain(post.id); // shown on /blog with a lock badge
       expect(numberOrderedIds).not.toContain(post.id); // kept off the homepage
     }
-    expect(getBlogPostsByDateDesc().length).toBe(blogPosts.length);
+    expect(getBlogPostsByDateDesc({ env: { SHOW_SCHEDULED_POSTS: '1' } }).length).toBe(blogPosts.length);
   });
 
   it('still resolves gated posts by id for direct links', () => {
@@ -310,12 +312,12 @@ describe('scheduled blog publish gate', () => {
     NODE_ENV: 'production',
     VERCEL_ENV: 'production',
     NEXT_PUBLIC_VERCEL_ENV: 'production',
-  } as NodeJS.ProcessEnv;
+  };
   const previewEnv = {
     NODE_ENV: 'production',
     VERCEL_ENV: 'preview',
     NEXT_PUBLIC_VERCEL_ENV: 'preview',
-  } as NodeJS.ProcessEnv;
+  };
   const today = new Date('2026-10-07T17:00:00.000Z');
   const after110 = new Date('2026-11-10T08:00:00.000Z');
   const after111 = new Date('2026-11-12T08:00:00.000Z');

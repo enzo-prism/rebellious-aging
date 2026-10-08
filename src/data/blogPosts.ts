@@ -2,6 +2,7 @@ import {
   isBlogPostVisible,
   type BlogVisibilityContext,
 } from '../lib/blogSchedule';
+import type { BlogListingCard, HomeBlogCard, LatestBlogCard } from './blogListing';
 import { blogSeoById } from './blogSeo';
 
 export interface BlogPostMetadata {
@@ -1320,3 +1321,40 @@ export const getBlogPostsByDateDesc = (context?: BlogVisibilityContext) =>
     }
     return b.blogNumber - a.blogNumber;
   });
+
+export const toBlogListingCard = (post: BlogPostMetadata): BlogListingCard => ({
+  id: post.id,
+  blogNumber: post.blogNumber,
+  title: post.title,
+  excerpt: post.excerpt,
+  date: post.date,
+  dateSortIso: post.dateSort.toISOString(),
+  readTime: post.readTime,
+  gated: post.gated,
+  releaseLabel: getBlogReleaseLabel(post),
+});
+
+export const toHomeBlogCard = (post: BlogPostMetadata): HomeBlogCard => ({
+  id: post.id,
+  blogNumber: post.blogNumber,
+  title: post.title,
+  excerpt: post.excerpt,
+  readTime: post.readTime,
+});
+
+export const toLatestBlogCard = (post: BlogPostMetadata): LatestBlogCard => ({
+  id: post.id,
+  blogNumber: post.blogNumber,
+});
+
+export const getBlogListingCards = (context?: BlogVisibilityContext) =>
+  getBlogPostsByDateDesc(context).map(toBlogListingCard);
+
+export const getHomeBlogCards = (context?: BlogVisibilityContext) =>
+  getSortedBlogPosts(context).slice(-3).reverse().map(toHomeBlogCard);
+
+export const getLatestBlogCard = (context?: BlogVisibilityContext) => {
+  const posts = getSortedBlogPosts(context);
+  const latest = posts[posts.length - 1];
+  return latest ? toLatestBlogCard(latest) : undefined;
+};

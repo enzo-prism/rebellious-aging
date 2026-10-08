@@ -2,7 +2,8 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { blogPosts, getBlogPostById, getBlogPostSeoTitle } from '../src/data/blogPosts';
+import { getBlogPostById, getBlogPostSeoTitle, getVisibleBlogPosts } from '../src/data/blogPosts';
+import { getBlogScheduleNow } from '../src/lib/blogSchedule';
 import { getGuideBySlug, getGuidePath, guides } from '../src/data/guides';
 import { seoRoutes } from '../src/data/seoRoutes';
 import { recipes, slugifyRecipeTitle } from '../src/data/recipes';
@@ -18,7 +19,8 @@ const defaultImage = siteMetadata.defaultSocialImage;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const projectRoot = join(__dirname, '..');
-const outputPath = join(projectRoot, 'public', 'seo-route-audit.json');
+const publicOutputPath = join(projectRoot, 'public', 'seo-route-audit.json');
+const exportOutputPath = join(projectRoot, 'out', 'seo-route-audit.json');
 
 type RouteSource = 'seo-routes' | 'blog' | 'recipe' | 'pillar' | 'guide' | 'speaking-event';
 
@@ -62,7 +64,7 @@ const getPillarIds = () => {
 
 const buildExpectedPaths = (): Array<{ path: string; source: RouteSource }> => {
   const staticPaths = seoRoutes.map((route) => ({ path: route.path, source: 'seo-routes' as RouteSource }));
-  const blogPaths = blogPosts.map((post) => ({
+  const blogPaths = getVisibleBlogPosts().map((post) => ({
     path: `/blog/${post.id}`,
     source: 'blog' as RouteSource,
   }));
@@ -329,15 +331,18 @@ const run = async () => {
   const records = uniqueRoutes.map(buildRecord);
   const failedRecords = records.filter((record) => !record.hasMeta);
   const summary = {
-    generatedAt: new Date().toISOString(),
+    generatedAt: getBlogScheduleNow().toISOString(),
     totalRoutes: records.length,
     validRoutes: records.length - failedRecords.length,
     failedRoutes: failedRecords.length,
     records,
   };
 
-  await mkdir(dirname(outputPath), { recursive: true });
-  await writeFile(outputPath, JSON.stringify(summary, null, 2), 'utf8');
+  const payload = JSON.stringify(summary, null, 2);
+  await mkdir(dirname(publicOutputPath), { recursive: true });
+  await writeFile(publicOutputPath, payload, 'utf8');
+  await mkdir(dirname(exportOutputPath), { recursive: true });
+  await writeFile(exportOutputPath, payload, 'utf8');
 
   if (failedRecords.length > 0) {
     console.error(`SEO route audit failed for ${failedRecords.length} route(s).`);

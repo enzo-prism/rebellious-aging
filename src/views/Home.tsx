@@ -9,7 +9,7 @@ import LivingRoomSection from '@/components/home/LivingRoomSection';
 import SubstackAnnouncement from '@/components/common/SubstackAnnouncement';
 import TrustedVoicesSection from '@/components/common/TrustedVoicesSection';
 import { FacebookGroupButton } from '@/components/common/FacebookGroupCta';
-import { getSortedBlogPosts } from '@/data/blogPosts';
+import type { HomeBlogCard, LatestBlogCard } from '@/data/blogListing';
 import { Button } from '@/components/ui/button';
 import { Carousel, CarouselContent, CarouselItem, type CarouselApi } from '@/components/ui/carousel';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
@@ -51,11 +51,15 @@ const startingPoints = [
   { title: 'Find a story that speaks to you', description: 'Suz’s reflections on confidence, connection, and becoming yourself.', href: '/blog', label: 'Browse Suz’s stories', icon: BookOpen },
 ];
 
-export default function Home() {
+type HomeProps = {
+  latestPosts: HomeBlogCard[];
+  latestPost?: LatestBlogCard;
+};
+
+export default function Home({ latestPosts, latestPost }: HomeProps) {
   const [requestedImages, setRequestedImages] = useState<Set<number>>(new Set([0]));
   const [api, setApi] = useState<CarouselApi>();
   const [currentSlide, setCurrentSlide] = useState(0);
-  const latestPosts = getSortedBlogPosts().slice(-3).reverse();
 
   useEffect(() => {
     if (!api) return;
@@ -218,7 +222,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
             <div><p className="mb-3 text-sm font-semibold tracking-wide text-teal">From Suz’s notebook</p><h2 className="text-3xl font-bold sm:text-4xl">A little perspective for your day</h2></div>
-            <LatestBlogBadge />
+            <LatestBlogBadge post={latestPost} />
           </div>
           <div className="grid gap-5 md:grid-cols-3">
             {latestPosts.map((post) => (

@@ -1,8 +1,11 @@
 export const BLOG_PUBLISH_TIME_ZONE = 'America/Los_Angeles';
+export const BLOG_SCHEDULE_NOW_ENV = 'BLOG_SCHEDULE_NOW';
+
+export type BlogScheduleEnv = Record<string, string | undefined>;
 
 export type BlogVisibilityContext = {
   now?: Date;
-  env?: NodeJS.ProcessEnv;
+  env?: BlogScheduleEnv;
 };
 
 const readTimeZoneParts = (date: Date, timeZone: string) => {
@@ -98,26 +101,58 @@ export const getBlogPublishInstant = (date: string) => {
   );
 };
 
+const readEnvValue = (value: string | undefined) => {
+  const trimmed = value?.trim();
+  return trimmed ? trimmed : undefined;
+};
+
+let cachedScheduleNow: Date | undefined;
+
 /**
- * Only an explicit Vercel production environment hides scheduled posts.
- * Preview, local `next dev`, and unit tests show them.
- *
- * The decision uses `NEXT_PUBLIC_VERCEL_ENV` first so the server render and
- * the client bundle always agree. Using `NODE_ENV` alone hydrates incorrectly
- * in `next dev` (server is "development", some client graphs are "production").
+ * One timestamp for the whole build. Override with BLOG_SCHEDULE_NOW
+ * (ISO string) so pages, sitemap, search-index, llms.txt, and the SEO
+ * audit stay consistent if a build straddles midnight.
+ */
+export const getBlogScheduleNow = (env: BlogScheduleEnv = process.env) => {
+  if (cachedScheduleNow) {
+    return cachedScheduleNow;
+  }
+
+  const override = readEnvValue(env[BLOG_SCHEDULE_NOW_ENV]);
+  cachedScheduleNow = override ? new Date(override) : new Date();
+  return cachedScheduleNow;
+};
+
+export const resetBlogScheduleNowForTests = () => {
+  cachedScheduleNow = undefined;
+};
+
+/**
+ * Hide scheduled posts unless this deploy is explicitly a preview/dev
+ * environment or SHOW_SCHEDULED_POSTS=1. Empty strings count as unset.
+ * Production, CI, and any unknown env stay closed.
  *
  * This site is `output: 'export'`, so the gate is evaluated at build time.
  * HTML, sitemap, search-index.json, and llms.txt cannot change until the
  * next production build. ISR / on-demand revalidate is not available.
  */
 export const shouldIncludeUnpublishedBlogPosts = (
-  env: NodeJS.ProcessEnv = process.env
+  env: BlogScheduleEnv = process.env
 ) => {
-  const vercelEnv = env.NEXT_PUBLIC_VERCEL_ENV ?? env.VERCEL_ENV;
-  return vercelEnv !== 'production';
+  const showFlag = readEnvValue(env.SHOW_SCHEDULED_POSTS);
+  if (showFlag === '1' || showFlag === 'true') {
+    return true;
+  }
+
+  const vercelEnv = readEnvValue(env.VERCEL_ENV) ?? readEnvValue(env.NEXT_PUBLIC_VERCEL_ENV);
+  if (vercelEnv === 'preview' || vercelEnv === 'development') {
+    return true;
+  }
+
+  return readEnvValue(env.NODE_ENV) === 'development';
 };
 
-export const isBlogPostPublished = (date: string, now: Date = new Date()) => {
+export const isBlogPostPublished = (date: string, now: Date = getBlogScheduleNow()) => {
   const instant = getBlogPublishInstant(date);
   if (!instant) {
     return true;
@@ -132,5 +167,6 @@ export const isBlogPostVisible = (
   if (shouldIncludeUnpublishedBlogPosts(context.env ?? process.env)) {
     return true;
   }
-  return isBlogPostPublished(date, context.now ?? new Date());
+  return isBlogPostPublished(date, context.now ?? getBlogScheduleNow(context.env ?? process.env));
 };
+

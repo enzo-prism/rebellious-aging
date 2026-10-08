@@ -1,6 +1,7 @@
 import Seo from '@/components/seo/Seo';
 import { buildCollectionJsonLd } from '@/lib/structuredData';
-import { getBlogPostsByDateDesc, isGatedBlogPost } from '@/data/blogPosts';
+import { getBlogListingCards } from '@/data/blogPosts';
+import { isGatedBlogListing } from '@/data/blogListing';
 import PageBreadcrumbs from '@/components/seo/PageBreadcrumbs';
 import type { Metadata } from 'next';
 
@@ -22,9 +23,10 @@ export const generateMetadata = (): Metadata => {
 };
 
 export default function BlogPage() {
+  const posts = getBlogListingCards();
   return <>
-    <Seo jsonLd={buildCollectionJsonLd(routeMeta?.title ?? 'Blog', '/blog', getBlogPostsByDateDesc().filter((post) => !isGatedBlogPost(post)).map((post) => ({ name: post.title, path: `/blog/${post.id}` })))} />
+    <Seo jsonLd={buildCollectionJsonLd(routeMeta?.title ?? 'Blog', '/blog', posts.filter((post) => !isGatedBlogListing(post)).map((post) => ({ name: post.title, path: `/blog/${post.id}` })))} />
     <div className="container mx-auto px-4 pt-6"><PageBreadcrumbs items={[{ name: "Blog", path: "/blog" }]} /></div>
-    <Blog />
+    <Blog posts={posts} />
   </>;
 }

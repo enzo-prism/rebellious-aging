@@ -1,10 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 
-import type { BlogPostMetadata } from '@/data/blogPosts';
-
 interface BlogPostFooterProps {
-  nextPost?: BlogPostMetadata;
+  nextPost?: {
+    id: string;
+    title: string;
+  };
 }
 
 export const BlogPostFooter: React.FC<BlogPostFooterProps> = ({

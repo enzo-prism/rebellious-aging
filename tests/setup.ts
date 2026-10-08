@@ -2,6 +2,7 @@ import React from 'react';
 import { afterEach, beforeEach, vi } from 'vitest';
 import '@testing-library/jest-dom/vitest';
 import { cleanup } from '@testing-library/react';
+import { resetBlogScheduleNowForTests } from '@/lib/blogSchedule';
 
 export const mockUsePathname = vi.fn(() => '/');
 export const mockUseSearchParams = vi.fn(() => new URLSearchParams());
@@ -129,5 +130,6 @@ beforeEach(() => {
 
 afterEach(() => {
   cleanup();
+  resetBlogScheduleNowForTests();
   vi.restoreAllMocks();
 });
