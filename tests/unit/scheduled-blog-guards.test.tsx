@@ -49,6 +49,9 @@ const clientComponentFiles = () =>
     return /['"]use client['"]/.test(source) || file.endsWith('LatestBlogBadge.tsx');
   });
 
+const clientCatalogImport =
+  /from\s+['"][^'"]*(?:data\/blogPosts|lib\/blogSchedule)['"]/;
+
 describe('scheduled blog production guards', () => {
   it('keeps generateStaticParams on the visible-post helper so unfiltered catalog params fail', () => {
     const pageSource = readSource('app/blog/[postId]/page.tsx');
@@ -100,6 +103,16 @@ describe('scheduled blog production guards', () => {
     expect(
       getVisibleBlogPosts({ env: productionEnv, now: AT_NOV_10 }).map((post) => post.id)
     ).not.toContain('enough-according-to-whom');
+    expect(
+      getVisibleBlogPosts({
+        env: {
+          VERCEL_ENV: 'production',
+          SHOW_SCHEDULED_POSTS: '1',
+          NODE_ENV: 'development',
+        },
+        now: BEFORE_NOV_10,
+      }).map((post) => post.id)
+    ).not.toEqual(expect.arrayContaining(SCHEDULED_BLOG_POSTS.map((post) => post.id)));
   });
 
   it('keeps the BlogPost visibility guard so a removed check renders the not-found page', () => {
@@ -117,14 +130,22 @@ describe('scheduled blog production guards', () => {
     ];
     for (const file of listingFiles) {
       const source = readSource(file);
-      expect(source).not.toMatch(/from ['"]@\/data\/blogPosts['"]/);
-      expect(source).not.toMatch(/from ['"]@\/lib\/blogSchedule['"]/);
+      expect(source).not.toMatch(clientCatalogImport);
     }
     for (const file of clientComponentFiles()) {
       const source = readFileSync(file, 'utf8');
-      expect(source, file).not.toMatch(/from ['"]@\/data\/blogPosts['"]/);
-      expect(source, file).not.toMatch(/from ['"]@\/lib\/blogSchedule['"]/);
+      expect(source, file).not.toMatch(clientCatalogImport);
     }
+  });
+
+  it('keeps npm run build on one shared BLOG_SCHEDULE_NOW wrapper', () => {
+    expect(readSource('package.json')).toMatch(/tsx scripts\/run-production-build\.ts/);
+    expect(readSource('scripts/run-production-build.ts')).toMatch(/resolveBlogScheduleNowIso/);
+    expect(readSource('scripts/run-production-build.ts')).toMatch(/BLOG_SCHEDULE_NOW/);
+    const leakSource = readSource('scripts/assert-scheduled-blog-export.ts');
+    expect(leakSource).toMatch(/post\.excerpt/);
+    expect(leakSource).toMatch(/post\.bodySentence/);
+    expect(leakSource).toMatch(/Blog #\$\{post\.blogNumber\}/);
   });
 
   it('keeps the committed SEO audit free of unpublished slugs', () => {

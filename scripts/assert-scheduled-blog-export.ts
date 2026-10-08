@@ -10,18 +10,36 @@ const scheduled = [
     id: 'a-boundary-is-not-an-argument',
     title: 'A Boundary is NOT An Argument',
     blogNumber: 110,
+    excerpt:
+      'Suz writes that a boundary defines our own participation, not another person’s choices, and that surprise or discomfort does not turn it into an argument.',
+    bodySentence: 'A boundary is a decision, NOT an opening statement in a debate.',
   },
   {
     id: 'are-your-boundaries-protecting-your-peace-or-protecting-your-fear',
     title: 'Are Your Boundaries Protecting Your Peace or Protecting Your Fear?',
     blogNumber: 111,
+    excerpt:
+      'Suz wonders whether a no is protecting peace or protecting fear, and reminds us that a boundary gate can close and also open.',
+    bodySentence: 'I want my boundaries to make room for me, including the parts that still want to grow.',
   },
   {
     id: 'enough-according-to-whom',
     title: 'Enough. According to Whom?',
     blogNumber: 112,
+    excerpt:
+      'Suz sits with the wish “I wish you enough,” and asks who decides when we have done enough, or when we ourselves are enough.',
+    bodySentence: 'The unfinished “things” are running the meeting.',
   },
 ] as const;
+
+const leakNeedles = (post: (typeof scheduled)[number]) => [
+  post.id,
+  post.title,
+  post.excerpt,
+  post.bodySentence,
+  `Blog #${post.blogNumber}`,
+  `Blog #<!-- -->${post.blogNumber}`,
+];
 
 const walkFiles = (directory: string, collected: string[] = []): string[] => {
   if (!existsSync(directory)) {
@@ -61,7 +79,7 @@ if (rollout) {
   const published = scheduled[0];
   const stillHidden = scheduled.slice(1);
   const publishedHits = collectHits([published.id, published.title]);
-  const leakedHits = collectHits(stillHidden.flatMap((post) => [post.id, post.title]));
+  const leakedHits = collectHits(stillHidden.flatMap(leakNeedles));
   const blogHtmlPath = existsSync(join(outDir, 'blog.html'))
     ? join(outDir, 'blog.html')
     : join(outDir, 'blog', 'index.html');
@@ -95,7 +113,7 @@ if (rollout) {
   process.exit(0);
 }
 
-const hits = collectHits(scheduled.flatMap((post) => [post.id, post.title]));
+const hits = collectHits(scheduled.flatMap(leakNeedles));
 if (hits.length > 0) {
   console.error(
     `Production export leaked scheduled blog metadata:\n${hits
@@ -105,4 +123,4 @@ if (hits.length > 0) {
   process.exit(1);
 }
 
-console.log('Production export leak grep: 0 hits for scheduled slugs and titles.');
+console.log('Production export leak grep: 0 hits for scheduled slugs, titles, excerpts, body sentences, and Blog #110/#111/#112.');
