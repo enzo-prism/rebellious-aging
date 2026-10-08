@@ -27,12 +27,12 @@ jobs:
       - run: npm run test:scheduled-mutations
       - run: npm run build
         env:
-          BLOG_SCHEDULE_NOW: "2026-10-07T17:00:00.000Z"
+          BLOG_SCHEDULE_NOW: "2026-11-10T07:59:59.000Z"
       - run: npm run test:scheduled-leak
       - run: npm run test:e2e -- tests/e2e/scheduled-blog-hydration.spec.ts
         env:
           PW_PRODUCTION_SERVER: "true"
-          BLOG_SCHEDULE_NOW: "2026-10-07T17:00:00.000Z"
+          BLOG_SCHEDULE_NOW: "2026-11-10T07:59:59.000Z"
       - run: npm run test:e2e -- --grep-invert "Performance readiness web-vitals smoke"
       - run: npm run test:e2e:perf
         env:

@@ -108,10 +108,23 @@ const readEnvValue = (value: string | undefined) => {
 
 let cachedScheduleNow: Date | undefined;
 
+export const parseBlogScheduleNow = (value: string) => {
+  const trimmed = value.trim();
+  const parsed = new Date(trimmed);
+  if (!trimmed || Number.isNaN(parsed.getTime())) {
+    throw new Error(
+      `BLOG_SCHEDULE_NOW must be a valid date, received ${JSON.stringify(value)}`
+    );
+  }
+  return parsed;
+};
+
 /**
- * One timestamp for the whole build. Override with BLOG_SCHEDULE_NOW
- * (ISO string) so pages, sitemap, search-index, llms.txt, and the SEO
- * audit stay consistent if a build straddles midnight.
+ * Per-process cache of the schedule clock. `npm run build` sets
+ * BLOG_SCHEDULE_NOW once in scripts/run-production-build.ts so llms,
+ * sitemap, search-index, prerender, next build, and the SEO audit all
+ * inherit the same ISO timestamp. This module cache cannot span those
+ * child processes. A set-but-unparseable value fails the process.
  */
 export const getBlogScheduleNow = (env: BlogScheduleEnv = process.env) => {
   if (cachedScheduleNow) {
@@ -119,8 +132,13 @@ export const getBlogScheduleNow = (env: BlogScheduleEnv = process.env) => {
   }
 
   const override = readEnvValue(env[BLOG_SCHEDULE_NOW_ENV]);
-  cachedScheduleNow = override ? new Date(override) : new Date();
+  cachedScheduleNow = override ? parseBlogScheduleNow(override) : new Date();
   return cachedScheduleNow;
+};
+
+export const resolveBlogScheduleNowIso = (env: BlogScheduleEnv = process.env) => {
+  const override = readEnvValue(env[BLOG_SCHEDULE_NOW_ENV]);
+  return (override ? parseBlogScheduleNow(override) : new Date()).toISOString();
 };
 
 export const resetBlogScheduleNowForTests = () => {
@@ -130,7 +148,9 @@ export const resetBlogScheduleNowForTests = () => {
 /**
  * Hide scheduled posts unless this deploy is explicitly a preview/dev
  * environment or SHOW_SCHEDULED_POSTS=1. Empty strings count as unset.
- * Production, CI, and any unknown env stay closed.
+ * VERCEL_ENV=production (or NEXT_PUBLIC_VERCEL_ENV=production) always
+ * hides, even if SHOW_SCHEDULED_POSTS=1 or NODE_ENV=development.
+ * CI and any unknown env stay closed.
  *
  * This site is `output: 'export'`, so the gate is evaluated at build time.
  * HTML, sitemap, search-index.json, and llms.txt cannot change until the
@@ -139,12 +159,16 @@ export const resetBlogScheduleNowForTests = () => {
 export const shouldIncludeUnpublishedBlogPosts = (
   env: BlogScheduleEnv = process.env
 ) => {
+  const vercelEnv = readEnvValue(env.VERCEL_ENV) ?? readEnvValue(env.NEXT_PUBLIC_VERCEL_ENV);
+  if (vercelEnv === 'production') {
+    return false;
+  }
+
   const showFlag = readEnvValue(env.SHOW_SCHEDULED_POSTS);
   if (showFlag === '1' || showFlag === 'true') {
     return true;
   }
 
-  const vercelEnv = readEnvValue(env.VERCEL_ENV) ?? readEnvValue(env.NEXT_PUBLIC_VERCEL_ENV);
   if (vercelEnv === 'preview' || vercelEnv === 'development') {
     return true;
   }

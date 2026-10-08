@@ -5,7 +5,9 @@ import {
   getBlogScheduleNow,
   isBlogPostPublished,
   isBlogPostVisible,
+  parseBlogScheduleNow,
   resetBlogScheduleNowForTests,
+  resolveBlogScheduleNowIso,
   shouldIncludeUnpublishedBlogPosts,
 } from '@/lib/blogSchedule';
 import { previewEnv, productionEnv } from '../../helpers/scheduledBlogPosts';
@@ -67,11 +69,47 @@ describe('blog publish schedule', () => {
     })).toBe(true);
   });
 
+  it('hides scheduled posts when VERCEL_ENV is production even if show flags or NODE_ENV say otherwise', () => {
+    expect(shouldIncludeUnpublishedBlogPosts({
+      VERCEL_ENV: 'production',
+      SHOW_SCHEDULED_POSTS: '1',
+    })).toBe(false);
+    expect(shouldIncludeUnpublishedBlogPosts({
+      VERCEL_ENV: 'production',
+      NODE_ENV: 'development',
+    })).toBe(false);
+    expect(shouldIncludeUnpublishedBlogPosts({
+      NEXT_PUBLIC_VERCEL_ENV: 'production',
+      SHOW_SCHEDULED_POSTS: 'true',
+      NODE_ENV: 'development',
+    })).toBe(false);
+    expect(isBlogPostVisible('11/10/2026', {
+      env: {
+        VERCEL_ENV: 'production',
+        SHOW_SCHEDULED_POSTS: '1',
+        NODE_ENV: 'development',
+      },
+      now: new Date('2026-10-07T17:00:00.000Z'),
+    })).toBe(false);
+  });
+
+  it('throws when BLOG_SCHEDULE_NOW is set but does not parse to a valid Date', () => {
+    expect(() => parseBlogScheduleNow('garbage')).toThrow(/BLOG_SCHEDULE_NOW must be a valid date/);
+    expect(() => getBlogScheduleNow({ BLOG_SCHEDULE_NOW: 'garbage' })).toThrow(/received "garbage"/);
+    expect(() => resolveBlogScheduleNowIso({ BLOG_SCHEDULE_NOW: 'not-a-date' })).toThrow(
+      /must be a valid date/
+    );
+    expect(() => parseBlogScheduleNow('   ')).toThrow(/must be a valid date/);
+  });
+
   it('reuses one build timestamp and honors BLOG_SCHEDULE_NOW', () => {
     const first = getBlogScheduleNow({ BLOG_SCHEDULE_NOW: '2026-11-09T20:00:00.000Z' });
     const second = getBlogScheduleNow({ BLOG_SCHEDULE_NOW: '2026-11-10T08:00:00.000Z' });
     expect(first.toISOString()).toBe('2026-11-09T20:00:00.000Z');
     expect(second).toBe(first);
+    expect(resolveBlogScheduleNowIso({ BLOG_SCHEDULE_NOW: '2026-11-10T07:59:59.000Z' })).toBe(
+      '2026-11-10T07:59:59.000Z'
+    );
   });
 
   it('keeps already-published and month-only archive dates visible on production', () => {
