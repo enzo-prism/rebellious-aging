@@ -16,6 +16,7 @@ import {
   getBlogPostSeoTitle,
   getBlogReleaseLabel,
   getNextBlogPost,
+  isVisibleBlogPost,
 } from '@/data/blogPosts';
 import { buildMetaDescription, buildSeoTitle, getCanonicalUrl, resolveSocialImage } from '@/lib/seo';
 import { buildArticleJsonLd } from '@/lib/structuredData';
@@ -30,7 +31,7 @@ const BlogPost = ({ postId }: BlogPostProps) => {
   const currentPost = postId ? getBlogPostById(postId) : undefined;
   const postContent = postId ? blogPostContent[postId] : undefined;
 
-  if (!currentPost || !postContent) {
+  if (!currentPost || !postContent || !isVisibleBlogPost(currentPost)) {
     const fallbackDescription = buildMetaDescription(
       'The blog post you are looking for does not exist. Explore more rebellious insights in our blog archive.'
     );

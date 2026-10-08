@@ -1,8 +1,10 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { blogPosts, getBlogPostById, getBlogPostSeoTitle } from '../src/data/blogPosts';
+import { getBlogPostById, getBlogPostSeoTitle, getVisibleBlogPosts } from '../src/data/blogPosts';
+import { getBlogScheduleNow } from '../src/lib/blogSchedule';
 import { getGuideBySlug, getGuidePath, guides } from '../src/data/guides';
 import { seoRoutes } from '../src/data/seoRoutes';
 import { recipes, slugifyRecipeTitle } from '../src/data/recipes';
@@ -18,7 +20,8 @@ const defaultImage = siteMetadata.defaultSocialImage;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const projectRoot = join(__dirname, '..');
-const outputPath = join(projectRoot, 'public', 'seo-route-audit.json');
+const publicOutputPath = join(projectRoot, 'public', 'seo-route-audit.json');
+const exportOutputPath = join(projectRoot, 'out', 'seo-route-audit.json');
 
 type RouteSource = 'seo-routes' | 'blog' | 'recipe' | 'pillar' | 'guide' | 'speaking-event';
 
@@ -38,6 +41,14 @@ interface AuditRecord {
     noindex?: boolean;
     image?: string;
   };
+}
+
+interface SeoRouteAudit {
+  generatedAt: string;
+  totalRoutes: number;
+  validRoutes: number;
+  failedRoutes: number;
+  records: AuditRecord[];
 }
 
 const getPillarIds = () => {
@@ -62,7 +73,7 @@ const getPillarIds = () => {
 
 const buildExpectedPaths = (): Array<{ path: string; source: RouteSource }> => {
   const staticPaths = seoRoutes.map((route) => ({ path: route.path, source: 'seo-routes' as RouteSource }));
-  const blogPaths = blogPosts.map((post) => ({
+  const blogPaths = getVisibleBlogPosts().map((post) => ({
     path: `/blog/${post.id}`,
     source: 'blog' as RouteSource,
   }));
@@ -323,21 +334,48 @@ const buildRecord = ({ path, source }: { path: string; source: RouteSource }): A
   };
 };
 
+const readExistingAudit = async (path: string): Promise<SeoRouteAudit | undefined> => {
+  if (!existsSync(path)) {
+    return undefined;
+  }
+  try {
+    return JSON.parse(await readFile(path, 'utf8')) as SeoRouteAudit;
+  } catch {
+    return undefined;
+  }
+};
+
+const auditsMatchExceptGeneratedAt = (existing: SeoRouteAudit, next: SeoRouteAudit) =>
+  existing.totalRoutes === next.totalRoutes &&
+  existing.validRoutes === next.validRoutes &&
+  existing.failedRoutes === next.failedRoutes &&
+  JSON.stringify(existing.records) === JSON.stringify(next.records);
+
 const run = async () => {
   const expectedRoutes = buildExpectedPaths();
   const uniqueRoutes = Array.from(new Map(expectedRoutes.map((item) => [item.path, item])).values());
   const records = uniqueRoutes.map(buildRecord);
   const failedRecords = records.filter((record) => !record.hasMeta);
-  const summary = {
-    generatedAt: new Date().toISOString(),
+  const summary: SeoRouteAudit = {
+    generatedAt: getBlogScheduleNow().toISOString(),
     totalRoutes: records.length,
     validRoutes: records.length - failedRecords.length,
     failedRoutes: failedRecords.length,
     records,
   };
 
-  await mkdir(dirname(outputPath), { recursive: true });
-  await writeFile(outputPath, JSON.stringify(summary, null, 2), 'utf8');
+  const existingPublic = await readExistingAudit(publicOutputPath);
+  if (existingPublic && auditsMatchExceptGeneratedAt(existingPublic, summary)) {
+    summary.generatedAt = existingPublic.generatedAt;
+  }
+
+  const payload = JSON.stringify(summary, null, 2);
+  await mkdir(dirname(publicOutputPath), { recursive: true });
+  if (!existingPublic || JSON.stringify(existingPublic) !== JSON.stringify(summary)) {
+    await writeFile(publicOutputPath, payload, 'utf8');
+  }
+  await mkdir(dirname(exportOutputPath), { recursive: true });
+  await writeFile(exportOutputPath, payload, 'utf8');
 
   if (failedRecords.length > 0) {
     console.error(`SEO route audit failed for ${failedRecords.length} route(s).`);

@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "npm run llms && npm run sitemap && npm run build:search && next build && npm run prerender && npm run audit:seo",
+    "build": "tsx scripts/run-production-build.ts",
+    "test:scheduled-leak": "tsx scripts/assert-scheduled-blog-export.ts",
+    "test:scheduled-rollout": "tsx scripts/assert-scheduled-blog-export.ts --rollout",
+    "test:scheduled-mutations": "tsx scripts/prove-scheduled-blog-guards.ts",
     "build:dev": "next build",
     "lint": "eslint src app scripts",
     "typecheck": "tsc --noEmit --pretty false",

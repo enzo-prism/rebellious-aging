@@ -1,3 +1,8 @@
+import {
+  isBlogPostVisible,
+  type BlogVisibilityContext,
+} from '../lib/blogSchedule';
+import type { BlogListingCard, HomeBlogCard, LatestBlogCard } from './blogListing';
 import { blogSeoById } from './blogSeo';
 
 export interface BlogPostMetadata {
@@ -1223,6 +1228,36 @@ export const blogPosts: BlogPostMetadata[] = [
     readTime: '3 min read',
     blogNumber: 109,
     seoDescription: "Suz explores personal boundaries, protecting commitments to yourself, and opening the gate with love, generosity, and intention."
+  },
+  {
+    id: 'a-boundary-is-not-an-argument',
+    title: 'A Boundary is NOT An Argument',
+    excerpt: 'Suz writes that a boundary defines our own participation, not another person’s choices, and that surprise or discomfort does not turn it into an argument.',
+    date: '11/10/2026',
+    dateSort: new Date('2026-11-10T04:00:00'),
+    readTime: '3 min read',
+    blogNumber: 110,
+    seoDescription: 'Suz explores why a boundary is a decision, not a debate, and why other people’s surprise does not create an obligation to defend it.'
+  },
+  {
+    id: 'are-your-boundaries-protecting-your-peace-or-protecting-your-fear',
+    title: 'Are Your Boundaries Protecting Your Peace or Protecting Your Fear?',
+    excerpt: 'Suz wonders whether a no is protecting peace or protecting fear, and reminds us that a boundary gate can close and also open.',
+    date: '11/12/2026',
+    dateSort: new Date('2026-11-12T04:00:00'),
+    readTime: '2 min read',
+    blogNumber: 111,
+    seoDescription: 'Suz asks whether a boundary is protecting your peace or your fear, and how to keep a gate that can close or open as you grow.'
+  },
+  {
+    id: 'enough-according-to-whom',
+    title: 'Enough. According to Whom?',
+    excerpt: 'Suz sits with the wish “I wish you enough,” and asks who decides when we have done enough, or when we ourselves are enough.',
+    date: '11/17/2026',
+    dateSort: new Date('2026-11-17T04:00:00'),
+    readTime: '3 min read',
+    blogNumber: 112,
+    seoDescription: 'Suz reflects on the meaning of enough, who decides it, and how to let what you did today count without putting yourself on trial.'
   }
 ];
 
@@ -1238,36 +1273,88 @@ export const getBlogPostById = (id: string) => blogPosts.find((post) => post.id 
 
 export const isGatedBlogPost = (post: BlogPostMetadata) => post.gated === true;
 
-/**
- * Posts safe to expose to machines (sitemap, on-site search index, SEO audit).
- * Excludes password-gated posts so their bodies are not indexed. The blog index
- * still lists gated posts (with a lock badge) via getBlogPostsByDateDesc.
- */
-export const getPublicBlogPosts = () => blogPosts.filter((post) => !isGatedBlogPost(post));
+export const isVisibleBlogPost = (
+  post: BlogPostMetadata,
+  context?: BlogVisibilityContext
+) => isBlogPostVisible(post.date, context);
 
-export const getNextBlogPost = (blogNumber: number) => {
+/**
+ * Posts that may appear on this deploy: every post on Vercel preview / local
+ * dev / unit tests, and only already-published posts on production.
+ */
+export const getVisibleBlogPosts = (context?: BlogVisibilityContext) =>
+  blogPosts.filter((post) => isVisibleBlogPost(post, context));
+
+/**
+ * Posts safe to expose to machines (sitemap, on-site search index, llms.txt).
+ * Excludes password-gated posts so their bodies are not indexed, and excludes
+ * unpublished posts on production. The blog index still lists gated posts
+ * (with a lock badge) via getBlogPostsByDateDesc.
+ */
+export const getPublicBlogPosts = (context?: BlogVisibilityContext) =>
+  getVisibleBlogPosts(context).filter((post) => !isGatedBlogPost(post));
+
+export const getNextBlogPost = (blogNumber: number, context?: BlogVisibilityContext) => {
   const current = blogPosts.find((post) => post.blogNumber === blogNumber);
   const includeGated = isGatedBlogPost(current ?? ({} as BlogPostMetadata));
 
   // Keep navigation within the same visibility: public posts never link to a
-  // gated post, and a gated post can chain to the next gated post.
-  return [...blogPosts]
+  // gated post, and a gated post can chain to the next gated post. Scheduled
+  // posts stay out of next/prev on production until their publish instant.
+  return getVisibleBlogPosts(context)
     .filter((post) => post.blogNumber > blogNumber && isGatedBlogPost(post) === includeGated)
     .sort((a, b) => a.blogNumber - b.blogNumber)[0];
 };
 
 // Homepage surfaces (hero "Latest" badge, latest-blogs carousel) link straight
 // to a post, so they only feature publicly readable posts.
-export const getSortedBlogPosts = () =>
-  getPublicBlogPosts().sort((a, b) => a.blogNumber - b.blogNumber);
+export const getSortedBlogPosts = (context?: BlogVisibilityContext) =>
+  getPublicBlogPosts(context).sort((a, b) => a.blogNumber - b.blogNumber);
 
-// The blog index lists every post, including gated ones (rendered grayed out
-// with a lock badge); the password is enforced on the post page itself.
-export const getBlogPostsByDateDesc = () =>
-  [...blogPosts].sort((a, b) => {
+// The blog index lists every visible post, including gated ones (rendered
+// grayed out with a lock badge); the password is enforced on the post page.
+export const getBlogPostsByDateDesc = (context?: BlogVisibilityContext) =>
+  [...getVisibleBlogPosts(context)].sort((a, b) => {
     const timeDiff = b.dateSort.getTime() - a.dateSort.getTime();
     if (timeDiff !== 0) {
       return timeDiff;
     }
     return b.blogNumber - a.blogNumber;
   });
+
+export const toBlogListingCard = (post: BlogPostMetadata): BlogListingCard => ({
+  id: post.id,
+  blogNumber: post.blogNumber,
+  title: post.title,
+  excerpt: post.excerpt,
+  date: post.date,
+  dateSortIso: post.dateSort.toISOString(),
+  readTime: post.readTime,
+  gated: post.gated,
+  releaseLabel: getBlogReleaseLabel(post),
+});
+
+export const toHomeBlogCard = (post: BlogPostMetadata): HomeBlogCard => ({
+  id: post.id,
+  blogNumber: post.blogNumber,
+  title: post.title,
+  excerpt: post.excerpt,
+  readTime: post.readTime,
+});
+
+export const toLatestBlogCard = (post: BlogPostMetadata): LatestBlogCard => ({
+  id: post.id,
+  blogNumber: post.blogNumber,
+});
+
+export const getBlogListingCards = (context?: BlogVisibilityContext) =>
+  getBlogPostsByDateDesc(context).map(toBlogListingCard);
+
+export const getHomeBlogCards = (context?: BlogVisibilityContext) =>
+  getSortedBlogPosts(context).slice(-3).reverse().map(toHomeBlogCard);
+
+export const getLatestBlogCard = (context?: BlogVisibilityContext) => {
+  const posts = getSortedBlogPosts(context);
+  const latest = posts[posts.length - 1];
+  return latest ? toLatestBlogCard(latest) : undefined;
+};

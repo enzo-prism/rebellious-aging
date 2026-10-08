@@ -1,5 +1,5 @@
 import { mkdir, writeFile } from 'node:fs/promises';
-import { dirname, join } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import React from 'react';
@@ -241,7 +241,7 @@ const buildResourceGuideDoc = (): SearchDocument | null => {
   };
 };
 
-const buildSearchIndex = (): SearchDocument[] => {
+export const buildSearchIndex = (): SearchDocument[] => {
   const gratitudeDoc = buildGratitudeDoc();
   const resourceGuideDoc = buildResourceGuideDoc();
   const docs: SearchDocument[] = [
@@ -281,7 +281,11 @@ const run = async () => {
   await writeIndex(docs);
 };
 
-run().catch((error) => {
-  console.error('Failed to build search index', error);
-  process.exitCode = 1;
-});
+const isDirectRun = process.argv[1] && resolve(process.argv[1]) === __filename;
+
+if (isDirectRun) {
+  run().catch((error) => {
+    console.error('Failed to build search index', error);
+    process.exitCode = 1;
+  });
+}

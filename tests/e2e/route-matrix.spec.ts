@@ -24,6 +24,9 @@ const routeMatrix = [
 ];
 
 const dynamicChecks = [
+  { path: '/blog/a-boundary-is-not-an-argument', found: true },
+  { path: '/blog/are-your-boundaries-protecting-your-peace-or-protecting-your-fear', found: true },
+  { path: '/blog/enough-according-to-whom', found: true },
   { path: '/blog/birthing-your-authentic-self', found: true },
   { path: '/blog/failure-is-an-experience-not-an-identity', found: true },
   { path: '/blog/the-fence-has-a-gate', found: true },

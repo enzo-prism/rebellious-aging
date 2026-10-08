@@ -370,4 +370,16 @@ export const blogSeoById: Record<string, BlogSeoMeta> = {
     seoTitle: "The Fence Has A Gate!",
     seoDescription: "Suz explores personal boundaries, protecting commitments to yourself, and opening the gate with love, generosity, and intention.",
   },
+  'a-boundary-is-not-an-argument': {
+    seoTitle: 'A Boundary is NOT An Argument',
+    seoDescription: 'Suz explores why a boundary is a decision, not a debate, and why other people’s surprise does not create an obligation to defend it.',
+  },
+  'are-your-boundaries-protecting-your-peace-or-protecting-your-fear': {
+    seoTitle: 'Are Your Boundaries Protecting Your Peace or Protecting Your Fear?',
+    seoDescription: 'Suz asks whether a boundary is protecting your peace or your fear, and how to keep a gate that can close or open as you grow.',
+  },
+  'enough-according-to-whom': {
+    seoTitle: 'Enough. According to Whom?',
+    seoDescription: 'Suz reflects on the meaning of enough, who decides it, and how to let what you did today count without putting yourself on trial.',
+  },
 };

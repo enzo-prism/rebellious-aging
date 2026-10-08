@@ -4,7 +4,12 @@ import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { useUrlFilters, UrlFiltersSync, writeParam } from '@/hooks/useUrlFilters';
 import { ArrowRight, Lock, Search } from 'lucide-react';
-import { getBlogPostsByDateDesc, getBlogReleaseLabel, isGatedBlogPost } from '@/data/blogPosts';
+import {
+  formatBlogListingDate,
+  getBlogListingYear,
+  isGatedBlogListing,
+  type BlogListingCard,
+} from '@/data/blogListing';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -15,23 +20,36 @@ import { getSeoRouteByPath } from '@/data/seoRoutes';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import SubstackAnnouncement from '@/components/common/SubstackAnnouncement';
 
-const orderedBlogPosts = getBlogPostsByDateDesc();
-const yearOptions = [...new Set(orderedBlogPosts.map((post) => String(post.dateSort.getUTCFullYear())))];
-const parseBlogFilters = (params: URLSearchParams) => ({
+const parseBlogFilters = (
+  yearOptions: string[],
+  params: URLSearchParams
+) => ({
   query: params.get('q') ?? '',
   selectedYear: yearOptions.includes(params.get('year') ?? '') ? params.get('year')! : 'all',
 });
-const writeBlogFilters = (filters: ReturnType<typeof parseBlogFilters>, params: URLSearchParams) => {
+const writeBlogFilters = (filters: { query: string; selectedYear: string }, params: URLSearchParams) => {
   writeParam(params, 'q', filters.query);
   writeParam(params, 'year', filters.selectedYear, 'all');
 };
 
-const Blog = () => {
-  const [{ query, selectedYear }, setFilters] = useUrlFilters(parseBlogFilters, writeBlogFilters);
-  const visiblePosts = useMemo(() => orderedBlogPosts.filter((post) =>
-    (selectedYear === 'all' || String(post.dateSort.getUTCFullYear()) === selectedYear) &&
+type BlogProps = {
+  posts: BlogListingCard[];
+};
+
+const Blog = ({ posts }: BlogProps) => {
+  const yearOptions = useMemo(
+    () => [...new Set(posts.map((post) => getBlogListingYear(post.dateSortIso)))],
+    [posts]
+  );
+  const parseFilters = useMemo(
+    () => (params: URLSearchParams) => parseBlogFilters(yearOptions, params),
+    [yearOptions]
+  );
+  const [{ query, selectedYear }, setFilters] = useUrlFilters(parseFilters, writeBlogFilters);
+  const visiblePosts = useMemo(() => posts.filter((post) =>
+    (selectedYear === 'all' || getBlogListingYear(post.dateSortIso) === selectedYear) &&
     `${post.title} ${post.excerpt}`.toLowerCase().includes(query.trim().toLowerCase())
-  ), [selectedYear, query]);
+  ), [posts, selectedYear, query]);
   const seoConfig = getSeoRouteByPath('/blog');
 
   return (
@@ -88,8 +106,8 @@ const Blog = () => {
       ) : (
         <div className="divide-y divide-border border-t border-border">
           {visiblePosts.map((post) => {
-            const gated = isGatedBlogPost(post);
-            const releaseLabel = gated ? getBlogReleaseLabel(post) : undefined;
+            const gated = isGatedBlogListing(post);
+            const releaseLabel = gated ? post.releaseLabel : undefined;
 
             return (
               <article key={post.id} className="py-7">
@@ -100,7 +118,7 @@ const Blog = () => {
                 >
                   <div className="flex flex-wrap items-center gap-2 mb-2 text-sm text-muted-foreground">
                     <span>
-                      {new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }).format(post.dateSort)} · {post.readTime} · #{post.blogNumber}
+                      {formatBlogListingDate(post.dateSortIso)} · {post.readTime} · #{post.blogNumber}
                     </span>
                     {gated && (
                       <Badge

@@ -28,5 +28,7 @@ describe('sitemap generators', () => {
     expect(entries.some((entry) => entry.url === `${baseUrl}/speaking-events/eat-for-the-earth-santa-cruz`)).toBe(
       true
     );
+    expect(entries.some((entry) => entry.url.includes('/blog/a-boundary-is-not-an-argument'))).toBe(false);
+    expect(entries.some((entry) => entry.url.includes('/blog/enough-according-to-whom'))).toBe(false);
   });
 });
