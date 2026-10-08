@@ -1,4 +1,5 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -40,6 +41,14 @@ interface AuditRecord {
     noindex?: boolean;
     image?: string;
   };
+}
+
+interface SeoRouteAudit {
+  generatedAt: string;
+  totalRoutes: number;
+  validRoutes: number;
+  failedRoutes: number;
+  records: AuditRecord[];
 }
 
 const getPillarIds = () => {
@@ -325,12 +334,29 @@ const buildRecord = ({ path, source }: { path: string; source: RouteSource }): A
   };
 };
 
+const readExistingAudit = async (path: string): Promise<SeoRouteAudit | undefined> => {
+  if (!existsSync(path)) {
+    return undefined;
+  }
+  try {
+    return JSON.parse(await readFile(path, 'utf8')) as SeoRouteAudit;
+  } catch {
+    return undefined;
+  }
+};
+
+const auditsMatchExceptGeneratedAt = (existing: SeoRouteAudit, next: SeoRouteAudit) =>
+  existing.totalRoutes === next.totalRoutes &&
+  existing.validRoutes === next.validRoutes &&
+  existing.failedRoutes === next.failedRoutes &&
+  JSON.stringify(existing.records) === JSON.stringify(next.records);
+
 const run = async () => {
   const expectedRoutes = buildExpectedPaths();
   const uniqueRoutes = Array.from(new Map(expectedRoutes.map((item) => [item.path, item])).values());
   const records = uniqueRoutes.map(buildRecord);
   const failedRecords = records.filter((record) => !record.hasMeta);
-  const summary = {
+  const summary: SeoRouteAudit = {
     generatedAt: getBlogScheduleNow().toISOString(),
     totalRoutes: records.length,
     validRoutes: records.length - failedRecords.length,
@@ -338,9 +364,16 @@ const run = async () => {
     records,
   };
 
+  const existingPublic = await readExistingAudit(publicOutputPath);
+  if (existingPublic && auditsMatchExceptGeneratedAt(existingPublic, summary)) {
+    summary.generatedAt = existingPublic.generatedAt;
+  }
+
   const payload = JSON.stringify(summary, null, 2);
   await mkdir(dirname(publicOutputPath), { recursive: true });
-  await writeFile(publicOutputPath, payload, 'utf8');
+  if (!existingPublic || JSON.stringify(existingPublic) !== JSON.stringify(summary)) {
+    await writeFile(publicOutputPath, payload, 'utf8');
+  }
   await mkdir(dirname(exportOutputPath), { recursive: true });
   await writeFile(exportOutputPath, payload, 'utf8');
 
