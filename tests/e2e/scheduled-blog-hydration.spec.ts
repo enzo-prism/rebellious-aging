@@ -21,7 +21,7 @@ test.describe('scheduled blog production hydration', () => {
   test('keeps future posts off the homepage after hydration', async ({ page }) => {
     await page.goto('/', { waitUntil: 'networkidle' });
     await expect(page.getByRole('heading', { name: 'Welcome Home' })).toBeVisible();
-    await expect(page.getByRole('link', { name: /Blog #109/ })).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Read the latest blog post: Blog #109' })).toBeVisible();
     for (const post of SCHEDULED_BLOG_POSTS) {
       await expect(page.getByRole('link', { name: post.title })).toHaveCount(0);
       await expect(page.locator(`a[href="/blog/${post.id}"]`)).toHaveCount(0);
