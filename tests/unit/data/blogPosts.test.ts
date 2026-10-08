@@ -1,3 +1,6 @@
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
 import { describe, expect, it } from 'vitest';
 import { render } from '@testing-library/react';
 
@@ -183,7 +186,7 @@ describe('blog post data', () => {
         'I want my boundaries to make room for me, including the parts that still want to grow.',
       ],
       'enough-according-to-whom': [
-        'say, "I wish you enough."',
+        'say, "I wish you enough.”',
         'Am I enough?',
         'The unfinished “things” are running the meeting.',
         'distracted, or interrupted',
@@ -209,6 +212,10 @@ describe('blog post data', () => {
       heading.unmount();
       body.unmount();
     }
+
+    const contentSource = readFileSync(join(process.cwd(), 'src/data/blogPostContent.tsx'), 'utf8');
+    expect(contentSource).toContain('<strong><em>Then stop.</em></strong>');
+    expect(contentSource).toContain('say, &quot;I wish you enough.”');
 
     const showScheduled = { env: { SHOW_SCHEDULED_POSTS: '1' } };
     expect(getNextBlogPost(109, showScheduled)?.id).toBe('a-boundary-is-not-an-argument');

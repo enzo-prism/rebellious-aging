@@ -6341,7 +6341,7 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
           <p>I can explain my decision once. I can speak with kindness. I can acknowledge that someone else might choose differently.</p>
           <p className="text-center font-bold">BUT</p>
           <p>I do not have to turn my boundary into a courtroom argument and persuade a jury that I am entitled to have it.</p>
-          <p><em>“I understand that others might have chosen differently. This was the decision that felt right for me.”</em> <em>Then stop.</em></p>
+          <p><em>“I understand that others might have chosen differently. This was the decision that felt right for me.”</em> <strong><em>Then stop.</em></strong></p>
           <p>Even writing this now, I feel tightness in my body, butterflies in my stomach, and tears in my eyes. <strong>Not because I believe I was wrong.</strong> Nope. I am taking the vulnerability of something I learned privately and revealing it publicly. <strong><em>There is excitement and terror there.</em></strong></p>
           <p>Maybe those feelings are not telling me to remain silent. Maybe they are telling me that this matters. A boundary will not always feel triumphant. Sometimes it will leave a knot in our stomach because feeling misunderstood is uncomfortable.</p>
           <p>Discomfort is not guilt and it is not regret and it certainly is not proof that we were wrong.</p>
@@ -6382,7 +6382,7 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       <>
         <p className="italic mb-8">By Suzanne</p>
         <div className="prose max-w-none space-y-4 mb-16">
-          <p>I have a friend whose dad used to say, &quot;I wish you enough.&quot; I was never quite sure how to interpret that. Enough of what? Happiness? Money? Love? Time? That little wish stayed with me. And lately, I have been thinking about another kind of “enough.”</p>
+          <p>I have a friend whose dad used to say, &quot;I wish you enough.” I was never quite sure how to interpret that. Enough of what? Happiness? Money? Love? Time? That little wish stayed with me. And lately, I have been thinking about another kind of “enough.”</p>
           <p>The kind we struggle to let ourselves have. Have I done enough, helped enough, accomplished enough? And sometimes under those questions, another is waiting.</p>
           <p><strong><em>Am I enough?</em></strong></p>
           <p>I can finish a day having done quite a lot and still find myself thinking about everything I have not done. The unanswered messages. The unfinished project. The “thing” I meant to get to. <em>Apparently, whatever I completed has already lost its vote.</em> <strong>The unfinished “things” are running the meeting.</strong> I am beginning to wonder who put them in charge.</p>
