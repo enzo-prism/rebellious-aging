@@ -429,20 +429,21 @@ GitHub Actions mirrors the release gate in [`.github/workflows/ci.yml`](.github/
 
 The site is a Next static export (`output: "export"`), so publish-time logic is evaluated at build time. A nightly GitHub Action ([`.github/workflows/scheduled-rebuild.yml`](.github/workflows/scheduled-rebuild.yml)) POSTs to a Vercel Deploy Hook on `main` so production rebuilds even when no new commit landed. That is what lets a future-dated blog post appear on [rebelwithsuz.com](https://rebelwithsuz.com) after its date (midnight America/Los_Angeles) without a manual deploy.
 
-**Cron:** `15 8 * * *` (08:15 UTC). That is 12:15 AM PST and 1:15 AM PDT, so the job always runs after midnight Pacific Time in both standard and daylight-saving time.
+**Cron:** `15 8 * * *` (08:15 UTC = 12:15 AM PST / 1:15 AM PDT) plus a backup `15 14 * * *` (14:15 UTC = 6:15 AM PST / 7:15 AM PDT). The first run is always after midnight Pacific Time in both standard and daylight-saving time. The second covers a skipped or late 08:15Z run so a post is not delayed a full day. A second no-change rebuild is harmless.
 
 **Create the hook (do not commit the URL):**
 
 1. In the Vercel project `ra-nextjs`, open **Settings → Git → Deploy Hooks**.
-2. Create a hook aimed at branch `main` (name it something like `scheduled-rebuild`).
-3. Copy the generated URL and store it only as the GitHub Actions repository secret `VERCEL_DEPLOY_HOOK_URL` (**Settings → Secrets and variables → Actions**). Never paste the URL into the repo, issues, or workflow logs.
+2. Create a hook aimed at branch `main` (name it something like `scheduled-rebuild`). Confirm the hook stays on `main`.
+3. In Vercel project settings, confirm no **Ignored Build Step** would skip a no-commit rebuild (the hook fires without a new git SHA).
+4. Copy the generated URL and store it only as the GitHub Actions repository secret `VERCEL_DEPLOY_HOOK_URL` (**Settings → Secrets and variables → Actions**). Never paste the URL into the repo, issues, or workflow logs.
 
 If the secret is missing, the workflow does **not** fail silently. It emits a GitHub annotation and then:
 
 - `::warning::VERCEL_DEPLOY_HOOK_URL not set: scheduled blog posts will NOT go live` and exits 0 (run stays green) while today's date in `America/Los_Angeles` (`TZ=America/Los_Angeles date +%F`) is still before `HOOK_REQUIRED_FROM`.
-- `::error::` with the same message and exits 1 (run goes red; GitHub emails the owner) on or after that cutoff.
+- `::error::` with the same message and exits 1 (run goes red) on or after that cutoff. A failed scheduled run notifies the GitHub user who last edited the cron schedule in the workflow file, not necessarily the repository owner.
 
-`HOOK_REQUIRED_FROM` is a top-level workflow env var, currently `2026-11-09` (the day before the first scheduled post on Nov 10). Move that date forward or remove the cutoff once `VERCEL_DEPLOY_HOOK_URL` is set.
+`HOOK_REQUIRED_FROM` is a top-level workflow env var, currently `2026-11-03` (a week of red before the first scheduled post on Nov 10). Move that date forward or remove the cutoff once `VERCEL_DEPLOY_HOOK_URL` is set.
 
 **Run it by hand:** GitHub → **Actions → Scheduled production rebuild → Run workflow**, or `gh workflow run scheduled-rebuild.yml`. Manual runs are also how you re-enable the schedule after GitHub auto-disables unused cron workflows (scheduled jobs on public repos can be disabled after 60 days of repository inactivity).
 

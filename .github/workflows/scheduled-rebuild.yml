@@ -2,15 +2,19 @@ name: Scheduled production rebuild
 
 on:
   schedule:
-    # 08:15 UTC is 00:15 PST and 01:15 PDT — always after midnight America/Los_Angeles.
+    # 08:15 UTC is 00:15 PST / 01:15 PDT — after midnight America/Los_Angeles.
     - cron: "15 8 * * *"
+    # Backup: 14:15 UTC is 06:15 PST / 07:15 PDT. If the 08:15Z run is
+    # skipped or late, a post is not delayed a full day. A second
+    # no-change rebuild is harmless.
+    - cron: "15 14 * * *"
   workflow_dispatch:
 
 # Fail red if the hook secret is still missing on/after this Pacific date
-# (the day before the first scheduled post, Nov 10). Move this forward or
-# remove it once VERCEL_DEPLOY_HOOK_URL is set.
+# (a week of red before the first scheduled post on Nov 10). Move this
+# forward or remove it once VERCEL_DEPLOY_HOOK_URL is set.
 env:
-  HOOK_REQUIRED_FROM: "2026-11-09"
+  HOOK_REQUIRED_FROM: "2026-11-03"
 
 concurrency:
   group: scheduled-production-rebuild
@@ -45,7 +49,7 @@ jobs:
           response_file="$(mktemp)"
           trap 'rm -f "${response_file}"' EXIT
 
-          curl --fail-with-body --retry 3 --silent --show-error \
+          curl --fail-with-body --silent --show-error \
             --max-time 30 \
             -X POST \
             -o "${response_file}" \
