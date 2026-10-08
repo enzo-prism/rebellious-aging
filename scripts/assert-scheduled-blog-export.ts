@@ -72,10 +72,10 @@ if (rollout) {
   if (publishedHits.length === 0) {
     errors.push(`Expected ${published.id} / ${published.title} in the Nov 10 export.`);
   }
-  if (!blogHtml.includes('110 article') && !blogHtml.includes('#110')) {
-    errors.push('Expected /blog to mention article #110 after the Nov 10 build.');
+  if (!blogHtml.includes(published.id) || !blogHtml.includes(published.title)) {
+    errors.push('Expected /blog to list #110 after the Nov 10 build.');
   }
-  if (!homeHtml.includes(`Blog #${published.blogNumber}`) && !homeHtml.includes(published.title)) {
+  if (!homeHtml.includes(published.id) && !homeHtml.includes(published.title)) {
     errors.push('Expected the homepage to surface #110 after the Nov 10 build.');
   }
   if (leakedHits.length > 0) {
