@@ -311,7 +311,7 @@ export const blogPosts: BlogPostMetadata[] = [
     date: '1/29/2025',
     dateSort: new Date('2025-01-29'),
     readTime: '7 min read',
-    blogNumber: 29,
+    blogNumber: 30,
     seoDescription: 'Let go of optional movement, 25-year-old eating, people pleasing, comparisons, bottled emotions, and grudges so your next decades feel bold, conscious, and sparkling.'
   },
   {
@@ -321,7 +321,7 @@ export const blogPosts: BlogPostMetadata[] = [
     date: '1/30/2025',
     dateSort: new Date('2025-01-30'),
     readTime: '6 min read',
-    blogNumber: 30,
+    blogNumber: 29,
     seoDescription: 'Shift from self-blame to awareness as UPFs, engineered calories, and system-level incentives fuel weight gain—and learn small steps to reclaim agency.'
   },
   {

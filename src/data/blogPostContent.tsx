@@ -2023,7 +2023,7 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
           <ul className="list-disc pl-6 space-y-2">
             <li>Scan your food environment and notice which choices are quietly undermining your health.</li>
             <li>Choose more whole foods when possible—fill your plate with ingredients you recognize.</li>
-            <li>Read labels. If it sounds like a lab experiment, it probably behaves like one inside your body.</li>
+            <li>READ LABELS</li>
           </ul>
 
           <p>
@@ -2744,7 +2744,7 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
             <a href="https://nutritionfacts.org/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
               NutritionFacts.org
             </a>{' '}
-            is packed with Dr. Greger’s research on B12, and it completely shifted how I view this “little” vitamin.
+            has Dr. Greger’s research on B12.
           </p>
 
           <p>
@@ -2795,6 +2795,7 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
           </ol>
 
           <p className="text-lg font-semibold">How Often Should You Get Tested?</p>
+          <p>For people eating plant based or over age 65:</p>
           <ul className="list-disc pl-6 space-y-2">
             <li>
               If you are supplementing consistently, test every 1–2 years.
@@ -4258,57 +4259,45 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
     body: (
       <>
         <p className="italic mb-8">By Suzanne</p>
-
         <div className="prose max-w-none space-y-4 mb-16">
-          <p>
-            For so many years, I thought confidence meant having it all together before I took the next step. If I could just be better,
-            calmer, more polished, then I would finally feel ready.
-          </p>
-
-          <p>But life has taught me something far more honest and far more freeing.</p>
-
-          <p>I don&apos;t need to be perfect. I just need to keep going.</p>
-
-          <p>
-            Perfection is a moving target. It keeps us overthinking, shrinking, and waiting for a version of ourselves that does not
-            exist.
-          </p>
-
-          <p>
-            Progress, however, is available right now. One decision. One conversation. One hard moment where you stay present instead of
-            walking away from yourself.
-          </p>
-
-          <p>
-            Confidence is not about staying calm. NOPE! It&apos;s about staying.
-          </p>
-
-          <p>
-            Staying when your mind gets loud. Staying when you feel unsure. Staying long enough to remember who you are and what matters
-            most.
-          </p>
-
-          <p>
-            If today feels messy, good. Messy means you are in motion. Messy means you are learning. Messy means you are still in the
-            arena of your own life.
-          </p>
-
-          <p>
-            So take the pressure off perfect and put your energy into practice. Keep showing up. Keep choosing your values. Keep being kind
-            to yourself while you build a life that feels true.
-          </p>
-
-          <p>
-            This is how we age boldly, not by getting everything right, but by refusing to quit on ourselves.
-          </p>
-
-          <p>
-            <strong>Suz xo</strong>
-          </p>
-
-          <p>
-            <strong>Age Boldly, Live Loudly!</strong>
-          </p>
+          <p>The other day, something small, but very real happened.</p>
+          <p>Enzo set up a new email address for me to compliment my website, <a href="https://www.rebelwithsuz.com" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">rebelwithsuz.com</a>. The new address is <a href="mailto:suz@rebelwithsuz.com" className="text-primary hover:underline">suz@rebelwithsuz.com</a>.  <em>(I like things that coordinate and these two definitely do.) </em>But here is “the thing” . I am really insecure, drifting even slightly away from tried and true, and my first, and one and only, until recently, <a href="mailto:beachmom@gmail.com" className="text-primary hover:underline">beachmom@gmail.com</a>.  [Sounds like the old lady is knocking again.] I digress.</p>
+          <p>The new email address set up by Enzo is a good thing!  An exciting thing!  A professional thing!</p>
+          <p><strong>UNTIL, </strong>I could not figure out how to retrieve the messages.</p>
+          <p>Cue my default mode: <strong>PANIC. </strong></p>
+          <p>At 83+, my computer skills sometimes (most times) feel a bit… <strong>SKETCH. </strong>Add a few unfamiliar screens, a rejected password, and suddenly the old story shows up, <em>ya know</em>, <strong>I am just NOT good at this. </strong></p>
+          <p><strong><em>I could feel the familiar temptation to quit. To walk away. To tell myself, This is too much. </em></strong></p>
+          <p><strong>But I didn’t. </strong></p>
+          <p>Instead I stayed. First, I googled the situation. Then I sent an S.O.S. to Enzo. I laughed at myself, I breathed.  With Enzo to the rescue, slowly but surely he taught me and we figured it out.</p>
+          <p><strong>AND THAT IS WHEN THE LESSON LANDED. </strong></p>
+          <p><strong><em>Confidence is not about staying calm. NOPE! </em></strong><strong>It’s about </strong><strong>staying</strong><strong>. </strong></p>
+          <p>We often think confidence means knowing what we’re doing, feeling capable, having it all together. <strong>But real confidence, especially as we age, looks very different. </strong></p>
+          <p><strong>It Looks like: </strong></p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Following through even when you feel unsure</li>
+            <li>Persisting when frustration creeps in</li>
+            <li>Persevering instead of quitting at the first wave of discomfort</li>
+          </ul>
+          <p>The above 3 qualities, <strong>follow through, persistence, and perseverance, </strong>have carried <strong>ME </strong>through far bigger things than a computer glitch. They have helped me learn new skills, make meaningful changes and I keep showing up for what matters to me.</p>
+          <p><strong><em>For me PERFECTION has NEVER been the goal. But, PROGRESS has. </em></strong></p>
+          <p>And yet, how often do we stop ourselves because we think we should <strong>already “know better”? </strong></p>
+          <p><strong>How often do we confuse temporary discomfort with failure? </strong></p>
+          <p>This shows up everywhere:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Learning new technology</li>
+            <li>Making health changes</li>
+            <li>Shifting how we eat</li>
+            <li>Starting something new later in life</li>
+          </ul>
+          <p><strong>The voice that says to you “I can’t” often just means “This is unfamiliar.” </strong></p>
+          <p>So here is the truth that I keep coming back to and the one I want to offer to you today: [<strong><em>I don’t need to be perfect. I just need to keep going.] </em></strong></p>
+          <p>That single mindset shift changes everything. It takes the pressure off. It replaces self-judgement with self-trust. <strong>AND</strong> it reminds us that confidence is not a personality trait, <strong>NOPE, CONFIDENCE IS A </strong><strong><em>PRACTICE. </em></strong><strong>This is true! </strong></p>
+          <p>So if you are struggling with something <strong>RIGHT NOW, </strong><em>big or small, </em>please hear this:</p>
+          <p>You are not behind.</p>
+          <p>You are not failing.</p>
+          <p><strong>NOPE, YOU ARE LEARNING AND THAT IS A GOOD THING. </strong><strong><em>And if you “keep on keeping on” you are succeeding. </em></strong></p>
+          <p><strong><em>Suz xo </em></strong></p>
+          <p><strong><em>“Age Boldly, Live Loudly!” </em></strong></p>
         </div>
       </>
     ),
