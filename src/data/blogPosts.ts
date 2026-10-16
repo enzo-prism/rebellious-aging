@@ -1233,8 +1233,8 @@ export const blogPosts: BlogPostMetadata[] = [
     id: 'a-boundary-is-not-an-argument',
     title: 'A Boundary is NOT An Argument',
     excerpt: 'Suz writes that a boundary defines our own participation, not another person’s choices, and that surprise or discomfort does not turn it into an argument.',
-    date: '11/10/2026',
-    dateSort: new Date('2026-11-10T04:00:00'),
+    date: '10/16/2026',
+    dateSort: new Date('2026-10-16T04:00:00'),
     readTime: '3 min read',
     blogNumber: 110,
     seoDescription: 'Suz explores why a boundary is a decision, not a debate, and why other people’s surprise does not create an obligation to defend it.'
@@ -1243,8 +1243,8 @@ export const blogPosts: BlogPostMetadata[] = [
     id: 'are-your-boundaries-protecting-your-peace-or-protecting-your-fear',
     title: 'Are Your Boundaries Protecting Your Peace or Protecting Your Fear?',
     excerpt: 'Suz wonders whether a no is protecting peace or protecting fear, and reminds us that a boundary gate can close and also open.',
-    date: '11/12/2026',
-    dateSort: new Date('2026-11-12T04:00:00'),
+    date: '10/16/2026',
+    dateSort: new Date('2026-10-16T05:00:00'),
     readTime: '2 min read',
     blogNumber: 111,
     seoDescription: 'Suz asks whether a boundary is protecting your peace or your fear, and how to keep a gate that can close or open as you grow.'
@@ -1253,8 +1253,8 @@ export const blogPosts: BlogPostMetadata[] = [
     id: 'enough-according-to-whom',
     title: 'Enough. According to Whom?',
     excerpt: 'Suz sits with the wish “I wish you enough,” and asks who decides when we have done enough, or when we ourselves are enough.',
-    date: '11/17/2026',
-    dateSort: new Date('2026-11-17T04:00:00'),
+    date: '10/16/2026',
+    dateSort: new Date('2026-10-16T06:00:00'),
     readTime: '3 min read',
     blogNumber: 112,
     seoDescription: 'Suz reflects on the meaning of enough, who decides it, and how to let what you did today count without putting yourself on trial.'

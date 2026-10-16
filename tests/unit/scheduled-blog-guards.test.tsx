@@ -12,15 +12,15 @@ import { getVisibleBlogPosts } from '@/data/blogPosts';
 import { resetBlogScheduleNowForTests } from '@/lib/blogSchedule';
 import BlogPost from '@/views/BlogPost';
 import {
-  AT_NOV_10,
-  BEFORE_NOV_10,
+  AT_WEBSITE_RELEASE,
+  BEFORE_WEBSITE_RELEASE,
   productionEnv,
-  SCHEDULED_BLOG_POSTS,
+  WEBSITE_RELEASE_POSTS,
 } from '../helpers/scheduledBlogPosts';
 
 beforeEach(() => {
   resetBlogScheduleNowForTests();
-  process.env.BLOG_SCHEDULE_NOW = BEFORE_NOV_10.toISOString();
+  process.env.BLOG_SCHEDULE_NOW = BEFORE_WEBSITE_RELEASE.toISOString();
   delete process.env.VERCEL_ENV;
   delete process.env.NEXT_PUBLIC_VERCEL_ENV;
   delete process.env.SHOW_SCHEDULED_POSTS;
@@ -60,7 +60,7 @@ describe('scheduled blog production guards', () => {
 
     const params = generateStaticParams();
     const ids = params.map((entry) => entry.postId);
-    for (const post of SCHEDULED_BLOG_POSTS) {
+    for (const post of WEBSITE_RELEASE_POSTS) {
       expect(ids).not.toContain(post.id);
     }
     expect(ids).toContain('the-fence-has-a-gate');
@@ -81,7 +81,7 @@ describe('scheduled blog production guards', () => {
     const sitemap = buildSitemap().map((entry) => entry.url).join('\n');
     const search = JSON.stringify(buildSearchIndex());
     const llms = buildLlmsText();
-    for (const post of SCHEDULED_BLOG_POSTS) {
+    for (const post of WEBSITE_RELEASE_POSTS) {
       expect(sitemap).not.toContain(post.id);
       expect(search).not.toContain(post.id);
       expect(search).not.toContain(post.title);
@@ -94,15 +94,15 @@ describe('scheduled blog production guards', () => {
     const scheduleSource = readSource('src/lib/blogSchedule.ts');
     expect(scheduleSource).not.toMatch(/vercelEnv !== ['"]production['"]/);
     expect(
-      getVisibleBlogPosts({ env: { VERCEL_ENV: 'production' }, now: BEFORE_NOV_10 })
+      getVisibleBlogPosts({ env: { VERCEL_ENV: 'production' }, now: BEFORE_WEBSITE_RELEASE })
         .map((post) => post.id)
-    ).not.toEqual(expect.arrayContaining(SCHEDULED_BLOG_POSTS.map((post) => post.id)));
+    ).not.toEqual(expect.arrayContaining(WEBSITE_RELEASE_POSTS.map((post) => post.id)));
     expect(
-      getVisibleBlogPosts({ env: productionEnv, now: AT_NOV_10 }).map((post) => post.id)
+      getVisibleBlogPosts({ env: productionEnv, now: AT_WEBSITE_RELEASE }).map((post) => post.id)
     ).toContain('a-boundary-is-not-an-argument');
     expect(
-      getVisibleBlogPosts({ env: productionEnv, now: AT_NOV_10 }).map((post) => post.id)
-    ).not.toContain('enough-according-to-whom');
+      getVisibleBlogPosts({ env: productionEnv, now: AT_WEBSITE_RELEASE }).map((post) => post.id)
+    ).toContain('enough-according-to-whom');
     expect(
       getVisibleBlogPosts({
         env: {
@@ -110,9 +110,9 @@ describe('scheduled blog production guards', () => {
           SHOW_SCHEDULED_POSTS: '1',
           NODE_ENV: 'development',
         },
-        now: BEFORE_NOV_10,
+        now: BEFORE_WEBSITE_RELEASE,
       }).map((post) => post.id)
-    ).not.toEqual(expect.arrayContaining(SCHEDULED_BLOG_POSTS.map((post) => post.id)));
+    ).not.toEqual(expect.arrayContaining(WEBSITE_RELEASE_POSTS.map((post) => post.id)));
   });
 
   it('keeps the BlogPost visibility guard so a removed check renders the not-found page', () => {
@@ -148,11 +148,11 @@ describe('scheduled blog production guards', () => {
     expect(leakSource).toMatch(/Blog #\$\{post\.blogNumber\}/);
   });
 
-  it('keeps the committed SEO audit free of unpublished slugs', () => {
+  it('includes all released posts in the committed SEO audit', () => {
     const audit = readSource('public/seo-route-audit.json');
-    for (const post of SCHEDULED_BLOG_POSTS) {
-      expect(audit).not.toContain(post.id);
-      expect(audit).not.toContain(post.title);
+    for (const post of WEBSITE_RELEASE_POSTS) {
+      expect(audit).toContain(post.id);
+      expect(audit).toContain(post.title);
     }
   });
 });

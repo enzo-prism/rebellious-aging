@@ -2,7 +2,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 
 const projectRoot = resolve(process.cwd());
-const outDir = join(projectRoot, 'out');
+const outDir = resolve(process.env.BLOG_EXPORT_DIR ?? join(projectRoot, 'out'));
 const rollout = process.argv.includes('--rollout');
 
 const scheduled = [
@@ -76,40 +76,42 @@ if (!existsSync(outDir)) {
 }
 
 if (rollout) {
-  const published = scheduled[0];
-  const stillHidden = scheduled.slice(1);
-  const publishedHits = collectHits([published.id, published.title]);
-  const leakedHits = collectHits(stillHidden.flatMap(leakNeedles));
-  const blogHtmlPath = existsSync(join(outDir, 'blog.html'))
-    ? join(outDir, 'blog.html')
-    : join(outDir, 'blog', 'index.html');
-  const blogHtml = readFileSync(blogHtmlPath, 'utf8');
-  const homeHtml = readFileSync(join(outDir, 'index.html'), 'utf8');
-
+  const readExport = (path: string) => readFileSync(join(outDir, path), 'utf8');
+  const blogHtml = readExport(existsSync(join(outDir, 'blog.html')) ? 'blog.html' : 'blog/index.html');
+  const homeHtml = readExport('index.html');
+  const sitemap = readExport('sitemap.xml');
+  const search = readExport('search-index.json');
+  const llms = readExport('llms.txt');
   const errors: string[] = [];
-  if (publishedHits.length === 0) {
-    errors.push(`Expected ${published.id} / ${published.title} in the Nov 10 export.`);
-  }
-  if (!blogHtml.includes(published.id) || !blogHtml.includes(published.title)) {
-    errors.push('Expected /blog to list #110 after the Nov 10 build.');
-  }
-  if (!homeHtml.includes(published.id) && !homeHtml.includes(published.title)) {
-    errors.push('Expected the homepage to surface #110 after the Nov 10 build.');
-  }
-  if (leakedHits.length > 0) {
-    errors.push(
-      `Nov 10 export still leaked later posts:\n${leakedHits
-        .map((hit) => `  ${hit.needle} -> ${hit.file}`)
-        .join('\n')}`
-    );
-  }
 
+  for (const post of scheduled) {
+    const articleFile = existsSync(join(outDir, 'blog', `${post.id}.html`))
+      ? `blog/${post.id}.html`
+      : `blog/${post.id}/index.html`;
+    if (!existsSync(join(outDir, articleFile))) {
+      errors.push(`Missing published route for #${post.blogNumber}: ${post.id}`);
+      continue;
+    }
+    const article = readExport(articleFile);
+    if (!article.includes(post.bodySentence) || article.includes('Blog Post Not Found')) {
+      errors.push(`Missing readable article content for #${post.blogNumber}.`);
+    }
+    for (const [name, contents] of Object.entries({ blogHtml, homeHtml, sitemap, search, llms })) {
+      if (!contents.includes(post.id)) errors.push(`${name} is missing #${post.blogNumber}.`);
+    }
+    if (!article.includes('2026-10-16')) {
+      errors.push(`Article #${post.blogNumber} is missing its website publication date.`);
+    }
+  }
+  const searchDocs = JSON.parse(search) as Array<{ type: string }>;
+  if (searchDocs.filter((doc) => doc.type === 'blog').length !== 112) {
+    errors.push('Expected all 112 articles in the exported search index.');
+  }
   if (errors.length > 0) {
     console.error(errors.join('\n'));
     process.exit(1);
   }
-
-  console.log(`Nov 10 export shows #110 (${publishedHits.length} hits) and hides #111/#112 (0 hits).`);
+  console.log('October 16 website release exports all 112 searchable posts and surfaces #110–112 in HTML, homepage, sitemap, search, and llms.txt.');
   process.exit(0);
 }
 

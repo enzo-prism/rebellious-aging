@@ -1,5 +1,6 @@
 import { execFileSync } from 'node:child_process';
-import { mkdirSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmdirSync, unlinkSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
 
 type Mutation = {
@@ -135,15 +136,15 @@ for (const mutation of mutations) {
 }
 
 const proveExcerptOnlyPlantFails = () => {
-  const outDir = resolve(projectRoot, 'out');
+  const outDir = mkdtempSync(resolve(tmpdir(), 'rebellious-aging-export-'));
   const plantPath = resolve(outDir, '.excerpt-only-plant.html');
   const excerpt =
     'Suz writes that a boundary defines our own participation, not another person’s choices, and that surprise or discomfort does not turn it into an argument.';
-  mkdirSync(outDir, { recursive: true });
   writeFileSync(plantPath, `<p>${excerpt}</p>`);
   try {
     execFileSync('npx', ['tsx', 'scripts/assert-scheduled-blog-export.ts'], {
       cwd: projectRoot,
+      env: { ...process.env, BLOG_EXPORT_DIR: outDir },
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'pipe'],
     });
@@ -159,6 +160,7 @@ const proveExcerptOnlyPlantFails = () => {
     };
   } finally {
     unlinkSync(plantPath);
+    rmdirSync(outDir);
   }
 };
 

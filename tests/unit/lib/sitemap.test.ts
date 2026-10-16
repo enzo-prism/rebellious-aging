@@ -1,11 +1,16 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import buildSitemap from '../../../app/sitemap';
 import { serializeSitemap } from '../../../scripts/generate-sitemap';
 import { siteMetadata } from '@/lib/siteMetadata';
+import { resetBlogScheduleNowForTests } from '@/lib/blogSchedule';
+
+afterEach(() => vi.unstubAllEnvs());
 
 describe('sitemap generators', () => {
   it('serializes the native sitemap entries without changing their policies', () => {
+    vi.stubEnv('BLOG_SCHEDULE_NOW', '2026-10-16T07:00:00.000Z');
+    resetBlogScheduleNowForTests();
     const entries = buildSitemap();
     const xml = serializeSitemap(entries);
     const baseUrl = siteMetadata.baseUrl.replace(/\/$/, '');
@@ -28,7 +33,7 @@ describe('sitemap generators', () => {
     expect(entries.some((entry) => entry.url === `${baseUrl}/speaking-events/eat-for-the-earth-santa-cruz`)).toBe(
       true
     );
-    expect(entries.some((entry) => entry.url.includes('/blog/a-boundary-is-not-an-argument'))).toBe(false);
-    expect(entries.some((entry) => entry.url.includes('/blog/enough-according-to-whom'))).toBe(false);
+    expect(entries.some((entry) => entry.url.includes('/blog/a-boundary-is-not-an-argument'))).toBe(true);
+    expect(entries.some((entry) => entry.url.includes('/blog/enough-according-to-whom'))).toBe(true);
   });
 });

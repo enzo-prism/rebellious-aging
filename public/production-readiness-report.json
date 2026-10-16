@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-10-16T20:01:45.368Z",
+  "generatedAt": "2026-10-16T20:10:35.271Z",
   "checks": [
     {
       "name": "sitemap",
       "ok": true,
-      "details": "168 sitemap URLs generated on the canonical host."
+      "details": "171 sitemap URLs generated on the canonical host."
     },
     {
       "name": "llms",
@@ -14,12 +14,12 @@
     {
       "name": "sitemap-coverage",
       "ok": true,
-      "details": "Sitemap covers 168 expected routes."
+      "details": "Sitemap covers 171 expected routes."
     },
     {
       "name": "search-index",
       "ok": true,
-      "details": "187 search index records generated."
+      "details": "190 search index records generated."
     },
     {
       "name": "seo-route-metadata",
@@ -29,7 +29,7 @@
     {
       "name": "seo-route-audit",
       "ok": true,
-      "details": "170 routes verified with complete metadata and all 168 expected routes covered."
+      "details": "173 routes verified with complete metadata and all 171 expected routes covered."
     },
     {
       "name": "target-blank-rel",

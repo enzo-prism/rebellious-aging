@@ -326,9 +326,7 @@ describe('scheduled blog publish gate', () => {
     NEXT_PUBLIC_VERCEL_ENV: 'preview',
   };
   const today = new Date('2026-10-07T17:00:00.000Z');
-  const after110 = new Date('2026-11-10T08:00:00.000Z');
-  const after111 = new Date('2026-11-12T08:00:00.000Z');
-  const after112 = new Date('2026-11-17T08:00:00.000Z');
+  const websiteRelease = new Date('2026-10-16T07:00:00.000Z');
 
   it('hides future posts on production and shows them on preview', () => {
     const productionIds = getVisibleBlogPosts({ env: productionEnv, now: today }).map((post) => post.id);
@@ -350,34 +348,19 @@ describe('scheduled blog publish gate', () => {
     expect(getSortedBlogPosts({ env: productionEnv, now: today }).at(-1)?.id).toBe('the-fence-has-a-gate');
   });
 
-  it('publishes each scheduled post once the mocked clock passes its date', () => {
-    expect(
-      getVisibleBlogPosts({ env: productionEnv, now: after110 }).map((post) => post.id)
-    ).toContain('a-boundary-is-not-an-argument');
-    expect(
-      getVisibleBlogPosts({ env: productionEnv, now: after110 }).map((post) => post.id)
-    ).not.toContain('are-your-boundaries-protecting-your-peace-or-protecting-your-fear');
-
-    expect(
-      getVisibleBlogPosts({ env: productionEnv, now: after111 }).map((post) => post.id)
-    ).toEqual(
-      expect.arrayContaining([
-        'a-boundary-is-not-an-argument',
-        'are-your-boundaries-protecting-your-peace-or-protecting-your-fear',
-      ])
-    );
-    expect(
-      getVisibleBlogPosts({ env: productionEnv, now: after111 }).map((post) => post.id)
-    ).not.toContain('enough-according-to-whom');
-
-    const afterAll = getVisibleBlogPosts({ env: productionEnv, now: after112 }).map((post) => post.id);
+  it('publishes all 112 posts on the approved website publication date', () => {
+    const visible = getVisibleBlogPosts({ env: productionEnv, now: websiteRelease });
+    expect(visible).toHaveLength(112);
+    expect(getPublicBlogPosts({ env: productionEnv, now: websiteRelease })).toHaveLength(112);
     for (const id of scheduledIds) {
-      expect(afterAll).toContain(id);
+      const post = visible.find((entry) => entry.id === id);
+      expect(post?.date).toBe('10/16/2026');
+      expect(post?.gated).not.toBe(true);
     }
-    expect(getNextBlogPost(109, { env: productionEnv, now: after110 })?.id).toBe(
+    expect(getNextBlogPost(109, { env: productionEnv, now: websiteRelease })?.id).toBe(
       'a-boundary-is-not-an-argument'
     );
-    expect(getNextBlogPost(111, { env: productionEnv, now: after112 })?.id).toBe(
+    expect(getNextBlogPost(111, { env: productionEnv, now: websiteRelease })?.id).toBe(
       'enough-according-to-whom'
     );
   });
