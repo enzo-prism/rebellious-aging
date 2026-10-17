@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-16T20:08:15.605Z",
-  "totalRoutes": 173,
-  "validRoutes": 173,
+  "generatedAt": "2026-10-17T03:27:32.745Z",
+  "totalRoutes": 176,
+  "validRoutes": 176,
   "failedRoutes": 0,
   "records": [
     {
@@ -3470,6 +3470,81 @@
         "title": "Enough. According to Whom?",
         "description": "Suz reflects on the meaning of enough, who decides it, and how to let what you did today count without putting yourself on trial.",
         "canonical": "/blog/enough-according-to-whom",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/weekending-confusion",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Weekending Confusion",
+        "description": "Suz explores the difference between enjoying her work and feeling free to stop, leaving room for weekends without making rest another assignment.",
+        "canonical": "/blog/weekending-confusion",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/the-power-of-keeping-quiet",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "The Power of Keeping Quiet",
+        "description": "Suz reflects on protecting a new idea, listening to your own voice, and choosing when to invite a thoughtful conversation.",
+        "canonical": "/blog/the-power-of-keeping-quiet",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/is-this-worth-sharing",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Is This Worth Sharing?",
+        "description": "Suz explores sharing ordinary observations with honesty and care, respecting other people’s stories, and giving a thoughtful message a chance.",
+        "canonical": "/blog/is-this-worth-sharing",
         "ogType": "article",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"

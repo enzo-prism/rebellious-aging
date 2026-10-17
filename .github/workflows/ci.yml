@@ -41,6 +41,9 @@ jobs:
         env:
           BLOG_SCHEDULE_NOW: "2026-10-16T07:00:00.000Z"
       - run: npm run test:scheduled-rollout
+      - run: npm run test:new-blog-export
+        env:
+          BLOG_SCHEDULE_NOW: "2026-10-16T07:00:00.000Z"
 
   devices:
     runs-on: ubuntu-latest

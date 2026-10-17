@@ -1258,6 +1258,36 @@ export const blogPosts: BlogPostMetadata[] = [
     readTime: '3 min read',
     blogNumber: 112,
     seoDescription: 'Suz reflects on the meaning of enough, who decides it, and how to let what you did today count without putting yourself on trial.'
+  },
+  {
+    id: 'weekending-confusion',
+    title: "Weekending Confusion",
+    excerpt: "Suz wonders whether moving her books and computer to the couch counts as weekending, and experiments with the freedom to stop.",
+    date: '10/16/2026',
+    dateSort: new Date('2026-10-16T20:00:00Z'),
+    readTime: '2 min read',
+    blogNumber: 113,
+    seoDescription: "Suz explores the difference between enjoying her work and feeling free to stop, leaving room for weekends without making rest another assignment."
+  },
+  {
+    id: 'the-power-of-keeping-quiet',
+    title: "The Power of Keeping Quiet",
+    excerpt: "Suz considers giving a new idea a little privacy to grow, while noticing when quiet becomes a comfortable hiding place.",
+    date: '10/16/2026',
+    dateSort: new Date('2026-10-16T20:00:00Z'),
+    readTime: '2 min read',
+    blogNumber: 114,
+    seoDescription: "Suz reflects on protecting a new idea, listening to your own voice, and choosing when to invite a thoughtful conversation."
+  },
+  {
+    id: 'is-this-worth-sharing',
+    title: "Is This Worth Sharing?",
+    excerpt: "Suz asks what makes an ordinary observation worth sharing, and how a little care can give someone else a place to begin reflecting.",
+    date: '10/16/2026',
+    dateSort: new Date('2026-10-16T20:00:00Z'),
+    readTime: '2 min read',
+    blogNumber: 115,
+    seoDescription: "Suz explores sharing ordinary observations with honesty and care, respecting other people’s stories, and giving a thoughtful message a chance."
   }
 ];
 

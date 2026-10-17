@@ -6398,4 +6398,78 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       </>
     ),
   },
+  'weekending-confusion': {
+    heading: <h1 className="text-4xl font-bold mb-4">Weekending Confusion</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>I have a question.</p>
+          <p>If I leave my upstairs office, go downstairs, settle onto my family room couch, and bring  my books and computer, am I weekending? Or have I simply relocated my office?</p>
+          <p><strong><em>Apparently, recognizing that I had lost my weekends was only the beginning. Learning how to have one is an entirely different undertaking.</em></strong></p>
+          <p>I genuinely enjoy what I do. Creating, writing, reading, responding, coaching, and teaching. I love following a thought and seeing where it leads. If something catches my eye, and attention, immediately I want to explore it.</p>
+          <p>So when someone says, “<strong>Take a break,” part of me thinks, but I am having fun.</strong> And for sure I am. Yet I am beginning to notice that enjoyment and obligation sometimes arrive wearing the same outfit. I open the computer because I want to write. Then I remember something I should finish. Which reminds me of something else I should finish. Which in turn reminds me of something I should prepare. Which can lead to checking something else.</p>
+          <p className="text-center"><strong>And There Goes Saturday.</strong></p>
+          <p>The couch was comfortable. The scenery changed. And, apparently I was still on duty. <strong><em>So perhaps the question is less about what I’m doing and more about whether I feel free to stop.</em></strong> Can I close the book half way through an interesting chapter? Can I let an idea wait without worrying that I am wasting it? Can I enjoy an afternoon that produces absolutely nothing I can post, share, or check off a list? This last one gets my attention.</p>
+          <p>I spent years (6) building a new life with purpose. Now I am learning how to leave some room in it. Like room for an unplanned afternoon. A conversation with no particular destination. The pleasure of reading something without turning it into anything.</p>
+          <p>Here is “the thing”: I don’t want to make “weekending“ another assignment. Imagine grading myself on how successfully I relaxed.<br />“Needs improvement. Still thinking.”🤣</p>
+          <p><strong>For now,I am trying one small experiment: noticing whether I am choosing what comes next or automatically following another should.</strong></p>
+          <p><strong>Sometimes I may choose to write.</strong></p>
+          <p><strong>Sometimes I may close the computer.</strong></p>
+          <p><strong>I would like both choices to feel available.</strong></p>
+          <p><strong>Because a weekend probably needs a little more freedom than a change of furniture.</strong></p>
+          <p><strong><em>💚 The Accidental Blogger</em></strong></p>
+        </div>
+      </>
+    ),
+  },
+  'the-power-of-keeping-quiet': {
+    heading: <h1 className="text-4xl font-bold mb-4">The Power of Keeping Quiet</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p><em>(Some ideas need a little privacy to grow).</em></p>
+          <p>An Idea arrives. A little spark. An unexpected possibility. <strong>A nudge.</strong> Something you maybe cannot quite explain, but something you would like  to explore. And almost immediately, you want to tell someone.</p>
+          <p><strong>I understand that impulse. Excitement likes company.</strong></p>
+          <p>But I am beginning to appreciate the space between having an idea and announcing it or worse asking permission to explore it or join it or ???? An idea can be a very tender beginning. You have not lived with it long enough to understand what it might become.</p>
+          <p>Then someone asks a perfectly reasonable question. “How would that work?” Another offers a suggestion. “You know what you should do instead?” And still another person looks doubtful. Nothing terrible has happened. They may even be trying to help. But now you find yourself explaining, adjusting, and defending something you were only beginning to discover. <strong>THEIR</strong> voices can become louder than <em>the small voice that brought you an idea.</em></p>
+          <p><strong>Perhaps we are allowed to spend a little time listening to that voice first.</strong></p>
+          <p>It’s good to write a few notes. Take a walk with the thought. Try something small. Or just see whether it still interests us after the first burst of excitement settles.</p>
+          <p><strong>We do not, should not feel it necessary to announce every beginning.</strong></p>
+          <p><strong>But beware here,</strong> because and of course, keeping quiet can also become a very comfortable hiding place. “I am still working on it”, can protect an idea, or postpone the moment when we risk doing anything with it.</p>
+          <p>That is where I would want to ask myself:<br /><em>Is this quiet helping my idea develop?</em><br /><em>Am I learning, experimenting, moving?</em><br /><em>Or am I waiting until nobody could possibly question me?</em><br />That last day is unlikely to arrive.</p>
+          <p>Eventually, an idea may need another perspective. A useful question. Someone with experience who can help us see what we have missed. We can choose that person thoughtfully and intentionally. We can even say, “This is very early. I’d love you to listen while I figure out what I mean.”</p>
+          <p><strong><em>There is room between announcing everything and hiding everything.</em></strong></p>
+          <p><strong><em>A little privacy. A little practice. Then a conversation.</em></strong></p>
+          <p><strong><em>Some ideas need us to hear ourselves before we invite the room to speak.</em></strong></p>
+          <p><strong><em>💚 The Accidental Blogger</em></strong></p>
+        </div>
+      </>
+    ),
+  },
+  'is-this-worth-sharing': {
+    heading: <h1 className="text-4xl font-bold mb-4">Is This Worth Sharing?</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>An ordinary observation can open a meaningful conversation. Something happens. You notice a feeling, a habit, a small contradiction in your own life. It stays with you. And then you wonder,</p>
+          <p><strong>Is this worth sharing?</strong></p>
+          <p>I ask myself that question. After all, who needs to know that I am confused about weekends? Or that a simple boundary can leave me with butterflies in my stomach? Or that I am still discovering parts of myself at 84?</p>
+          <p><strong>Apparently, sometimes someone does.</strong></p>
+          <p>Our Tik Tok shorts have been getting wonderful responses. That makes me happy and it makes me curious about what connects. Much of what I share begins in ordinary life. A conversation. An uncomfortable moment. A thought that will not leave me alone. I spend time with it and eventually words begin to form. For sure, I do not have every answer. Actually writing sometimes helps me understand the question. So perhaps that is what makes an observation worth sharing, because it gives someone else a place to begin reflecting also.</p>
+          <p>They may recognize themselves. They may disagree. They may think I hadn’t considered it that way. All of those can lead somewhere useful.</p>
+          <p><strong>Still, Having something to say doesn’t automatically mean everything belongs in public. Nope!</strong></p>
+          <p>I want to consider whether a story is mine to tell. Whether I can describe my experience without exposing someone else unnecessarily. Whether a factual claim needs fact checking before I repeat it.</p>
+          <p>And I want to ask what I am offering the person who reads or listens. A little hope? A different perspective? A laugh or nod of recognition? A question they might carry into their own day?</p>
+          <p>I don’t think a message has to impress people to be worthwhile. But it does need some care. Sometimes that means letting a thought develop. Sometimes it requires removing a sentence that I love because it does not belong. Sometimes it means admitting what I do not know.</p>
+          <p><strong>Then comes the part I cannot decide in advance, what someone else will find in it.</strong></p>
+          <p>I can offer the thought. I cannot choose who needs it or what they will take away. So I keep noticing. I keep writing. And when something feels honest, considered and ready, I share it.</p>
+          <p><strong>You might be wondering whether something you’ve noticed could matter to someone else.</strong><br /><strong>It might.</strong><br /><strong>Give it a little care.</strong><br /><strong>Then give it a chance.</strong></p>
+          <p>💚<strong><em>The Accidental Blogger</em></strong></p>
+        </div>
+      </>
+    ),
+  },
 };
