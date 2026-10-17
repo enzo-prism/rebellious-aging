@@ -348,10 +348,10 @@ describe('scheduled blog publish gate', () => {
     expect(getSortedBlogPosts({ env: productionEnv, now: today }).at(-1)?.id).toBe('the-fence-has-a-gate');
   });
 
-  it('publishes all 112 posts on the approved website publication date', () => {
+  it('publishes all 115 posts on the approved website publication date', () => {
     const visible = getVisibleBlogPosts({ env: productionEnv, now: websiteRelease });
-    expect(visible).toHaveLength(112);
-    expect(getPublicBlogPosts({ env: productionEnv, now: websiteRelease })).toHaveLength(112);
+    expect(visible).toHaveLength(115);
+    expect(getPublicBlogPosts({ env: productionEnv, now: websiteRelease })).toHaveLength(115);
     for (const id of scheduledIds) {
       const post = visible.find((entry) => entry.id === id);
       expect(post?.date).toBe('10/16/2026');

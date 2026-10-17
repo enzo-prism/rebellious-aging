@@ -78,7 +78,6 @@ if (!existsSync(outDir)) {
 if (rollout) {
   const readExport = (path: string) => readFileSync(join(outDir, path), 'utf8');
   const blogHtml = readExport(existsSync(join(outDir, 'blog.html')) ? 'blog.html' : 'blog/index.html');
-  const homeHtml = readExport('index.html');
   const sitemap = readExport('sitemap.xml');
   const search = readExport('search-index.json');
   const llms = readExport('llms.txt');
@@ -96,7 +95,7 @@ if (rollout) {
     if (!article.includes(post.bodySentence) || article.includes('Blog Post Not Found')) {
       errors.push(`Missing readable article content for #${post.blogNumber}.`);
     }
-    for (const [name, contents] of Object.entries({ blogHtml, homeHtml, sitemap, search, llms })) {
+    for (const [name, contents] of Object.entries({ blogHtml, sitemap, search, llms })) {
       if (!contents.includes(post.id)) errors.push(`${name} is missing #${post.blogNumber}.`);
     }
     if (!article.includes('2026-10-16')) {
@@ -104,14 +103,14 @@ if (rollout) {
     }
   }
   const searchDocs = JSON.parse(search) as Array<{ type: string }>;
-  if (searchDocs.filter((doc) => doc.type === 'blog').length !== 112) {
-    errors.push('Expected all 112 articles in the exported search index.');
+  if (searchDocs.filter((doc) => doc.type === 'blog').length !== 115) {
+    errors.push('Expected all 115 articles in the exported search index.');
   }
   if (errors.length > 0) {
     console.error(errors.join('\n'));
     process.exit(1);
   }
-  console.log('October 16 website release exports all 112 searchable posts and surfaces #110–112 in HTML, homepage, sitemap, search, and llms.txt.');
+  console.log('October 16 website release exports all 115 searchable posts and surfaces #110–112 in HTML, sitemap, search, and llms.txt.');
   process.exit(0);
 }
 

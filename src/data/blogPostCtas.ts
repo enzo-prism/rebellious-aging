@@ -671,6 +671,21 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
     body: 'Join the group and name one way you will let today count as enough.',
     buttonLabel: 'Join the enough conversation',
   },
+  'weekending-confusion': {
+    title: "Leave room for a weekend",
+    body: "Join the group and share one small way you are making room to rest, read, or simply be.",
+    buttonLabel: "Join the weekend conversation",
+  },
+  'the-power-of-keeping-quiet': {
+    title: "Give your idea a little room",
+    body: "Join the group and explore how to give an idea time to grow before inviting another perspective.",
+    buttonLabel: "Join the ideas conversation",
+  },
+  'is-this-worth-sharing': {
+    title: "Give your observation a chance",
+    body: "Join the group and share a thoughtful observation that might offer someone a little hope, recognition, or a new question.",
+    buttonLabel: "Join the sharing conversation",
+  },
 };
 
 export const getBlogPostCta = (postId: string) => blogPostCtas[postId];

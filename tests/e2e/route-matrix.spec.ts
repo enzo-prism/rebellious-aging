@@ -24,6 +24,9 @@ const routeMatrix = [
 ];
 
 const dynamicChecks = [
+  { path: '/blog/weekending-confusion', found: true },
+  { path: '/blog/the-power-of-keeping-quiet', found: true },
+  { path: '/blog/is-this-worth-sharing', found: true },
   { path: '/blog/a-boundary-is-not-an-argument', found: true },
   { path: '/blog/are-your-boundaries-protecting-your-peace-or-protecting-your-fear', found: true },
   { path: '/blog/enough-according-to-whom', found: true },

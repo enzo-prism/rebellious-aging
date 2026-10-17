@@ -33,7 +33,8 @@
     "lh": "lhci autorun",
     "test:axe": "playwright test tests/e2e/accessibility.spec.ts",
     "audit:seo": "node scripts/audit-export.mjs",
-    "test:e2e:devices": "playwright test --config playwright.devices.config.ts"
+    "test:e2e:devices": "playwright test --config playwright.devices.config.ts",
+    "test:new-blog-export": "tsx scripts/assert-new-blog-export.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
