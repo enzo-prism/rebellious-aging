@@ -1,12 +1,12 @@
 {
   "name": "rebellious-aging",
-  "install": "npm ci",
+  "install": "npm ci && npx playwright install chromium",
   "agentCanUpdateSnapshot": true,
   "terminals": [
     {
       "name": "dev",
       "command": "npm run dev",
-      "description": "Next.js development server"
+      "description": "Next.js development server at http://localhost:3000"
     }
   ]
 }
