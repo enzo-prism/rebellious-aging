@@ -53,4 +53,4 @@ for (const post of NEW_BLOG_POSTS) {
 }
 const indexedBlogs = (JSON.parse(read('search-index.json')) as Array<{ type: string }>).filter((doc) => doc.type === 'blog');
 assert.equal(indexedBlogs.length, (now >= AT_WEBSITE_RELEASE ? 112 : 109) + released.length);
-console.log(`${now.toISOString()}: ${indexedBlogs.length} public blogs; ${released.length}/3 new articles released; complete source hashes, metadata, assets, discovery surfaces and hidden-file leak checks passed.`);
+console.log(`${now.toISOString()}: ${indexedBlogs.length} public blogs; ${released.length}/${NEW_BLOG_POSTS.length} new articles released; complete source hashes, metadata, assets, discovery surfaces and hidden-file leak checks passed.`);
