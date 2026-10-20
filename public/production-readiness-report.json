@@ -14,7 +14,7 @@
     {
       "name": "sitemap-coverage",
       "ok": true,
-      "details": "Sitemap covers 174 expected routes."
+      "details": "Sitemap covers 171 expected routes."
     },
     {
       "name": "search-index",
@@ -29,7 +29,7 @@
     {
       "name": "seo-route-audit",
       "ok": true,
-      "details": "176 routes verified with complete metadata and all 174 expected routes covered."
+      "details": "173 routes verified with complete metadata and all 171 expected routes covered."
     },
     {
       "name": "target-blank-rel",

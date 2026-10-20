@@ -117,8 +117,8 @@ if (rollout) {
     }
   }
   const searchDocs = JSON.parse(search) as Array<{ type: string }>;
-  if (searchDocs.filter((doc) => doc.type === 'blog').length !== 115) {
-    errors.push('Expected all 115 articles in the exported search index.');
+  if (searchDocs.filter((doc) => doc.type === 'blog').length !== 112) {
+    errors.push('Expected 112 articles in the exported search index.');
   }
   const futureHits = collectHits(futureScheduled.flatMap(leakNeedles));
   if (futureHits.length > 0) {
@@ -132,7 +132,7 @@ if (rollout) {
     console.error(errors.join('\n'));
     process.exit(1);
   }
-  console.log('October 16 website release exports all 115 searchable posts, surfaces #110–112, and keeps #116–118 hidden.');
+  console.log('October 16 website release exports 112 searchable posts, surfaces #110–112, and keeps #113–118 hidden.');
   process.exit(0);
 }
 
@@ -146,4 +146,4 @@ if (hits.length > 0) {
   process.exit(1);
 }
 
-console.log('Production export leak grep: 0 hits for scheduled slugs, titles, excerpts, body sentences, and Blog #110/#111/#112/#116/#117/#118.');
+console.log('Production export leak grep: 0 hits for scheduled slugs, titles, excerpts, body sentences, and Blog #110–112 plus #113–118.');

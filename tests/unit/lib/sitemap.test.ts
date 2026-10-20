@@ -35,6 +35,9 @@ describe('sitemap generators', () => {
     );
     expect(entries.some((entry) => entry.url.includes('/blog/a-boundary-is-not-an-argument'))).toBe(true);
     expect(entries.some((entry) => entry.url.includes('/blog/enough-according-to-whom'))).toBe(true);
+    expect(entries.some((entry) => entry.url.includes('/blog/weekending-confusion'))).toBe(false);
+    expect(entries.some((entry) => entry.url.includes('/blog/the-power-of-keeping-quiet'))).toBe(false);
+    expect(entries.some((entry) => entry.url.includes('/blog/is-this-worth-sharing'))).toBe(false);
     expect(entries.some((entry) => entry.url.includes('/blog/why-does-my-no-need-a-footnote'))).toBe(false);
     expect(entries.some((entry) => entry.url.includes('/blog/how-eating-plants-uncomplicated-my-life'))).toBe(false);
     expect(entries.some((entry) => entry.url.includes('/blog/am-i-listening-or-just-waiting-for-my-turn'))).toBe(false);

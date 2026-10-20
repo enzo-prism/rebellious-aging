@@ -348,12 +348,15 @@ describe('scheduled blog publish gate', () => {
     expect(getSortedBlogPosts({ env: productionEnv, now: today }).at(-1)?.id).toBe('the-fence-has-a-gate');
   });
 
-  it('publishes all 115 posts on the approved website publication date', () => {
+  it('publishes 112 posts on the approved website publication date and keeps 113–118 hidden', () => {
     const visible = getVisibleBlogPosts({ env: productionEnv, now: websiteRelease });
-    expect(visible).toHaveLength(115);
-    expect(getPublicBlogPosts({ env: productionEnv, now: websiteRelease })).toHaveLength(115);
+    expect(visible).toHaveLength(112);
+    expect(getPublicBlogPosts({ env: productionEnv, now: websiteRelease })).toHaveLength(112);
     expect(visible.map((post) => post.id)).not.toEqual(
       expect.arrayContaining([
+        'weekending-confusion',
+        'the-power-of-keeping-quiet',
+        'is-this-worth-sharing',
         'why-does-my-no-need-a-footnote',
         'how-eating-plants-uncomplicated-my-life',
         'am-i-listening-or-just-waiting-for-my-turn',
