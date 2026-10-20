@@ -352,6 +352,13 @@ describe('scheduled blog publish gate', () => {
     const visible = getVisibleBlogPosts({ env: productionEnv, now: websiteRelease });
     expect(visible).toHaveLength(115);
     expect(getPublicBlogPosts({ env: productionEnv, now: websiteRelease })).toHaveLength(115);
+    expect(visible.map((post) => post.id)).not.toEqual(
+      expect.arrayContaining([
+        'why-does-my-no-need-a-footnote',
+        'how-eating-plants-uncomplicated-my-life',
+        'am-i-listening-or-just-waiting-for-my-turn',
+      ])
+    );
     for (const id of scheduledIds) {
       const post = visible.find((entry) => entry.id === id);
       expect(post?.date).toBe('10/16/2026');

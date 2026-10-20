@@ -11,6 +11,7 @@ import { buildLlmsText } from '../../scripts/generate-llms';
 import { getVisibleBlogPosts } from '@/data/blogPosts';
 import { resetBlogScheduleNowForTests } from '@/lib/blogSchedule';
 import BlogPost from '@/views/BlogPost';
+import { NEW_BLOG_POSTS } from '../helpers/newBlogPosts';
 import {
   AT_WEBSITE_RELEASE,
   BEFORE_WEBSITE_RELEASE,
@@ -60,7 +61,7 @@ describe('scheduled blog production guards', () => {
 
     const params = generateStaticParams();
     const ids = params.map((entry) => entry.postId);
-    for (const post of WEBSITE_RELEASE_POSTS) {
+    for (const post of [...WEBSITE_RELEASE_POSTS, ...NEW_BLOG_POSTS]) {
       expect(ids).not.toContain(post.id);
     }
     expect(ids).toContain('the-fence-has-a-gate');
@@ -81,7 +82,7 @@ describe('scheduled blog production guards', () => {
     const sitemap = buildSitemap().map((entry) => entry.url).join('\n');
     const search = JSON.stringify(buildSearchIndex());
     const llms = buildLlmsText();
-    for (const post of WEBSITE_RELEASE_POSTS) {
+    for (const post of [...WEBSITE_RELEASE_POSTS, ...NEW_BLOG_POSTS]) {
       expect(sitemap).not.toContain(post.id);
       expect(search).not.toContain(post.id);
       expect(search).not.toContain(post.title);
@@ -153,6 +154,10 @@ describe('scheduled blog production guards', () => {
     for (const post of WEBSITE_RELEASE_POSTS) {
       expect(audit).toContain(post.id);
       expect(audit).toContain(post.title);
+    }
+    for (const post of NEW_BLOG_POSTS) {
+      expect(audit).not.toContain(post.id);
+      expect(audit).not.toContain(post.title);
     }
   });
 });

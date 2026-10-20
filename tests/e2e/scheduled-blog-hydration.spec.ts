@@ -8,7 +8,7 @@ const productionExport = process.env.PW_PRODUCTION_SERVER === 'true';
 const buildNow = new Date(process.env.BLOG_SCHEDULE_NOW ?? Date.now());
 const released = buildNow >= AT_WEBSITE_RELEASE;
 const newPostsReleased = NEW_BLOG_POSTS.filter((post) => new Date(post.publishedAt) <= buildNow);
-const visibleCount = (released ? 112 : 109) + newPostsReleased.length;
+const visibleCount = (released ? 115 : 109) + newPostsReleased.length;
 const latestNumber = visibleCount;
 const releasePosts = [
   ...WEBSITE_RELEASE_POSTS.map((post) => ({ ...post, released })),

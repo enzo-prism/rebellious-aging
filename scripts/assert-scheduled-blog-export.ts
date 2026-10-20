@@ -1,6 +1,9 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 
+import { NEW_BLOG_POSTS } from '../tests/helpers/newBlogPosts';
+import { blogPosts } from '../src/data/blogPosts';
+
 const projectRoot = resolve(process.cwd());
 const outDir = resolve(process.env.BLOG_EXPORT_DIR ?? join(projectRoot, 'out'));
 const rollout = process.argv.includes('--rollout');
@@ -32,7 +35,18 @@ const scheduled = [
   },
 ] as const;
 
-const leakNeedles = (post: (typeof scheduled)[number]) => [
+const futureScheduled = NEW_BLOG_POSTS.map((post) => {
+  const metadata = blogPosts.find((entry) => entry.id === post.id);
+  return {
+    id: post.id,
+    title: post.title,
+    blogNumber: post.blogNumber,
+    excerpt: metadata?.excerpt ?? post.title,
+    bodySentence: post.bodySentence,
+  };
+});
+
+const leakNeedles = (post: { id: string; title: string; excerpt: string; bodySentence: string; blogNumber: number }) => [
   post.id,
   post.title,
   post.excerpt,
@@ -106,15 +120,23 @@ if (rollout) {
   if (searchDocs.filter((doc) => doc.type === 'blog').length !== 115) {
     errors.push('Expected all 115 articles in the exported search index.');
   }
+  const futureHits = collectHits(futureScheduled.flatMap(leakNeedles));
+  if (futureHits.length > 0) {
+    errors.push(
+      `October 16 export leaked later scheduled posts:\n${futureHits
+        .map((hit) => `  ${hit.needle} -> ${hit.file}`)
+        .join('\n')}`
+    );
+  }
   if (errors.length > 0) {
     console.error(errors.join('\n'));
     process.exit(1);
   }
-  console.log('October 16 website release exports all 115 searchable posts and surfaces #110–112 in HTML, sitemap, search, and llms.txt.');
+  console.log('October 16 website release exports all 115 searchable posts, surfaces #110–112, and keeps #116–118 hidden.');
   process.exit(0);
 }
 
-const hits = collectHits(scheduled.flatMap(leakNeedles));
+const hits = collectHits([...scheduled, ...futureScheduled].flatMap(leakNeedles));
 if (hits.length > 0) {
   console.error(
     `Production export leaked scheduled blog metadata:\n${hits
@@ -124,4 +146,4 @@ if (hits.length > 0) {
   process.exit(1);
 }
 
-console.log('Production export leak grep: 0 hits for scheduled slugs, titles, excerpts, body sentences, and Blog #110/#111/#112.');
+console.log('Production export leak grep: 0 hits for scheduled slugs, titles, excerpts, body sentences, and Blog #110/#111/#112/#116/#117/#118.');
