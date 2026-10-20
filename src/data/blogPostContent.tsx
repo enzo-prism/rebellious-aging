@@ -6472,4 +6472,90 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       </>
     ),
   },
+  'why-does-my-no-need-a-footnote': {
+    heading: <h1 className="text-4xl font-bold mb-4">Why Does My “NO” Need a Footnote?</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>I have noticed something about the word <em>no.</em> It is very <em>small</em> until I say it. Once said it suddenly needs an explanation, reassuring smile, a brief or not so brief history of my circumstances, and possibly even a character witness.</p>
+          <p className="text-center font-bold">Apparently, my “no” needs references.</p>
+          <p>I can say yes with almost no preparation. But no? I start assembling my defense long before anyone has even questioned it.</p>
+          <p>“I would, but…”</p>
+          <p>“I am so sorry, it’s just that…”</p>
+          <p>“Please don’t think…”</p>
+          <p>Please don’t think what? That I am selfish? Unkind? No longer available for whatever someone else has decided I should do? <strong>That last one might be worth sitting with.</strong></p>
+          <p>I like being helpful. I care about people. And I enjoy being someone others can count on. But somewhere along the way, I seem to have confused being caring with making sure nobody is ever disappointed in me. <strong>That is a big job. And the hours are terrible.</strong></p>
+          <p>Of course, sometimes an explanation is useful. People need information. Plans need adjusting. A little context can be an act of consideration.<strong><em> But I am beginning to notice when my explanation turns into an application for approval.</em></strong></p>
+          <p>I have already made my decision. Why am I handing it back for review? Perhaps I am hoping to find the perfect collection of words that will make someone happy about an answer they did not want. I am probably looking for something that does not exist.</p>
+          <p className="text-center font-bold">People can understand my no and still dislike it.</p>
+          <p>I can care about their disappointment and still keep my decision. So I am practicing stopping a little sooner.</p>
+          <p>“Thank you for thinking of me. I am going to pass.”</p>
+          <p>“I can’t take that on.”</p>
+          <p>Occasionally, I can feel another paragraph forming. I am certain there is an apology warming up behind it. I am learning to let them remain unwritten. My “NO” can be thoughtful. It can be kind. It can even come with an explanation when I choose. But, I would like to begin treating my own permission as sufficient.</p>
+          <p><strong><em>Surely, after all these years, I can be a reliable source on what I am willing to do.</em></strong></p>
+          <p><strong><em>💚 The Accidental Blogger</em></strong></p>
+        </div>
+      </>
+    ),
+  },
+  'how-eating-plants-uncomplicated-my-life': {
+    heading: <h1 className="text-4xl font-bold mb-4">How Eating Plants Uncomplicated My Life</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>People sometimes hear that I eat a whole-food, plant-based diet and imagine that achieving this must be complicated. What do you eat? How do you decide? Doesn’t it take a lot of preparation and time? <strong><em>I cannot help but smile, because this way of eating has actually uncomplicated my life, improved my health and benefited the planet and the animals.</em></strong></p>
+          <p>I became vegetarian in 1995 and moved to plant-based in 2019. These days my guiding idea is simple: eat plant foods as close to their natural state as possible. That makes deciding what to eat surprisingly easy.</p>
+          <p>I open my fridge, freezer and pantry, where I keep a variety of plants including Leafy greens, assorted veggies, assorted grains, beans, lentils, potatoes, fabulous fruits, and nuts and seeds. I select what appeals to me at the moment and prepare a salad bowl. For my main meal, I usually gather a minimum of 10 different plants. That might sound complicated until you see how easily they come together in one beautiful bowl. Spritz on a little fresh lemon juice or an oil free dressing, and I am ready to eat. <strong>No elaborate production required.</strong> I look forward to these bowls. The colors. The textures. The different flavors. There is something quite lovely and peaceful about sitting down to food that looks as inviting as it tastes. <strong>Think nourish not eat and your attitude immediately changes.</strong></p>
+          <p><strong>The simplicity begins at the grocery store.</strong> The grocery store or  the Farmer’s Mkt. get the most of my attention. I skip the ultraprocessed foods. (research shows that 70-75% of food items in the typical U.S. grocery store are ultra processed). I stick to the produce department and dry goods and frozen and canned goods. With a well stocked kitchen of the good stuff, I have already made much of the dinner decision before I get hungry. I just have to decide which plants are calling to me.</p>
+          <p>Breakfast? Two cups of thawed frozen wild blueberries. This is non-negotiable for me and has been my b’fast choice since 2017.</p>
+          <p>In the warm months salads hit the spot. In the cooler months I love making huge pots of soup. <strong>Eat some, freeze some.</strong></p>
+          <p>When I entertain, I have plenty of plant-based recipes at my finger tips online. There are 1000’s of delicious recipes for anyone who enjoys spending more time in the kitchen.</p>
+          <p>As for me I simply do not want or need an elaborate meal every time I want to eat.</p>
+          <p><strong>Then there is the clean up. Please, can we give this benefit a lot of attention.</strong>  For sure this benefit is huge in my book. No greasy, cheesy, smelly, sticky dishes and pots and pans to soak and scrub and clean. Pots, pans, bowls, dishes, and utensils clean up so easily. I appreciate that part almost as much as the meal. <strong>Eating a whole plant diet leaves me more time for everything else I want to do.</strong> And at 84 that is quite a lot.</p>
+          <p>I feel like I am thriving on plants. I take no prescription meds. I only supplement with vitamin B12. This is my personal experience and I am grateful for it.</p>
+          <p><strong>People may look at my plate and wonder about everything I have given up.</strong> I look at it and see nourishing food I love, decisions made easier, and nothing waiting in the sink to be scrubbed.</p>
+          <p><strong><em>Then I get on with my life. There is a pup to walk, a blog to write a FB group to engage with, a book to read and something new to notice.</em></strong></p>
+          <p><strong><em>💚 The Accidental Blogger</em></strong></p>
+          <p><strong><em>Download or Print the following for more information regarding a whole plant lifestyle.</em></strong></p>
+          <p>
+            <Link href="/guides/esselstyn-plant-based-jumpstart" className="text-primary underline underline-offset-4">
+              <strong><em>https://www.rebelwithsuz.com/guides/esselstyn-plant-based-jumpstart</em></strong>
+            </Link>
+          </p>
+          <p>
+            <Link href="/guides/campbell-whole-food-plant-based-guide" className="text-primary underline underline-offset-4">
+              <strong><em>https://www.rebelwithsuz.com/guides/campbell-whole-food-plant-based-guide</em></strong>
+            </Link>
+          </p>
+          <p>
+            <Link href="/" className="text-primary underline underline-offset-4">
+              <strong><em>https://www.rebelwithsuz.com/</em></strong>
+            </Link>
+          </p>
+        </div>
+      </>
+    ),
+  },
+  'am-i-listening-or-just-waiting-for-my-turn': {
+    heading: <h1 className="text-4xl font-bold mb-4">Am I Listening, or Just Waiting For My Turn?</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>Someone is talking to me. I am looking at them. I may even be nodding. All the outward signs suggest that listening is taking place. Meanwhile in my head I am preparing an excellent response. I have had a similar experience to share. A helpful suggestion. Possibly a solution they have somehow failed to discover before speaking to me. How fortunate that I am here. <strong><em>Except, have I actually heard them?</em></strong></p>
+          <p>I have been noticing how quickly my mind moves from someone else’s words to my own contribution. Sometimes it is enthusiasm. Something they say sparks a connection, and I cannot wait to share it. Sometimes it is discomfort. They are hurting and I want to make the hurt go away. Sometimes I simply have something to say and would appreciate an opening. That last one is less flattering, but it deserves a place on the list.</p>
+          <p>There is nothing wrong with responding. A conversation needs more than one voice. But when I begin composing my answer too soon, I may miss the very thing that would help me understand. The hesitation. The change in tone. The sentence that comes after, “I know this sounds silly, but…”  Or the thought that takes a little time to find its words.</p>
+          <p>I know how much it means when someone lets me finish. When they ask a question that shows they were paying attention. When I leave a conversation understanding myself a little better because someone gave me room to speak.</p>
+          <p>I would like to offer more of that. <strong><em>So I am practicing a small pause.</em></strong> “Tell me more.” “What was that like for you?” Sometimes, “Would you like my thoughts?” I am also practicing allowing a little silence without rushing in to furnish it,</p>
+          <p><strong><em>An empty moment does not necessarily need decorating.</em></strong> Perhaps the other person is still thinking. Perhaps something important is on its way. I am curious about how much more I might hear if I become a little less occupied with what I will say next.</p>
+          <p><strong><em>I wonder how many conversations I have left thinking I knew someone better, when what I really did was tell them more about me.</em></strong></p>
+          <p><strong><em>Yikes!</em></strong></p>
+          <p>There is a wonderfully uncomfortable moment of recognition in this blog. <strong><em>Have I understood what the other person means before deciding what I want to say? This especially includes resisting the urge to fix everything.</em></strong></p>
+          <p><strong><em>💚 The Accidental Blogger</em></strong></p>
+        </div>
+      </>
+    ),
+  },
 };

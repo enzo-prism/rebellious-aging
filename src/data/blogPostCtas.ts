@@ -686,6 +686,21 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
     body: "Join the group and share a thoughtful observation that might offer someone a little hope, recognition, or a new question.",
     buttonLabel: "Join the sharing conversation",
   },
+  'why-does-my-no-need-a-footnote': {
+    title: 'Let your no stand',
+    body: 'Join the group and share one no you are ready to leave without a footnote.',
+    buttonLabel: 'Join the no conversation',
+  },
+  'how-eating-plants-uncomplicated-my-life': {
+    title: 'Keep plants simple',
+    body: 'Join the group and share one simple plant meal that uncomplicated your day.',
+    buttonLabel: 'Join the plants conversation',
+  },
+  'am-i-listening-or-just-waiting-for-my-turn': {
+    title: 'Practice the pause',
+    body: 'Join the group and try offering a little more room to listen before you respond.',
+    buttonLabel: 'Join the listening conversation',
+  },
 };
 
 export const getBlogPostCta = (postId: string) => blogPostCtas[postId];
