@@ -1288,6 +1288,36 @@ export const blogPosts: BlogPostMetadata[] = [
     readTime: '2 min read',
     blogNumber: 115,
     seoDescription: "Suz explores sharing ordinary observations with honesty and care, respecting other people’s stories, and giving a thoughtful message a chance."
+  },
+  {
+    id: 'why-does-my-no-need-a-footnote',
+    title: 'Why Does My “NO” Need a Footnote?',
+    excerpt: 'Suz notices that no is a very small word until she says it, and that once said it suddenly needs an explanation, a reassuring smile, and possibly even a character witness.',
+    date: '10/18/2026',
+    dateSort: new Date('2026-10-18T07:00:00.000Z'),
+    readTime: '2 min read',
+    blogNumber: 116,
+    seoDescription: 'Suz explores why her no turns into an application for approval, and why her own permission can be enough.'
+  },
+  {
+    id: 'how-eating-plants-uncomplicated-my-life',
+    title: 'How Eating Plants Uncomplicated My Life',
+    excerpt: 'Suz writes that people imagine a whole-food, plant-based diet must be complicated, but eating plants has actually uncomplicated her life, improved her health, and benefited the planet and the animals.',
+    date: '10/19/2026',
+    dateSort: new Date('2026-10-19T07:00:00.000Z'),
+    readTime: '3 min read',
+    blogNumber: 117,
+    seoDescription: 'Suz shares how eating plants close to their natural state simplified grocery trips, meals, and cleanup, leaving more time for everything else at 84.'
+  },
+  {
+    id: 'am-i-listening-or-just-waiting-for-my-turn',
+    title: 'Am I Listening, or Just Waiting For My Turn?',
+    excerpt: 'Suz wonders whether she is listening or just preparing an excellent response, and asks whether she has actually heard the person speaking to her.',
+    date: '10/20/2026',
+    dateSort: new Date('2026-10-20T07:00:00.000Z'),
+    readTime: '2 min read',
+    blogNumber: 118,
+    seoDescription: 'Suz practices a small pause, asks better questions, and resists the urge to fix everything before she has understood.'
   }
 ];
 
