@@ -6617,4 +6617,29 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       </>
     ),
   },
+  'nobody-knows-they-are-taking-your-test': {
+    heading: <h1 className="text-4xl font-bold mb-4">Nobody Knows They Are Taking Your Test</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>I watch as people slog their way through this thing we call life, and sometimes I think we are making it harder than it needs to be. Especially when it comes to other people.</p>
+          <p>“She should have called.”</p>
+          <p>“He should have offered.”</p>
+          <p>“I always reach out first.”</p>
+          <p>Somewhere along the way, a friendship has acquired an accounting department. Who called last? Who invited whom? Who did more?</p>
+          <p><strong>Good grief I for sure do not want that job, who does?</strong></p>
+          <p>I say treat people the way you want to be treated. If you feel like calling, call. If you want to do something kind, do it. Nobody wants to keep a little ledger tucked behind their smile. <strong><em>And honestly people have enough going on without being enrolled in a test they are not aware they are taking.</em></strong></p>
+          <p>We can carry around very specific ideas about how someone should behave, then feel disappointed when they fail to follow the script. <strong>A script they were never given.</strong></p>
+          <p>Of course I still want kindness, honesty, and respect. I can ask for what I need. I can also recognize when a relationship is not good for me.</p>
+          <p>But keeping track of every call, invitation, and favor? That is exhausting. I have a dog to walk.</p>
+          <p>There is something wonderfully peaceful about letting people show you who they are and deciding how that fits into your life.</p>
+          <p>So call because you want to. Give because you mean it. Speak up when something matters.</p>
+          <p className="text-center"><strong>                                  Retire the Secret scorecard.</strong></p>
+          <p><strong><em>Do what feels right when it feels right. Don’t send an invoice.</em></strong></p>
+          <p><strong><em>💚 The Accidental Blogger</em></strong></p>
+        </div>
+      </>
+    ),
+  },
 };

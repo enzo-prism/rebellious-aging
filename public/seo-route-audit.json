@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-28T18:13:13.781Z",
-  "totalRoutes": 181,
-  "validRoutes": 181,
+  "generatedAt": "2026-10-28T18:17:31.711Z",
+  "totalRoutes": 182,
+  "validRoutes": 182,
   "failedRoutes": 0,
   "records": [
     {
@@ -3670,6 +3670,31 @@
         "title": "Is Longevity Having a Misinformation Moment?",
         "description": "Suz reflects on longevity claims, personal stories, scientific evidence, and the questions she asks before being convinced.",
         "canonical": "/blog/is-longevity-having-a-misinformation-moment",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/nobody-knows-they-are-taking-your-test",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Nobody Knows They Are Taking Your Test",
+        "description": "Suz explores letting go of relationship scorekeeping, speaking up when something matters, and giving because you mean it.",
+        "canonical": "/blog/nobody-knows-they-are-taking-your-test",
         "ogType": "article",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"

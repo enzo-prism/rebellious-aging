@@ -1338,6 +1338,16 @@ export const blogPosts: BlogPostMetadata[] = [
     readTime: '3 min read',
     blogNumber: 120,
     seoDescription: 'Suz reflects on longevity claims, personal stories, scientific evidence, and the questions she asks before being convinced.'
+  },
+  {
+    id: 'nobody-knows-they-are-taking-your-test',
+    title: 'Nobody Knows They Are Taking Your Test',
+    excerpt: 'Suz reflects on unspoken expectations in friendship, and invites us to retire the secret scorecard and ask for what we need.',
+    date: '10/28/2026',
+    dateSort: new Date('2026-10-28T07:00:00.000Z'),
+    readTime: '1 min read',
+    blogNumber: 121,
+    seoDescription: 'Suz explores letting go of relationship scorekeeping, speaking up when something matters, and giving because you mean it.'
   }
 ];
 
