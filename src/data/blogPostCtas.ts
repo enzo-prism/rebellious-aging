@@ -701,6 +701,21 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
     body: 'Join the group and try offering a little more room to listen before you respond.',
     buttonLabel: 'Join the listening conversation',
   },
+  'what-does-it-mean-to-be-authentic': {
+    title: 'Show up as yourself',
+    body: 'Join the group and share what being real, honest, and unembellished means to you today.',
+    buttonLabel: 'Join the authenticity conversation',
+  },
+  'is-longevity-having-a-misinformation-moment': {
+    title: 'Stay curious together',
+    body: 'Join the group and explore the questions that help you look beyond a sparkling promise.',
+    buttonLabel: 'Join the conversation',
+  },
+  'nobody-knows-they-are-taking-your-test': {
+    title: 'Retire the secret scorecard',
+    body: 'Join the group and share one expectation you are ready to express instead of keeping score.',
+    buttonLabel: 'Join the friendship conversation',
+  },
 };
 
 export const getBlogPostCta = (postId: string) => blogPostCtas[postId];

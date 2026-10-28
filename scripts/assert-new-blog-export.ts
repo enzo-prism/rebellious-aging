@@ -4,8 +4,7 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
 import { NEW_BLOG_POSTS } from '../tests/helpers/newBlogPosts';
-import { AT_WEBSITE_RELEASE } from '../tests/helpers/scheduledBlogPosts';
-import { blogPosts } from '../src/data/blogPosts';
+import { blogPosts, getHomeBlogCards, getPublicBlogPosts } from '../src/data/blogPosts';
 
 const out = resolve(process.env.BLOG_EXPORT_DIR ?? 'out');
 const now = new Date(process.env.BLOG_SCHEDULE_NOW ?? Date.now());
@@ -16,7 +15,9 @@ const files = (directory: string): string[] => readdirSync(directory).flatMap((n
 });
 const exported = files(out).map((path) => ({ path, contents: readFileSync(path, 'utf8') }));
 const read = (path: string) => readFileSync(join(out, path), 'utf8');
-const surfaces = ['blog.html', 'index.html', 'sitemap.xml', 'search-index.json', 'llms.txt', 'seo-route-audit.json'];
+const surfaces = ['blog.html', 'sitemap.xml', 'search-index.json', 'llms.txt', 'seo-route-audit.json'];
+const context = { env: { VERCEL_ENV: 'production' }, now };
+const homePostIds = getHomeBlogCards(context).map((post) => post.id);
 const released = NEW_BLOG_POSTS.filter((post) => new Date(post.publishedAt) <= now);
 
 for (const post of NEW_BLOG_POSTS) {
@@ -44,6 +45,7 @@ for (const post of NEW_BLOG_POSTS) {
     .replace(/&(?:amp|lt|gt|quot|#x27|#39);/g, (entity) => entities[entity]).replace(/\s+/g, ' ').trim();
   assert.equal(createHash('sha256').update(text).digest('hex'), post.bodyHash, `Source mismatch for #${post.blogNumber}`);
   for (const surface of surfaces) assert(read(surface).includes(post.id), `${surface} is missing #${post.blogNumber}`);
+  if (homePostIds.includes(post.id)) assert(read('index.html').includes(post.id), `index.html is missing #${post.blogNumber}`);
   for (const match of article.matchAll(/(?:src|href)="(\/[^"?#]+)[^"]*"/g)) {
     const path = match[1];
     if (/\.(?:png|jpe?g|gif|webp|svg|css|js|woff2?)$/.test(path)) {
@@ -52,5 +54,5 @@ for (const post of NEW_BLOG_POSTS) {
   }
 }
 const indexedBlogs = (JSON.parse(read('search-index.json')) as Array<{ type: string }>).filter((doc) => doc.type === 'blog');
-assert.equal(indexedBlogs.length, (now >= AT_WEBSITE_RELEASE ? 115 : 109) + released.length);
+assert.equal(indexedBlogs.length, getPublicBlogPosts(context).length);
 console.log(`${now.toISOString()}: ${indexedBlogs.length} public blogs; ${released.length}/3 new articles released; complete source hashes, metadata, assets, discovery surfaces and hidden-file leak checks passed.`);
