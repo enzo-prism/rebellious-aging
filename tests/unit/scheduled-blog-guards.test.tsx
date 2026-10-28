@@ -150,14 +150,18 @@ describe('scheduled blog production guards', () => {
   });
 
   it('includes all released posts in the committed SEO audit', () => {
-    const audit = readSource('public/seo-route-audit.json');
-    for (const post of WEBSITE_RELEASE_POSTS) {
-      expect(audit).toContain(post.id);
-      expect(audit).toContain(post.title);
-    }
-    for (const post of NEW_BLOG_POSTS) {
-      expect(audit).not.toContain(post.id);
-      expect(audit).not.toContain(post.title);
-    }
+    const audit = JSON.parse(readSource('public/seo-route-audit.json')) as {
+      generatedAt: string;
+      records: Array<{ path: string }>;
+    };
+    const released = getVisibleBlogPosts({
+      env: productionEnv,
+      now: new Date(audit.generatedAt),
+    });
+    const auditedBlogPaths = audit.records
+      .filter((record) => record.path.startsWith('/blog/'))
+      .map((record) => record.path)
+      .sort();
+    expect(auditedBlogPaths).toEqual(released.map((post) => `/blog/${post.id}`).sort());
   });
 });

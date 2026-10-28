@@ -1318,6 +1318,26 @@ export const blogPosts: BlogPostMetadata[] = [
     readTime: '2 min read',
     blogNumber: 118,
     seoDescription: 'Suz practices a small pause, asks better questions, and resists the urge to fix everything before she has understood.'
+  },
+  {
+    id: 'what-does-it-mean-to-be-authentic',
+    title: 'What Does it Mean to Be Authentic?',
+    excerpt: 'Suz reflects on authenticity as being real, honest, and unembellished, while leaving room to keep learning and changing.',
+    date: '10/28/2026',
+    dateSort: new Date('2026-10-28T07:00:00.000Z'),
+    readTime: '3 min read',
+    blogNumber: 119,
+    seoDescription: 'Suz explores what it means to be authentic at 84: less pretending, more noticing, and the freedom to be who she is today.'
+  },
+  {
+    id: 'is-longevity-having-a-misinformation-moment',
+    title: 'Is Longevity Having a Misinformation Moment?',
+    excerpt: 'Suz asks how to distinguish longevity promises from good evidence, and invites us to stay curious and vet our sources.',
+    date: '10/28/2026',
+    dateSort: new Date('2026-10-28T07:00:00.000Z'),
+    readTime: '3 min read',
+    blogNumber: 120,
+    seoDescription: 'Suz reflects on longevity claims, personal stories, scientific evidence, and the questions she asks before being convinced.'
   }
 ];
 

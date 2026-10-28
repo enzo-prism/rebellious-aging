@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-17T03:27:32.745Z",
-  "totalRoutes": 176,
-  "validRoutes": 176,
+  "generatedAt": "2026-10-28T18:13:13.781Z",
+  "totalRoutes": 181,
+  "validRoutes": 181,
   "failedRoutes": 0,
   "records": [
     {
@@ -3545,6 +3545,131 @@
         "title": "Is This Worth Sharing?",
         "description": "Suz explores sharing ordinary observations with honesty and care, respecting other people’s stories, and giving a thoughtful message a chance.",
         "canonical": "/blog/is-this-worth-sharing",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/why-does-my-no-need-a-footnote",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Why Does My “NO” Need a Footnote?",
+        "description": "Suz explores why her no turns into an application for approval, and why her own permission can be enough.",
+        "canonical": "/blog/why-does-my-no-need-a-footnote",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/how-eating-plants-uncomplicated-my-life",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "How Eating Plants Uncomplicated My Life",
+        "description": "Suz shares how eating plants close to their natural state simplified grocery trips, meals, and cleanup, leaving more time for everything else at 84.",
+        "canonical": "/blog/how-eating-plants-uncomplicated-my-life",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/am-i-listening-or-just-waiting-for-my-turn",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Am I Listening, or Just Waiting For My Turn?",
+        "description": "Suz practices a small pause, asks better questions, and resists the urge to fix everything before she has understood.",
+        "canonical": "/blog/am-i-listening-or-just-waiting-for-my-turn",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/what-does-it-mean-to-be-authentic",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "What Does it Mean to Be Authentic?",
+        "description": "Suz explores what it means to be authentic at 84: less pretending, more noticing, and the freedom to be who she is today.",
+        "canonical": "/blog/what-does-it-mean-to-be-authentic",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/is-longevity-having-a-misinformation-moment",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "Is Longevity Having a Misinformation Moment?",
+        "description": "Suz reflects on longevity claims, personal stories, scientific evidence, and the questions she asks before being convinced.",
+        "canonical": "/blog/is-longevity-having-a-misinformation-moment",
         "ogType": "article",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
