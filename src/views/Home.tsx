@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight, BookOpen, ChefHat, Heart, Leaf, Search, Shirt, S
 import PillarCard from '@/components/home/PillarCard';
 import LatestBlogBadge from '@/components/home/LatestBlogBadge';
 import LivingRoomSection from '@/components/home/LivingRoomSection';
+import WallOfLoveSection from '@/components/home/WallOfLoveSection';
 import SubstackAnnouncement from '@/components/common/SubstackAnnouncement';
 import TrustedVoicesSection from '@/components/common/TrustedVoicesSection';
 import { FacebookGroupButton } from '@/components/common/FacebookGroupCta';
@@ -144,6 +145,8 @@ export default function Home({ latestPosts, latestPost }: HomeProps) {
           </div>
         </div>
       </section>
+
+      <WallOfLoveSection />
 
       <section id="library-section" className="border-y border-teal/10 bg-[#f5f9f8] px-4 py-12 sm:px-6 lg:py-16">
         <div className="mx-auto max-w-7xl">
