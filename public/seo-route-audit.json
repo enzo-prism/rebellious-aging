@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-28T18:17:31.711Z",
-  "totalRoutes": 182,
-  "validRoutes": 182,
+  "generatedAt": "2026-11-08T16:46:12.318Z",
+  "totalRoutes": 184,
+  "validRoutes": 184,
   "failedRoutes": 0,
   "records": [
     {
@@ -3695,6 +3695,56 @@
         "title": "Nobody Knows They Are Taking Your Test",
         "description": "Suz explores letting go of relationship scorekeeping, speaking up when something matters, and giving because you mean it.",
         "canonical": "/blog/nobody-knows-they-are-taking-your-test",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/a-little-rebellion-on-purpose",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "A Little Rebellion on Purpose",
+        "description": "Suz reflects on small choices, quiet rebellions, and the freedom to try something new at 84.",
+        "canonical": "/blog/a-little-rebellion-on-purpose",
+        "ogType": "article",
+        "noindex": false,
+        "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"
+      }
+    },
+    {
+      "path": "/blog/5-classy-ways-to-rebel-against-aging",
+      "source": "blog",
+      "hasMeta": true,
+      "hasTitle": true,
+      "hasDescription": true,
+      "computedKeys": [
+        "path",
+        "canonical",
+        "title",
+        "description",
+        "image",
+        "ogType",
+        "noindex"
+      ],
+      "issues": [],
+      "metadata": {
+        "title": "5 Classy Ways to Rebel Against Aging",
+        "description": "Suz shares five ways to rebel against aging: wear what you love, keep learning, accept compliments, say no, and speak up.",
+        "canonical": "/blog/5-classy-ways-to-rebel-against-aging",
         "ogType": "article",
         "noindex": false,
         "image": "/lovable-uploads/a1a9d206-a3d9-4f72-aa2b-aea608628d3c.png"

@@ -6642,4 +6642,50 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       </>
     ),
   },
+  'a-little-rebellion-on-purpose': {
+    heading: <h1 className="text-4xl font-bold mb-4">A Little Rebellion on Purpose</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>I think a little rebellion belongs on the to-do list. Somewhere between buying groceries and answering emails, we could pencil in: “Do something because I want to.” Imagine that. No committee meeting. No lengthy explanation. No checking whether it is appropriate. Just a small decision that belongs entirely to us.</p>
+          <p>We have had a lifetime of instructions. Be sensible. Be agreeable. Dress appropriately. Don’t draw attention to yourself. Then we get older. And apparently we are supposed to begin quietly folding ourselves into smaller packages. I have no interest in becoming travel sized.</p>
+          <p>At 84, I am still discovering things I want to try. Things I want to say. Meeting new versions of me. I would hate to miss them because I was busy behaving as expected. So I propose a little rebellion, ON PURPOSE! Let yourself be a beginner. There is no age limit at being delightfully bad at something new.</p>
+          <p>The following may seem like tiny choices. But I ask you to consider how often we dismiss a preference before we even give it a chance.</p>
+          <p>“Oh I could not wear that.”</p>
+          <p>“I would feel silly.”</p>
+          <p>“What would people think?”</p>
+          <p>Interesting questions, right? Here is another one: Do I actually want to, or have I simply gotten used to saying no to myself? That is worth noticing. Every small choice gives us practice listening to our own voice. We choose something. We discover how it feels. Maybe we love it. Maybe we decided once was plenty. Either way, we learn something about ourselves.</p>
+          <p>A little rebellion can also be quiet. Resting when the work is still waiting. Declining something without assembling a defence. Giving an idea 10 minutes of attention before talking yourself out of it. Nobody else may even notice, but you will.</p>
+          <p>So this week, catch yourself when you automatically say, “I couldn’t.” Pause long enough to ask why. If the answer is simply that you have never done it, someone might disapprove, or you think you are too old, well, perhaps you have found your opening.</p>
+          <p>Give yourself something new to be glad you did.</p>
+          <p>💚 The Accidental Blogger</p>
+        </div>
+      </>
+    ),
+  },
+  '5-classy-ways-to-rebel-against-aging': {
+    heading: <h1 className="text-4xl font-bold mb-4">5 Classy Ways to Rebel Against Aging</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>At 84, I am taking line dancing lessons. If you are wondering whether I always turn in the right direction, the answer is NO. There is something wonderfully freeing about being a beginner at an age when people assume you have already decided what you are good at. There are all sorts of unwritten rules about aging. Wear something subdued. Be agreeable. Leave the dance floor to somebody younger. Funny how nobody can tell me who wrote those rules.</p>
+          <p>Here are five classy ways I like to rebel.</p>
+          <h2>1. Wear the thing you keep saving</h2>
+          <p>You know the one. It’s hanging in your closet waiting for an occasion worthy of it. What if lunch with a friend is worthy? What if Tuesday is worthy? Please put on the earrings you can feel when you turn your head. Put on the color that makes you smile before you have even left the house. You get to enjoy looking like your ever fabulous self.</p>
+          <h2>2. Be a beginner in public</h2>
+          <p>Take the class you have been eyeing. Stand where you can see the instructor. Ask her to show you the step again. In line dancing, a wrong turn is a surprisingly efficient way to make eye contact with half the room. Laugh, find your feet. Keep dancing.</p>
+          <h2>3. Give a compliment its moment</h2>
+          <p>When someone says, “You look wonderful,” try saying “Thank you.” Then stop. Please, leave out the part about the sale rack, the good lighting, or how much better you looked 10 years ago. Let others enjoy seeing you. You might enjoy being seen.</p>
+          <h2>4. Say no while you still feel friendly</h2>
+          <p>I like a warm, “Thanks for thinking of me. I am going to pass.” Especially when I catch myself halfway through composing a story about how terribly busy I am. Saying no early leaves me a lot more energy for the things I am delighted to say yes to.</p>
+          <h2>5. Let people hear what you noticed</h2>
+          <p>I think of myself as a professional noticer and after 84 years, I have a few observations. So do you. The next time you catch yourself thinking, somebody ought to say something, consider that somebody might be you. At the table, in a meeting, or over coffee, try starting with, “Here is what I’ve noticed.” Then see where the conversation goes.</p>
+          <p>As for me, I am going back to line dancing. I might even wear the good earrings.</p>
+          <p>💚 The Accidental Blogger</p>
+        </div>
+      </>
+    ),
+  },
 };

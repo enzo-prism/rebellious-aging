@@ -1348,6 +1348,26 @@ export const blogPosts: BlogPostMetadata[] = [
     readTime: '1 min read',
     blogNumber: 121,
     seoDescription: 'Suz explores letting go of relationship scorekeeping, speaking up when something matters, and giving because you mean it.'
+  },
+  {
+    id: "a-little-rebellion-on-purpose",
+    title: "A Little Rebellion on Purpose",
+    excerpt: "Suz proposes a little rebellion on purpose: trying something new, noticing what we want, and giving our own voice a chance.",
+    date: '11/8/2026',
+    dateSort: new Date('2026-11-08T08:00:00.000Z'),
+    readTime: '2 min read',
+    blogNumber: 122,
+    seoDescription: "Suz reflects on small choices, quiet rebellions, and the freedom to try something new at 84."
+  },
+  {
+    id: "5-classy-ways-to-rebel-against-aging",
+    title: "5 Classy Ways to Rebel Against Aging",
+    excerpt: "From wearing the good earrings to being a beginner in public, Suz shares five classy ways to make aging your own.",
+    date: '11/8/2026',
+    dateSort: new Date('2026-11-08T08:00:00.000Z'),
+    readTime: '2 min read',
+    blogNumber: 123,
+    seoDescription: "Suz shares five ways to rebel against aging: wear what you love, keep learning, accept compliments, say no, and speak up."
   }
 ];
 
