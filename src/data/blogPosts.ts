@@ -1368,6 +1368,26 @@ export const blogPosts: BlogPostMetadata[] = [
     readTime: '2 min read',
     blogNumber: 123,
     seoDescription: "Suz shares five ways to rebel against aging: wear what you love, keep learning, accept compliments, say no, and speak up."
+  },
+  {
+    id: 'just-because-we-can-create-it-should-we-eat-it',
+    title: "Just Because We Can Create It, Should We Eat It?",
+    excerpt: "A clever package can make dinner sound virtuous. Suz reflects on convenience, whole foods, and noticing what makes us reach for something.",
+    date: '11/8/2026',
+    dateSort: new Date('2026-11-08T08:00:00.000Z'),
+    readTime: '2 min read',
+    blogNumber: 124,
+    seoDescription: "Suz reflects on food packaging, plant-based labels, convenience, and the question of whether we want the food or the story on the package."
+  },
+  {
+    id: 'this-time-next-year',
+    title: "This Time Next Year",
+    excerpt: "At 84, Suz reflects on the things worth keeping, the possibilities worth trying, and a small nudge for the year ahead.",
+    date: '11/8/2026',
+    dateSort: new Date('2026-11-08T08:00:00.000Z'),
+    readTime: '3 min read',
+    blogNumber: 125,
+    seoDescription: "Suz reflects on failure, gratitude, and trying something new at 84, with a year-end question about what we might be glad we finally tried."
   }
 ];
 

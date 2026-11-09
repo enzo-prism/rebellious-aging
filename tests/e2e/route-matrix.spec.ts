@@ -26,6 +26,8 @@ const routeMatrix = [
 const dynamicChecks = [
   { path: '/blog/a-little-rebellion-on-purpose', found: true },
   { path: '/blog/5-classy-ways-to-rebel-against-aging', found: true },
+  { path: '/blog/just-because-we-can-create-it-should-we-eat-it', found: true },
+  { path: '/blog/this-time-next-year', found: true },
   { path: '/blog/why-does-my-no-need-a-footnote', found: true },
   { path: '/blog/how-eating-plants-uncomplicated-my-life', found: true },
   { path: '/blog/am-i-listening-or-just-waiting-for-my-turn', found: true },

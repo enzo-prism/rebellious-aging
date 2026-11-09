@@ -6688,4 +6688,47 @@ export const blogPostContent: Record<string, BlogPostContentEntry> = {
       </>
     ),
   },
+  'just-because-we-can-create-it-should-we-eat-it': {
+    heading: <h1 className="text-4xl font-bold mb-4">Just Because We Can Create It, Should We Eat It?</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>Humans are smart enough to make a potato or a can of beans taste like a cheeseburger. And I am curious enough to turn the package over and see how they pulled that off. Then the Professional Noticer in me pipes up. <strong><em>What did the potato or beans ever do to deserve this? </em></strong></p>
+          <p>I admire ingenuity. I am happy somebody figured out how to freeze blueberries. I am especially glad that somebody puts black beans in a can so I can open it at five o’clock and have dinner underway in 2 minutes or less. Convenience has definitely earned its place in my kitchen.</p>
+          <p>What gets me is standing in a grocery aisle looking at a package of something that tastes like something else, with a third thing printed in big letters to make me feel virtuous about eating it. By the time I have read Plant-Based on the front, my brain has practically given me credit for eating a bowl of lentils. <strong><em>Well played, bag.</em></strong></p>
+          <p>Yes, I enjoy chocolate. I can appreciate a piece of chocolate without asking it to do the work of a vegetable. <strong><em>The chocolate and I have an understanding.</em></strong></p>
+          <p>Most days I open my fridge and see what looks good. Sweet potato, black beans, onion, brussel sprouts, mushrooms, a variety of greens and peas, an apple, sprouts, tomatoes, some seeds and a squeeze of lemon. Yum. It is a beautiful bowl of nutritious whole food and the hardest sell came from the sweet potato, which smelled so good as it came out of the oven earlier in the day.</p>
+          <p>That is what I want to pay attention to. When I reach for something, am I hungry for what is inside, or did somebody write a sentence on the outside that made me want it?  Sometimes I really do want the thing inside. I would just like to catch myself often enough to know the difference.</p>
+          <p><strong><em>The next time a package catches your eye, imagine it in a plain brown paper bag. Same food. Same price. Would you still put it in your cart?</em></strong></p>
+          <p><strong><em>I’d buy the blueberries.</em></strong></p>
+          <p><strong><em>💚 The Accidental Blogger</em></strong></p>
+        </div>
+      </>
+    ),
+  },
+  'this-time-next-year': {
+    heading: <h1 className="text-4xl font-bold mb-4">This Time Next Year</h1>,
+    body: (
+      <>
+        <p className="italic mb-8">By Suzanne</p>
+        <div className="prose max-w-none space-y-4 mb-16">
+          <p>I came across a quote that made me stop scrolling. </p>
+          <p><strong>“Don’t fear failure. Fear being in the same place next year as you are today.” Author Unknown</strong></p>
+          <p>Naturally, I had to argue with it a little. I am 84. I have earned the right. 😂</p>
+          <p>There are ‘things’ I’d be delighted to find exactly where I left them a year from now. My morning blueberries. My walks with Gabe. My work at the Center For Nutrition Studies, my husband, my daughter, my son, my SIL and my DIL, my grandkids and friends I can call and say, “Do you have a minute?’. When we all know I mean twenty or 60 or ??????.” As in the case of my dear Andrea and friends Valerie and Patsy and Joesphine, Pip, Colette, Sonia, Shelly, Linda P and Linda G, SIL Mary and so many others who are up for however long it takes. I love you all and let me not forget Jenny Ann and Cindy and all who support me in my FB Group. Let us not forget ENZO in this list of supporters. I love you all for encouraging me and believing in me.</p>
+          <p className="text-center">                                         <strong>BUT</strong></p>
+          <p>There is a particular kind of same place I do wonder about. It is the one where I keep saying I’d love to do that some day and quietly let another year go by without giving it a try.</p>
+          <p>If I had waited until I felt like a blogger, I might still be waiting. Instead, I wrote one Blog. And here we are at 125. The “Accidental Blogger” apparently has a lot to say.</p>
+          <p>Of course, trying can mean getting it wrong. I have had plenty of practice at that. Remember when I tried to “weekend” and I moved my work from my office to my couch? <em>Same work, better cushions. It took me a few tries to actually close the laptop and walk out of my office on Friday afternoon with a bounce in my step.</em> It turns out even taking a break can take practice.</p>
+          <p>So here is a little “NUDGE” I am leaving you with as we close out 2026.</p>
+          <p><strong>What would you love to look back on a year from now and say, “I am so glad I finally gave that a try”?</strong></p>
+          <p>You could make the call. Put on the dancing shoes. Write the first paragraph. You could even shut the laptop on a Friday afternoon. <strong><em>I hear it is possible.</em></strong></p>
+          <p><strong>Thank you for spending some of your year here with me. </strong></p>
+          <p><strong>See you in 2027. I hope we all have a good story about something we dared to try.</strong></p>
+          <p><strong>💚 </strong><strong><em>The Accidental Blogger</em></strong></p>
+        </div>
+      </>
+    ),
+  },
 };

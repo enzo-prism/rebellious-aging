@@ -726,6 +726,16 @@ export const blogPostCtas: Record<string, BlogPostCta> = {
     body: 'Join the group and tell us which little rebellion you are making your own.',
     buttonLabel: 'Join the conversation',
   },
+  'just-because-we-can-create-it-should-we-eat-it': {
+    title: "Bring your grocery-aisle observations",
+    body: "Join the group and share a food label, simple meal, or everyday observation that made you stop and think.",
+    buttonLabel: 'Join the conversation',
+  },
+  'this-time-next-year': {
+    title: "Give your next nudge a chance",
+    body: "Join the group and share one thing you would love to look back on a year from now and feel glad you tried.",
+    buttonLabel: 'Join the conversation',
+  },
 };
 
 export const getBlogPostCta = (postId: string) => blogPostCtas[postId];
